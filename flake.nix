@@ -26,32 +26,30 @@
     let
       system = "x86_64-linux";
     in {
-    nixosConfigurations = {
-      copland = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs system; zen-browser = inputs.zen-browser; };
+      nixosConfigurations = {
+        copland = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs system; zen-browser = inputs.zen-browser; };
 
-        modules = [
-          chaotic.nixosModules.default
-        #  inputs.noctalia.nixosModules.default
-          home-manager.nixosModules.home-manager
+          modules = [
+            chaotic.nixosModules.default
+            home-manager.nixosModules.home-manager
 
-          { nixpkgs.config.allowUnfree = true; }
-        #  { services.noctalia-shell.enable = true; }
+            { nixpkgs.config.allowUnfree = true; }
 
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs system; };
-              users.elars = import ./home;
-            };
-          }
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs system; };
+                users.elars = import ./home;
+              };
+            }
 
-          ./machine.nix
-          ./nixos/default.nix
-        ];
+            ./machine.nix
+            ./nixos/default.nix
+          ];
+        };
       };
     };
-  };
 }
