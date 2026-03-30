@@ -34,5 +34,14 @@
     iptables -D OUTPUT -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:9 -j NFQUEUE --queue-num 200 --queue-bypass || true
     iptables -D OUTPUT -p udp --dport 443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:9 -j NFQUEUE --queue-num 200 --queue-bypass || true
     iptables -D OUTPUT -m mark --mark 0x40000000/0x40000000 -j RETURN || true
+
+  services.resolved = {
+    enable = true;
+    dnssec = "false";
+    domains = [ "~." ];
+    fallbackDns = [ "1.1.1.1" "8.8.8.8" ];
+    extraConfig = ''
+      DNS=1.1.1.1
+      DNSOverTLS=yes
   '';
 }
