@@ -12,7 +12,7 @@
   enableCompletion = true;
   autosuggestion.enable = true;
   syntaxHighlighting.enable = true;
-  initExtra = builtins.readFile ./dots/zsh/.zshrc; 
+  initContent = builtins.readFile ./dots/zsh/.zshrc;
   };
 
   programs.kitty = {
