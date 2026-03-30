@@ -17,6 +17,7 @@
   environment.variables = {
     LIBVA_DRIVER_NAME = "i965";
     LIBVA_DRM_DEVICE = "/dev/dri/renderD128";
+    LIBVA_DISPLAY = "drm";
     VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/intel_hasvk_icd.x86_64.json";
   };
 }
