@@ -26,9 +26,8 @@
   networking.enableIPv6 = false;
 
   networking.firewall.extraCommands = ''
-    iptables -I OUTPUT -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:9 -j NFQUEUE --queue-num 200 --queue-bypass
-    iptables -I OUTPUT -p udp --dport 443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:9 -j NFQUEUE --queue-num 200 --queue-bypass
-    iptables -I OUTPUT -m mark --mark 0x40000000/0x40000000 -j RETURN
+    iptables -D OUTPUT -p tcp -m multiport --dports 80,443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:9 -j NFQUEUE --queue-num 200 --queue-bypass || true
+    iptables -D OUTPUT -p udp --dport 443 -m connbytes --connbytes-dir=original --connbytes-mode=packets --connbytes 1:9 -j NFQUEUE --queue-num 200 --queue-bypass || true
+    iptables -D OUTPUT -m mark --mark 0x40000000/0x40000000 -j RETURN || true
   '';
-
-  networking.firewalls
+}
