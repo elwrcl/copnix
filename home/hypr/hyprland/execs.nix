@@ -3,7 +3,7 @@
 {
   wayland.windowManager.hyprland.settings = {
     exec-once = [
-      "noctalia-shell"
+      "sleep 2 && noctalia-shell"
       "easyeffects --hide-window --service-mode"
       "gnome-keyring-daemon --start --components=secrets"
       "hyprctl setcursor Bibata-Modern-Classic 24"
