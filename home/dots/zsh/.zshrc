@@ -95,3 +95,5 @@ export MESA_SHADER_CACHE_MAX_SIZE=2G
 export MESA_SHADER_CACHE_DIR=/tmp/mesa_shader_cache
 export PATH="$HOME/.local/bin:$PATH"
 
+fastfetch
+

@@ -38,6 +38,7 @@
 
     inputs.apple-fonts.packages.${system}.sf-pro
     inputs.apple-fonts.packages.${system}.sf-mono
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.starship.enable = true;

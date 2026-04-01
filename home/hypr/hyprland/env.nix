@@ -12,7 +12,8 @@
       "QT_QPA_PLATFORM,wayland;xcb"
       "ELECTRON_OZONE_PLATFORM_HINT,auto"
       "TERMINAL,ghostty"
-      "GDK_DISABLE,gles-api,vulkan"
+      "MESA_GL_VERSION_OVERRIDE,4.6"
+      "MESA_GLSL_VERSION_OVERRIDE,460"
     ];
   };
 }
