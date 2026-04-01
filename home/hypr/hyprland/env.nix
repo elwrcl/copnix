@@ -11,7 +11,8 @@
       "GDK_BACKEND,wayland,x11"
       "QT_QPA_PLATFORM,wayland;xcb"
       "ELECTRON_OZONE_PLATFORM_HINT,auto"
-      "TERMINAL,alacritty"
+      "TERMINAL,ghostty"
+      "GDK_DISABLE,gles-api,vulkan"
     ];
   };
 }

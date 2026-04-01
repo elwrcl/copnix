@@ -28,7 +28,7 @@ in {
       "$mainMod SHIFT, C,     exec, ${ipc} plugin:music panel"                    # music recognition
 
       # ── App Launchers ────────────────────────────────────────────────────
-      "$mainMod, Return,      exec, kitty"
+      "$mainMod, Return,      exec, ghostty"
       "$mainMod, W,           exec, zen"                            
       "$mainMod, E,           exec, dolphin"
       "$mainMod, Z,           exec, zed"

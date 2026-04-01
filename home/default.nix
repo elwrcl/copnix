@@ -15,23 +15,16 @@
     initContent = builtins.readFile ./dots/zsh/.zshrc;
   };
 
-  programs.alacritty = {
+  programs.ghostty = {
     enable = true;
     settings = {
-      window = {
-        padding = { x = 10; y = 10; };
-        opacity = 0.8;
-        blur = true;
-      };
-      font = {
-        normal = { family = "JetBrainsMono Nerd Font"; style = "Regular"; };
-        bold = { family = "JetBrainsMono Nerd Font"; style = "Bold"; };
-        italic = { family = "JetBrainsMono Nerd Font"; style = "Italic"; };
-        size = 11.0;
-      };
-      terminal.shell = "zsh";
-    };
+    font-family = "JetBrainsMono Nerd Font";
+    font-size = 11;
+    background-opacity = 0.8;
+    window-padding-x = 10;
+    window-padding-y = 10;
   };
+};
 
   xdg.configFile = {
     "fastfetch".source = ./dots/fastfetch;
@@ -49,7 +42,10 @@
 
   programs.starship.enable = true;
   programs.fzf.enable = true;
-  programs.zoxide.enable = true; 
+  programs.zoxide.enable = true;
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true;
+
+  services.mako.enable = false;
+  services.kdeconnect.enable = true;
 }
