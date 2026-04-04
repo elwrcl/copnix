@@ -46,7 +46,5 @@
   programs.zoxide.enable = true;
   programs.home-manager.enable = true;
   fonts.fontconfig.enable = true;
-
-  services.mako.enable = false;
   services.kdeconnect.enable = true;
 }

@@ -1,123 +1,80 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-  "logo": {
-    "source": "/home/elars/copland/home/dots/fastfetch/nixos.gif",
-    "type": "kitty",
-    "padding": {
-      "top": 1,
-      "right": 2
-    },
-    "color": {
-      "1": "red",
-      "2": "green",
-      "3": "yellow",
-      "4": "blue",
-      "5": "magenta",
-      "6": "cyan",
-      "7": "white"
-    }
-  },
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "display": {
-    "separator": "▐ ",
-    "color": {
-      "separator": "cyan"
-    }
+    "key": {
+      "width": 10
+    },
+    "size": {
+      "binaryPrefix": "jedec"
+    },
+    "separator": ""
+  },
+  "logo": {
+    "type": "kitty",
+    "source": "/home/elars/copland/home/dots/fastfetch/nixos.gif",
+    "width": 20,
+    "height": 10
   },
   "modules": [
     "break",
-    "break",
-    "break",
-    "break",
-    {
-      "type": "custom",
-      "format": "┌────────────────────────────────────┐"
-    },
-    {
-      "type": "title",
-      "format": "│ {user-name-colored}@{host-name-colored}",
-      "color": {
-        "user": "yellow",
-        "host": "red"
-      }
-    },
-    {
-      "type": "custom",
-      "format": "├────────────────────────────────────┤"
-    },
     {
       "type": "os",
-      "key": "│ \u001b[5m{#1}os    {#}",
-      "keyColor": "red"
+      "key": "os",
+      "keyColor": "yellow",
+      "format": "{name}"
     },
     {
       "type": "kernel",
-      "key": "│ \u001b[5m{#7}kernel{#}",
-      "keyColor": "white",
-      "format": "{release}"
+      "key": "ker",
+      "keyColor": "green"
     },
     {
       "type": "packages",
-      "key": "│ \u001b[5m{#2}pkgs  {#}",
-      "keyColor": "green",
-      "format": "{all}"
-    },
-    {
-      "type": "shell",
-      "key": "│ \u001b[5m{#5}shell {#}",
-      "keyColor": "magenta",
-      "format": "{exe-name}"
-    },
-    {
-      "type": "wm",
-      "key": "│ \u001b[5m{#6}wm    {#}",
+      "key": "pkgs",
       "keyColor": "cyan"
     },
     {
-      "type": "terminal",
-      "key": "│ \u001b[5m{#5}term  {#}",
-      "keyColor": "magenta",
+      "type": "shell",
+      "key": "sh",
+      "keyColor": "blue",
       "format": "{pretty-name}"
     },
     {
+      "type": "wm",
+      "key": "wm",
+      "keyColor": "red",
+      "format": "{pretty-name}"
+    },
+    {
+      "type": "uptime",
+      "key": "up",
+      "keyColor": "green"
+    },
+    {
       "type": "cpu",
-      "key": "│ \u001b[5m{#1}cpu   {#}",
+      "key": "cpu",
       "keyColor": "red",
       "format": "{name}"
     },
     {
       "type": "memory",
-      "key": "│ \u001b[5m{#6}ram   {#}",
-      "keyColor": "cyan",
-      "format": "{used} / {total}"
-    },
-    {
-      "type": "swap",
-      "key": "│ \u001b[5m{#6}swap  {#}",
-      "keyColor": "cyan",
+      "key": "ram",
+      "keyColor": "yellow",
       "format": "{used} / {total}"
     },
     {
       "type": "disk",
-      "key": "│ \u001b[5m{#4}disk 1{#}",
-      "keyColor": "blue",
-      "folders": ["/"],
-      "format": "{size-used} / {size-total} ({size-percentage})"
-    },
-    {
-      "type": "disk",
-      "key": "│ \u001b[5m{#4}disk 2{#}",
-      "keyColor": "blue",
-      "folders": ["/mnt/HDD"],
-      "format": "{size-used} / {size-total} ({size-percentage})"
-    },
-    {
-      "type": "custom",
-      "format": "└────────────────────────────────────┘"
+      "key": "disk",
+      "keyColor": "cyan",
+      "folders": [
+        "/"
+      ],
+      "format": "{size-used} / {size-total}"
     },
     "break",
     {
       "type": "custom",
-      "format": "   \u001b[31m● \u001b[32m● \u001b[33m● \u001b[34m● \u001b[35m● \u001b[36m● \u001b[37m● \u001b[31m● \u001b[32m● \u001b[33m●"
+      "format": "\u001b[33m󰮯 \u001b[32m󰊠 \u001b[34m󰊠 \u001b[31m󰊠 \u001b[36m󰊠 \u001b[35m󰊠 \u001b[37m󰊠 \u001b[97m󰊠"
     }
   ]
 }
