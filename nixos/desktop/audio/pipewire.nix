@@ -21,7 +21,7 @@
     };
   };
 
-  services.wireplumber.extraConfig."51-no-mic-monitor" = {
+  services.pipewire.wireplumber.extraConfig."51-no-mic-monitor" = {
     "monitor.alsa.rules" = [
       {
         matches = [ { "node.name" = "~alsa_input.*"; } ];
