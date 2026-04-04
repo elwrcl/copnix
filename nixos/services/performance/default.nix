@@ -3,11 +3,10 @@
 {
   services.scx = {
     enable = true;
-    scheduler = "scx_rustland"; #you can find other schedulers to fit your needs
+    scheduler = "scx_lavd";
   };
-
   services.ananicy = {
-    enable = true;
+    enable = false;
     package = pkgs.ananicy-cpp;
   };
 
