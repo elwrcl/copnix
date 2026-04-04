@@ -16,9 +16,7 @@
       "pin on,               match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$"
       "keep_aspect_ratio on, match:title ^([Pp]icture[-\\s]?[Ii]n[-\\s]?[Pp]icture)(.*)$"
       "immediate on,         match:class ^(steam_app).*"
-    ];
-    windowrulev2 = [
-      "float, class:^(steam)$, title:^(?!Steam$).*"
+      "float on,             match:class ^(steam)$, match:title ^(?!Steam$).*"
     ];
   };
 }
