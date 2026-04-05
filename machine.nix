@@ -22,4 +22,10 @@ in
     zen-browser.packages.${system}.default
     inputs.noctalia.packages.${system}.default
   ];
+
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/icons"
+    "/share/mime"
+  ];
 }

@@ -14,4 +14,11 @@
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
+
+  environment.sessionVariables = {
+   XDG_DATA_DIRS = [
+    "/run/current-system/sw/share"
+    "/home/elars/.nix-profile/share"
+  ];
+};
 }
