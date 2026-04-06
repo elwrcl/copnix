@@ -156,11 +156,13 @@ with pkgs; {
     kdePackages.gwenview
     mpv
     equibop
+    equicord
     pavucontrol
     playerctl
     pamixer
     alsa-utils
     zip
+    7zip
     calibre
     ani-cli
     gnome-themes-extra
