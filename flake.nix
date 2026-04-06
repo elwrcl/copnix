@@ -5,6 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
 
@@ -29,11 +31,12 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, chaotic, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, chaotic, home-manager, nix-cachyos-kernel, ... }:
     let
       system = "x86_64-linux";
       
       chaoticOverlay = chaotic.overlays.default;
+      cachyosKernelOverlay = nix-cachyos-kernel.overlays.default;
       
     in {
     nixosConfigurations = {
@@ -42,6 +45,7 @@
         specialArgs = { 
           inherit inputs system; 
           zen-browser = inputs.zen-browser;
+          nix-cachyos-kernel = nix-cachyos-kernel;
         };
 
         modules = [
@@ -50,7 +54,7 @@
           home-manager.nixosModules.home-manager
 
           {
-            nixpkgs.overlays = [ chaoticOverlay ];
+            nixpkgs.overlays = [ chaoticOverlay cachyosKernelOverlay ];
             nixpkgs.config.allowUnfree = true;
           }
 
