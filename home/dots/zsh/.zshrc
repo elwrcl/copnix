@@ -72,6 +72,7 @@ alias gl='git log --oneline --graph --decorate'
 # nh shortcuts
 alias rebuild='git -C ~/copland add -A && git -C ~/copland commit -m "update" && nh os switch'
 alias rebuild-dry='nh os switch --dry'
+alias rebuild-cop='nix flake update --flake ~/copland && git -C ~/copland add -A && git -C ~/copland commit -m "flake update $(date +%Y-%m-%d)" && nh os switch'
 
 # history
 HISTSIZE=10000
@@ -88,7 +89,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 setopt AUTO_CD
 
-# mesa (ghostty launcher fix + shader cache)
+# mesa
 export MESA_GL_VERSION_OVERRIDE=4.6
 export MESA_GLSL_VERSION_OVERRIDE=460
 export MESA_SHADER_CACHE_MAX_SIZE=2G
