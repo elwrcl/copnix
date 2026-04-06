@@ -36,7 +36,7 @@
       system = "x86_64-linux";
       
       chaoticOverlay = chaotic.overlays.default;
-      cachyosKernelOverlay = nix-cachyos-kernel.overlays.default;
+      cachyosKernelOverlay = nix-cachyos-kernel.overlays.pinned;
       
     in {
     nixosConfigurations = {
