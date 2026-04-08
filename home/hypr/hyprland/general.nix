@@ -92,5 +92,13 @@
       "specialWorkspaceIn,  1, 2.8, emphasizedDecel, slidevert"
       "specialWorkspaceOut, 1, 1.2, emphasizedAccel, slidevert"
     ];
+
+    device = [
+  {
+    name = "hp--inc-hyperx-cloud-alpha-s-consumer-control";
+    enabled = false;
+  }
+  ];
+  
   };
 }
