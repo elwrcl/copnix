@@ -43,7 +43,7 @@ with pkgs; {
     bibata-cursors
     flatpak
     fuzzel
-    swaylock 
+    swaylock
     swayidle
     feh
     spotatui
