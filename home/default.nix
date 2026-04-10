@@ -26,13 +26,13 @@
   programs.ghostty = {
     enable = true;
     settings = {
-    font-family = "JetBrainsMono Nerd Font";
-    font-size = 10;
-    background-opacity = 0.8;
-    window-padding-x = 10;
-    window-padding-y = 10;
+      font-family = "JetBrainsMono Nerd Font";
+      font-size = 10;
+      background-opacity = 0.8;
+      window-padding-x = 10;
+      window-padding-y = 10;
+    };
   };
-};
 
   xdg.configFile = {
     "fastfetch".source = ./dots/fastfetch;
@@ -40,9 +40,22 @@
   };
 
   home.packages = with pkgs; [
-    eza bat fzf fd micro fastfetch starship
-    vulkan-tools libva-utils mesa-demos intel-gpu-tools clinfo
-    nerd-fonts.symbols-only zoxide trash-cli rsync
+    eza
+    bat
+    fzf
+    fd
+    micro
+    fastfetch
+    starship
+    vulkan-tools
+    libva-utils
+    mesa-demos
+    intel-gpu-tools
+    clinfo
+    nerd-fonts.symbols-only
+    zoxide
+    trash-cli
+    rsync
 
     inputs.apple-fonts.packages.${system}.sf-pro
     inputs.apple-fonts.packages.${system}.sf-mono
@@ -66,6 +79,10 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      gtk-application-prefer-dark-theme = true;
+    };
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
     };
   };
 }
