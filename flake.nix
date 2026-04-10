@@ -39,16 +39,7 @@
 
       chaoticOverlay = chaotic.overlays.default;
       cachyosKernelOverlay = nix-cachyos-kernel.overlays.pinned;
-
-      copetchOverlay = final: prev: {
-        copetch = inputs.copetch.packages.${system}.default;
-      };
-
-      mesaOverlay = final: prev: {
-        mesa = prev.mesa.overrideAttrs (old: {
-          mesonFlags = (old.mesonFlags or [ ]) ++ [ "-Dgallium-nine=true" ];
-        });
-      };
+      copetchOverlay = inputs.copetch.overlays.default;
 
     in
     {
@@ -66,7 +57,7 @@
             home-manager.nixosModules.home-manager
 
             {
-              nixpkgs.overlays = [ chaoticOverlay cachyosKernelOverlay copetchOverlay mesaOverlay ];
+              nixpkgs.overlays = [ chaoticOverlay cachyosKernelOverlay copetchOverlay ];
               nixpkgs.config.allowUnfree = true;
             }
 
