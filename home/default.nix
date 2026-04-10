@@ -7,6 +7,10 @@
   home.homeDirectory = "/home/elars";
   home.stateVersion = "25.05";
 
+  home.sessionVariables = {
+    RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+  };
+
   home.pointerCursor = {
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
