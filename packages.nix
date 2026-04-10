@@ -101,6 +101,9 @@ with pkgs; {
     webkitgtk_4_1
     xdotool
     easyeffects
+    rnix-lsp
+    nixpkgs-fmt
+    direnv
 
     # Editors
     vim
