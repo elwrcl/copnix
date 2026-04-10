@@ -25,7 +25,6 @@ in
   hardware.graphics.extraPackages = [
     wayland-intel-vaapi-driver
     pkgs.libvdpau-va-gl
-    pkgs.beignet
   ];
 
   hardware.graphics.extraPackages32 = [
