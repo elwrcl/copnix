@@ -118,6 +118,8 @@ with pkgs; {
     cabal-install
     go
     rustc
+    cargo
+    rust-analyzer
     gcc
     binutils
     libGL
