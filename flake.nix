@@ -48,8 +48,8 @@
         };
 
         modules = [
-          chaotic.nixosModules.default
           { nixpkgs.hostPlatform = system; }
+          chaotic.nixosModules.default
           home-manager.nixosModules.home-manager
 
           {
