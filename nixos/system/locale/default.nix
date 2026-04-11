@@ -17,6 +17,14 @@
     LC_TIME = "tr_TR.UTF-8";
   };
 
+  services.timesyncd = {
+    enable = true;
+    servers = [
+      "0.tr.pool.ntp.org"
+      "1.tr.pool.ntp.org"
+      "time.cloudflare.com"
+    ];
+  };
 
   console.keyMap = "trq";
 
