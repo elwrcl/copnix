@@ -48,6 +48,7 @@
     {
       nixosConfigurations = {
         copland = nixpkgs.lib.nixosSystem {
+          system = system;
           specialArgs = {
             inherit inputs system;
             zen-browser = inputs.zen-browser;
@@ -55,7 +56,6 @@
           };
 
           modules = [
-            { nixpkgs.hostPlatform = system; }
             chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
 
