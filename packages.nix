@@ -37,6 +37,7 @@ with pkgs; {
     libimobiledevice
     ifuse
     usbmuxd
+    uxplay-fixed
 
     # Virtualization
     virt-manager
