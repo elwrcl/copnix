@@ -15,10 +15,10 @@
   boot.loader = {
     timeout = 5;
     efi = {
-      canTouchEfiVariables = true;
+      canTouchEfiVariables = false;
       efiSysMountPoint = "/boot";
     };
-    
+
     limine = {
       enable = true;
     };
