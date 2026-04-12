@@ -11,7 +11,7 @@
       "https://cache.nixos.org"
       "https://nix-community.cachix.org"
       "https://noctalia.cachix.org"
-      "https://nyx.chaotic.cx" 
+      "https://nyx.chaotic.cx"
       "https://attic.xuyh0120.win/lantian"
       "https://cache.garnix.io"
     ];

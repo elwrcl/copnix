@@ -6,27 +6,29 @@
     description = "elars";
     initialPassword = "1111";
     extraGroups = [
-      "networkmanager" "wheel" "docker" "plugdev"
-      "video" "audio" "lp" "scanner" "libvirtd"
+      "networkmanager"
+      "wheel"
+      "docker"
+      "plugdev"
+      "video"
+      "audio"
+      "lp"
+      "scanner"
+      "libvirtd"
     ];
     shell = pkgs.zsh;
   };
-
   programs.nh = {
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 4d --keep 3";
     flake = "/home/elars/copland";
   };
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
   };
-
   programs.firefox.enable = true;
-
-  # security.sudo.wheelNeedsPassword = false;
 }

@@ -98,5 +98,5 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #fetch
 copetch --ascii
-#fastfetch fuck fastfetch i'm better
+#fuckfastfetch i'm better!
 

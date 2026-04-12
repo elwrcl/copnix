@@ -94,11 +94,11 @@
     ];
 
     device = [
-  {
-    name = "hp--inc-hyperx-cloud-alpha-s-consumer-control";
-    enabled = false;
-  }
-  ];
-  
+      {
+        name = "hp--inc-hyperx-cloud-alpha-s-consumer-control";
+        enabled = false;
+      }
+    ];
+
   };
 }

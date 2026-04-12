@@ -2,7 +2,8 @@
 
 let
   ipc = "noctalia-shell ipc call";
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
 
@@ -17,8 +18,8 @@ in {
 
       # interface
       "$mainMod, Tab,         exec, ${ipc} launcher windows"
-      "$mainMod, P,           exec, ${ipc} bar toggle" 
-      "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle" 
+      "$mainMod, P,           exec, ${ipc} bar toggle"
+      "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle"
       # plugins
       "$mainMod SHIFT, S,     exec, ${ipc} plugin:screen-shot-and-record screenshot"
       "$mainMod SHIFT, Z,     exec, ${ipc} plugin:screen-shot-and-record search"
@@ -26,13 +27,13 @@ in {
       "$mainMod SHIFT, C,     exec, ${ipc} plugin:music panel"
       # launchers
       "$mainMod, Return,      exec, ghostty"
-      "$mainMod, W,           exec, zen-beta"                            
+      "$mainMod, W,           exec, zen-beta"
       "$mainMod, E,           exec, nautilus"
       "$mainMod, Z,           exec, code"
-      "$mainMod ALT, V,       exec, pavucontrol"                    
-      "$mainMod SHIFT, V,     exec, ${ipc} launcher clipboard"      
-      "$mainMod SHIFT, L,     exec, ${ipc} lockScreen lock"         
-      "CTRL SHIFT, Escape,      exec, ghostty -e btop"                  
+      "$mainMod ALT, V,       exec, pavucontrol"
+      "$mainMod SHIFT, V,     exec, ${ipc} launcher clipboard"
+      "$mainMod SHIFT, L,     exec, ${ipc} lockScreen lock"
+      "CTRL SHIFT, Escape,      exec, ghostty -e btop"
 
       # window management
       "$mainMod, Q,           killactive"

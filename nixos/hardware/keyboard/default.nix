@@ -8,10 +8,7 @@
     via
     vial
   ];
-
-  users.groups.plugdev = {};
-
-
+  users.groups.plugdev = { };
   environment.systemPackages = with pkgs; [
     qmk
     via

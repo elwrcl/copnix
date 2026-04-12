@@ -24,7 +24,7 @@
   services.pipewire.wireplumber.extraConfig."51-no-mic-monitor" = {
     "monitor.alsa.rules" = [
       {
-        matches = [ { "node.name" = "~alsa_input.*"; } ];
+        matches = [{ "node.name" = "~alsa_input.*"; }];
         actions = {
           "update-props" = {
             "stream.dont-remix" = true;
