@@ -13,7 +13,16 @@
     LC_TELEPHONE = "tr_TR.UTF-8";
     LC_TIME = "tr_TR.UTF-8";
   };
-
+  services.timesyncd.enable = false;
+  services.chrony = {
+    enable = true;
+    extraConfig = ''
+      makestep 1.0 -1
+      server time.cloudflare.com iburst
+      server time.google.com iburst
+    '';
+  };
   console.keyMap = "trq";
   system.stateVersion = "25.05";
 }
+
