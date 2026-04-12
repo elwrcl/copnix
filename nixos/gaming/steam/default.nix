@@ -7,6 +7,9 @@
       proton-ge-bin
     ];
     package = pkgs.steam.override {
+      extraEnv = {
+        STEAM_USE_PORTAL = "1";
+      };
       extraPkgs = p: with p; [
         xdg-desktop-portal
         xdg-desktop-portal-gtk
@@ -34,11 +37,7 @@
         pkgsi686Linux.mesa
       ];
     };
-    environment.sessionVariables = {
-      STEAM_USE_PORTAL = "1";
-    };
     gamescopeSession.enable = true;
   };
   programs.bash.enable = true;
-
 }
