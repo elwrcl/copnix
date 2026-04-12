@@ -22,6 +22,7 @@ with pkgs; {
     qt6Packages.qtdeclarative
     qt6Packages.qtwayland
     qt6Packages.qtwebsockets
+    gsettings-desktop-schemas
     adwaita-qt
     adwaita-qt6
     mesa
