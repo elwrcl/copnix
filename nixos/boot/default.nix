@@ -15,12 +15,14 @@
   boot.loader = {
     timeout = 5;
     efi = {
-      canTouchEfiVariables = false;
+      canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
-
-    limine = {
+    systemd-boot = {
       enable = true;
+      configurationLimit = 15;
+      consoleMode = "max";
+      editor = false;
     };
   };
 }
