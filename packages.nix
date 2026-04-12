@@ -161,7 +161,6 @@ with pkgs; {
     arc-icon-theme
     shared-mime-info
     qalculate-gtk
-    kdePackages.gwenview
     mpv
     equibop
     discord
@@ -187,6 +186,7 @@ with pkgs; {
     onlyoffice-desktopeditors
     nautilus
     loupe
+    spacedrive
     wine
     blender
   ];
