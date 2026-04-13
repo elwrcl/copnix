@@ -58,7 +58,6 @@
           };
 
           modules = [
-            inputs.oceanix.nixosModules.default
             chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {

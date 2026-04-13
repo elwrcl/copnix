@@ -416,6 +416,22 @@
     },
     "nixpkgs_5": {
       "locked": {
+        "lastModified": 1666539104,
+        "narHash": "sha256-jeuC+d375wHHxMOFLgu7etseCQVJuPNKoEc9X9CsErg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0e6df35f39651504249a05191f9a78d251707e22",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_6": {
+      "locked": {
         "lastModified": 1774709303,
         "narHash": "sha256-D3Q07BbIA2KnTcSXIqqu9P586uWxN74zNoCH3h2ESHg=",
         "owner": "nixos",
@@ -486,6 +502,25 @@
         "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
       }
     },
+    "oceanix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5",
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1668158355,
+        "narHash": "sha256-1Z9Ijdnbs/GgmZgX1jDFbtszgAJ42/TGy8dH6IgkEpM=",
+        "owner": "LEXUGE",
+        "repo": "oceanix",
+        "rev": "6c75636d0361f777307cc94569e6491d5ed32d77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LEXUGE",
+        "repo": "oceanix",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "apple-fonts": "apple-fonts",
@@ -496,6 +531,7 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixpkgs": "nixpkgs_4",
         "noctalia": "noctalia",
+        "oceanix": "oceanix",
         "zen-browser": "zen-browser"
       }
     },
@@ -656,10 +692,25 @@
         "type": "github"
       }
     },
+    "utils": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "zen-browser": {
       "inputs": {
         "home-manager": "home-manager_3",
-        "nixpkgs": "nixpkgs_5"
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1776091817,
