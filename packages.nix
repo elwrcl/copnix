@@ -118,9 +118,8 @@ with pkgs; {
     helix
     vscode
     (zed-editor.override { withGLES = true; })
-  ];
 
-  # Languages
+    # Languages
     uv
     pkg-config
     odin
@@ -191,5 +190,5 @@ with pkgs; {
     spacedrive
     wine
     blender
-    ];
-    }
+  ];
+}
