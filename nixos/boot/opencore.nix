@@ -31,18 +31,6 @@ in
               cp -f ${pkgs.limine}/share/limine/BOOTX64.EFI ${liminePath}/BOOTX64.EFI
             fi
 
-            cat <<EOF > ${liminePath}/limine.conf
-      TIMEOUT=5
-      GRAPHICS=yes
-      INTERFACE_RESOLUTION=1366x768
-
-      :NixOS (CachyOS)
-          PROTOCOL=linux
-          KERNEL_PATH=boot:///EFI/nixos/j2rky4bwgy6s1d5j15pvz4yiprhm96j2-linux-cachyos-latest-lto-x86_64-v2-6.19.11-bzImage.efi
-          MODULE_PATH=boot:///EFI/nixos/bfy4s8c3lhhdqqpw0ys5gik4vs6hyjlz-initrd-linux-cachyos-latest-lto-x86_64-v2-6.19.11-initrd.efi
-          CMDLINE=preempt=full i915.enable_fbc=1 mitigations=off "i915.enable_fbc=1" "usbcore.autosuspend=-1" "transparent_hugepage=always"
-      EOF
-
             cat <<EOF > ${ocPath}/config.plist
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -61,12 +49,18 @@ in
 
           <key>Misc</key>
           <dict>
+              <key>Debug</key>
+              <dict>
+                  <key>DisplayDelay</key><integer>0</integer>
+                  <key>DisplayLevel</key><integer>2147483650</integer>
+                  <key>Target</key><integer>3</integer>
+              </dict>
               <key>Boot</key>
               <dict>
-                  <key>PickerMode</key><string>External</string>
-                  <key>PickerAttributes</key><integer>17</integer>
-                  <key>Timeout</key><integer>5</integer>
+                  <key>PickerMode</key><string>Builtin</string> <key>PickerAttributes</key><integer>1</integer>
+                  <key>PollAppleHotKeys</key><true/>
                   <key>ShowPicker</key><true/>
+                  <key>Timeout</key><integer>10</integer>
               </dict>
               <key>Entries</key>
               <array>
@@ -86,6 +80,7 @@ in
 
           <key>UEFI</key>
           <dict>
+              <key>ConnectDrivers</key><true/>
               <key>Input</key>
               <dict>
                   <key>KeySupport</key><true/>
@@ -94,8 +89,7 @@ in
               <key>Output</key>
               <dict>
                   <key>ProvideConsoleGop</key><true/>
-                  <key>Resolution</key><string>1366x768</string>
-                  <key>TextRenderer</key><string>BuiltinGraphics</string>
+                  <key>Resolution</key><string>Max</string> <key>TextRenderer</key><string>BuiltinGraphics</string>
               </dict>
               <key>Quirks</key>
               <dict>
@@ -104,18 +98,14 @@ in
               <key>Drivers</key>
               <array>
                   <string>OpenRuntime.efi</string>
-                  <string>OpenCanopy.efi</string>
                   <string>OpenLinuxBoot.efi</string>
                   <string>OpenUsbKbDxe.efi</string>
+                  <string>OpenCanopy.efi</string>
               </array>
           </dict>
       </dict>
       </plist>
       EOF
-
-            if ! ${pkgs.efibootmgr}/bin/efibootmgr | grep -q "OpenCore_Copland"; then
-              ${pkgs.efibootmgr}/bin/efibootmgr -c -d /dev/sda -p 1 -L "OpenCore_Copland" -l "\EFI\OC\OpenCore.efi"
-            fi
     '';
   };
 }
