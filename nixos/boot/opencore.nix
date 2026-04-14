@@ -18,7 +18,7 @@ in
 {
   system.activationScripts.opencoreConfig = {
     text = ''
-            echo "--- Copland Project ---"
+            echo "--- Copland Project: Limine Protokolü Düzeltiliyor ---"
       
             mkdir -p ${ocPath}/Drivers
             mkdir -p ${ocPath}/Resources
@@ -31,13 +31,14 @@ in
               cp -f ${pkgs.limine}/share/limine/BOOTX64.EFI ${liminePath}/BOOTX64.EFI
             fi
 
+            # İŞTE BURASI DÜZELDİ: efi_chainload yerine sadece chainload yazdık
             cat <<EOF > ${liminePath}/limine.conf
       TIMEOUT=5
       GRAPHICS=yes
       INTERFACE_RESOLUTION=1366x768
 
-      :NixOS (CachyOS)
-          PROTOCOL=efi_chainload
+      :NixOS (Systemd-Boot)
+          PROTOCOL=chainload
           IMAGE_PATH=boot:///EFI/systemd/systemd-bootx64.efi
       EOF
 
@@ -61,8 +62,9 @@ in
           <dict>
               <key>Boot</key>
               <dict>
-                  <key>PickerMode</key><string>Builtin</string>
-                  <key>PickerAttributes</key><integer>1</integer>
+                  <key>PickerMode</key><string>External</string>
+                  <key>PickerVariant</key><string>Acidanthera\Syrah</string>
+                  <key>PickerAttributes</key><integer>17</integer>
                   <key>ShowPicker</key><true/>
                   <key>Timeout</key><integer>10</integer>
               </dict>
@@ -102,7 +104,8 @@ in
               <dict>
                   <key>AdviseFeatures</key><true/>
                   <key>SystemProductName</key><string>MacBookPro16,1</string>
-                  <key>SystemSerialNumber</key><string>C02DF0Y0MD6N</string> <key>SystemUUID</key><string>5445524E-A59B-4D8B-9B2F-9876543210AB</string>
+                  <key>SystemSerialNumber</key><string>C02DF0Y0MD6N</string>
+                  <key>SystemUUID</key><string>5445524E-A59B-4D8B-9B2F-9876543210AB</string>
                   <key>ROM</key><data>ABEiM0RV</data>
               </dict>
           </dict>
