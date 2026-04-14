@@ -19,18 +19,22 @@ let
     inherit pkgs;
     modules = [
       ({ ... }: {
-        oceanix = {
+        oceanix.opencore.settings = {
+
           UEFI.Output.ProvideConsoleGop = true;
           UEFI.Output.Resolution = "1366x768";
           UEFI.Output.TextRenderer = "BuiltinGraphics";
+
           Misc.Boot.PickerMode = "External";
           Misc.Boot.PickerVariant = "Acidanthera\\Syrah";
           Misc.Boot.PickerAttributes = 17;
           Misc.Boot.Timeout = 10;
+
           Misc.Security.SecureBootModel = "Disabled";
           Misc.Security.ScanPolicy = 0;
           UEFI.Quirks.DisableSecurityPolicy = true;
           UEFI.Quirks.ReleaseUsbOwnership = true;
+
           PlatformInfo.Automatic = true;
           PlatformInfo.Generic.SystemProductName = "MacBookPro16,1";
           PlatformInfo.Generic.SystemSerialNumber = "C02DF0Y0MD6N";
@@ -77,13 +81,12 @@ in
 
       cp -f ${ocPkg}/X64/EFI/OC/Drivers/*.efi ${ocPath}/Drivers/
       cp -rf ${ocResources}/Resources/* ${ocPath}/Resources/
+    
+      cp -f ${ocConfig.efiPackage}/EFI/OC/config.plist ${ocPath}/config.plist
       
       if [ -f ${pkgs.limine}/share/limine/BOOTX64.EFI ]; then
         cp -f ${pkgs.limine}/share/limine/BOOTX64.EFI ${liminePath}/BOOTX64.EFI
       fi
-
-      OC_PLIST_PATH=$(find ${ocConfig.efiPackage} -name "config.plist" | head -n 1)
-      cp -f "$OC_PLIST_PATH" ${ocPath}/config.plist
       
       cp -f ${limineConf} ${liminePath}/limine.conf
 
