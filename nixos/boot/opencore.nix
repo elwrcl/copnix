@@ -15,12 +15,16 @@ let
     sha256 = "sha256-B5CABp0Y2dAVuw7185suaUuryl3iII4QNBVBttivQ7Y=";
   };
 
+  oceanixPkgs = import pkgs.path {
+    inherit (pkgs) system config;
+    overlays = [ inputs.oceanix.overlays.default ];
+  };
+
   ocConfig = inputs.oceanix.lib.OpenCoreConfig {
-    inherit pkgs;
+    pkgs = oceanixPkgs;
     modules = [
       ({ ... }: {
-        oceanix.opencore.settings = {
-
+        oceanix.opencore.settings = {   
           UEFI.Output.ProvideConsoleGop = true;
           UEFI.Output.Resolution = "1366x768";
           UEFI.Output.TextRenderer = "BuiltinGraphics";
