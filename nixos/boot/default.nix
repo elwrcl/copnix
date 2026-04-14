@@ -2,8 +2,10 @@
 
 {
   imports = [
-    ./opencore.nix 
+    ./opencore.nix
   ];
+
+  environment.systemPackages = [ pkgs.limine pkgs.efibootmgr ];
 
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v2;
 
@@ -17,16 +19,14 @@
   ];
 
   boot.loader = {
-    timeout = 5;
+    timeout = 2;
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
     systemd-boot = {
       enable = true;
-      configurationLimit = 15;
-      consoleMode = "max";
-      editor = false;
+      configurationLimit = 5;
     };
   };
 }

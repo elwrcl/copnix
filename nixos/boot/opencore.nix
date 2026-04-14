@@ -1,16 +1,28 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 let
   ocPath = "/boot/EFI/OC";
+  liminePath = "/boot/EFI/limine";
+  ocDrivers = "${inputs.oceanix.packages.${pkgs.system}.opencore}/EFI/OC/Drivers";
 in
 {
-  environment.systemPackages = [ pkgs.efibootmgr ];
-
   system.activationScripts.opencoreConfig = {
     text = ''
-            echo "--- Copland Init ---"
+            echo "--- Copland Bootloader ---"
       
-            mkdir -p ${ocPath}
+            mkdir -p ${ocPath}/Drivers
+            mkdir -p ${liminePath}
+
+            # EKSİK SÜRÜCÜLERİ BURADA MANUEL KOPYALIYORUZ
+            cp -f ${ocDrivers}/OpenCanopy.efi ${ocPath}/Drivers/
+            cp -f ${ocDrivers}/OpenUsbKbDxe.efi ${ocPath}/Drivers/
+            # Bunlar sende vardı ama garanti olsun diye üzerinden geçiyoruz
+            cp -f ${ocDrivers}/OpenRuntime.efi ${ocPath}/Drivers/
+            cp -f ${ocDrivers}/OpenLinuxBoot.efi ${ocPath}/Drivers/
+
+            if [ -f ${pkgs.limine}/share/limine/BOOTX64.EFI ]; then
+              cp -f ${pkgs.limine}/share/limine/BOOTX64.EFI ${liminePath}/BOOTX64.EFI
+            fi
 
             cat <<EOF > ${ocPath}/config.plist
       <?xml version="1.0" encoding="UTF-8"?>
@@ -22,7 +34,8 @@ in
               <key>Quirks</key>
               <dict>
                   <key>AvoidRuntimeDefrag</key><true/>
-                  <key>EnableSafeModeCaching</key><true/>
+                  <key>EnableWriteUnprotector</key><true/>
+                  <key>SetupVirtualMap</key><true/>
                   <key>ProvideCustomSlide</key><true/>
               </dict>
           </dict>
@@ -43,9 +56,18 @@ in
           <dict>
               <key>Boot</key>
               <dict>
-                  <key>PickerMode</key><string>External</string> <key>PickerAttributes</key><integer>17</integer>
+                  <key>PickerMode</key><string>External</string>
+                  <key>PickerAttributes</key><integer>17</integer>
                   <key>Timeout</key><integer>5</integer>
               </dict>
+              <key>Entries</key>
+              <array>
+                  <dict>
+                      <key>Name</key><string>Limine</string>
+                      <key>Enabled</key><true/>
+                      <key>Path</key><string>PciRoot(0x0)/Pci(0x1f,0x2)/Sata(2,0,0)/HD(1,GPT,73ae5e9a-c31d-4787-9792-ee1843de3e9d,0x800,0x200000)/\EFI\limine\BOOTX64.EFI</string>
+                  </dict>
+              </array>
               <key>Security</key>
               <dict>
                   <key>AllowSetDefault</key><true/>
@@ -66,21 +88,34 @@ in
               </dict>
           </dict>
 
+          <key>PlatformInfo</key>
+          <dict>
+              <key>Generic</key>
+              <dict>
+                  <key>SystemProductName</key><string>MacBookPro16,1</string>
+                  <key>AdviseFeatures</key><true/>
+              </dict>
+          </dict>
+
           <key>UEFI</key>
           <dict>
               <key>Input</key>
               <dict>
-                  <key>KeySupport</key><true/> <key>KeySupportMode</key><string>Auto</string>
-                  <key>ReleaseUsbOwnership</key><true/> </dict>
+                  <key>KeySupport</key><true/>
+                  <key>KeySupportMode</key><string>Auto</string>
+                  <key>ReleaseUsbOwnership</key><true/>
+              </dict>
               <key>Drivers</key>
               <array>
                   <string>OpenRuntime.efi</string>
-                  <string>OpenCanopy.efi</string> <string>OpenLinuxBoot.efi</string>
+                  <string>OpenCanopy.efi</string>
+                  <string>OpenLinuxBoot.efi</string>
                   <string>OpenUsbKbDxe.efi</string>
               </array>
           </dict>
       </dict>
       </plist>
+      EOF
     '';
   };
 }
