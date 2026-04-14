@@ -24,12 +24,23 @@ in
             mkdir -p ${ocPath}/Resources
             mkdir -p ${liminePath}
 
+            # 1. DOSYALARI KOPYALA
             cp -f ${ocPkg}/X64/EFI/OC/Drivers/*.efi ${ocPath}/Drivers/
             cp -rf ${ocResources}/Resources/* ${ocPath}/Resources/
       
             if [ -f ${pkgs.limine}/share/limine/BOOTX64.EFI ]; then
               cp -f ${pkgs.limine}/share/limine/BOOTX64.EFI ${liminePath}/BOOTX64.EFI
             fi
+
+            cat <<EOF > ${liminePath}/limine.conf
+      TIMEOUT=5
+      GRAPHICS=yes
+      INTERFACE_RESOLUTION=1366x768
+
+      :NixOS (CachyOS)
+          PROTOCOL=efi_chainload
+          IMAGE_PATH=boot:///EFI/systemd/systemd-bootx64.efi
+      EOF
 
             cat <<EOF > ${ocPath}/config.plist
       <?xml version="1.0" encoding="UTF-8"?>
@@ -49,18 +60,27 @@ in
 
           <key>Misc</key>
           <dict>
-              <key>Debug</key>
-              <dict>
-                  <key>DisplayDelay</key><integer>0</integer>
-                  <key>DisplayLevel</key><integer>2147483650</integer>
-                  <key>Target</key><integer>3</integer>
-              </dict>
               <key>Boot</key>
               <dict>
-                  <key>PickerMode</key><string>Builtin</string> <key>PickerAttributes</key><integer>1</integer>
-                  <key>PollAppleHotKeys</key><true/>
+                  <key>PickerMode</key><string>Builtin</string>
+                  <key>PickerAttributes</key><integer>1</integer>
                   <key>ShowPicker</key><true/>
                   <key>Timeout</key><integer>10</integer>
+              </dict>
+              <key>Security</key>
+              <dict>
+                  <key>AllowSetDefault</key><true/>
+                  <key>AuthRestart</key><false/>
+                  <key>BlacklistAppleUpdate</key><true/>
+                  <key>DmgLoading</key><string>Signed</string>
+                  <key>EnablePassword</key><false/>
+                  <key>ExposeSensitiveData</key><integer>6</integer>
+                  <key>HaltLevel</key><integer>2147483648</integer>
+                  <key>PasswordHash</key><data></data>
+                  <key>PasswordSalt</key><data></data>
+                  <key>ScanPolicy</key><integer>0</integer>
+                  <key>SecureBootModel</key><string>Disabled</string>
+                  <key>Vault</key><string>Optional</string>
               </dict>
               <key>Entries</key>
               <array>
@@ -70,11 +90,16 @@ in
                       <key>Path</key><string>PciRoot(0x0)/Pci(0x1f,0x2)/Sata(2,0,0)/HD(1,GPT,73ae5e9a-c31d-4787-9792-ee1843de3e9d,0x800,0x200000)/\EFI\limine\BOOTX64.EFI</string>
                   </dict>
               </array>
-              <key>Security</key>
+          </dict>
+
+          <key>PlatformInfo</key>
+          <dict>
+              <key>Generic</key>
               <dict>
-                  <key>AllowSetDefault</key><true/>
-                  <key>ScanPolicy</key><integer>0</integer>
-                  <key>Vault</key><string>Optional</string>
+                  <key>AdviseFeatures</key><true/>
+                  <key>SystemProductName</key><string>MacBookPro16,1</string>
+                  <key>SystemUUID</key><string>5445524E-A59B-4D8B-9B2F-9876543210AB</string>
+                  <key>ROM</key><data>ABEiM0RV</data>
               </dict>
           </dict>
 
@@ -89,11 +114,14 @@ in
               <key>Output</key>
               <dict>
                   <key>ProvideConsoleGop</key><true/>
-                  <key>Resolution</key><string>Max</string> <key>TextRenderer</key><string>BuiltinGraphics</string>
+                  <key>Resolution</key><string>Max</string>
+                  <key>TextRenderer</key><string>BuiltinGraphics</string>
               </dict>
               <key>Quirks</key>
               <dict>
                   <key>ReleaseUsbOwnership</key><true/>
+                  <key>RequestBootVarRouting</key><true/>
+                  <key>DisableSecurityPolicy</key><true/>
               </dict>
               <key>Drivers</key>
               <array>
@@ -106,6 +134,11 @@ in
       </dict>
       </plist>
       EOF
+
+            # 4. BIOS KAYDI
+            if ! ${pkgs.efibootmgr}/bin/efibootmgr | grep -q "OpenCore_Copland"; then
+              ${pkgs.efibootmgr}/bin/efibootmgr -c -d /dev/sda -p 1 -L "OpenCore_Copland" -l "\EFI\OC\OpenCore.efi"
+            fi
     '';
   };
 }
