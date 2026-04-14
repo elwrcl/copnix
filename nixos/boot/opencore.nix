@@ -36,6 +36,7 @@ let
 
           Misc.Security.SecureBootModel = "Disabled";
           Misc.Security.ScanPolicy = 0;
+          Misc.Security.Vault = "Optional";
           UEFI.Quirks.DisableSecurityPolicy = true;
           UEFI.Quirks.ReleaseUsbOwnership = true;
 
