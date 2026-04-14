@@ -18,13 +18,12 @@ in
 {
   system.activationScripts.opencoreConfig = {
     text = ''
-            echo "--- Copland Bootloader ---"
+            echo "--- Copland Project ---"
       
             mkdir -p ${ocPath}/Drivers
             mkdir -p ${ocPath}/Resources
             mkdir -p ${liminePath}
 
-            # 1. DOSYALARI KOPYALA
             cp -f ${ocPkg}/X64/EFI/OC/Drivers/*.efi ${ocPath}/Drivers/
             cp -rf ${ocResources}/Resources/* ${ocPath}/Resources/
       
@@ -94,11 +93,16 @@ in
 
           <key>PlatformInfo</key>
           <dict>
+              <key>Automatic</key><true/>
+              <key>UpdateDataHub</key><true/>
+              <key>UpdateNVRAM</key><true/>
+              <key>UpdateSMBIOS</key><true/>
+              <key>UpdateSMBIOSMode</key><string>Create</string>
               <key>Generic</key>
               <dict>
                   <key>AdviseFeatures</key><true/>
                   <key>SystemProductName</key><string>MacBookPro16,1</string>
-                  <key>SystemUUID</key><string>5445524E-A59B-4D8B-9B2F-9876543210AB</string>
+                  <key>SystemSerialNumber</key><string>C02DF0Y0MD6N</string> <key>SystemUUID</key><string>5445524E-A59B-4D8B-9B2F-9876543210AB</string>
                   <key>ROM</key><data>ABEiM0RV</data>
               </dict>
           </dict>
@@ -135,7 +139,6 @@ in
       </plist>
       EOF
 
-            # 4. BIOS KAYDI
             if ! ${pkgs.efibootmgr}/bin/efibootmgr | grep -q "OpenCore_Copland"; then
               ${pkgs.efibootmgr}/bin/efibootmgr -c -d /dev/sda -p 1 -L "OpenCore_Copland" -l "\EFI\OC\OpenCore.efi"
             fi
