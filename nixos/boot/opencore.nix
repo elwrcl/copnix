@@ -110,16 +110,15 @@ in
       BOOT_DEV=$(${pkgs.util-linux}/bin/findmnt -n -o SOURCE /boot)
       
       if [ -n "$BOOT_DEV" ]; then
-        TARGET_DISK=$(echo "$BOOT_DEV" | sed -E 's/p?[0-9]+$//')
-        PART_NUM=$(echo "$BOOT_DEV" | grep -oE '[0-9]+$')
+        TARGET_DISK=$(echo "$BOOT_DEV" | ${pkgs.gnused}/bin/sed -E 's/p?[0-9]+$//')
+        PART_NUM=$(echo "$BOOT_DEV" | ${pkgs.gnugrep}/bin/grep -oE '[0-9]+$')
 
-        if ! ${pkgs.efibootmgr}/bin/efibootmgr | grep -q "OpenCore_Copland"; then
+        if ! ${pkgs.efibootmgr}/bin/efibootmgr | ${pkgs.gnugrep}/bin/grep -q "OpenCore_Copland"; then
           echo "Registering OpenCore on $TARGET_DISK (partition $PART_NUM)..."
           ${pkgs.efibootmgr}/bin/efibootmgr -c -d "$TARGET_DISK" -p "$PART_NUM" -L "OpenCore_Copland" -l "\EFI\OC\OpenCore.efi"
         fi
       else
-        echo "Error: Could not find mount point for /boot to register EFI!"
+        echo "Error: Could not find mount point for /boot!"
       fi
     '';
   };
-}
