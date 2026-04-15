@@ -31,7 +31,7 @@
       system = "x86_64-linux";
 
       chaoticOverlay = chaotic.overlays.default;
-      cachyosKernelOverlay = nix-cachyos-kernel.overlays.pinned;
+      cachyosKernelOverlay = nix-cachyos-kernel.overlays.default;
 
       copetchOverlay = final: prev: {
         copetch = inputs.copetch.packages.${system}.default;
