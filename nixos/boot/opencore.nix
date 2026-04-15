@@ -67,9 +67,10 @@ let
           Misc.Security.ScanPolicy = 0;
           Misc.Security.Vault = "Optional";
           UEFI.Quirks.DisableSecurityPolicy = true;
-          UEFI.Quirks.ReleaseUsbOwnership = false;
+          UEFI.Quirks.ReleaseUsbOwnership = true;
 
           PlatformInfo.Automatic = true;
+          PlatformInfo.UpdateSMBIOSMode = "Create";
           PlatformInfo.Generic = {
             SystemProductName = "MacBookPro9,2";
             SystemSerialNumber = "C02J19YCDTY3";
@@ -80,7 +81,6 @@ let
           UEFI.Drivers = {
             "OpenRuntime.efi" = { Enabled = true; };
             "OpenCanopy.efi" = { Enabled = true; };
-            #"OpenUsbKbDxe.efi" = { Enabled = true; };
             "OpenLinuxBoot.efi" = { Enabled = true; };
             "AudioDxe.efi" = { Enabled = true; };
           };
@@ -98,19 +98,27 @@ in
       
       if [ ! -d "${ocPath}" ] || ! ${pkgs.diffutils}/bin/diff -r "${ocConfig.efiPackage}/EFI/OC" "${ocPath}" >/dev/null 2>&1; then
         echo "diffs are detected, writing EFI files..."
-        
         rm -rf ${ocPath}
         mkdir -p ${ocPath}
         cp -rf ${ocConfig.efiPackage}/EFI/OC/* ${ocPath}/
-        
         mkdir -p ${ocPath}/Resources
         cp -rf ${ocResources}/Resources/* ${ocPath}/Resources/
       else
         echo "EFI is already up to date."
       fi
       
-      if ! ${pkgs.efibootmgr}/bin/efibootmgr | grep -q "OpenCore_Copland"; then
-        ${pkgs.efibootmgr}/bin/efibootmgr -c -d /dev/sda -p 1 -L "OpenCore_Copland" -l "\EFI\OC\OpenCore.efi"
+      BOOT_DEV=$(${pkgs.util-linux}/bin/findmnt -n -o SOURCE /boot)
+      
+      if [ -n "$BOOT_DEV" ]; then
+        TARGET_DISK=$(echo "$BOOT_DEV" | sed -E 's/p?[0-9]+$//')
+        PART_NUM=$(echo "$BOOT_DEV" | grep -oE '[0-9]+$')
+
+        if ! ${pkgs.efibootmgr}/bin/efibootmgr | grep -q "OpenCore_Copland"; then
+          echo "Registering OpenCore on $TARGET_DISK (partition $PART_NUM)..."
+          ${pkgs.efibootmgr}/bin/efibootmgr -c -d "$TARGET_DISK" -p "$PART_NUM" -L "OpenCore_Copland" -l "\EFI\OC\OpenCore.efi"
+        fi
+      else
+        echo "Error: Could not find mount point for /boot to register EFI!"
       fi
     '';
   };
