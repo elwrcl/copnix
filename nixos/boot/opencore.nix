@@ -29,17 +29,23 @@ let
             AudioSupport = true;
             ResetTrafficClass = true;
             DisconnectHda = false;
-            MaximumGain = -15;
+            MaximumGain = -10;
             MinimumAssistGain = -30;
             MinimumAudibleGain = -128;
             PlayChime = "Enabled";
             SetupDelay = 0;
           };
 
+          UEFI.Pointer = {
+            PointerPollMin = 10;
+            PointerPollMax = 80;
+            PointerPollMask = -1;
+          };
+
           Misc.Boot.PickerMode = "External";
           Misc.Boot.PickerVariant = "Acidanthera\\Syrah";
           Misc.Boot.PickerAttributes = 17;
-          Misc.Boot.Timeout = 5;
+          Misc.Boot.Timeout = 15;
           Misc.Boot.HideAuxiliary = true;
 
           Misc.Debug = {
