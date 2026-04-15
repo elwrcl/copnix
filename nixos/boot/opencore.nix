@@ -29,7 +29,7 @@ let
             AudioSupport = true;
             ResetTrafficClass = true;
             DisconnectHda = false;
-            MaximumGain = -30;
+            MaximumGain = -15;
             MinimumAssistGain = -30;
             MinimumAudibleGain = -128;
             PlayChime = "Enabled";
@@ -51,7 +51,7 @@ let
           };
 
           Misc.Security.SecureBootModel = "Disabled";
-          Misc.Security.ScanPolicy = 524547;
+          Misc.Security.ScanPolicy = 0;
           Misc.Security.Vault = "Optional";
           UEFI.Quirks.DisableSecurityPolicy = true;
           UEFI.Quirks.ReleaseUsbOwnership = true;
