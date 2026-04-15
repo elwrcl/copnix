@@ -22,14 +22,36 @@ let
           UEFI.Output.Resolution = "1366x768";
           UEFI.Output.TextRenderer = "BuiltinGraphics";
 
+          UEFI.Audio = {
+            AudioCodec = 0;
+            AudioDevice = "PciRoot(0x0)/Pci(0x1b,0x0)";
+            AudioOutMask = 1;
+            AudioSupport = true;
+            ResetTrafficClass = true;
+            DisconnectHda = false;
+            MaximumGain = -15;
+            MinimumAssistGain = -30;
+            MinimumAudibleGain = -128;
+            PlayChime = "Enabled";
+            SetupDelay = 0;
+          };
+
           Misc.Boot.PickerMode = "External";
           Misc.Boot.PickerVariant = "Acidanthera\\Syrah";
           Misc.Boot.PickerAttributes = 17;
           Misc.Boot.Timeout = 5;
           Misc.Boot.HideAuxiliary = true;
 
+          Misc.Debug = {
+            AppleDebug = true;
+            ApplePanic = true;
+            DisableWatchDog = true;
+            DisplayLevel = 2147483650;
+            Target = 3;
+          };
+
           Misc.Security.SecureBootModel = "Disabled";
-          Misc.Security.ScanPolicy = 0;
+          Misc.Security.ScanPolicy = 524547;
           Misc.Security.Vault = "Optional";
           UEFI.Quirks.DisableSecurityPolicy = true;
           UEFI.Quirks.ReleaseUsbOwnership = true;
@@ -47,6 +69,7 @@ let
             "OpenCanopy.efi" = { Enabled = true; };
             "OpenUsbKbDxe.efi" = { Enabled = true; };
             "OpenLinuxBoot.efi" = { Enabled = true; };
+            "AudioDxe.efi" = { Enabled = true; };
           };
           Misc.Entries = [ ];
         };
@@ -61,7 +84,7 @@ in
       echo "--- Kopurando In1t  ---"
       
       if [ ! -d "${ocPath}" ] || ! ${pkgs.diffutils}/bin/diff -r "${ocConfig.efiPackage}/EFI/OC" "${ocPath}" >/dev/null 2>&1; then
-        echo "diffs are dedected writing EFI files..."
+        echo "diffs are detected, writing EFI files..."
         
         rm -rf ${ocPath}
         mkdir -p ${ocPath}

@@ -12,7 +12,6 @@
   boot.kernelParams = [
     "preempt=full"
     "i915.enable_fbc=1"
-    "i915.fastboot=1"
     "mitigations=off"
     "usbcore.autosuspend=-1"
     "transparent_hugepage=always"
