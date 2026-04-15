@@ -36,9 +36,22 @@ let
             SetupDelay = 0;
           };
 
+          UEFI.AppleInput = {
+            AppleEvent = "Builtin";
+            CustomDelays = false;
+            GraphicsInputMirroring = true;
+            KeyInitialDelay = 50;
+            KeySubsequentDelay = 5;
+            PointerPollMask = -1;
+            PointerPollMin = 10;
+            PointerPollMax = 80;
+            PointerSpeedDiv = 1;
+            PointerSpeedMul = 1;
+          };
+
           Misc.Boot.PickerMode = "External";
           Misc.Boot.PickerVariant = "Acidanthera\\Syrah";
-          Misc.Boot.PickerAttributes = 17;
+          Misc.Boot.PickerAttributes = 144;
           Misc.Boot.Timeout = 15;
           Misc.Boot.HideAuxiliary = true;
 
@@ -54,7 +67,7 @@ let
           Misc.Security.ScanPolicy = 0;
           Misc.Security.Vault = "Optional";
           UEFI.Quirks.DisableSecurityPolicy = true;
-          UEFI.Quirks.ReleaseUsbOwnership = true;
+          UEFI.Quirks.ReleaseUsbOwnership = false;
 
           PlatformInfo.Automatic = true;
           PlatformInfo.Generic = {
@@ -67,7 +80,7 @@ let
           UEFI.Drivers = {
             "OpenRuntime.efi" = { Enabled = true; };
             "OpenCanopy.efi" = { Enabled = true; };
-            "OpenUsbKbDxe.efi" = { Enabled = true; };
+            #"OpenUsbKbDxe.efi" = { Enabled = true; };
             "OpenLinuxBoot.efi" = { Enabled = true; };
             "AudioDxe.efi" = { Enabled = true; };
           };
