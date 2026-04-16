@@ -3,7 +3,7 @@
 {
   programs.niri.enable = true;
   xdg.portal.config.niri = {
-    default = [ "gtk" ];
+    default = lib.mkForce [ "gtk" ];
     "org.freedesktop.portal.FileChooser" = [ "gtk" ];
     "org.freedesktop.portal.Screenshot" = [ "gtk" ];
     "org.freedesktop.portal.ScreenCast" = [ "gtk" ];
