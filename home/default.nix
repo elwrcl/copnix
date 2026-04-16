@@ -81,7 +81,6 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-application-prefer-dark-theme = true;
-      icon-theme = "Papirus-Dark";
       cursor-theme = "Bibata-Modern-Classic";
       cursor-size = 24;
     };
@@ -100,7 +99,7 @@
       package = pkgs.gnome-themes-extra;
     };
     iconTheme = {
-      name = "adwaita-dark";
+      name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {
