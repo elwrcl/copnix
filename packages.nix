@@ -7,183 +7,27 @@ in
 with pkgs;
 {
   system = [
-    # diagnostic
-    dmidecode
-    lshw
-    pciutils
-    usbutils
-    hwinfo
-    efibootmgr
-    cpuid
-    smartmontools
-    gsmartcontrol
-    lm_sensors
-    ddcutil
-    brightnessctl
+    # android
     libmtp
     jmtpfs
-    btop
-    fastfetch
-    wget
-    curl
-    unzip
-    zip
-    p7zip
-    rar
-    dos2unix
-    jq
-    parted
-    libqalculate
-    qalculate-gtk
-    direnv
-    cachix
-    ollama
-    antigravity
 
-    # network
-    zapret
-    autossh
-    glib-networking
-
-    # gaming
-    heroic
-    bottles
-    prismlauncher
-    virt-manager
-    libvirt
-    qemu
-    wine
-
-    # dev tools
-    git
-    gnumake
-    pkg-config
-    binutils
-    openssl
-    openssl.dev
-    sqlite
-    hidapi
-    xdotool
-    cargo-tauri
-    trunk
-    dioxus-cli
-    picotool
-    stripe-cli
-    nil
-    nixpkgs-fmt
-
-    # languages
-    gcc
-    rustup
-    python3
-    jdk
-    go
-    zig
-    odin
-    uv
-    ghc
-    cabal-install
-    lua
-    luajit
-    zlib
-    glibc
-    glib
-    libGL
-    glm
-
-    # desktop environment
-    waybar
-    wofi
-    fuzzel
-    swaylock
-    swayidle
-    eww
-    bibata-cursors
-    flatpak
-    feh
-    wl-clipboard
-    grim
-    slurp
-    imagemagick
-    tesseract
-    wf-recorder
-    shared-mime-info
-
-    # graphics & display
-    mesa
-    adwaita-qt
-    adwaita-qt6
-    gsettings-desktop-schemas
-    kdePackages.qtmultimedia
-    qt6Packages.qtbase
-    qt6Packages.qttools
-    qt6Packages.qtsvg
-    qt6Packages.qtdeclarative
-    qt6Packages.qtwayland
-    qt6Packages.qtwebsockets
-    libsoup_3
-    gtk3
-    webkitgtk_4_1
-
-    # media
-    mpv
-    ffmpeg
-    yt-dlp
-    obs-studio
-    cava
-    easyeffects
-    pavucontrol
-    playerctl
-    pamixer
-    alsa-utils
-    alsa-lib
-    aubio
-    spotatui
-
-    # editors
-    vim
-    neovim
-    helix
-    vscode
-    zed-editor
-
-    # apps
-    firefox
-    chromium
-    thunderbird
-    telegram-desktop
-    discord
-    equibop
-    slack
-    whatsapp-electron
-    ghostty
-    alacritty
-    kitty
-    nautilus
-    loupe
-    onlyoffice-desktopeditors
-    qbittorrent
-    localsend
-    jellyfin-media-player
-    ani-cli
-    blender
-
-    # mobile
+    # ip
     libimobiledevice
     ifuse
     usbmuxd
     uxplay-fixed
 
-    # icons
-    material-symbols
-    nixos-icons
-    papirus-icon-theme
-    adwaita-icon-theme
-    gnome-icon-theme
-    hicolor-icon-theme
-    pantheon.elementary-icon-theme
-    tango-icon-theme
-    arc-icon-theme
-    gnome-themes-extra
+    # virt
+    virt-manager
+    libvirt
+    qemu
+
+    # hrd
+    ddcutil
+    brightnessctl
+    lm_sensors
+    smartmontools
+    gsmartcontrol
+    parted
   ];
 }

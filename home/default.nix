@@ -1,11 +1,12 @@
 {
   pkgs,
+  inputs,
+  system,
   ...
 }:
+
 {
-  imports = [
-    ./hyprland.nix
-  ];
+  imports = [ ./hyprland.nix ];
 
   home.username = "elars";
   home.homeDirectory = "/home/elars";
@@ -19,7 +20,6 @@
     x11.enable = true;
   };
 
-  # Alternatifsiz tek shell.
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -38,71 +38,10 @@
       window-padding-y = 10;
     };
   };
-  xdg.configFile = {
-    "fastfetch".source = ./dots/fastfetch;
-  };
-  home.packages = with pkgs; [
-    eza
-    bat
-    fd
-    fastfetch
-    vulkan-tools
-    libva-utils
-    mesa-demos
-    intel-gpu-tools
-    clinfo
-    trash-cli
-    rsync
-  ];
-
   programs.starship.enable = true;
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
   programs.home-manager.enable = true;
-
-  fonts.fontconfig.enable = true;
-  services.kdeconnect.enable = true;
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-      gtk-application-prefer-dark-theme = true;
-    };
-    "org/gnome/nautilus/preferences" = {
-      default-folder-viewer = "icon-view";
-      show-hidden-files = true;
-    };
-    "org/gtk/settings/file-chooser" = {
-      sort-directories-first = true;
-    };
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.theme = null;
-  };
-
   qt = {
     enable = true;
     platformTheme.name = "gtk3";
@@ -111,4 +50,163 @@
       package = pkgs.adwaita-qt;
     };
   };
+
+  xdg.configFile = {
+    "fastfetch".source = ./dots/fastfetch;
+    "fish/conf.d".source = ./dots/fish/conf.d;
+  };
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+    };
+  };
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-application-prefer-dark-theme = true;
+    };
+    "org/gnome/nautilus/preferences" = {
+      default-folder-viewer = "icon-view";
+    };
+  };
+  fonts.fontconfig.enable = true;
+  services.kdeconnect.enable = true;
+
+  home.packages = with pkgs; [
+    # cli
+    eza
+    bat
+    fd
+    micro
+    fastfetch
+    zoxide
+    trash-cli
+    rsync
+    jq
+    zip
+    p7zip
+    rar
+    dos2unix
+    unzip
+    wget
+    autossh
+    xdotool
+    wl-clipboard
+    direnv
+    fish
+    git
+    cachix
+    hidapi
+    btop
+    luajit
+
+    vulkan-tools
+    libva-utils
+    mesa-demos
+    intel-gpu-tools
+    clinfo
+    heroic
+    bottles
+    prismlauncher
+
+    waybar
+    wofi
+    fuzzel
+    swaylock
+    swayidle
+    feh
+    eww
+    easyeffects
+    swappy
+    grim
+    slurp
+    wf-recorder
+
+    mpv
+    obs-studio
+    ffmpeg
+    yt-dlp
+    imagemagick
+    tesseract
+    cava
+    pavucontrol
+    playerctl
+    pamixer
+
+    # editors
+    vim
+    neovim
+    helix
+    vscode
+    zed-editor
+
+    # dev tools
+    nil
+    nixpkgs-fmt
+    gnumake
+    sqlite
+    picotool
+    stripe-cli
+    openssl
+    pkg-config
+    aubio
+    docker-compose
+    cargo-tauri
+    trunk
+    dioxus-cli
+    uv
+
+    # langs
+    odin
+    ghc
+    cabal-install
+    go
+    rustup
+    gcc
+    binutils
+    zig
+    lua
+    glm
+
+    # themes and icons
+    bibata-cursors
+    gnome-themes-extra
+    papirus-icon-theme
+    adwaita-icon-theme
+    adwaita-qt6
+    gnome-icon-theme
+    hicolor-icon-theme
+    pantheon.elementary-icon-theme
+    tango-icon-theme
+    arc-icon-theme
+
+    # apps
+    thunderbird
+    telegram-desktop
+    onlyoffice-desktopeditors
+    nautilus
+    loupe
+    spacedrive
+    qbittorrent
+    localsend
+    jellyfin-media-player
+    calibre
+    ani-cli
+    sioyek
+    qalculate-gtk
+    libqalculate
+    blender
+    wine
+    antigravity
+    spotatui
+    whatsapp-electron
+    alacritty
+    kitty
+    equibop
+    discord
+    slack
+    solaar
+
+  ];
 }
