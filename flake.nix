@@ -26,7 +26,15 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, chaotic, home-manager, nix-cachyos-kernel, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      chaotic,
+      home-manager,
+      nix-cachyos-kernel,
+      ...
+    }:
     let
       system = "x86_64-linux";
 
@@ -61,7 +69,12 @@
             chaotic.nixosModules.default
             home-manager.nixosModules.home-manager
             {
-              nixpkgs.overlays = [ chaoticOverlay cachyosKernelOverlay gtkPortalOverlay ];
+              nixpkgs.overlays = [
+                chaoticOverlay
+                cachyosKernelOverlay
+                copetchOverlay
+                gtkPortalOverlay
+              ];
               nixpkgs.config.allowUnfree = true;
             }
             {

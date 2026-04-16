@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   users.users.elars = {
@@ -30,5 +30,4 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
   };
-  programs.firefox.enable = true;
 }

@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, system, zen-browser, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  zen-browser,
+  ...
+}:
 let
   packages = import ./packages.nix { inherit pkgs; };
 in
