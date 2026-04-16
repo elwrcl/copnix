@@ -145,7 +145,7 @@ with pkgs;
     neovim
     helix
     vscode
-    (zed-editor.override { withGLES = true; })
+    zed-editor
 
     # apps
     firefox
