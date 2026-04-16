@@ -63,7 +63,6 @@ with pkgs;
     openssl.dev
     sqlite
     hidapi
-    solaar
     xdotool
     cargo-tauri
     trunk
@@ -143,7 +142,6 @@ with pkgs;
 
     # editors
     vim
-    micro
     neovim
     helix
     vscode
@@ -163,13 +161,10 @@ with pkgs;
     kitty
     nautilus
     loupe
-    spacedrive
     onlyoffice-desktopeditors
-    sioyek
     qbittorrent
     localsend
     jellyfin-media-player
-    calibre
     ani-cli
     blender
 
@@ -179,10 +174,7 @@ with pkgs;
     usbmuxd
     uxplay-fixed
 
-    # fonts & icons
-    nerd-fonts.jetbrains-mono
-    nerd-fonts.caskaydia-cove
-    noto-fonts-cjk-sans
+    # icons
     material-symbols
     nixos-icons
     papirus-icon-theme

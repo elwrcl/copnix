@@ -15,6 +15,12 @@
       noto-fonts-color-emoji
       ipaexfont
       nerd-fonts.jetbrains-mono
+      nerd-fonts.caskaydia-cove
+      noto-fonts-cjk-sans
+      nerd-fonts.symbols-only
+      inputs.apple-fonts.packages.${system}.sf-pro
+      inputs.apple-fonts.packages.${system}.sf-mono
+      nerd-fonts.jetbrains-mono
     ];
 
     fontconfig = {
