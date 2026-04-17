@@ -62,6 +62,7 @@
 
   home.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
+    BROWSER = "zen-beta";
   };
 
   xdg.configFile = {
@@ -113,6 +114,7 @@
     cachix
     hidapi
     btop
+    xdg-utils
 
     vulkan-tools
     libva-utils
@@ -156,6 +158,7 @@
 
     # dev tools
     nil
+    github-copilot-cli
     nixpkgs-fmt
     gnumake
     sqlite
