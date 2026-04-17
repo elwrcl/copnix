@@ -12,7 +12,7 @@ alias ll='eza -lah --icons --group-directories-first'
 alias la='eza -a --icons --group-directories-first'
 alias lt='eza --tree --level=2 --icons'
 
-# zoxide (cd replacement)
+# zoxide
 alias cd='z'
 
 # utils
