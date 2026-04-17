@@ -10,10 +10,11 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.hyprland.default = lib.mkForce [
-      "hyprland"
-      "gtk"
-    ];
+    config.hyprland = lib.mkForce {
+      default = "gtk";
+      "org.freedesktop.impl.portal.Screenshot" = "hyprland";
+      "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
+    };
   };
 
   services = {
