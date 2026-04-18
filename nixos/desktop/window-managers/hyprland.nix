@@ -9,11 +9,18 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
     config.hyprland = lib.mkForce {
-      default = "gtk";
-      "org.freedesktop.impl.portal.Screenshot" = "hyprland";
-      "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
+      default = [
+        "hyprland"
+        "gtk"
+      ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+      "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
     };
   };
 
@@ -31,7 +38,6 @@
   };
 
   security.polkit.enable = true;
-
   environment.systemPackages = with pkgs; [
     glib
     dconf
