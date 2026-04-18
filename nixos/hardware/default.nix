@@ -5,6 +5,5 @@
     ./bluetooth
     ./graphics
     ./udev
-    ./keyboard
   ];
 }
