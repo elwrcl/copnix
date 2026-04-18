@@ -3,15 +3,14 @@
 {
   imports = [
     ./appimage
-    ./kde_connect
-    ./printing
-    ./ssh
-    ./security
-    ./psql
     ./flatpak
     ./fwupd
-    ./samba
-    ./performance
+    ./kde_connect
     ./ollama
+    ./performance
+    ./printing
+    ./samba
+    ./security
+    ./ssh
   ];
 }
