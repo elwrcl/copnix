@@ -5,9 +5,9 @@
     enable = true;
     settings = {
       animation = "colormix";
-      colormix_col1 = "0x00CC00FF";
+      colormix_col1 = "0x00FFFFFF";
       colormix_col2 = "0x000000EE";
-      colormix_col3 = "0x00880099";
+      colormix_col3 = "0x00777799";
 
       bigclock = "en";
       bigclock_12hr = false;
