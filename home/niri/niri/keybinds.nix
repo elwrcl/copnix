@@ -1,9 +1,6 @@
 ''
   binds {
-  Mod {
-    on-key-release
-    spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"
-  }
+  Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
 
     // workspace navi
     Ctrl+Mod+Up   { focus-workspace-up; }
@@ -12,7 +9,6 @@
     Ctrl+Mod+Right { focus-column-right; }
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Right { move-column-right; }
-    Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Down  { move-window-down; }
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
