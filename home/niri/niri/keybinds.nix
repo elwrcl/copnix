@@ -3,11 +3,15 @@
     Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
 
     // Workspace navigation
-    Mod+Up   { focus-workspace-up; }
-    Mod+Down { focus-workspace-down; }
+    Ctrl+Mod+Up   { focus-workspace-up; }
+    Ctrl+Mod+Down { focus-workspace-down; }
+
+    // Column/Sütun focus (same workspace)
+    Ctrl+Mod+Left  { focus-column-left; }
+    Ctrl+Mod+Right { focus-column-right; }
 
     // Interface
-    Mod+Tab         { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
+    Mod+Tab         { toggle-overview; }
     Mod+P           { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
     Ctrl+Alt+Delete { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
 
@@ -31,13 +35,8 @@
     Mod+Q { close-window; }
     Mod+F { fullscreen-window; }
     Mod+D { maximize-column; }
-    // togglefloating ve pin Niri'de yok
 
-    // Focus
-    Mod+Left  { focus-column-left; }
-    Mod+Right { focus-column-right; }
-
-    // Move windows
+    // Move windows (Shift+Super)
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Right { move-column-right; }
     Mod+Shift+Up    { move-window-up; }
@@ -55,7 +54,7 @@
     Mod+9 { focus-workspace 9; }
     Mod+0 { focus-workspace 10; }
 
-    // Move window to workspace
+    // Move column to workspace
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }
     Mod+Shift+3 { move-column-to-workspace 3; }

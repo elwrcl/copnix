@@ -75,4 +75,8 @@
       curve "ease-out-expo"
     }
   }
+
+  overview {
+    hotcorner-trigger-distance 0
+  }
 ''
