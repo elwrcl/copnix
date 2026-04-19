@@ -1,48 +1,16 @@
 ''
   binds {
-    Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+  Mod { on-key-release { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; } }
 
-    // Workspace navigation
+    // workspace navi
     Ctrl+Mod+Up   { focus-workspace-up; }
     Ctrl+Mod+Down { focus-workspace-down; }
-
-    // Column/Sütun focus (same workspace)
     Ctrl+Mod+Left  { focus-column-left; }
     Ctrl+Mod+Right { focus-column-right; }
-
-    // Interface
-    Mod+Tab         { toggle-overview; }
-    Mod+P           { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
-    Ctrl+Alt+Delete { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
-
-    // Plugins
-    Mod+Shift+S { spawn "noctalia-shell" "ipc" "call" "plugin:screen-shot-and-record" "screenshot"; }
-    Mod+Shift+Z { spawn "noctalia-shell" "ipc" "call" "plugin:screen-shot-and-record" "search"; }
-    Mod+Shift+X { spawn "noctalia-shell" "ipc" "call" "plugin:screen-shot-and-record" "ocr"; }
-    Mod+Shift+C { spawn "noctalia-shell" "ipc" "call" "plugin:music" "panel"; }
-
-    // Launchers
-    Mod+Return        { spawn "ghostty"; }
-    Mod+W             { spawn "zen-beta"; }
-    Mod+E             { spawn "nautilus"; }
-    Mod+Z             { spawn "zeditor"; }
-    Mod+Alt+V         { spawn "pavucontrol"; }
-    Mod+Shift+V       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+Shift+L       { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
-    Ctrl+Shift+Escape { spawn "ghostty" "-e" "btop"; }
-
-    // Window management
-    Mod+Q { close-window; }
-    Mod+F { fullscreen-window; }
-    Mod+D { maximize-column; }
-
-    // Move windows (Shift+Super)
     Mod+Shift+Left  { move-column-left; }
     Mod+Shift+Right { move-column-right; }
     Mod+Shift+Up    { move-window-up; }
     Mod+Shift+Down  { move-window-down; }
-
-    // Workspace navigation (absolute)
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -53,8 +21,6 @@
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
     Mod+0 { focus-workspace 10; }
-
-    // Move column to workspace
     Mod+Shift+1 { move-column-to-workspace 1; }
     Mod+Shift+2 { move-column-to-workspace 2; }
     Mod+Shift+3 { move-column-to-workspace 3; }
@@ -65,6 +31,32 @@
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
     Mod+Shift+0 { move-column-to-workspace 10; }
+
+    // interface
+    Mod+Tab         { toggle-overview; }
+    Mod+P           { spawn "noctalia-shell" "ipc" "call" "bar" "toggle"; }
+    Ctrl+Alt+Delete { spawn "noctalia-shell" "ipc" "call" "sessionMenu" "toggle"; }
+
+    // plugins
+    Mod+Shift+S { spawn "noctalia-shell" "ipc" "call" "plugin:screen-shot-and-record" "screenshot"; }
+    Mod+Shift+Z { spawn "noctalia-shell" "ipc" "call" "plugin:screen-shot-and-record" "search"; }
+    Mod+Shift+X { spawn "noctalia-shell" "ipc" "call" "plugin:screen-shot-and-record" "ocr"; }
+    Mod+Shift+C { spawn "noctalia-shell" "ipc" "call" "plugin:music" "panel"; }
+
+    // launch
+    Mod+Return        { spawn "ghostty"; }
+    Mod+W             { spawn "zen-beta"; }
+    Mod+E             { spawn "nautilus"; }
+    Mod+Z             { spawn "zeditor"; }
+    Mod+Alt+V         { spawn "pavucontrol"; }
+    Mod+Shift+V       { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+Shift+L       { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Ctrl+Shift+Escape { spawn "ghostty" "-e" "btop"; }
+
+    // win binds
+    Mod+Q { close-window; }
+    Mod+F { fullscreen-window; }
+    Mod+D { maximize-column; }
 
     // Media
     Mod+Shift+N { spawn "playerctl" "next"; }
