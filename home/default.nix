@@ -2,11 +2,12 @@
   pkgs,
   inputs,
   system,
+  compositor,
   ...
 }:
 
 {
-  imports = [ ./hyprland.nix ];
+  imports = [ (if compositor == "niri" then ./niri.nix else ./hyprland.nix) ];
 
   home.username = "elars";
   home.homeDirectory = "/home/elars";

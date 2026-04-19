@@ -1,10 +1,11 @@
-{ ... }:
+{ compositor, ... }:
 
 {
   imports = [
     ./display
     ./window-managers
     ./audio
+    (if compositor == "niri" then ./niri.nix else ./hyprland.nix)
   ];
 
   xdg.mime = {

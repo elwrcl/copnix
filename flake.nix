@@ -36,11 +36,12 @@
     }:
     let
       system = "x86_64-linux";
+      compositor = "niri";
     in
     {
       nixosConfigurations = {
         copland = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs system; };
+          specialArgs = { inherit inputs system compositor; };
 
           modules = [
             { nixpkgs.hostPlatform = system; }
@@ -57,7 +58,7 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = { inherit inputs system; };
+                extraSpecialArgs = { inherit inputs system compositor; };
                 users.elars = import ./home;
               };
             }
