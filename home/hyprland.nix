@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -10,8 +10,8 @@
     xwayland.enable = true;
     systemd.enable = true;
     plugins = [
-      pkgs.hyprlandPlugins.hyprscrolling
-      pkgs.hyprlandPlugins.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
   };
 }

@@ -15,9 +15,9 @@ in
       # workspace
       "CTRL $mainMod, right, workspace, r+1"
       "CTRL $mainMod, left,  workspace, r-1"
-      "$mainMod, R,         scroller:cyclewidth, next"
-      "$mainMod, C,         scroller:alignwindow, c"
-      "$mainMod SHIFT, R,   scroller:resetheight,"
+      "$mainMod, R,         layoutmsg, colresize +conf"
+      "$mainMod, C,         layoutmsg, center"
+      "$mainMod SHIFT, R,   layoutmsg, colresize 0.7"
 
       # interface
       "$mainMod, Tab,       hyprexpo:expo, toggle"
@@ -46,15 +46,15 @@ in
       "$mainMod ALT, P,       pin"
 
       # focus windows
-      "$mainMod, left,  scroller:movefocus, l"
-      "$mainMod, right, scroller:movefocus, r"
-      "$mainMod, up,    scroller:movefocus, u"
-      "$mainMod, down,  scroller:movefocus, d"
+      "$mainMod, left,  layoutmsg, move -col"
+      "$mainMod, right, layoutmsg, move +col"
+      "$mainMod, up,    movefocus, u"
+      "$mainMod, down,  movefocus, d"
 
-      "$mainMod SHIFT, left,  scroller:movewindow, l"
-      "$mainMod SHIFT, right, scroller:movewindow, r"
-      "$mainMod SHIFT, up,    scroller:movewindow, u"
-      "$mainMod SHIFT, down,  scroller:movewindow, d"
+      "$mainMod SHIFT, left,  layoutmsg, movewindowto l"
+      "$mainMod SHIFT, right, layoutmsg, movewindowto r"
+      "$mainMod SHIFT, up,    movewindow, u"
+      "$mainMod SHIFT, down,  movewindow, d"
 
       # workspace navigation
       "$mainMod, 1, workspace, 1"

@@ -12,15 +12,14 @@
       "col.inactive_border" = "rgba(31313600)";
       resize_on_border = true;
       allow_tearing = true;
-      layout = "scroller";
+      layout = "scrolling";
     };
 
     plugin = {
-      scrolling = {
-        column_default_width = "one";
-        focus_wrap = false;
-        column_widths = "onehalf one twothirds";
-        center_row_first = true;
+      hyprscrolling = {
+        column_width = 0.7;
+        fullscreen_on_one_column = false;
+        focus_fit_method = 1;
       };
       hyprexpo = {
         columns = 3;
