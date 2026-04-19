@@ -16,7 +16,7 @@
     };
 
     plugin = {
-      scroller = {
+      scrolling = {
         column_default_width = "one";
         focus_wrap = false;
         column_widths = "onehalf one twothirds";
