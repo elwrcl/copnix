@@ -12,13 +12,26 @@
       "col.inactive_border" = "rgba(31313600)";
       resize_on_border = true;
       allow_tearing = true;
-      layout = "dwindle";
+      layout = "scroller";
     };
 
-    dwindle = {
-      preserve_split = true;
-      smart_split = false;
-      smart_resizing = false;
+    plugin = {
+      scroller = {
+        column_default_width = "one";
+        focus_wrap = false;
+        column_widths = "onehalf one twothirds";
+        center_row_first = true;
+      };
+      hyprexpo = {
+        columns = 3;
+        gap_size = 8;
+        bg_col = "rgb(000000)";
+        workspace_method = "center current";
+        enable_gesture = true;
+        gesture_fingers = 3;
+        gesture_distance = 300;
+        gesture_positive = true;
+      };
     };
 
     decoration = {
@@ -28,8 +41,12 @@
       inactive_opacity = 1.0;
       dim_inactive = true;
       dim_strength = 0.05;
-      blur = { enabled = false; };
-      shadow = { enabled = false; };
+      blur = {
+        enabled = false;
+      };
+      shadow = {
+        enabled = false;
+      };
     };
 
     input = {

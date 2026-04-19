@@ -12,12 +12,15 @@ in
     ];
 
     bind = [
-      # workspace navigation
+      # workspace
       "CTRL $mainMod, right, workspace, r+1"
       "CTRL $mainMod, left,  workspace, r-1"
+      "$mainMod, R,         scroller:cyclewidth, next"
+      "$mainMod, C,         scroller:alignwindow, c"
+      "$mainMod SHIFT, R,   scroller:resetheight,"
 
       # interface
-      "$mainMod, Tab,         exec, ${ipc} launcher windows"
+      "$mainMod, Tab,       hyprexpo:expo, toggle"
       "$mainMod, P,           exec, ${ipc} bar toggle"
       "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle"
       # plugins
@@ -43,16 +46,15 @@ in
       "$mainMod ALT, P,       pin"
 
       # focus windows
-      "$mainMod, left,        movefocus, l"
-      "$mainMod, right,       movefocus, r"
-      "$mainMod, up,          movefocus, u"
-      "$mainMod, down,        movefocus, d"
+      "$mainMod, left,  scroller:movefocus, l"
+      "$mainMod, right, scroller:movefocus, r"
+      "$mainMod, up,    scroller:movefocus, u"
+      "$mainMod, down,  scroller:movefocus, d"
 
-      # move windows
-      "$mainMod SHIFT, left,  movewindow, l"
-      "$mainMod SHIFT, right, movewindow, r"
-      "$mainMod SHIFT, up,    movewindow, u"
-      "$mainMod SHIFT, down,  movewindow, d"
+      "$mainMod SHIFT, left,  scroller:movewindow, l"
+      "$mainMod SHIFT, right, scroller:movewindow, r"
+      "$mainMod SHIFT, up,    scroller:movewindow, u"
+      "$mainMod SHIFT, down,  scroller:movewindow, d"
 
       # workspace navigation
       "$mainMod, 1, workspace, 1"
