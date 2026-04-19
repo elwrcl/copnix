@@ -1,17 +1,17 @@
-{ inputs, pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  imports = [
-    ./hypr/default.nix
-  ];
+  imports = [ ./hypr/default.nix ];
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
     systemd.enable = true;
     plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprscrolling
-      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
     ];
   };
 }
