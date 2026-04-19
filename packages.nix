@@ -22,7 +22,7 @@ with pkgs;
     qemu
 
     # hardware
-    xwayland-satelite
+    xwayland-satellite
     ddcutil
     libsecret
     brightnessctl
