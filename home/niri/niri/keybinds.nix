@@ -3,8 +3,8 @@
     Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
 
     // Workspace navigation
-    Ctrl+Mod+Right { focus-workspace-down; }
-    Ctrl+Mod+Left  { focus-workspace-up; }
+    Mod+Up   { focus-workspace-up; }
+    Mod+Down { focus-workspace-down; }
 
     // Interface
     Mod+Tab         { spawn "noctalia-shell" "ipc" "call" "launcher" "windows"; }
@@ -36,8 +36,6 @@
     // Focus
     Mod+Left  { focus-column-left; }
     Mod+Right { focus-column-right; }
-    Mod+Up    { focus-window-up; }
-    Mod+Down  { focus-window-down; }
 
     // Move windows
     Mod+Shift+Left  { move-column-left; }
@@ -73,10 +71,6 @@
     Mod+Shift+N { spawn "playerctl" "next"; }
     Mod+Shift+B { spawn "playerctl" "previous"; }
     Mod+Shift+P { spawn "playerctl" "play-pause"; }
-
-    // Mouse binds
-    Mod+BTN_LEFT  { move-window-with-mouse; }
-    Mod+BTN_RIGHT { resize-window-with-mouse; }
 
     // Volume & brightness
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
