@@ -1,16 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.niri.enable = true;
 
   xdg.portal = {
     extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr
     ];
 
-    config.niri = {
+    config.niri = lib.mkForce {
       default = [
         "wlr"
         "gnome"
