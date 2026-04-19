@@ -1,5 +1,6 @@
 ''
   prefer-no-csd
+  xwayland-satellite-path "/run/current-system/sw/bin/xwayland-satellite"
 
   debug {
     honor-xdg-activation-with-invalid-serial
