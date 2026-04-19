@@ -10,7 +10,7 @@
     xwayland.enable = true;
     systemd.enable = true;
     plugins = [
-      pkgs.hyprlandPlugins.hyprscroller
+      pkgs.hyprlandPlugins.hyprscrolling
       pkgs.hyprlandPlugins.hyprexpo
     ];
   };
