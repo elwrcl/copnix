@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -14,3 +14,4 @@
       pkgs.hyprlandPlugins.hyprexpo
     ];
   };
+}
