@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   programs.niri.enable = true;
@@ -11,9 +11,14 @@
     ];
 
     config.niri = {
-      default = [ "wlr" "gnome" "gtk" ];
+      default = [
+        "wlr"
+        "gnome"
+        "gtk"
+      ];
       "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
       "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
       "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
     };
   };
+}
