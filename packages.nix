@@ -12,6 +12,7 @@ with pkgs;
     jmtpfs
     libimobiledevice
     ifuse
+    kdePackages.krdp
     usbmuxd
     uxplay-fixed
 
