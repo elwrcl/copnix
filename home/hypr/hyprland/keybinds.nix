@@ -26,7 +26,6 @@ in
       "$mainMod SHIFT, R,   layoutmsg, colresize 0.7"
 
       # interface
-      "$mainMod, Tab,       hyprexpo:expo, toggle"
       "$mainMod, P,           exec, ${ipc} bar toggle"
       "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle"
       # plugins
