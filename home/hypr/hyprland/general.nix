@@ -15,12 +15,15 @@
       layout = "scrolling";
     };
 
+    scrolling = {
+      column_width = 0.7;
+      fullscreen_on_one_column = false;
+      focus_fit_method = 1;
+      follow_focus = true;
+      direction = "right";
+    };
+
     plugin = {
-      hyprscrolling = {
-        column_width = 0.7;
-        fullscreen_on_one_column = false;
-        focus_fit_method = 1;
-      };
       hyprexpo = {
         columns = 3;
         gap_size = 8;

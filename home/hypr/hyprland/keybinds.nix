@@ -13,8 +13,14 @@ in
 
     bind = [
       # workspace
-      "CTRL $mainMod, right, workspace, r+1"
-      "CTRL $mainMod, left,  workspace, r-1"
+      "CTRL $mainMod, right, layoutmsg, focus r"
+      "CTRL $mainMod, left,  layoutmsg, focus l"
+      "CTRL $mainMod, down,  workspace, r+1"
+      "CTRL $mainMod, up,    workspace, r-1"
+      "CTRL $mainMod SHIFT, right, layoutmsg, movewindowto r"
+      "CTRL $mainMod SHIFT, left,  layoutmsg, movewindowto l"
+      "CTRL $mainMod SHIFT, down,  movetoworkspace, r+1"
+      "CTRL $mainMod SHIFT, up,    movetoworkspace, r-1"
       "$mainMod, R,         layoutmsg, colresize +conf"
       "$mainMod, C,         layoutmsg, center"
       "$mainMod SHIFT, R,   layoutmsg, colresize 0.7"
