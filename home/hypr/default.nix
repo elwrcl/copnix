@@ -7,6 +7,5 @@
     ./hyprland/general.nix
     ./hyprland/rules.nix
     ./hyprland/keybinds.nix
-    ./hyprland/plugins.nix
   ];
 }
