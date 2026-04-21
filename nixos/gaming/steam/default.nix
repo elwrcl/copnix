@@ -9,7 +9,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extest.enable = true;
+    extest.enable = false;
     protontricks.enable = true;
 
     extraCompatPackages = with pkgs; [
