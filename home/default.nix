@@ -153,6 +153,7 @@
 
     # media
     mpv
+    mpvpaper
     obs-studio
     ffmpeg
     yt-dlp
