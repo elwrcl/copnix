@@ -19,8 +19,16 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
     ];
+    config = {
+      common.default = "*";
+      hyprland = {
+        default = [
+          "hyprland"
+          "gtk"
+        ];
+      };
+    };
   };
-
   services = {
     dbus.enable = true;
     pipewire = {

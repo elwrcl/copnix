@@ -26,6 +26,7 @@ in
     inputs.zen-browser.packages.${system}.default
     inputs.noctalia.packages.${system}.default
     inputs.copetch.packages.${system}.default
+    pkgs.qt6.qtwebsockets
   ];
   environment.pathsToLink = [
     "/share/applications"
