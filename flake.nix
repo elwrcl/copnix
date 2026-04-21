@@ -24,8 +24,8 @@
       url = "github:Lyndeno/apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+    illogical-flake = {
+      url = "github:soymou/illogical-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

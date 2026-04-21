@@ -8,6 +8,7 @@
 {
   imports = [
     ./hyprland.nix
+    inputs.illogical-flake.homeManagerModules.default
   ];
 
   home.username = "elars";
@@ -28,6 +29,15 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     initContent = builtins.readFile ./dots/zsh/.zshrc;
+  };
+
+  programs.illogical-impulse = {
+    enable = true;
+    dotfiles = {
+      fish.enable = false;
+      kitty.enable = false;
+      starship.enable = false;
+    };
   };
 
   programs.ghostty = {

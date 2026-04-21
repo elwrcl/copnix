@@ -9,6 +9,8 @@
   fonts = {
     packages = with pkgs; [
       noto-fonts
+      rubik
+      nerd-fonts.ubuntu
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
