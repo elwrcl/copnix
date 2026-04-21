@@ -21,7 +21,6 @@
       focus_fit_method = 1;
       follow_focus = true;
       direction = "right";
-      notify_on_column_change = true;
     };
 
     decoration = {
