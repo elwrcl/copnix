@@ -8,8 +8,8 @@
       gaps_in = 4;
       gaps_out = 5;
       border_size = 2;
-      "col.active_border" = "rgba(ff6b6bff) rgba(4ecdc4ff) 90deg";
-      "col.inactive_border" = "rgba(31313622)";
+      "col.active_border" = "rgba(ffffffff)";
+      "col.inactive_border" = "rgba(ffffff66)";
       resize_on_border = true;
       allow_tearing = true;
       layout = "scrolling";
@@ -74,32 +74,28 @@
     };
 
     bezier = [
-      "expressiveDefaultSpatial, 0.38, 1.21, 0.22, 1.00"
-      "emphasizedDecel, 0.05, 0.7, 0.1, 1"
-      "emphasizedAccel, 0.3, 0, 0.8, 0.15"
-      "standardDecel, 0, 0, 0, 1"
+      "omniDecel, 0.05, 0.9, 0.1, 1"
+      "omniAccel, 0.3, 0, 0.8, 0.15"
+      "omniSmooth, 0.25, 0.1, 0.25, 1"
+      "omniOvershoot, 0.16, 1, 0.3, 1"
       "menu_decel, 0.1, 1, 0, 1"
       "menu_accel, 0.52, 0.03, 0.72, 0.08"
-      "stall, 1, -0.1, 0.7, 0.85"
-      "smoothIn, 0.25, 0.46, 0.45, 0.94"
-      "smoothOut, 0.42, 0, 0.58, 1"
-      "smoothInOut, 0.42, 0, 0.58, 1"
     ];
 
     animation = [
-      "windowsIn,  1, 4, smoothOut, popin 75%"
-      "windowsOut, 1, 3, smoothIn, popin 85%"
-      "windowsMove, 1, 4, smoothOut, slide"
-      "fadeIn,     1, 3, smoothOut"
-      "fadeOut,    1, 2.5, smoothIn"
-      "border,     1, 8, smoothOut"
-      "layersIn,   1, 3, smoothOut, popin 90%"
-      "layersOut,  1, 2, smoothIn, popin 92%"
-      "fadeLayersIn,  1, 1, smoothOut"
-      "fadeLayersOut, 1, 2, smoothIn"
-      "workspaces, 1, 6, smoothOut, slide"
-      "specialWorkspaceIn,  1, 3, smoothOut, slidevert"
-      "specialWorkspaceOut, 1, 2, smoothIn, slidevert"
+      "windowsIn,  1, 5, omniOvershoot, popin 82%"
+      "windowsOut, 1, 4, omniAccel, popin 90%"
+      "windowsMove, 1, 5, omniDecel, slide"
+      "fadeIn,     1, 4, omniDecel"
+      "fadeOut,    1, 3, omniAccel"
+      "border,     1, 8, omniSmooth"
+      "layersIn,   1, 4, omniDecel, popin 90%"
+      "layersOut,  1, 3, omniAccel, popin 93%"
+      "fadeLayersIn,  1, 2, omniDecel"
+      "fadeLayersOut, 1, 2, omniAccel"
+      "workspaces, 1, 7, omniDecel, slide"
+      "specialWorkspaceIn,  1, 4, omniDecel, slidevert"
+      "specialWorkspaceOut, 1, 3, omniAccel, slidevert"
     ];
 
     device = [
