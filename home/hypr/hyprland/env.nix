@@ -8,6 +8,7 @@
       "XDG_SESSION_TYPE,wayland"
       "XDG_CURRENT_DESKTOP,Hyprland"
       "XDG_SESSION_DESKTOP,Hyprland"
+      "QT_STYLE_OVERRIDE,adwaita-dark"
       "GDK_BACKEND,wayland,x11"
       "QT_QPA_PLATFORM,wayland;xcb"
       "QT_QPA_PLATFORMTHEME,gtk3"

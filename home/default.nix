@@ -1,15 +1,11 @@
 {
   pkgs,
-  inputs,
-  system,
-  lib,
   ...
 }:
 
 {
   imports = [
     ./hyprland.nix
-    inputs.illogical-flake.homeManagerModules.default
   ];
 
   home.username = "elars";
@@ -32,14 +28,6 @@
     initContent = builtins.readFile ./dots/zsh/.zshrc;
   };
 
-  programs.illogical-impulse = {
-    enable = true;
-    dotfiles = {
-      fish.enable = false;
-      kitty.enable = false;
-    };
-  };
-
   programs.ghostty = {
     enable = true;
     settings = {
@@ -54,6 +42,15 @@
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
   programs.home-manager.enable = true;
+
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk3";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
 
   gtk = {
     enable = true;

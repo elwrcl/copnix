@@ -24,6 +24,7 @@ in
   environment.systemPackages = packages.system ++ [
     inputs.helium.packages.${system}.default
     inputs.zen-browser.packages.${system}.default
+    inputs.noctalia.packages.${system}.default
     inputs.copetch.packages.${system}.default
   ];
   environment.pathsToLink = [
