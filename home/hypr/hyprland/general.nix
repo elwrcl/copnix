@@ -82,19 +82,19 @@
     ];
 
     animation = [
-      "windowsIn,  1, 5, omniOvershoot, popin 82%"
-      "windowsOut, 1, 4, omniAccel, popin 90%"
-      "windowsMove, 1, 5, omniDecel, slide"
-      "fadeIn,     1, 4, omniDecel"
-      "fadeOut,    1, 3, omniAccel"
-      "border,     1, 8, omniSmooth"
-      "layersIn,   1, 4, omniDecel, popin 90%"
-      "layersOut,  1, 3, omniAccel, popin 93%"
-      "fadeLayersIn,  1, 2, omniDecel"
-      "fadeLayersOut, 1, 2, omniAccel"
-      "workspaces, 1, 7, omniDecel, slide"
-      "specialWorkspaceIn,  1, 4, omniDecel, slidevert"
-      "specialWorkspaceOut, 1, 3, omniAccel, slidevert"
+      "windowsIn,  1, 6, omniOvershoot, popin 86%"
+      "windowsOut, 1, 5, omniAccel, popin 92%"
+      "windowsMove, 1, 6, omniDecel, slide"
+      "fadeIn,     1, 5, omniDecel"
+      "fadeOut,    1, 4, omniAccel"
+      "border,     1, 10, omniSmooth"
+      "layersIn,   1, 5, omniDecel, popin 92%"
+      "layersOut,  1, 4, omniAccel, popin 94%"
+      "fadeLayersIn,  1, 3, omniDecel"
+      "fadeLayersOut, 1, 3, omniAccel"
+      "workspaces, 1, 8, omniDecel, slide"
+      "specialWorkspaceIn,  1, 5, omniDecel, slidevert"
+      "specialWorkspaceOut, 1, 4, omniAccel, slidevert"
     ];
 
     device = [
