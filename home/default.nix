@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   system,
+  lib,
   ...
 }:
 
@@ -36,7 +37,6 @@
     dotfiles = {
       fish.enable = false;
       kitty.enable = false;
-      starship.enable = false;
     };
   };
 
