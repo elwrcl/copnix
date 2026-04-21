@@ -55,15 +55,6 @@
   programs.zoxide.enable = true;
   programs.home-manager.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk3";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
-
   gtk = {
     enable = true;
     theme = {
