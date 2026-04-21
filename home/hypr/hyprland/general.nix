@@ -7,20 +7,21 @@
     general = {
       gaps_in = 4;
       gaps_out = 5;
-      border_size = 1;
-      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      "col.inactive_border" = "rgba(31313600)";
+      border_size = 2;
+      "col.active_border" = "rgba(ff6b6bff) rgba(4ecdc4ff) 90deg";
+      "col.inactive_border" = "rgba(31313622)";
       resize_on_border = true;
       allow_tearing = true;
       layout = "scrolling";
     };
 
     scrolling = {
-      column_width = 0.7;
-      fullscreen_on_one_column = false;
+      column_width = 0.45;
+      fullscreen_on_one_column = true;
       focus_fit_method = 1;
       follow_focus = true;
       direction = "right";
+      notify_on_column_change = true;
     };
 
     decoration = {
@@ -80,22 +81,25 @@
       "menu_decel, 0.1, 1, 0, 1"
       "menu_accel, 0.52, 0.03, 0.72, 0.08"
       "stall, 1, -0.1, 0.7, 0.85"
+      "smoothIn, 0.25, 0.46, 0.45, 0.94"
+      "smoothOut, 0.42, 0, 0.58, 1"
+      "smoothInOut, 0.42, 0, 0.58, 1"
     ];
 
     animation = [
-      "windowsIn,  1, 3, emphasizedDecel, popin 80%"
-      "windowsOut, 1, 2, emphasizedDecel, popin 90%"
-      "windowsMove,1, 3, emphasizedDecel, slide"
-      "fadeIn,     1, 3, emphasizedDecel"
-      "fadeOut,    1, 2, emphasizedDecel"
-      "border,     1, 10, emphasizedDecel"
-      "layersIn,   1, 2.7, emphasizedDecel, popin 93%"
-      "layersOut,  1, 2.4, menu_accel, popin 94%"
-      "fadeLayersIn,  1, 0.5, menu_decel"
-      "fadeLayersOut, 1, 2.7, stall"
-      "workspaces, 1, 7, menu_decel, slide"
-      "specialWorkspaceIn,  1, 2.8, emphasizedDecel, slidevert"
-      "specialWorkspaceOut, 1, 1.2, emphasizedAccel, slidevert"
+      "windowsIn,  1, 4, smoothOut, popin 75%"
+      "windowsOut, 1, 3, smoothIn, popin 85%"
+      "windowsMove, 1, 4, smoothOut, slide"
+      "fadeIn,     1, 3, smoothOut"
+      "fadeOut,    1, 2.5, smoothIn"
+      "border,     1, 8, smoothOut"
+      "layersIn,   1, 3, smoothOut, popin 90%"
+      "layersOut,  1, 2, smoothIn, popin 92%"
+      "fadeLayersIn,  1, 1, smoothOut"
+      "fadeLayersOut, 1, 2, smoothIn"
+      "workspaces, 1, 6, smoothOut, slide"
+      "specialWorkspaceIn,  1, 3, smoothOut, slidevert"
+      "specialWorkspaceOut, 1, 2, smoothIn, slidevert"
     ];
 
     device = [
