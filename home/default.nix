@@ -43,6 +43,8 @@
   programs.zoxide.enable = true;
   programs.home-manager.enable = true;
 
+  services.easyeffects.enable = true;
+
   qt = {
     enable = true;
     platformTheme.name = "gtk3";
