@@ -9,7 +9,7 @@
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = pkgs.xdg-desktop-portal-hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
     xwayland.enable = true;
   };
 
@@ -17,21 +17,19 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
     ];
     config = {
-      common.default = [
-        "kde"
-        "gtk"
-      ];
+      common.default = [ "gtk" ];
       hyprland = {
         default = [
           "hyprland"
-          "kde"
+          "gtk"
         ];
+        "org.freedesktop.impl.portal.FileChooser" = "gtk";
         "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
         "org.freedesktop.impl.portal.Screenshot" = "hyprland";
+        "org.freedesktop.impl.portal.OpenURI" = "gtk";
       };
     };
   };
