@@ -16,21 +16,8 @@
 
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-cosmic ];
-    config = {
-      common.default = [ "cosmic" ];
-      hyprland = {
-        default = [
-          "hyprland"
-          "cosmic"
-        ];
-        "org.freedesktop.impl.portal.FileChooser" = "cosmic";
-        "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
-        "org.freedesktop.impl.portal.Screenshot" = "hyprland";
-        "org.freedesktop.impl.portal.OpenURI" = "cosmic";
-      };
-    };
+    extraPortals = [ inputs.hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland ];
+    config.common.default = "*";
   };
 
   services = {
