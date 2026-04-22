@@ -8,6 +8,7 @@
       "easyeffects --hide-window --service-mode"
       "wl-paste --type text --watch cliphist store"
       "wl-paste --type image --watch cliphist store"
+      "sleep 2 && systemctl --user restart xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk"
     ];
   };
 }
