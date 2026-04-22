@@ -17,18 +17,25 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
+      xdg-desktop-portal-kde
       xdg-desktop-portal-gtk
     ];
     config = {
-      common.default = "*";
+      common.default = [
+        "kde"
+        "gtk"
+      ];
       hyprland = {
         default = [
           "hyprland"
-          "gtk"
+          "kde"
         ];
+        "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
+        "org.freedesktop.impl.portal.Screenshot" = "hyprland";
       };
     };
   };
+
   services = {
     dbus.enable = true;
     pipewire = {
