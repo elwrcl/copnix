@@ -47,6 +47,21 @@
   };
 
   security.polkit.enable = true;
+
+  systemd.user.services.xdg-desktop-portal = {
+    Unit.After = [ "dbus.service" ];
+    Service = {
+      Type = "dbus";
+      BusName = "org.freedesktop.impl.portal.Service";
+      Restart = "on-failure";
+      ExecStart = "${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal";
+      RestartSec = 3;
+      PrivateUsers = false;
+      RestrictNamespaces = false;
+      SystemCallFilter = null;
+    };
+  };
+
   environment.systemPackages = with pkgs; [
     glib
     dconf
