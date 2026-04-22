@@ -17,18 +17,19 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # Use the KDE portal instead of GTK
+    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
     config = {
-      common.default = [ "gtk" ];
+      common.default = [ "kde" ];
       hyprland = {
         default = [
           "hyprland"
-          "gtk"
+          "kde"
         ];
-        "org.freedesktop.impl.portal.FileChooser" = "gtk";
+        "org.freedesktop.impl.portal.FileChooser" = "kde";
         "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
         "org.freedesktop.impl.portal.Screenshot" = "hyprland";
-        "org.freedesktop.impl.portal.OpenURI" = "gtk";
+        "org.freedesktop.impl.portal.OpenURI" = "kde";
       };
     };
   };
@@ -47,21 +48,6 @@
   };
 
   security.polkit.enable = true;
-
-  systemd.user.services.xdg-desktop-portal = {
-    Unit.After = [ "dbus.service" ];
-    Service = {
-      Type = "dbus";
-      BusName = "org.freedesktop.impl.portal.Service";
-      Restart = "on-failure";
-      ExecStart = "${pkgs.xdg-desktop-portal}/libexec/xdg-desktop-portal";
-      RestartSec = 3;
-      PrivateUsers = false;
-      RestrictNamespaces = false;
-      SystemCallFilter = null;
-    };
-  };
-
   environment.systemPackages = with pkgs; [
     glib
     dconf
