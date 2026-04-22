@@ -43,6 +43,7 @@
   programs.zoxide.enable = true;
   programs.home-manager.enable = true;
 
+  # i really hate that easyeffects
   services.easyeffects.enable = true;
 
   qt = {
