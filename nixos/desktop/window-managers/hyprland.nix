@@ -17,19 +17,18 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    # Use the KDE portal instead of GTK
-    extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+    extraPortals = [ pkgs.xdg-desktop-portal-cosmic ];
     config = {
-      common.default = [ "kde" ];
+      common.default = [ "cosmic" ];
       hyprland = {
         default = [
           "hyprland"
-          "kde"
+          "cosmic"
         ];
-        "org.freedesktop.impl.portal.FileChooser" = "kde";
+        "org.freedesktop.impl.portal.FileChooser" = "cosmic";
         "org.freedesktop.impl.portal.ScreenCast" = "hyprland";
         "org.freedesktop.impl.portal.Screenshot" = "hyprland";
-        "org.freedesktop.impl.portal.OpenURI" = "kde";
+        "org.freedesktop.impl.portal.OpenURI" = "cosmic";
       };
     };
   };
