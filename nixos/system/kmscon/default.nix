@@ -8,7 +8,7 @@
       package = pkgs.nerd-fonts.jetbrains-mono;
     }];
     extraConfig = ''
-      font-size=12
+      font-size=10
     '';
   };
 }
