@@ -92,6 +92,7 @@
 
     # hardware tools (linux-only)
     vulkan-tools
+    gpu-screen-recorder
     libva-utils
     mesa-demos
     intel-gpu-tools
