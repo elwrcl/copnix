@@ -18,7 +18,10 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ "i915" ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "ntsync"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {

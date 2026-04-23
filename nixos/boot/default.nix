@@ -15,6 +15,7 @@
     "mitigations=off"
     "usbcore.autosuspend=-1"
     "transparent_hugepage=always"
+    "split_lock_detect=off"
   ];
 
   boot.loader = {
