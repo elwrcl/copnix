@@ -104,12 +104,24 @@ let
           Kernel.Add."CryptexFixup.kext".Enabled = true;
           Kernel.Add."RestrictEvents.kext".Enabled = true;
 
-          # (rest same...)
-          Misc.Boot.PickerMode = "External";
-          Misc.Boot.PickerVariant = "Acidanthera\\Syrah";
-          Misc.Boot.PickerAttributes = 144;
+          # boot menu
+          Misc.Boot.PickerMode = "Builtin";
+          Misc.Boot.PickerVariant = "Auto";
+          Misc.Boot.PickerAttributes = 0;
           Misc.Boot.Timeout = 15;
-          Misc.Boot.HideAuxiliary = true;
+          Misc.Boot.HideAuxiliary = false;
+
+
+          Misc.Tools."OpenShell.efi".Enabled = true;
+          Misc.Tools."OpenShell.efi".Name = "OpenShell";
+          Misc.Tools."OpenShell.efi".Auxiliary = true;
+
+          Misc.Tools."CleanNvram.efi".Enabled = true;
+          Misc.Tools."CleanNvram.efi".Name = "Reset NVRAM";
+          Misc.Tools."CleanNvram.efi".Auxiliary = true;
+
+
+          UEFI.Drivers."ResetNvramEntry.efi".Enabled = true;
         };
       })
     ];

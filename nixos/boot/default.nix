@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./opencore.nix
+   # ./opencore.nix
   ];
 
   environment.systemPackages = [ pkgs.efibootmgr ];
