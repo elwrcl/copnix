@@ -31,7 +31,7 @@
     wants = [ "network-online.target" ];
   };
   console.keyMap = "trq";
-  console.packages = [ pkgs.terminus_font ];
+  console.packages = with pkgs; [ terminus_font ];
   console.font = "ter-v16b";
   system.stateVersion = "25.05";
 }
