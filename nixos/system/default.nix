@@ -5,5 +5,6 @@
     ./locale
     ./nix
     ./fonts
+    ./kmscon
   ];
 }
