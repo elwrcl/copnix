@@ -175,7 +175,7 @@ let
             Misc.Boot.PickerVariant = "Acidanthera\\Syrah";
             Misc.Boot.PickerAttributes = 144;
             Misc.Boot.Timeout = 15;
-            Misc.Boot.HideAuxiliary = false;
+            Misc.Boot.HideAuxiliary = true;
 
             Misc.Debug = {
               AppleDebug = true;
