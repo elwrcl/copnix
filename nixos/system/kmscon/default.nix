@@ -2,7 +2,6 @@
 {
   services.kmscon = {
     enable = true;
-    autologin = true;
     hwRender = true;
     fonts = [{
       name = "JetBrainsMono Nerd Font";
