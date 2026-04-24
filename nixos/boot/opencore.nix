@@ -196,7 +196,7 @@ let
               SetupDelay = 0;
             };
 
-            UEFI.Apfs = {
+            UEFI.APFS = {
               MinDate = -1;
               MinVersion = -1;
             };
