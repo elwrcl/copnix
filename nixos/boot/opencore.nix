@@ -55,13 +55,6 @@ let
     sha256 = "sha256-N15qzXc12ZPjLNpmqEklVPtfSRKss1LEPU6uPLByANk=";
   };
 
-  airportitlwm = mkKext {
-    pname = "airportitlwm";
-    version = "2.3.0";
-    url = "https://github.com/OpenIntelWireless/itlwm/releases/download/v2.3.0/AirportItlwm_v2.3.0_stable_Ventura.kext.zip";
-    sha256 = "sha256-fqGTB++a4ImR2RHm8d5Z5oJETiHbzWNCteCgN/Gchg4=";
-  };
-
   ocResources = pkgs.fetchzip {
     url = "https://github.com/acidanthera/OcBinaryData/archive/refs/heads/master.zip";
     sha256 = "sha256-B5CABp0Y2dAVuw7185suaUuryl3iII4QNBVBttivQ7Y=";
@@ -81,7 +74,6 @@ let
             oceanixPkgs."intel-mausi-latest-release"
 
             voodoops2
-            airportitlwm
             amfipass
             cryptexfixup
             restrictevents
@@ -96,7 +88,6 @@ let
             Kernel.Add."AppleALC.kext".Enabled = true;
             Kernel.Add."IntelMausi.kext".Enabled = true;
             Kernel.Add."VoodooPS2Controller.kext".Enabled = true;
-            Kernel.Add."AirportItlwm.kext".Enabled = true;
             Kernel.Add."AMFIPass.kext".Enabled = true;
             Kernel.Add."CryptexFixup.kext".Enabled = true;
             Kernel.Add."RestrictEvents.kext".Enabled = true;
@@ -132,7 +123,6 @@ let
               "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
             };
 
-            # OCLP-Settings için yeni NVRAM namespace'i eklendi
             NVRAM.Add."4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102" = {
               "OCLP-Settings" = "-allow_amfi";
             };
