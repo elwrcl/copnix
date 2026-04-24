@@ -58,8 +58,8 @@ let
   airportitlwm = mkKext {
     pname = "airportitlwm";
     version = "2.3.0";
-    url = "https://github.com/OpenIntelWireless/itlwm/releases/download/v2.3.0/AirportItlwm_v2.3.0_stable_Sonoma14.4.kext.zip";
-    sha256 = "sha256-fvEqgDfrm8eVgow0j0+gcouK3leqCYSwN4Fu+RwtURk=";
+    url = "https://github.com/OpenIntelWireless/itlwm/releases/download/v2.3.0/AirportItlwm_v2.3.0_stable_Ventura.kext.zip";
+    sha256 = "sha256-fqGTB++a4ImR2RHm8d5Z5oJETiHbzWNCteCgN/Gchg4=";
   };
 
   ocResources = pkgs.fetchzip {
@@ -79,6 +79,7 @@ let
             oceanixPkgs."whatevergreen-latest-release"
             oceanixPkgs."applealc-latest-release"
             oceanixPkgs."intel-mausi-latest-release"
+
             voodoops2
             airportitlwm
             amfipass
@@ -90,7 +91,6 @@ let
 
             Kernel.Add."Lilu.kext".Enabled = true;
             Kernel.Add."VirtualSMC.kext".Enabled = true;
-            Kernel.Add."SMCBatteryManager.kext".Enabled = true;
             Kernel.Add."SMCProcessor.kext".Enabled = true;
             Kernel.Add."WhateverGreen.kext".Enabled = true;
             Kernel.Add."AppleALC.kext".Enabled = true;
@@ -103,7 +103,7 @@ let
 
             Kernel.Quirks = {
               AppleCpuPmCfgLock = true;
-              AppleXcpmCfgLock = true;
+              AppleXcpmCfgLock = false;
               DisableIoMapper = true;
               LapicKernelPanic = false;
               PanicNoKextDump = true;
@@ -128,8 +128,13 @@ let
 
             NVRAM.Add."7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
               "boot-args" =
-                "ipc_control_port_options=0 amfi_get_out_of_my_way=0x1 -no-compat-check revpatch=sbvmm,f16c revblock=media";
+                "ipc_control_port_options=0 -amfipassbeta -no-compat-check revpatch=sbvmm,f16c revblock=media";
               "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
+            };
+
+            # OCLP-Settings için yeni NVRAM namespace'i eklendi
+            NVRAM.Add."4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102" = {
+              "OCLP-Settings" = "-allow_amfi";
             };
 
             Misc.Boot.PickerMode = "External";
@@ -216,6 +221,7 @@ let
       )
     ];
   };
+
 in
 {
   # system.activationScripts.opencoreConfig = { ... }; usb test
@@ -226,4 +232,5 @@ in
       echo "OC_RES=${ocResources}/Resources"
     '')
   ];
+
 }
