@@ -29,12 +29,23 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/HDD" = {
-    device = "/dev/disk/by-uuid/a9d12042-6501-4725-84bd-6e0bdbb64427";
+  fileSystems."/mnt/HDD/shared" = {
+    device = "/dev/disk/by-uuid/7DFB-C32A";
+    fsType = "exfat";
+    options = [
+      "defaults"
+      "nofail"
+      "x-systemd.automount"
+    ];
+  };
+
+  fileSystems."/mnt/HDD/linuxdata" = {
+    device = "/dev/disk/by-uuid/f7e27b90-ce06-48bb-b579-d93b1398b21f";
     fsType = "ext4";
     options = [
       "defaults"
       "nofail"
+      "x-systemd.automount"
     ];
   };
 
