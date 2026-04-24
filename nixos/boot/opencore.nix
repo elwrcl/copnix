@@ -156,6 +156,7 @@ let
             Misc.Security.SecureBootModel = "Disabled";
             Misc.Security.ScanPolicy = 0;
             Misc.Security.Vault = "Optional";
+            Misc.Security.DmgLoading = "Any";
 
             Misc.Tools."OpenShell.efi".Enabled = true;
             Misc.Tools."OpenShell.efi".Name = "OpenShell";
@@ -195,6 +196,12 @@ let
               SetupDelay = 0;
             };
 
+            UEFI.Apfs = {
+              MinDate = -1;
+              MinVersion = -1;
+            };
+
+            UEFI.Drivers."OpenHfsPlus.efi".Enabled = true;
             UEFI.Drivers."ResetNvramEntry.efi".Enabled = true;
             UEFI.Drivers."OpenRuntime.efi".Enabled = true;
             UEFI.Drivers."OpenCanopy.efi".Enabled = true;
