@@ -109,7 +109,7 @@ let
               ProvideCustomSlide = true;
               RebuildAppleMemoryMap = true;
               SetupVirtualMap = true;
-              SyncRuntimePermissions = true;
+              SyncRuntimePermissions = false;
             };
 
             DeviceProperties.Add."PciRoot(0x0)/Pci(0x2,0x0)" = {
