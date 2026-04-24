@@ -119,7 +119,7 @@ let
 
             NVRAM.Add."7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
               "boot-args" =
-                "ipc_control_port_options=0 -amfipassbeta -no-compat-check revpatch=sbvmm,f16c revblock=media";
+                "-v -igfxvesa ipc_control_port_options=0 -amfipassbeta -no-compat-check revpatch=sbvmm,f16c revblock=media";
               "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
             };
 
