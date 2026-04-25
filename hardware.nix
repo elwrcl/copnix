@@ -21,6 +21,7 @@
   boot.kernelModules = [
     "kvm-intel"
     "ntsync"
+    "hfsplus"
   ];
   boot.extraModulePackages = [ ];
 
