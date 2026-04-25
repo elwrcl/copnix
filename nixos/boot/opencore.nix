@@ -201,6 +201,7 @@ let
               MinVersion = -1;
             };
 
+            UEFI.Drivers."OpenApfsCompatibility.efi".Enabled = true;
             UEFI.Drivers."OpenHfsPlus.efi".Enabled = true;
             UEFI.Drivers."ResetNvramEntry.efi".Enabled = true;
             UEFI.Drivers."OpenRuntime.efi".Enabled = true;
