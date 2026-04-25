@@ -27,26 +27,26 @@ let
       '';
     };
 
-  amfipass = mkKext {
-    pname = "amfipass";
-    version = "1.4.1";
-    url = "https://github.com/bluppus20/AMFIPass/releases/download/1.4.1/AMFIPass-v1.4.1-RELEASE.zip";
-    sha256 = "07lnvh585y0p8kw6byn1ij42iskkn7xkhy9sn7s43nq6b4a6dch7";
-  };
+ # amfipass = mkKext {
+ #   pname = "amfipass";
+ #   version = "1.4.1";
+ #   url = "https://github.com/bluppus20/AMFIPass/releases/download/1.4.1/AMFIPass-v1.4.1-RELEASE.zip";
+ #   sha256 = "07lnvh585y0p8kw6byn1ij42iskkn7xkhy9sn7s43nq6b4a6dch7";
+ # };
 
-  cryptexfixup = mkKext {
-    pname = "cryptexfixup";
-    version = "1.0.2";
-    url = "https://github.com/acidanthera/CryptexFixup/releases/download/1.0.2/CryptexFixup-1.0.2-RELEASE.zip";
-    sha256 = "0pdh02gcxgndadzsllmmncpy2ipnzk8n97hdkylx1lcvfjafbiim";
-  };
+ # cryptexfixup = mkKext {
+ #   pname = "cryptexfixup";
+ #   version = "1.0.2";
+ #   url = "https://github.com/acidanthera/CryptexFixup/releases/download/1.0.2/CryptexFixup-1.0.2-RELEASE.zip";
+ #   sha256 = "0pdh02gcxgndadzsllmmncpy2ipnzk8n97hdkylx1lcvfjafbiim";
+ # };
 
-  restrictevents = mkKext {
-    pname = "restrictevents";
-    version = "1.1.3";
-    url = "https://github.com/acidanthera/RestrictEvents/releases/download/1.1.3/RestrictEvents-1.1.3-RELEASE.zip";
-    sha256 = "1s18k25hpbxg59rwpgiwr5p7ci70fzbp99f93lap5a77yl9rbj2l";
-  };
+ # restrictevents = mkKext {
+ #   pname = "restrictevents";
+ #   version = "1.1.3";
+ #   url = "https://github.com/acidanthera/RestrictEvents/releases/download/1.1.3/RestrictEvents-1.1.3-RELEASE.zip";
+ #   sha256 = "1s18k25hpbxg59rwpgiwr5p7ci70fzbp99f93lap5a77yl9rbj2l";
+ # };
 
   voodoops2 = mkKext {
     pname = "voodoops2controller";
@@ -74,9 +74,9 @@ let
             oceanixPkgs."intel-mausi-latest-release"
 
             voodoops2
-            amfipass
-            cryptexfixup
-            restrictevents
+            #amfipass
+            #cryptexfixup
+            #restrictevents
           ];
 
           oceanix.opencore.settings = {
@@ -88,9 +88,9 @@ let
             Kernel.Add."AppleALC.kext".Enabled = true;
             Kernel.Add."IntelMausi.kext".Enabled = true;
             Kernel.Add."VoodooPS2Controller.kext".Enabled = true;
-            Kernel.Add."AMFIPass.kext".Enabled = true;
-            Kernel.Add."CryptexFixup.kext".Enabled = true;
-            Kernel.Add."RestrictEvents.kext".Enabled = true;
+            #Kernel.Add."AMFIPass.kext".Enabled = true;
+            #Kernel.Add."CryptexFixup.kext".Enabled = true;
+            #Kernel.Add."RestrictEvents.kext".Enabled = true;
 
             Kernel.Quirks = {
               AppleCpuPmCfgLock = true;
@@ -119,7 +119,7 @@ let
 
             NVRAM.Add."7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
               "boot-args" =
-                "-v -igfxvesa ipc_control_port_options=0 -amfipassbeta -no-compat-check revpatch=sbvmm,f16c revblock=media";
+                "-v -igfxvesa ipc_control_port_options=0 ";
               "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
             };
 
