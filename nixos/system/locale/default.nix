@@ -32,5 +32,6 @@
   };
   console.keyMap = "trq";
   console.font = "LatArCyrHeb-16";
+  console.earlySetup = true;
   system.stateVersion = "25.05";
 }
