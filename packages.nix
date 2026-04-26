@@ -28,6 +28,14 @@ with pkgs;
     lm_sensors
     smartmontools
     gsmartcontrol
+    exfatprogs
+    hfsprogs
+    gptfdisk
+    usbutils
+    p7zip
+    dmg2img
+    tree
+    xar
     parted
   ];
 }

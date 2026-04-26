@@ -23,6 +23,10 @@
     "ntsync"
     "hfsplus"
   ];
+  boot.supportedFilesystems = [
+    "hfsplus"
+    "exfat"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
