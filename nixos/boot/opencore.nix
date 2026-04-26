@@ -7,6 +7,8 @@ let
     overlays = [ inputs.oceanix.overlays.default ];
   };
 
+  mkData = inputs.oceanix.lib.oc.plist.mkData;
+
   mkKext =
     {
       pname,
@@ -27,27 +29,39 @@ let
       '';
     };
 
-   mkACPI = { pname, url, sha256 }:
+  mkACPI =
+    {
+      pname,
+      url,
+      sha256,
+    }:
     pkgs.stdenv.mkDerivation {
       name = pname;
       src = pkgs.fetchurl { inherit url sha256; };
       phases = [ "installPhase" ];
       installPhase = ''
         mkdir -p $out/ACPI
-         cp $src $out/ACPI/${pname}.aml
-         '';
-       };
+        cp $src $out/ACPI/${pname}.aml
+      '';
+    };
+
+  usbinjectall = mkKext {
+    pname = "usbinjectall";
+    version = "0.7.6";
+    url = "https://github.com/Sniki/OS-X-USB-Inject-All/releases/download/v0.7.6/USBInjectAll-0.7.6-RELEASE.zip";
+    sha256 = "sha256-7WoesI32zNBJhIwIhWxBTde4dX600WJn6IX51nLJIb0=";
+  };
 
   ssdt-ec = mkACPI {
-     pname = "SSDT-EC";
-     url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-EC-LAPTOP.aml";
-     sha256 = "sha256-agrAcPDbn/YXqNc5bPLOPeTkpYkdFPZHkd3V1/FRRng=";
+    pname = "SSDT-EC";
+    url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-EC-LAPTOP.aml";
+    sha256 = "sha256-agrAcPDbn/YXqNc5bPLOPeTkpYkdFPZHkd3V1/FRRng=";
   };
 
   ssdt-imei = mkACPI {
-     pname = "SSDT-IMEI";
-     url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-IMEI.aml";
-     sha256 = "sha256-xYXgJ472jIZxVvMWq5SGejiAp/aSZq1lk6HbiBUeMLA=";
+    pname = "SSDT-IMEI";
+    url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-IMEI.aml";
+    sha256 = "sha256-xYXgJ472jIZxVvMWq5SGejiAp/aSZq1lk6HbiBUeMLA=";
   };
 
   ssdt-pnlf = mkACPI {
@@ -81,6 +95,7 @@ let
             oceanixPkgs."applealc-latest-release"
             oceanixPkgs."intel-mausi-latest-release"
             voodoops2
+            usbinjectall
             ssdt-ec
             ssdt-imei
             ssdt-pnlf
@@ -95,6 +110,7 @@ let
             Kernel.Add."AppleALC.kext".Enabled = true;
             Kernel.Add."IntelMausi.kext".Enabled = true;
             Kernel.Add."VoodooPS2Controller.kext".Enabled = true;
+            Kernel.Add."USBInjectAll.kext".Enabled = true;
 
             Kernel.Quirks = {
               AppleCpuPmCfgLock = true;
@@ -107,36 +123,33 @@ let
             };
 
             ACPI = {
-                Add = {
-                  "SSDT-EC.aml".Enabled = true;
-                  "SSDT-IMEI.aml".Enabled = true;
-                  "SSDT-PNLF.aml".Enabled = true;
-                };
-                Delete = [ ];
-                Patch = [ ];
+              Add = {
+                "SSDT-EC.aml".Enabled = true;
+                "SSDT-IMEI.aml".Enabled = true;
+                "SSDT-PNLF.aml".Enabled = true;
               };
+              Delete = [ ];
+              Patch = [ ];
+            };
 
             Booter = {
-                MmioWhitelist = [ ];
-                Patch = [ ];
-                Quirks = {
-                  AvoidRuntimeDefrag = true;
-                  EnableSafeModeSlide = true;
-                  ProvideCustomSlide = true;
-                  EnableWriteUnprotector = true;
-                  RebuildAppleMemoryMap = false;
-                  SetupVirtualMap = true;
-                  SyncRuntimePermissions = false;
-               };
-             };
-
-            DeviceProperties.Add."PciRoot(0x0)/Pci(0x2,0x0)" = {
-              "AAPL,ig-platform-id" = "09006601";
+              MmioWhitelist = [ ];
+              Patch = [ ];
+              Quirks = {
+                AvoidRuntimeDefrag = true;
+                EnableSafeModeSlide = true;
+                ProvideCustomSlide = true;
+                EnableWriteUnprotector = true;
+                RebuildAppleMemoryMap = true;
+                SetupVirtualMap = true;
+                SyncRuntimePermissions = false;
+              };
             };
 
             NVRAM.Add."7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
-              "boot-args" = "-v keepsyms=1 debug=0x100 -igfxvesa -no_compat_check";
-              "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
+              "boot-args" = "-v keepsyms=1 debug=0x100 -f -igfxvesa -no_compat_check";
+              "csr-active-config" = pkgs.lib.mkForce "FF0F0000";
+              "prev-lang:kbd" = "en-US:0";
             };
 
             NVRAM.Add."4D1FDA02-38C7-4A6A-9CC6-4BCCA8B30102" = {
@@ -148,12 +161,13 @@ let
             Misc.Boot.PickerAttributes = 144;
             Misc.Boot.Timeout = 15;
             Misc.Boot.HideAuxiliary = true;
+
             Misc.Debug = {
               AppleDebug = true;
               ApplePanic = true;
               DisableWatchDog = true;
               DisplayLevel = 2147483650;
-              Target = 3;
+              Target = 67;
             };
 
             PlatformInfo = {
@@ -184,6 +198,7 @@ let
             UEFI.Output.ProvideConsoleGop = true;
             UEFI.Output.Resolution = "1366x768";
             UEFI.Output.TextRenderer = "BuiltinGraphics";
+
             UEFI.AppleInput = {
               AppleEvent = "Builtin";
               CustomDelays = false;

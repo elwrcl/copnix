@@ -98,6 +98,7 @@
     intel-gpu-tools
     clinfo
     hidapi
+
     # apps
     heroic
     bottles

@@ -111,6 +111,7 @@
     zig
     lua
     glm
+    python3
 
     # themes/icons
     bibata-cursors
