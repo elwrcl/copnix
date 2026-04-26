@@ -119,7 +119,7 @@ let
 
             NVRAM.Add."7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
               "boot-args" =
-                "-v -igfxvesa";
+                "-v -igfxvesa -no_compat_check ";
               "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
             };
 
