@@ -102,15 +102,29 @@ let
               XhciPortLimit = false;
             };
 
-            Booter.Quirks = {
-              AvoidRuntimeDefrag = true;
-              EnableSafeModeSlide = true;
-              EnableWriteUnprotector = true;
-              ProvideCustomSlide = true;
-              RebuildAppleMemoryMap = false;
-              SetupVirtualMap = true;
-              SyncRuntimePermissions = false;
-            };
+            ACPI = {
+                Add = {
+                  "SSDT-EC.aml".Enabled = true;
+                  "SSDT-IMEI.aml".Enabled = true;
+                  "SSDT-PM.aml".Enabled = true;
+                };
+                Delete = [ ];
+                Patch = [ ];
+              };
+
+              Booter = {
+                MmioWhitelist = [ ];
+                Patch = [ ];
+                Quirks = {
+                  AvoidRuntimeDefrag = true;
+                  EnableSafeModeSlide = true;
+                  ProvideCustomSlide = true;
+                  EnableWriteUnprotector = true;
+                  RebuildAppleMemoryMap = false;
+                  SetupVirtualMap = true;
+                  SyncRuntimePermissions = false;
+               };
+             };
 
             DeviceProperties.Add."PciRoot(0x0)/Pci(0x2,0x0)" = {
               "AAPL,ig-platform-id" = "03006601";
@@ -146,6 +160,7 @@ let
               UpdateSMBIOSMode = "Create";
               Generic = {
                 SystemProductName = "MacBookPro9,2";
+                AdviseFeatures = true;
                 SystemSerialNumber = "C02SN6ZNDTY3";
                 MLB = "C02645303GUF1YJCB";
                 SystemUUID = "3FD4F7B4-ACD1-44CF-91F2-B4FB16407A57";
