@@ -145,11 +145,11 @@ let
               Automatic = true;
               UpdateSMBIOSMode = "Create";
               Generic = {
-                SystemProductName = "MacBookPro10,2";
-                SystemSerialNumber = "C02J603FDR53";
-                MLB = "C02232403J9F16P1F";
-                SystemUUID = "2B8E7220-2B6A-4595-B254-930EE04E752A";
-                ROM = "F0B0E7AC067D";
+                SystemProductName = "MacBookPro9,2";
+                SystemSerialNumber = "C02SN6ZNDTY3";
+                MLB = "C02645303GUF1YJCB";
+                SystemUUID = "3FD4F7B4-ACD1-44CF-91F2-B4FB16407A57";
+                ROM = "0026084E951A";
               };
             };
 
