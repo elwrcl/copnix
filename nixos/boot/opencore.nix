@@ -27,26 +27,34 @@ let
       '';
     };
 
- # amfipass = mkKext {
- #   pname = "amfipass";
- #   version = "1.4.1";
- #   url = "https://github.com/bluppus20/AMFIPass/releases/download/1.4.1/AMFIPass-v1.4.1-RELEASE.zip";
- #   sha256 = "07lnvh585y0p8kw6byn1ij42iskkn7xkhy9sn7s43nq6b4a6dch7";
- # };
+   mkACPI = { pname, url, sha256 }:
+    pkgs.stdenv.mkDerivation {
+      name = pname;
+      src = pkgs.fetchurl { inherit url sha256; };
+      phases = [ "installPhase" ];
+      installPhase = ''
+        mkdir -p $out/ACPI
+         cp $src $out/ACPI/${pname}.aml
+         '';
+       };
 
- # cryptexfixup = mkKext {
- #   pname = "cryptexfixup";
- #   version = "1.0.2";
- #   url = "https://github.com/acidanthera/CryptexFixup/releases/download/1.0.2/CryptexFixup-1.0.2-RELEASE.zip";
- #   sha256 = "0pdh02gcxgndadzsllmmncpy2ipnzk8n97hdkylx1lcvfjafbiim";
- # };
+  ssdt-ec = mkACPI {
+     pname = "SSDT-EC";
+     url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-EC-LAPTOP.aml";
+     sha256 = "sha256-agrAcPDbn/YXqNc5bPLOPeTkpYkdFPZHkd3V1/FRRng=";
+  };
 
- # restrictevents = mkKext {
- #   pname = "restrictevents";
- #   version = "1.1.3";
- #   url = "https://github.com/acidanthera/RestrictEvents/releases/download/1.1.3/RestrictEvents-1.1.3-RELEASE.zip";
- #   sha256 = "1s18k25hpbxg59rwpgiwr5p7ci70fzbp99f93lap5a77yl9rbj2l";
- # };
+  ssdt-imei = mkACPI {
+     pname = "SSDT-IMEI";
+     url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-IMEI.aml";
+     sha256 = "sha256-xYXgJ472jIZxVvMWq5SGejiAp/aSZq1lk6HbiBUeMLA=";
+  };
+
+  ssdt-pnlf = mkACPI {
+    pname = "SSDT-PNLF";
+    url = "https://raw.githubusercontent.com/dortania/Getting-Started-With-ACPI/master/extra-files/compiled/SSDT-PNLF.aml";
+    sha256 = "sha256-qKrac31I99BpKFvkWNTaB5dyOt1bVqE8kC+qc642nvY=";
+  };
 
   voodoops2 = mkKext {
     pname = "voodoops2controller";
@@ -72,11 +80,10 @@ let
             oceanixPkgs."whatevergreen-latest-release"
             oceanixPkgs."applealc-latest-release"
             oceanixPkgs."intel-mausi-latest-release"
-
             voodoops2
-            #amfipass
-            #cryptexfixup
-            #restrictevents
+            ssdt-ec
+            ssdt-imei
+            ssdt-pnlf
           ];
 
           oceanix.opencore.settings = {
@@ -88,9 +95,6 @@ let
             Kernel.Add."AppleALC.kext".Enabled = true;
             Kernel.Add."IntelMausi.kext".Enabled = true;
             Kernel.Add."VoodooPS2Controller.kext".Enabled = true;
-            #Kernel.Add."AMFIPass.kext".Enabled = true;
-            #Kernel.Add."CryptexFixup.kext".Enabled = true;
-            #Kernel.Add."RestrictEvents.kext".Enabled = true;
 
             Kernel.Quirks = {
               AppleCpuPmCfgLock = true;
@@ -106,13 +110,13 @@ let
                 Add = {
                   "SSDT-EC.aml".Enabled = true;
                   "SSDT-IMEI.aml".Enabled = true;
-                  "SSDT-PM.aml".Enabled = true;
+                  "SSDT-PNLF.aml".Enabled = true;
                 };
                 Delete = [ ];
                 Patch = [ ];
               };
 
-              Booter = {
+            Booter = {
                 MmioWhitelist = [ ];
                 Patch = [ ];
                 Quirks = {
@@ -127,13 +131,11 @@ let
              };
 
             DeviceProperties.Add."PciRoot(0x0)/Pci(0x2,0x0)" = {
-              "AAPL,ig-platform-id" = "03006601";
-              "device-id" = "66010000";
+              "AAPL,ig-platform-id" = "09006601";
             };
 
             NVRAM.Add."7C436110-AB2A-4BBB-A880-FE41995C9F82" = {
-              "boot-args" =
-                "-v -igfxvesa -no_compat_check ";
+              "boot-args" = "-v keepsyms=1 debug=0x100 -igfxvesa -no_compat_check";
               "csr-active-config" = pkgs.lib.mkForce "AwgAAA==";
             };
 
@@ -146,7 +148,6 @@ let
             Misc.Boot.PickerAttributes = 144;
             Misc.Boot.Timeout = 15;
             Misc.Boot.HideAuxiliary = true;
-
             Misc.Debug = {
               AppleDebug = true;
               ApplePanic = true;
@@ -183,7 +184,6 @@ let
             UEFI.Output.ProvideConsoleGop = true;
             UEFI.Output.Resolution = "1366x768";
             UEFI.Output.TextRenderer = "BuiltinGraphics";
-
             UEFI.AppleInput = {
               AppleEvent = "Builtin";
               CustomDelays = false;
@@ -237,13 +237,10 @@ let
 
 in
 {
-  # system.activationScripts.opencoreConfig = { ... }; usb test
-
   environment.systemPackages = [
     (pkgs.writeShellScriptBin "oc-paths" ''
       echo "OC_EFI=${ocConfig.efiPackage}/EFI/OC"
       echo "OC_RES=${ocResources}/Resources"
     '')
   ];
-
 }
