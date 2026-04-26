@@ -107,7 +107,7 @@ let
               EnableSafeModeSlide = true;
               EnableWriteUnprotector = true;
               ProvideCustomSlide = true;
-              RebuildAppleMemoryMap = true;
+              RebuildAppleMemoryMap = false;
               SetupVirtualMap = true;
               SyncRuntimePermissions = false;
             };
