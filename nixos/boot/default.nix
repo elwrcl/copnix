@@ -19,7 +19,7 @@
   boot.loader = {
     timeout = 5;
     efi = {
-      canTouchEfiVariables = true;
+      canTouchEfiVariables = false;
       efiSysMountPoint = "/boot";
     };
     systemd-boot = {
