@@ -35,7 +35,7 @@
   };
 
   fileSystems."/mnt/HDD/shared" = {
-    device = "/dev/disk/by-uuid/7DFB-C32A";
+    device = "/dev/disk/by-uuid/69F3-C5FB";
     fsType = "exfat";
     options = [
       "defaults"
@@ -43,7 +43,7 @@
       "x-systemd.automount"
       "uid=1000"
       "gid=100"
-      "umask=022" 
+      "umask=022"
     ];
   };
 

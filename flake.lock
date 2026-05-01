@@ -753,22 +753,6 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1666539104,
-        "narHash": "sha256-jeuC+d375wHHxMOFLgu7etseCQVJuPNKoEc9X9CsErg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "0e6df35f39651504249a05191f9a78d251707e22",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_6": {
-      "locked": {
         "lastModified": 1775710090,
         "narHash": "sha256-ar3rofg+awPB8QXDaFJhJ2jJhu+KqN/PRCXeyuXR76E=",
         "owner": "nixos",
@@ -839,25 +823,6 @@
         "url": "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
       }
     },
-    "oceanix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_5",
-        "utils": "utils"
-      },
-      "locked": {
-        "lastModified": 1668158355,
-        "narHash": "sha256-1Z9Ijdnbs/GgmZgX1jDFbtszgAJ42/TGy8dH6IgkEpM=",
-        "owner": "LEXUGE",
-        "repo": "oceanix",
-        "rev": "6c75636d0361f777307cc94569e6491d5ed32d77",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LEXUGE",
-        "repo": "oceanix",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -893,7 +858,6 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_4",
         "noctalia": "noctalia",
-        "oceanix": "oceanix",
         "zen-browser": "zen-browser"
       }
     },
@@ -1048,21 +1012,6 @@
         "type": "github"
       }
     },
-    "utils": {
-      "locked": {
-        "lastModified": 1659877975,
-        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
     "xdph": {
       "inputs": {
         "hyprland-protocols": [
@@ -1107,7 +1056,7 @@
     "zen-browser": {
       "inputs": {
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       },
       "locked": {
         "lastModified": 1777530527,
