@@ -43,7 +43,7 @@
       numlock_by_default = true;
       repeat_delay = 250;
       repeat_rate = 35;
-      sensitivity = -0.8;
+      sensitivity = -5;
       accel_profile = "adaptive";
       follow_mouse = 1;
       #force_no_accel = true;
