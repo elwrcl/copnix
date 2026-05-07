@@ -24,17 +24,17 @@
     };
 
     decoration = {
-      rounding = 18;
+      rounding = 0;
       rounding_power = 2;
       active_opacity = 1.0;
       inactive_opacity = 1.0;
       dim_inactive = true;
       dim_strength = 0.05;
       blur = {
-        enabled = false;
+        enabled = true;
       };
       shadow = {
-        enabled = false;
+        enabled = true;
       };
     };
 
@@ -43,15 +43,15 @@
       numlock_by_default = true;
       repeat_delay = 250;
       repeat_rate = 35;
-      sensitivity = 0.0;
-      accel_profile = "flat";
+      sensitivity = -0.8;
+      accel_profile = "adaptive";
       follow_mouse = 1;
-      force_no_accel = true;
+      #force_no_accel = true;
       touchpad = {
         natural_scroll = true;
         disable_while_typing = true;
         clickfinger_behavior = true;
-        scroll_factor = 0.8;
+        scroll_factor = 0.5;
       };
     };
 
