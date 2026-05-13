@@ -10,6 +10,8 @@ with pkgs;
     # phone
     libmtp
     jmtpfs
+    android-tools
+    scrcpy
     libimobiledevice
     ifuse
     kdePackages.krdp
