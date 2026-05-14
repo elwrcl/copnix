@@ -13,6 +13,7 @@
       "lp"
       "scanner"
       "libvirtd"
+      "plugdev"
     ];
     shell = pkgs.zsh;
   };
