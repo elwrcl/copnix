@@ -9,7 +9,7 @@
 
   environment.systemPackages = [ pkgs.efibootmgr ];
 
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v2;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
 
   boot.kernelParams = [
     "preempt=full"
