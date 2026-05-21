@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   inputs,
   ...
 }:
@@ -17,20 +16,14 @@
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = [ "hyprland" "gtk" ];
+    config.common.default = [
+      "hyprland"
+      "gtk"
+    ];
   };
 
   services = {
     dbus.enable = true;
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      wireplumber.enable = true;
-    };
-    gnome = {
-      gnome-keyring.enable = true;
-      gnome-settings-daemon.enable = lib.mkDefault false;
-    };
   };
 
   security.polkit.enable = true;

@@ -72,15 +72,8 @@
 
   home.packages = with pkgs; [
     # wayland-specific
-    xdotool
     wl-clipboard
     waybar
-    wofi
-    fuzzel
-    swaylock
-    swayidle
-    feh
-    eww
     easyeffects
     swappy
     grim
@@ -122,6 +115,7 @@
     inputs.zen-browser.packages.${system}.default
     inputs.helium.packages.${system}.default
     inputs.noctalia.packages.${system}.default
+    inputs.copetch.packages.${system}.default
     pkgs.qt6Packages.qtwebsockets
   ];
 }

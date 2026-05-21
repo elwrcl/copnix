@@ -1,11 +1,10 @@
 {
   pkgs,
-  inputs,
   ...
 }:
+
 let
   packages = import ./packages.nix { inherit pkgs; };
-  system = pkgs.system;
 in
 {
   imports = [
@@ -21,13 +20,7 @@ in
     algorithm = "zstd";
     priority = 100;
   };
-  environment.systemPackages = packages.system ++ [
-    inputs.helium.packages.${system}.default
-    inputs.zen-browser.packages.${system}.default
-    inputs.noctalia.packages.${system}.default
-    inputs.copetch.packages.${system}.default
-    pkgs.qt6Packages.qtwebsockets
-  ];
+  environment.systemPackages = packages.system;
   environment.pathsToLink = [
     "/share/applications"
     "/share/icons"

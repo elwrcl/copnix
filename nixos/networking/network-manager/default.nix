@@ -13,7 +13,10 @@
         DNSOverTLS = "yes";
         DNSSEC = "false";
         Domains = [ "~." ];
-        FallbackDNS = [ "1.1.1.1" "8.8.8.8" ];
+        FallbackDNS = [
+          "1.1.1.1"
+          "8.8.8.8"
+        ];
       };
     };
   };

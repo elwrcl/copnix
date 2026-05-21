@@ -9,7 +9,6 @@
     ./ollama
     ./performance
     ./printing
-    ./samba
     ./security
     ./ssh
   ];

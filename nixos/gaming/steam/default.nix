@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -30,7 +29,5 @@
     capSysNice = true;
   };
 
-  programs.bash.enable = true;
-  hardware.graphics.enable = true;
   hardware.steam-hardware.enable = true;
 }

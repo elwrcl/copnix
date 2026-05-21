@@ -18,11 +18,6 @@ with pkgs;
     usbmuxd
     uxplay-fixed
 
-    # vm
-    virt-manager
-    libvirt
-    qemu
-
     # hardware
     ddcutil
     libsecret

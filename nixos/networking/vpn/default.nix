@@ -1,7 +1,6 @@
 { ... }:
 
 {
-  #services.cloudflare-warp.enable = true;
   services.zapret = {
     enable = true;
     params = [

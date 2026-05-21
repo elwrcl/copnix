@@ -1,9 +1,16 @@
-{ config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   services.printing = {
     enable = true;
-    drivers = [ pkgs.cnijfilter2 pkgs.gutenprint pkgs.gutenprintBin ];
+    drivers = [
+      pkgs.cnijfilter2
+      pkgs.gutenprint
+      pkgs.gutenprintBin
+    ];
   };
 
   services.avahi = {

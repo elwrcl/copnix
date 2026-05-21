@@ -37,7 +37,6 @@
 
   xdg.configFile = {
     "fastfetch".source = ./dots/fastfetch;
-    "fish/conf.d".source = ./dots/fish/conf.d;
   };
 
   home.packages = with pkgs; [
@@ -45,7 +44,6 @@
     eza
     bat
     fd
-    micro
     fastfetch
     zoxide
     trash-cli
@@ -53,7 +51,6 @@
     tldr
     jq
     zip
-    p7zip
     rar
     dos2unix
     unzip
@@ -64,7 +61,6 @@
     git
     cachix
     btop
-    alacritty
     kitty
     xdg-utils
     ani-cli
@@ -80,9 +76,7 @@
     pamixer
 
     # editors
-    vim
     neovim
-    helix
     vscode
     zed-editor
 
@@ -95,7 +89,6 @@
     openssl
     pkg-config
     aubio
-    docker-compose
     cargo-tauri
     trunk
     dioxus-cli
