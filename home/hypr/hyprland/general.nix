@@ -2,7 +2,16 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    monitor = ",preferred,auto,1";
+    monitor = [
+      {
+        _args = [
+          ""
+          "preferred"
+          "auto"
+          "1"
+        ];
+      }
+    ];
 
     general = {
       gaps_in = 4;
@@ -73,28 +82,175 @@
     };
 
     bezier = [
-      "omniDecel, 0.05, 0.9, 0.1, 1"
-      "omniAccel, 0.3, 0, 0.8, 0.15"
-      "omniSmooth, 0.25, 0.1, 0.25, 1"
-      "omniOvershoot, 0.16, 1, 0.3, 1"
-      "menu_decel, 0.1, 1, 0, 1"
-      "menu_accel, 0.52, 0.03, 0.72, 0.08"
+      {
+        _args = [
+          "omniDecel"
+          "0.05"
+          "0.9"
+          "0.1"
+          "1"
+        ];
+      }
+      {
+        _args = [
+          "omniAccel"
+          "0.3"
+          "0"
+          "0.8"
+          "0.15"
+        ];
+      }
+      {
+        _args = [
+          "omniSmooth"
+          "0.25"
+          "0.1"
+          "0.25"
+          "1"
+        ];
+      }
+      {
+        _args = [
+          "omniOvershoot"
+          "0.16"
+          "1"
+          "0.3"
+          "1"
+        ];
+      }
+      {
+        _args = [
+          "menu_decel"
+          "0.1"
+          "1"
+          "0"
+          "1"
+        ];
+      }
+      {
+        _args = [
+          "menu_accel"
+          "0.52"
+          "0.03"
+          "0.72"
+          "0.08"
+        ];
+      }
     ];
 
     animation = [
-      "windowsIn,  1, 6, omniOvershoot, popin 86%"
-      "windowsOut, 1, 5, omniAccel, popin 92%"
-      "windowsMove, 1, 6, omniDecel, slide"
-      "fadeIn,     1, 5, omniDecel"
-      "fadeOut,    1, 4, omniAccel"
-      "border,     1, 10, omniSmooth"
-      "layersIn,   1, 5, omniDecel, popin 92%"
-      "layersOut,  1, 4, omniAccel, popin 94%"
-      "fadeLayersIn,  1, 3, omniDecel"
-      "fadeLayersOut, 1, 3, omniAccel"
-      "workspaces, 1, 8, omniDecel, slide"
-      "specialWorkspaceIn,  1, 5, omniDecel, slidevert"
-      "specialWorkspaceOut, 1, 4, omniAccel, slidevert"
+      {
+        _args = [
+          "windowsIn"
+          "1"
+          "6"
+          "omniOvershoot"
+          "popin 86%"
+        ];
+      }
+      {
+        _args = [
+          "windowsOut"
+          "1"
+          "5"
+          "omniAccel"
+          "popin 92%"
+        ];
+      }
+      {
+        _args = [
+          "windowsMove"
+          "1"
+          "6"
+          "omniDecel"
+          "slide"
+        ];
+      }
+      {
+        _args = [
+          "fadeIn"
+          "1"
+          "5"
+          "omniDecel"
+        ];
+      }
+      {
+        _args = [
+          "fadeOut"
+          "1"
+          "4"
+          "omniAccel"
+        ];
+      }
+      {
+        _args = [
+          "border"
+          "1"
+          "10"
+          "omniSmooth"
+        ];
+      }
+      {
+        _args = [
+          "layersIn"
+          "1"
+          "5"
+          "omniDecel"
+          "popin 92%"
+        ];
+      }
+      {
+        _args = [
+          "layersOut"
+          "1"
+          "4"
+          "omniAccel"
+          "popin 94%"
+        ];
+      }
+      {
+        _args = [
+          "fadeLayersIn"
+          "1"
+          "3"
+          "omniDecel"
+        ];
+      }
+      {
+        _args = [
+          "fadeLayersOut"
+          "1"
+          "3"
+          "omniAccel"
+        ];
+      }
+      {
+        _args = [
+          "workspaces"
+          "1"
+          "8"
+          "omniDecel"
+          "slide"
+        ];
+      }
+      {
+        _args = [
+          "specialWorkspaceIn"
+          "1"
+          "5"
+          "omniDecel"
+          "slidevert"
+        ];
+      }
+      {
+        _args = [
+          "specialWorkspaceOut"
+          "1"
+          "4"
+          "omniAccel"
+          "slidevert"
+        ];
+      }
     ];
 
     device = [

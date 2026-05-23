@@ -8,119 +8,119 @@ in
     "$mainMod" = "SUPER";
 
     bindr = [
-      "$mainMod, SUPER_L, exec, ${ipc} launcher toggle"
+      { _args = [ "$mainMod" "SUPER_L" "exec" "${ipc} launcher toggle" ]; }
     ];
 
     bind = [
       # workspace
-      "CTRL $mainMod, right, layoutmsg, focus r"
-      "CTRL $mainMod, left,  layoutmsg, focus l"
-      "CTRL $mainMod, down,  workspace, r+1"
-      "CTRL $mainMod, up,    workspace, r-1"
-      "CTRL $mainMod SHIFT, right, layoutmsg, movewindowto r"
-      "CTRL $mainMod SHIFT, left,  layoutmsg, movewindowto l"
-      "CTRL $mainMod SHIFT, down,  movetoworkspace, r+1"
-      "CTRL $mainMod SHIFT, up,    movetoworkspace, r-1"
-      "$mainMod, R,         layoutmsg, colresize +conf"
-      "$mainMod, C,         layoutmsg, center"
-      "$mainMod SHIFT, R,   layoutmsg, colresize 0.7"
+      { _args = [ "CTRL $mainMod" "right" "layoutmsg" "focus r" ]; }
+      { _args = [ "CTRL $mainMod" "left" "layoutmsg" "focus l" ]; }
+      { _args = [ "CTRL $mainMod" "down" "workspace" "r+1" ]; }
+      { _args = [ "CTRL $mainMod" "up" "workspace" "r-1" ]; }
+      { _args = [ "CTRL $mainMod SHIFT" "right" "layoutmsg" "movewindowto r" ]; }
+      { _args = [ "CTRL $mainMod SHIFT" "left" "layoutmsg" "movewindowto l" ]; }
+      { _args = [ "CTRL $mainMod SHIFT" "down" "movetoworkspace" "r+1" ]; }
+      { _args = [ "CTRL $mainMod SHIFT" "up" "movetoworkspace" "r-1" ]; }
+      { _args = [ "$mainMod" "R" "layoutmsg" "colresize +conf" ]; }
+      { _args = [ "$mainMod" "C" "layoutmsg" "center" ]; }
+      { _args = [ "$mainMod SHIFT" "R" "layoutmsg" "colresize 0.7" ]; }
 
       # interface
-      "$mainMod, P,           exec, ${ipc} bar toggle"
-      "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle"
+      { _args = [ "$mainMod" "P" "exec" "${ipc} bar toggle" ]; }
+      { _args = [ "CTRL ALT" "Delete" "exec" "${ipc} sessionMenu toggle" ]; }
       # plugins
-      "$mainMod SHIFT, S,     exec, ${ipc} plugin:screen-shot-and-record screenshot"
-      "$mainMod SHIFT, Z,     exec, ${ipc} plugin:screen-shot-and-record search"
-      "$mainMod SHIFT, X,     exec, ${ipc} plugin:screen-shot-and-record ocr"
-      "$mainMod SHIFT, C,     exec, ${ipc} plugin:music panel"
+      { _args = [ "$mainMod SHIFT" "S" "exec" "${ipc} plugin:screen-shot-and-record screenshot" ]; }
+      { _args = [ "$mainMod SHIFT" "Z" "exec" "${ipc} plugin:screen-shot-and-record search" ]; }
+      { _args = [ "$mainMod SHIFT" "X" "exec" "${ipc} plugin:screen-shot-and-record ocr" ]; }
+      { _args = [ "$mainMod SHIFT" "C" "exec" "${ipc} plugin:music panel" ]; }
       # launchers
-      "$mainMod, Return,      exec, ghostty"
-      "$mainMod, W,           exec, zen-beta"
-      "$mainMod, E,           exec, nautilus"
-      "$mainMod, Z,           exec, zeditor"
-      "$mainMod ALT, V,       exec, pavucontrol"
-      "$mainMod SHIFT, V,     exec, ${ipc} launcher clipboard"
-      "$mainMod SHIFT, L,     exec, ${ipc} lockScreen lock"
-      "CTRL SHIFT, Escape,      exec, ghostty -e btop"
+      { _args = [ "$mainMod" "Return" "exec" "ghostty" ]; }
+      { _args = [ "$mainMod" "W" "exec" "zen-beta" ]; }
+      { _args = [ "$mainMod" "E" "exec" "nautilus" ]; }
+      { _args = [ "$mainMod" "Z" "exec" "zeditor" ]; }
+      { _args = [ "$mainMod ALT" "V" "exec" "pavucontrol" ]; }
+      { _args = [ "$mainMod SHIFT" "V" "exec" "${ipc} launcher clipboard" ]; }
+      { _args = [ "$mainMod SHIFT" "L" "exec" "${ipc} lockScreen lock" ]; }
+      { _args = [ "CTRL SHIFT" "Escape" "exec" "ghostty -e btop" ]; }
 
       # window management
-      "$mainMod, Q,           killactive"
-      "$mainMod ALT, SPACE,   togglefloating"
-      "$mainMod, F,           fullscreen, 0"
-      "$mainMod, D,           fullscreen, 1"
-      "$mainMod ALT, P,       pin"
+      { _args = [ "$mainMod" "Q" "killactive" ]; }
+      { _args = [ "$mainMod ALT" "SPACE" "togglefloating" ]; }
+      { _args = [ "$mainMod" "F" "fullscreen" "0" ]; }
+      { _args = [ "$mainMod" "D" "fullscreen" "1" ]; }
+      { _args = [ "$mainMod ALT" "P" "pin" ]; }
 
       # focus windows
-      "$mainMod, left,  layoutmsg, move -col"
-      "$mainMod, right, layoutmsg, move +col"
-      "$mainMod, up,    movefocus, u"
-      "$mainMod, down,  movefocus, d"
+      { _args = [ "$mainMod" "left" "layoutmsg" "move -col" ]; }
+      { _args = [ "$mainMod" "right" "layoutmsg" "move +col" ]; }
+      { _args = [ "$mainMod" "up" "movefocus" "u" ]; }
+      { _args = [ "$mainMod" "down" "movefocus" "d" ]; }
 
-      "$mainMod SHIFT, left,  layoutmsg, movewindowto l"
-      "$mainMod SHIFT, right, layoutmsg, movewindowto r"
-      "$mainMod SHIFT, up,    movewindow, u"
-      "$mainMod SHIFT, down,  movewindow, d"
+      { _args = [ "$mainMod SHIFT" "left" "layoutmsg" "movewindowto l" ]; }
+      { _args = [ "$mainMod SHIFT" "right" "layoutmsg" "movewindowto r" ]; }
+      { _args = [ "$mainMod SHIFT" "up" "movewindow" "u" ]; }
+      { _args = [ "$mainMod SHIFT" "down" "movewindow" "d" ]; }
 
       # workspace navigation
-      "$mainMod, 1, workspace, 1"
-      "$mainMod, 2, workspace, 2"
-      "$mainMod, 3, workspace, 3"
-      "$mainMod, 4, workspace, 4"
-      "$mainMod, 5, workspace, 5"
-      "$mainMod, 6, workspace, 6"
-      "$mainMod, 7, workspace, 7"
-      "$mainMod, 8, workspace, 8"
-      "$mainMod, 9, workspace, 9"
-      "$mainMod, 0, workspace, 10"
+      { _args = [ "$mainMod" "1" "workspace" "1" ]; }
+      { _args = [ "$mainMod" "2" "workspace" "2" ]; }
+      { _args = [ "$mainMod" "3" "workspace" "3" ]; }
+      { _args = [ "$mainMod" "4" "workspace" "4" ]; }
+      { _args = [ "$mainMod" "5" "workspace" "5" ]; }
+      { _args = [ "$mainMod" "6" "workspace" "6" ]; }
+      { _args = [ "$mainMod" "7" "workspace" "7" ]; }
+      { _args = [ "$mainMod" "8" "workspace" "8" ]; }
+      { _args = [ "$mainMod" "9" "workspace" "9" ]; }
+      { _args = [ "$mainMod" "0" "workspace" "10" ]; }
 
       # move windows to workspace
-      "$mainMod SHIFT, 1, movetoworkspace, 1"
-      "$mainMod SHIFT, 2, movetoworkspace, 2"
-      "$mainMod SHIFT, 3, movetoworkspace, 3"
-      "$mainMod SHIFT, 4, movetoworkspace, 4"
-      "$mainMod SHIFT, 5, movetoworkspace, 5"
-      "$mainMod SHIFT, 6, movetoworkspace, 6"
-      "$mainMod SHIFT, 7, movetoworkspace, 7"
-      "$mainMod SHIFT, 8, movetoworkspace, 8"
-      "$mainMod SHIFT, 9, movetoworkspace, 9"
-      "$mainMod SHIFT, 0, movetoworkspace, 10"
+      { _args = [ "$mainMod SHIFT" "1" "movetoworkspace" "1" ]; }
+      { _args = [ "$mainMod SHIFT" "2" "movetoworkspace" "2" ]; }
+      { _args = [ "$mainMod SHIFT" "3" "movetoworkspace" "3" ]; }
+      { _args = [ "$mainMod SHIFT" "4" "movetoworkspace" "4" ]; }
+      { _args = [ "$mainMod SHIFT" "5" "movetoworkspace" "5" ]; }
+      { _args = [ "$mainMod SHIFT" "6" "movetoworkspace" "6" ]; }
+      { _args = [ "$mainMod SHIFT" "7" "movetoworkspace" "7" ]; }
+      { _args = [ "$mainMod SHIFT" "8" "movetoworkspace" "8" ]; }
+      { _args = [ "$mainMod SHIFT" "9" "movetoworkspace" "9" ]; }
+      { _args = [ "$mainMod SHIFT" "0" "movetoworkspace" "10" ]; }
 
       # special workspaces
-      "$mainMod, S,       togglespecialworkspace"
-      "$mainMod ALT, S,   movetoworkspacesilent, special"
+      { _args = [ "$mainMod" "S" "togglespecialworkspace" ]; }
+      { _args = [ "$mainMod ALT" "S" "movetoworkspacesilent" "special" ]; }
 
       #  mouse workspace navigation
-      "$mainMod, mouse_up,   workspace, +1"
-      "$mainMod, mouse_down, workspace, -1"
+      { _args = [ "$mainMod" "mouse_up" "workspace" "+1" ]; }
+      { _args = [ "$mainMod" "mouse_down" "workspace" "-1" ]; }
 
       # media keys
-      "$mainMod SHIFT, N, exec, playerctl next"
-      "$mainMod SHIFT, B, exec, playerctl previous"
-      "$mainMod SHIFT, P, exec, playerctl play-pause"
+      { _args = [ "$mainMod SHIFT" "N" "exec" "playerctl next" ]; }
+      { _args = [ "$mainMod SHIFT" "B" "exec" "playerctl previous" ]; }
+      { _args = [ "$mainMod SHIFT" "P" "exec" "playerctl play-pause" ]; }
     ];
 
     # mouse binds
     bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
+      { _args = [ "$mainMod" "mouse:272" "movewindow" ]; }
+      { _args = [ "$mainMod" "mouse:273" "resizewindow" ]; }
     ];
 
     # volume and brightness binds
     bindel = [
-      ", XF86AudioRaiseVolume,   exec, ${ipc} volume increase"
-      ", XF86AudioLowerVolume,   exec, ${ipc} volume decrease"
-      ", XF86MonBrightnessUp,    exec, ${ipc} brightness increase"
-      ", XF86MonBrightnessDown,  exec, ${ipc} brightness decrease"
+      { _args = [ "" "XF86AudioRaiseVolume" "exec" "${ipc} volume increase" ]; }
+      { _args = [ "" "XF86AudioLowerVolume" "exec" "${ipc} volume decrease" ]; }
+      { _args = [ "" "XF86MonBrightnessUp" "exec" "${ipc} brightness increase" ]; }
+      { _args = [ "" "XF86MonBrightnessDown" "exec" "${ipc} brightness decrease" ]; }
     ];
 
     # volume and media keys
     bindl = [
-      ", XF86AudioMute,    exec, ${ipc} volume muteOutput"
-      ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-      ", XF86AudioNext,    exec, playerctl next"
-      ", XF86AudioPrev,    exec, playerctl previous"
-      ", XF86AudioPlay,    exec, playerctl play-pause"
-      ", XF86AudioPause,   exec, playerctl play-pause"
+      { _args = [ "" "XF86AudioMute" "exec" "${ipc} volume muteOutput" ]; }
+      { _args = [ "" "XF86AudioMicMute" "exec" "wpctl set-mute @DEFAULT_SOURCE@ toggle" ]; }
+      { _args = [ "" "XF86AudioNext" "exec" "playerctl next" ]; }
+      { _args = [ "" "XF86AudioPrev" "exec" "playerctl previous" ]; }
+      { _args = [ "" "XF86AudioPlay" "exec" "playerctl play-pause" ]; }
+      { _args = [ "" "XF86AudioPause" "exec" "playerctl play-pause" ]; }
     ];
   };
 }
