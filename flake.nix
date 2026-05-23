@@ -67,11 +67,6 @@
               (final: prev: {
                 copetch = inputs.copetch.packages.${linuxSystem}.default;
               })
-              (final: prev: {
-                openldap = prev.openldap.overrideAttrs (old: {
-                  doCheck = false;
-                });
-              })
             ];
             nixpkgs.config.allowUnfree = true;
             home-manager = {

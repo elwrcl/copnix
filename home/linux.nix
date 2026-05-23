@@ -94,7 +94,6 @@
 
     # apps
     heroic
-    bottles
     prismlauncher
     nautilus
     loupe
@@ -109,9 +108,10 @@
     adwaita-qt
     gnome-icon-theme
     hicolor-icon-theme
-    pantheon.elementary-icon-theme
     tango-icon-theme
     arc-icon-theme
+
+    #inputs
     inputs.zen-browser.packages.${system}.default
     inputs.helium.packages.${system}.default
     inputs.noctalia.packages.${system}.default
