@@ -19,7 +19,7 @@
 
   programs.ghostty = {
     enable = true;
-    };
+  };
 
   programs.starship.enable = true;
   programs.fzf.enable = true;

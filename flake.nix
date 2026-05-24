@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nyx-loner.url = "github:lonerOrz/nyx-loner";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +41,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      nyx-loner,
       ...
     }:
     let
@@ -55,6 +57,7 @@
         modules = [
           { nixpkgs.hostPlatform = linuxSystem; }
           home-manager.nixosModules.home-manager
+          nyx-loner.nixosModules.default
           {
             nixpkgs.overlays = [
               (final: prev: {
