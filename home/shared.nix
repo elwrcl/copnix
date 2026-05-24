@@ -103,7 +103,7 @@
     zig
     lua
     glm
-    python3Full
+    python3
 
     # themes/icons
     bibata-cursors
