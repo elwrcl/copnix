@@ -93,7 +93,7 @@
     trunk
     dioxus-cli
     uv
-    stripe-cli
+    python3.12-tkinter
 
     # langs
     ghc

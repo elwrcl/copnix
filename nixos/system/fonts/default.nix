@@ -11,11 +11,11 @@
       noto-fonts-cjk-serif
       noto-fonts-color-emoji
       ipaexfont
+      meslo-lg
       nerd-fonts.jetbrains-mono
       nerd-fonts.caskaydia-cove
       nerd-fonts.symbols-only
-      #inputs.apple-fonts.packages.${system}.sf-pro
-      #inputs.apple-fonts.packages.${system}.sf-mono
+      nerd-fonts-meslo-lg
     ];
 
     fontconfig = {
