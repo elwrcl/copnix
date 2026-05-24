@@ -93,7 +93,6 @@
     trunk
     dioxus-cli
     uv
-    python3.12-tkinter
 
     # langs
     ghc
@@ -104,7 +103,7 @@
     zig
     lua
     glm
-    python3
+    python3Full
 
     # themes/icons
     bibata-cursors
