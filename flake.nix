@@ -7,7 +7,7 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    #nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,10 +29,10 @@
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #apple-fonts = {
+    #  url = "github:Lyndeno/apple-fonts.nix";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +45,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
-      nix-cachyos-kernel,
+      #nix-cachyos-kernel,
       ...
     }:
     let
@@ -63,7 +63,7 @@
           home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [
-              nix-cachyos-kernel.overlays.default
+              #nix-cachyos-kernel.overlays.default
               (final: prev: {
                 copetch = inputs.copetch.packages.${linuxSystem}.default;
               })
