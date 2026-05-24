@@ -17,10 +17,6 @@
     initContent = builtins.readFile ./dots/zsh/.zshrc;
   };
 
-  programs.ghostty = {
-    enable = true;
-  };
-
   programs.starship.enable = true;
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
@@ -54,6 +50,7 @@
     cachix
     btop
     kitty
+    pkgs.ghostty_git
     xdg-utils
     ani-cli
 
