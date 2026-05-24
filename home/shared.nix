@@ -19,14 +19,7 @@
 
   programs.ghostty = {
     enable = true;
-    settings = {
-      font-family = "JetBrainsMono Nerd Font";
-      font-size = 10;
-      background-opacity = 0.8;
-      window-padding-x = 10;
-      window-padding-y = 10;
     };
-  };
 
   programs.starship.enable = true;
   programs.fzf.enable = true;
@@ -36,7 +29,6 @@
   fonts.fontconfig.enable = true;
 
   xdg.configFile = {
-    "fastfetch".source = ./dots/fastfetch;
   };
 
   home.packages = with pkgs; [
