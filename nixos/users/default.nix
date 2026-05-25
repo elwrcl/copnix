@@ -21,6 +21,11 @@
     shell = pkgs.zsh;
   };
 
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
+
   programs.nh = {
     enable = true;
     clean.enable = true;

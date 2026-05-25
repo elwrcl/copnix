@@ -117,5 +117,6 @@
     inputs.noctalia.packages.${system}.default
     inputs.copetch.packages.${system}.default
     pkgs.qt6Packages.qtwebsockets
+    pkgs.evil-helix_git
   ];
 }
