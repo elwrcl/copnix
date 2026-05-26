@@ -8,23 +8,16 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extest.enable = false;
     protontricks.enable = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
-
-    gamescopeSession = {
-      enable = true;
-      args = [
-        "--fullscreen"
-        "--force-grab-cursor"
-      ];
-    };
   };
+
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    capSysNice = false;
   };
+
   hardware.steam-hardware.enable = true;
 }
