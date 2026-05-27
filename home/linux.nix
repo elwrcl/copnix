@@ -9,7 +9,10 @@
   imports = [
     ./shared.nix
     ./hyprland.nix
+    ./discord.nix
   ];
+
+  services.easyeffects.enable = true;
 
   home.homeDirectory = "/home/elars";
 
@@ -20,8 +23,6 @@
     gtk.enable = true;
     x11.enable = true;
   };
-
-  services.easyeffects.enable = true;
 
   qt = {
     enable = true;
@@ -97,8 +98,6 @@
     prismlauncher
     nautilus
     loupe
-    equibop
-    discord
     whatsapp-electron
     spotatui
     antigravity
@@ -116,6 +115,7 @@
     inputs.helium.packages.${system}.default
     inputs.noctalia.packages.${system}.default
     inputs.copetch.packages.${system}.default
+    inputs.nixcord.homeManagerModules.nixcord
     pkgs.qt6Packages.qtwebsockets
     pkgs.evil-helix_git
   ];

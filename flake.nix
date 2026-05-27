@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nyx-loner = {
       url = "github:lonerOrz/nyx-loner";
       inputs.nixpkgs.follows = "nixpkgs";
