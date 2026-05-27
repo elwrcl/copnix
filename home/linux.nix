@@ -7,10 +7,8 @@
 
 {
   imports = [
-    inputs.nixcord.homeManagerModules.nixcord
     ./shared.nix
     ./hyprland.nix
-    ./discord.nix
   ];
 
   services.easyeffects.enable = true;

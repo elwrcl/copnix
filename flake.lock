@@ -681,13 +681,13 @@
       "locked": {
         "lastModified": 1779844462,
         "narHash": "sha256-zM/kljRBq/o4gg0QhFglJBrP9POH5lFA9+msA2QFsuc=",
-        "owner": "kaylorben",
+        "owner": "FlameFlag",
         "repo": "nixcord",
         "rev": "b01cb33ce9f7f85021b4863fbda30858343a3d2d",
         "type": "github"
       },
       "original": {
-        "owner": "kaylorben",
+        "owner": "FlameFlag",
         "repo": "nixcord",
         "type": "github"
       }

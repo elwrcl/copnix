@@ -31,10 +31,10 @@
       dim_inactive = true;
       dim_strength = 0.05;
       blur = {
-        enabled = true;
+        enabled = false;
       };
       shadow = {
-        enabled = true;
+        enabled = false;
       };
     };
 
