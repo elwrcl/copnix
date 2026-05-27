@@ -50,15 +50,12 @@
       gtk-application-prefer-dark-theme = true;
       gtk-theme = "Adwaita-dark";
     };
-    "org/gnome/nautilus/preferences" = {
-      default-folder-viewer = "icon-view";
-    };
   };
 
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "inode/directory" = [ "org.gnome.Nautilus.desktop" ];
+      "inode/directory" = [ "thunar.desktop" ];
       "x-scheme-handler/http" = [ "zen-beta.desktop" ];
       "x-scheme-handler/https" = [ "zen-beta.desktop" ];
       "x-scheme-handler/about" = [ "zen-beta.desktop" ];
@@ -92,10 +89,17 @@
     clinfo
     hidapi
 
+    #thunar tools
+    thunar
+    thunar-archive-plugin
+    thunar-media-tags-plugin
+    thunar-volman
+    tumbler
+    ffmpegthumbnailer
+
     # apps
     heroic
     prismlauncher
-    nautilus
     loupe
     whatsapp-electron
     spotatui

@@ -36,7 +36,7 @@ in
       # launchers
       "$mainMod, Return,      exec, ghostty"
       "$mainMod, W,           exec, zen-beta"
-      "$mainMod, E,           exec, nautilus"
+      "$mainMod, E,           exec, thunar"
       "$mainMod, Z,           exec, zeditor"
       "$mainMod ALT, V,       exec, pavucontrol"
       "$mainMod SHIFT, V,     exec, ${ipc} launcher clipboard"
