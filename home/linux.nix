@@ -71,7 +71,7 @@
   };
 
   home.packages = with pkgs; [
-    # wayland-specific
+    # qol-hyprland
     wl-clipboard
     waybar
     easyeffects

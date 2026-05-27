@@ -29,8 +29,8 @@ alias rm='trash-put'
 
 # system
 alias sysinfo='fastfetch'
-alias monitor='btop'
-alias ports='sudo netstat -tulpn'
+alias monitor='sudo btop'
+alias ports='sudo ss -tulpn'
 alias myip='curl ifconfig.me'
 
 # navigation
@@ -99,4 +99,3 @@ export PATH="$HOME/.local/bin:$PATH"
 #fetch
 copetch --ascii
 #fuckfastfetch i'm better!
-

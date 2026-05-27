@@ -41,7 +41,7 @@ in
       "$mainMod ALT, V,       exec, pavucontrol"
       "$mainMod SHIFT, V,     exec, ${ipc} launcher clipboard"
       "$mainMod SHIFT, L,     exec, ${ipc} lockScreen lock"
-      "CTRL SHIFT, Escape,      exec, ghostty -e btop"
+      "CTRL SHIFT, Escape,      exec, ghostty -e sudo btop"
 
       # window management
       "$mainMod, Q,           killactive"

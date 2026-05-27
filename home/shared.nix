@@ -48,11 +48,13 @@
     fish
     git
     cachix
+    htop
     btop
     kitty
-    pkgs.ghostty_git
     xdg-utils
     ani-cli
+    github-copilot-cli
+    pkgs.ghostty_git
 
     # media
     mpv
@@ -71,8 +73,7 @@
 
     # dev tools
     nil
-    github-copilot-cli
-    nixpkgs-fmt
+    nixfmt
     gnumake
     sqlite
     openssl
@@ -80,7 +81,6 @@
     aubio
     cargo-tauri
     trunk
-    dioxus-cli
     uv
 
     # langs
@@ -106,10 +106,6 @@
     onlyoffice-desktopeditors
     qbittorrent
     localsend
-    jellyfin-media-player
-    calibre
-    qalculate-gtk
-    libqalculate
     blender
     wine
 
