@@ -7,6 +7,7 @@
 
 {
   imports = [
+    inputs.nixcord.homeManagerModules.nixcord
     ./shared.nix
     ./hyprland.nix
     ./discord.nix
@@ -115,7 +116,6 @@
     inputs.helium.packages.${system}.default
     inputs.noctalia.packages.${system}.default
     inputs.copetch.packages.${system}.default
-    inputs.nixcord.homeManagerModules.nixcord
     pkgs.qt6Packages.qtwebsockets
     pkgs.evil-helix_git
   ];
