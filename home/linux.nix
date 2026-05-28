@@ -98,6 +98,7 @@
     ffmpegthumbnailer
 
     # apps
+    discord-canary
     heroic
     prismlauncher
     loupe
