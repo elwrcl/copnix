@@ -1,0 +1,28 @@
+{
+  pkgs,
+  lib,
+  ...
+}:
+
+let
+  base = ''
+    [user]
+    	name = elwrcl
+    	email = elwerici@proton.me
+    	signingkey = AAC15D93AFCAB283
+    [commit]
+    	gpgsign = true
+    [tag]
+    	gpgsign = true
+  '';
+
+  darwinExtra = ''
+    [credential]
+    	helper = osxkeychain
+  '';
+
+  gitconfig = pkgs.writeText "gitconfig" (base + lib.optionalString pkgs.stdenv.isDarwin darwinExtra);
+in
+{
+  environment.variables.GIT_CONFIG_SYSTEM = "${gitconfig}";
+}

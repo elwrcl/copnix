@@ -1,5 +1,5 @@
 {
-  description = "copland, linux/darwin niximator";
+  description = "copland, linux/darwin";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
@@ -62,11 +62,6 @@
           home-manager.nixosModules.home-manager
           nyx-loner.nixosModules.default
           {
-            nixpkgs.overlays = [
-              (final: prev: {
-                copetch = inputs.copetch.packages.${linuxSystem}.default;
-              })
-            ];
             nixpkgs.config.allowUnfree = true;
             home-manager = {
               useGlobalPkgs = true;
@@ -75,11 +70,10 @@
                 inherit inputs;
                 system = linuxSystem;
               };
-              users.elars = import ./home/linux.nix;
+              users.elars = import ./modules/home/home.nix;
             };
           }
-          ./machine.nix
-          ./nixos/default.nix
+          ./main/nixos/machine.nix
         ];
       };
 
@@ -89,21 +83,11 @@
           system = darwinSystem;
         };
         modules = [
-          home-manager.darwinModules.home-manager
           {
             nixpkgs.hostPlatform = darwinSystem;
             nixpkgs.config.allowUnfree = true;
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                inherit inputs;
-                system = darwinSystem;
-              };
-              users.elars = import ./home/darwin.nix;
-            };
           }
-          ./darwin/default.nix
+          ./main/darwin/machine.nix
         ];
       };
     };
