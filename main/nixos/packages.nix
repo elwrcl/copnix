@@ -22,7 +22,7 @@ with pkgs;
     antigravity
     localsend
     spotatui
-    picotoolss
+    picotools
     blender
     heroic
     loupe
