@@ -4,7 +4,10 @@
 }:
 
 {
-  imports = [ ./hyprland.nix ];
+  imports = [
+    ./hyprland.nix
+    ./discord.nix
+  ];
 
   home.username = "elars";
   home.homeDirectory = "/home/elars";
