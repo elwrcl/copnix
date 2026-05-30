@@ -17,13 +17,13 @@ with pkgs;
     whatsapp-electron
     pkgs.ghostty_git
     telegram-desktop
-    discord-canary
     prismlauncher
     qbittorrent
     antigravity
     localsend
     spotatui
     picotool
+    equibop
     blender
     heroic
     loupe
