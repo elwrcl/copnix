@@ -62,7 +62,6 @@ with pkgs;
     github-copilot-cli
     fastfetch
     trash-cli
-    xdg-utils
     dos2unix
     autossh
     ani-cli

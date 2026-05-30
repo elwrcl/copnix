@@ -5,6 +5,6 @@
     ../home/git.nix
     ./homebrew
     ./system
-    ./users
+    ./user
   ];
 }

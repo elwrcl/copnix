@@ -84,7 +84,6 @@
         };
         modules = [
           {
-            nixpkgs.hostPlatform = darwinSystem;
             nixpkgs.config.allowUnfree = true;
           }
           ./main/darwin/machine.nix
