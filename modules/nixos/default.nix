@@ -8,6 +8,7 @@
     ./gaming
     ./hardware
     ./networking
+    ./overlays
     ./services
     ./system
     ./users

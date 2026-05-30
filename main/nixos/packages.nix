@@ -23,6 +23,7 @@ with pkgs;
     localsend
     spotatui
     picotool
+    legcord
     blender
     heroic
     loupe
