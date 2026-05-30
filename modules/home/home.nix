@@ -6,7 +6,6 @@
 {
   imports = [
     ./hyprland.nix
-    ./discord.nix
   ];
 
   home.username = "elars";
