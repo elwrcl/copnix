@@ -22,8 +22,7 @@ with pkgs;
     antigravity
     localsend
     spotatui
-    picotool
-    legcord
+    picotoolss
     blender
     heroic
     loupe
