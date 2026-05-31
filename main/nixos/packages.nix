@@ -20,6 +20,7 @@ with pkgs;
     prismlauncher
     qbittorrent
     antigravity
+    obs-studio
     localsend
     spotatui
     picotool
@@ -32,7 +33,6 @@ with pkgs;
     # qol-hyprland
     wl-clipboard
     wf-recorder
-    obs-studio
     tesseract
     mpvpaper
     swappy
@@ -89,6 +89,7 @@ with pkgs;
     # hardware
     gpu-screen-recorder
     intel-gpu-tools
+    wayland-scanner
     smartmontools
     brightnessctl
     gsmartcontrol
