@@ -8,6 +8,10 @@
     ./hyprland.nix
   ];
 
+  home.packages = [
+    (pkgs.discord-canary.override { withMoonlight = true; })
+  ];
+
   home.username = "elars";
   home.homeDirectory = "/home/elars";
   home.stateVersion = "25.05";
