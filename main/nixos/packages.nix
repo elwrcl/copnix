@@ -39,9 +39,10 @@ with pkgs;
     slurp
     grim
 
-    #thunar tools
+    # thunar tools
     thunar-media-tags-plugin
     thunar-archive-plugin
+    thunar-vcs-plugin
     ffmpegthumbnailer
     thunar-volman
     tumbler

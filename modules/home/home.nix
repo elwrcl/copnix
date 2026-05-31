@@ -100,17 +100,15 @@
 
   gtk = {
     enable = true;
-    theme.name = "Adwaita-dark";
-    theme.package = pkgs.gnome-themes-extra;
-    gtk4.theme.name = "Adwaita-dark";
-    gtk4.theme.package = pkgs.gnome-themes-extra;
+    theme.name = "Graphite-Dark";
+    theme.package = pkgs.graphite-gtk-theme;
+    gtk4.theme.name = "Graphite-Dark";
+    gtk4.theme.package = pkgs.graphite-gtk-theme;
   };
 
   qt = {
     enable = true;
     platformTheme.name = "gtk3";
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
   };
 
   home.pointerCursor = {
@@ -124,7 +122,7 @@
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
     gtk-application-prefer-dark-theme = true;
-    gtk-theme = "Adwaita-dark";
+    gtk-theme = "Graphite-Dark";
   };
 
   xdg.mimeApps = {
