@@ -14,8 +14,8 @@ with pkgs;
   system = [
     # apps
     onlyoffice-desktopeditors
+    nemo-with-extensions
     whatsapp-electron
-    pkgs.ghostty_git
     telegram-desktop
     prismlauncher
     qbittorrent
@@ -25,6 +25,7 @@ with pkgs;
     spotatui
     picotool
     equibop
+    ghostty
     blender
     heroic
     loupe
@@ -38,15 +39,6 @@ with pkgs;
     swappy
     slurp
     grim
-
-    # thunar tools
-    thunar-media-tags-plugin
-    thunar-archive-plugin
-    thunar-vcs-plugin
-    ffmpegthumbnailer
-    thunar-volman
-    tumbler
-    thunar
 
     # phone
     kdePackages.krdp
@@ -89,7 +81,6 @@ with pkgs;
     # hardware
     gpu-screen-recorder
     intel-gpu-tools
-    wayland-scanner
     smartmontools
     brightnessctl
     gsmartcontrol
@@ -132,6 +123,11 @@ with pkgs;
     zig
     lua
     glm
+
+    # wayland tools
+    wayland-protocols
+    wayland-scanner
+    wayland
 
     # dev tools
     cargo-tauri
