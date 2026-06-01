@@ -4,17 +4,17 @@
 }:
 
 {
+  fonts.packages = [
+    pkgs.nerd-fonts.jetbrains-mono
+  ];
+
   services.kmscon = {
     enable = true;
-    hwRender = true;
-    fonts = [
-      {
-        name = "JetBrainsMono Nerd Font";
-        package = pkgs.nerd-fonts.jetbrains-mono;
-      }
-    ];
-    extraConfig = ''
-      font-size=18
-    '';
+
+    config = {
+      font-name = "JetBrainsMono Nerd Font";
+      font-size = 18;
+      hwaccel = true;
+    };
   };
 }
