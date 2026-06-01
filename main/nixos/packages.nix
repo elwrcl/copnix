@@ -125,9 +125,9 @@ with pkgs;
     glm
 
     # wayland tools
-    wayland-protocols
-    wayland-scanner
-    wayland
+    #wayland-protocols
+    #wayland-scanner
+    #wayland
 
     # dev tools
     cargo-tauri
