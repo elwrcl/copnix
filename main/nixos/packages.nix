@@ -31,22 +31,15 @@ with pkgs;
     loupe
     wine
 
-    # hyprland
+    # qol-hyprland
     gpu-screen-recorder
     wl-clipboard
     wf-recorder
     tesseract
     mpvpaper
-    hyprlock
-    cliphist
     swappy
-    waybar
     slurp
     grim
-    rofi
-    cava
-    eww
-    bc
 
     # phone
     libimobiledevice
