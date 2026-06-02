@@ -124,11 +124,6 @@ with pkgs;
     lua
     glm
 
-    # wayland tools
-    #wayland-protocols
-    #wayland-scanner
-    #wayland
-
     # dev tools
     cargo-tauri
     pkg-config

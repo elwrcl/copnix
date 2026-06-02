@@ -9,7 +9,7 @@ let
     [user]
     	name = elwrcl
     	email = elwerici@proton.me
-    	signingkey = AAC15D93AFCAB283
+    	signingkey = 5EA48F7312A42B84
     [commit]
     	gpgsign = true
     [tag]
