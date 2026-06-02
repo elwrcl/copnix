@@ -46,6 +46,7 @@ with pkgs;
     rofi
     cava
     eww
+    bc
 
     # phone
     libimobiledevice
