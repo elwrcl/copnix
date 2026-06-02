@@ -12,15 +12,7 @@
       "col.inactive_border" = "rgba(ffffff66)";
       resize_on_border = true;
       allow_tearing = true;
-      layout = "scrolling";
-    };
-
-    scrolling = {
-      column_width = 0.45;
-      fullscreen_on_one_column = true;
-      focus_fit_method = 1;
-      follow_focus = true;
-      direction = "right";
+      layout = "dwindle";
     };
 
     decoration = {

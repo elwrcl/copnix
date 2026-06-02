@@ -14,5 +14,9 @@
     xwayland.enable = true;
     systemd.enable = false;
     systemd.variables = [ "-all" ];
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.csgo-vulkan-fix
+      inputs.Hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
+    ];
   };
 }

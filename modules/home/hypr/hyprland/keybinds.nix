@@ -12,27 +12,28 @@ in
     ];
 
     bind = [
+
       # workspace
-      "CTRL $mainMod, right, layoutmsg, focus r"
-      "CTRL $mainMod, left,  layoutmsg, focus l"
+      "CTRL $mainMod, right, workspace, r+1"
+      "CTRL $mainMod, left,  workspace, r-1"
       "CTRL $mainMod, down,  workspace, r+1"
       "CTRL $mainMod, up,    workspace, r-1"
-      "CTRL $mainMod SHIFT, right, layoutmsg, movewindowto r"
-      "CTRL $mainMod SHIFT, left,  layoutmsg, movewindowto l"
+      "CTRL $mainMod SHIFT, right, movetoworkspace, r+1"
+      "CTRL $mainMod SHIFT, left,  movetoworkspace, r-1"
       "CTRL $mainMod SHIFT, down,  movetoworkspace, r+1"
       "CTRL $mainMod SHIFT, up,    movetoworkspace, r-1"
-      "$mainMod, R,         layoutmsg, colresize +conf"
-      "$mainMod, C,         layoutmsg, center"
-      "$mainMod SHIFT, R,   layoutmsg, colresize 0.7"
 
       # interface
       "$mainMod, P,           exec, ${ipc} bar toggle"
+      "$mainMod, Tab,         overview:toggle"
       "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle"
+
       # plugins
       "$mainMod SHIFT, S,     exec, ${ipc} plugin:screen-shot-and-record screenshot"
       "$mainMod SHIFT, Z,     exec, ${ipc} plugin:screen-shot-and-record search"
       "$mainMod SHIFT, X,     exec, ${ipc} plugin:screen-shot-and-record ocr"
       "$mainMod SHIFT, C,     exec, ${ipc} plugin:music panel"
+
       # launchers
       "$mainMod, Return,      exec, ghostty"
       "$mainMod, W,           exec, zen-beta"
@@ -41,7 +42,7 @@ in
       "$mainMod ALT, V,       exec, pavucontrol"
       "$mainMod SHIFT, V,     exec, ${ipc} launcher clipboard"
       "$mainMod SHIFT, L,     exec, ${ipc} lockScreen lock"
-      "CTRL SHIFT, Escape,      exec, ghostty -e sudo btop"
+      "CTRL SHIFT, Escape,    exec, ghostty -e sudo btop"
 
       # window management
       "$mainMod, Q,           killactive"
@@ -51,13 +52,13 @@ in
       "$mainMod ALT, P,       pin"
 
       # focus windows
-      "$mainMod, left,  layoutmsg, move -col"
-      "$mainMod, right, layoutmsg, move +col"
+      "$mainMod, left,  movefocus, l"
+      "$mainMod, right, movefocus, r"
       "$mainMod, up,    movefocus, u"
       "$mainMod, down,  movefocus, d"
 
-      "$mainMod SHIFT, left,  layoutmsg, movewindowto l"
-      "$mainMod SHIFT, right, layoutmsg, movewindowto r"
+      "$mainMod SHIFT, left,  movewindow, l"
+      "$mainMod SHIFT, right, movewindow, r"
       "$mainMod SHIFT, up,    movewindow, u"
       "$mainMod SHIFT, down,  movewindow, d"
 
@@ -89,7 +90,7 @@ in
       "$mainMod, S,       togglespecialworkspace"
       "$mainMod ALT, S,   movetoworkspacesilent, special"
 
-      #  mouse workspace navigation
+      # mouse workspace navigation
       "$mainMod, mouse_up,   workspace, +1"
       "$mainMod, mouse_down, workspace, -1"
 
@@ -99,13 +100,11 @@ in
       "$mainMod SHIFT, P, exec, playerctl play-pause"
     ];
 
-    # mouse binds
     bindm = [
       "$mainMod, mouse:272, movewindow"
       "$mainMod, mouse:273, resizewindow"
     ];
 
-    # volume and brightness binds
     bindel = [
       ", XF86AudioRaiseVolume,   exec, ${ipc} volume increase"
       ", XF86AudioLowerVolume,   exec, ${ipc} volume decrease"
@@ -113,7 +112,6 @@ in
       ", XF86MonBrightnessDown,  exec, ${ipc} brightness decrease"
     ];
 
-    # volume and media keys
     bindl = [
       ", XF86AudioMute,    exec, ${ipc} volume muteOutput"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
