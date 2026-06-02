@@ -136,6 +136,7 @@ with pkgs;
     vscode
 
     # media
+    ffmpegthumbnailer
     imagemagick
     pavucontrol
     playerctl
