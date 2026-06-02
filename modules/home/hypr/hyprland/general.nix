@@ -8,8 +8,8 @@
       gaps_in = 4;
       gaps_out = 5;
       border_size = 2;
-      "col.active_border" = "rgba(ffffffff)";
-      "col.inactive_border" = "rgba(ffffff66)";
+      "col.active_border" = "rgba(00ff00ff)";
+      "col.inactive_border" = "rgba(00ff0066)";
       resize_on_border = true;
       allow_tearing = true;
       layout = "dwindle";
