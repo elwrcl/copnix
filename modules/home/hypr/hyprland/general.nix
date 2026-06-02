@@ -23,7 +23,7 @@
       dim_inactive = true;
       dim_strength = 0.05;
       blur = {
-        enabled = false;
+        enabled = true;
       };
       shadow = {
         enabled = false;
