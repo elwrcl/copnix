@@ -37,6 +37,8 @@ with pkgs;
     wf-recorder
     tesseract
     mpvpaper
+    hyprlock
+    cliphist
     swappy
     waybar
     slurp
