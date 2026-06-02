@@ -32,6 +32,7 @@ with pkgs;
     wine
 
     # qol-hyprland
+    gpu-screen-recorder
     wl-clipboard
     wf-recorder
     tesseract
@@ -41,7 +42,6 @@ with pkgs;
     grim
 
     # phone
-    kdePackages.krdp
     libimobiledevice
     android-tools
     uxplay-fixed
@@ -79,7 +79,6 @@ with pkgs;
     fd
 
     # hardware
-    gpu-screen-recorder
     intel-gpu-tools
     smartmontools
     brightnessctl
@@ -102,13 +101,8 @@ with pkgs;
     xar
 
     # themes/icons
-    papirus-icon-theme
-    adwaita-icon-theme
+    whitesur-icon-theme
     gnome-themes-extra
-    hicolor-icon-theme
-    gnome-icon-theme
-    tango-icon-theme
-    arc-icon-theme
     bibata-cursors
     adwaita-qt6
     adwaita-qt
