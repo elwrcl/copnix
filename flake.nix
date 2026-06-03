@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nyx-loner = {
-      url = "github:lonerOrz/nyx-loner";
+    chaotic = {
+      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
@@ -48,7 +48,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
-      nyx-loner,
+      chaotic,
       ...
     }:
     let
@@ -64,7 +64,7 @@
         modules = [
           { nixpkgs.hostPlatform = linuxSystem; }
           home-manager.nixosModules.home-manager
-          nyx-loner.nixosModules.default
+          chaotic.nixosModules.default
           {
             nixpkgs.config.allowUnfree = true;
             home-manager = {

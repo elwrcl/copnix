@@ -8,8 +8,7 @@
   ];
 
   environment.systemPackages = [ pkgs.efibootmgr ];
-
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   boot.kernelParams = [
     "preempt=full"
