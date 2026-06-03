@@ -5,28 +5,33 @@
     monitor = ",preferred,auto,1";
 
     general = {
-      gaps_in = 4;
-      gaps_out = 5;
+      gaps_in = 5;
+      gaps_out = 7;
       border_size = 2;
-      "col.active_border" = "rgba(00ff00ff)";
-      "col.inactive_border" = "rgba(00ff0066)";
+      "col.active_border" = "rgba(61afefff) ";
+      "col.inactive_border" = "rgba(444444ff)";
       resize_on_border = true;
       allow_tearing = true;
       layout = "dwindle";
     };
 
     decoration = {
-      rounding = 0;
+      rounding = 1;
       rounding_power = 2;
       active_opacity = 1.0;
       inactive_opacity = 1.0;
-      dim_inactive = true;
-      dim_strength = 0.05;
+
       blur = {
-        enabled = true;
+        size = 2;
+        passes = 1;
+        brightness = 0.4;
       };
+
       shadow = {
-        enabled = false;
+        enabled = true;
+        range = 5;
+        render_power = 4;
+        color = "rgba(1fbeffee)";
       };
     };
 
