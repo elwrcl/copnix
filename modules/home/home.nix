@@ -94,7 +94,7 @@
       export MESA_SHADER_CACHE_DIR=/tmp/mesa_shader_cache
       export PATH="$HOME/.local/bin:$PATH"
 
-      copetch --ascii
+      /home/elars/.config/copetch/animated-copetch.sh
     '';
   };
 
