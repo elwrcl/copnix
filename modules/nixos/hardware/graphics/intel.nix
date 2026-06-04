@@ -23,19 +23,40 @@ let
       hash = "sha256-tZ1rZ+4bRxarcFQhP8V2Mfz0sJ5rBgHYLu2ulrQwL+U=";
     };
   });
+
+    custom-mesa-drivers = pkgs.mesa.overrideAttrs (oldAttrs: {
+      patches = (oldAttrs.patches or []) ++ [
+        ./hd4000-custom.patch
+      ];
+      mesonFlags = (oldAttrs.mesonFlags or []) ++ [
+        "-Dgallium-rusticl=true"
+      ];
+    });
+    custom-mesa-drivers-32 = pkgs.pkgsi686Linux.mesa.overrideAttrs (oldAttrs: {
+      patches = (oldAttrs.patches or []) ++ [
+        ./hd4000-custom.patch
+      ];
+      mesonFlags = (oldAttrs.mesonFlags or []) ++ [
+        "-Dgallium-rusticl=true"
+      ];
+    });
+
 in
 {
-  hardware.graphics.extraPackages = [
-    wayland-intel-vaapi-driver
-    pkgs.libvdpau-va-gl
-    pkgs.mesa
-  ];
+  hardware.graphics = {
+    package = custom-mesa-drivers;
+    package32 = custom-mesa-drivers-32;
+    
+    extraPackages = [
+      wayland-intel-vaapi-driver
+      pkgs.libvdpau-va-gl
+    ];
 
-  hardware.graphics.extraPackages32 = [
-    wayland-intel-vaapi-driver-32
-    pkgs.pkgsi686Linux.libvdpau-va-gl
-    pkgs.pkgsi686Linux.mesa
-  ];
+    extraPackages32 = [
+      wayland-intel-vaapi-driver-32
+      pkgs.pkgsi686Linux.libvdpau-va-gl
+    ];
+  };
 
   services.xserver.videoDrivers = [ "modesetting" ];
 
