@@ -81,7 +81,7 @@
         ];
       };
 
-      darwinConfigurations.copland = nix-darwin.lib.darwinSystem {
+      darwinConfigurations.sohryu-darwin = nix-darwin.lib.darwinSystem {
         specialArgs = {
           inherit inputs;
           system = darwinSystem;
@@ -89,6 +89,7 @@
         modules = [
           {
             nixpkgs.config.allowUnfree = true;
+            nixpkgs.config.allowDeprecatedx86_64Darwin = true;
           }
           ./main/darwin/machine.nix
         ];
