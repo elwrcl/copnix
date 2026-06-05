@@ -74,7 +74,10 @@
             nixpkgs.overlays = [
               (final: prev: {
                 mesa = intel-mesa.packages.${linuxSystem}.mesa-custom;
-              })
+                pkgsi686Linux = prev.pkgsi686Linux.overrideScope' (final32: prev32: {
+                mesa = intel-mesa.packages.${linuxSystem}.mesa-custom-32;
+              });
+             })
             ];
             nixpkgs.config.allowUnfree = true;
             home-manager = {

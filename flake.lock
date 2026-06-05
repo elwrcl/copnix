@@ -618,6 +618,26 @@
         "type": "github"
       }
     },
+    "intel-mesa": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780684406,
+        "narHash": "sha256-gwapNRbg01G1Bo/CyPzJk3dDwFE7/1G5xUWpgspVu0o=",
+        "owner": "elwrcl",
+        "repo": "intel-hard-graphics",
+        "rev": "9e75b7c917be99bf9d187c2e44032ad05644e4cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elwrcl",
+        "repo": "intel-hard-graphics",
+        "type": "github"
+      }
+    },
     "jovian": {
       "inputs": {
         "nix-github-actions": "nix-github-actions",
@@ -792,6 +812,7 @@
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "intel-mesa": "intel-mesa",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
