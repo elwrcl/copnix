@@ -15,6 +15,10 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    intel-mesa = {
+      url = "github:elwrcl/intel-hard-graphics";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     copetch = {
       url = "github:elwrcl/copetch";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +53,7 @@
       nix-darwin,
       home-manager,
       chaotic,
+      intel-mesa,
       ...
     }:
     let
@@ -66,6 +71,11 @@
           home-manager.nixosModules.home-manager
           chaotic.nixosModules.default
           {
+            nixpkgs.overlays = [
+              (final: prev: {
+                mesa = intel-mesa.packages.${linuxSystem}.mesa-custom;
+              })
+            ];
             nixpkgs.config.allowUnfree = true;
             home-manager = {
               useGlobalPkgs = true;
