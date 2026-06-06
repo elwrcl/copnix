@@ -39,6 +39,7 @@ in
     extraPackages = [
       wayland-intel-vaapi-driver
       pkgs.libvdpau-va-gl
+      pkgs.intel-ocl
     ];
     extraPackages32 = [
       wayland-intel-vaapi-driver-32
