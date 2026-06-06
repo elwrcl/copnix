@@ -11,6 +11,8 @@
       "QT_QPA_PLATFORMTHEME,gtk3"
       "ELECTRON_OZONE_PLATFORM_HINT,auto"
       "TERMINAL,ghostty"
+      "MESA_GL_VERSION_OVERRIDE,4.6"
+      "MESA_GLSL_VERSION_OVERRIDE,460"
     ];
   };
 }
