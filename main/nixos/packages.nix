@@ -80,6 +80,7 @@ with pkgs;
     fd
 
     # hardware
+    xkeyboard-config
     intel-gpu-tools
     smartmontools
     brightnessctl

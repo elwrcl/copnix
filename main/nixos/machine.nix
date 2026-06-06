@@ -27,5 +27,6 @@ in
     "/share/applications"
     "/share/icons"
     "/share/mime"
+    "/share/X11"
   ];
 }
