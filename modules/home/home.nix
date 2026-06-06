@@ -88,8 +88,6 @@
       zstyle ':completion:*' menu select
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-      export MESA_GL_VERSION_OVERRIDE=4.6
-      export MESA_GLSL_VERSION_OVERRIDE=460
       export MESA_SHADER_CACHE_MAX_SIZE=2G
       export MESA_SHADER_CACHE_DIR=/tmp/mesa_shader_cache
       export PATH="$HOME/.local/bin:$PATH"
@@ -132,7 +130,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "inode/directory" = [ "thunar.desktop" ];
+      "inode/directory" = [ "nemo.desktop" ];
       "x-scheme-handler/http" = [ "zen-beta.desktop" ];
       "x-scheme-handler/https" = [ "zen-beta.desktop" ];
       "x-scheme-handler/about" = [ "zen-beta.desktop" ];
