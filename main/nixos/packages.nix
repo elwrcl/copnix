@@ -55,6 +55,7 @@ with pkgs;
     github-copilot-cli
     fastfetch
     trash-cli
+    tailscale
     dos2unix
     autossh
     ani-cli
@@ -123,6 +124,7 @@ with pkgs;
     pkg-config
     gnumake
     openssl
+    rustfmt
     nixfmt
     sqlite
     aubio
@@ -131,7 +133,7 @@ with pkgs;
     uv
 
     # editors
-    zed-editor
+    zed-editor-fhs
     neovim
     vscode
 
