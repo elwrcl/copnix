@@ -20,9 +20,12 @@ let
       rev = "929e936ec1f451a5daa12b0c7367687b712b8c2c";
       hash = "sha256-tZ1rZ+4bRxarcFQhP8V2Mfz0sJ5rBgHYLu2ulrQwL+U=";
     };
+
   });
   hasvk14-layer = pkgs.callPackage ./vk {};
+  hasvk14-layer-32 = pkgs.pkgsi686Linux.callPackage ./vk {};
 in
+
 {
   hardware.graphics = {
     extraPackages = [
@@ -32,6 +35,7 @@ in
       pkgs.intel-ocl
     ];
     extraPackages32 = [
+      hasvk14-layer-32
       wayland-intel-vaapi-driver-32
       pkgs.pkgsi686Linux.libvdpau-va-gl
     ];
