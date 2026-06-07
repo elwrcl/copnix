@@ -130,7 +130,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "inode/directory" = [ "nemo.desktop" ];
+      "inode/directory" = [ "org.kde.dolphin.desktop" ];
       "x-scheme-handler/http" = [ "zen-beta.desktop" ];
       "x-scheme-handler/https" = [ "zen-beta.desktop" ];
       "x-scheme-handler/about" = [ "zen-beta.desktop" ];

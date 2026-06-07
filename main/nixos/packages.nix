@@ -14,7 +14,6 @@ with pkgs;
   system = [
     # apps
     onlyoffice-desktopeditors
-    nemo-with-extensions
     whatsapp-electron
     telegram-desktop
     prismlauncher
@@ -42,6 +41,7 @@ with pkgs;
     kdePackages.kservice
     kdePackages.dolphin
     kdePackages.qtsvg
+    kdePackages.ark
     kdePackages.kio
     kdePackages.kdf
 
@@ -148,7 +148,7 @@ with pkgs;
     uv
 
     # editors
-    zed-editor-fhs_git
+    jetbrains-toolbox
     neovim
     vscode
 
