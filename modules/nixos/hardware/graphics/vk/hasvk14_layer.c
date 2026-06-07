@@ -74,7 +74,7 @@ HaVK14_GetPhysicalDeviceProperties(VkPhysicalDevice           device,
     if (props && is_intel_below_14(props->vendorID, props->apiVersion)) {
         props->apiVersion = HASVK14_API_VERSION;
         
-        strncpy(props->deviceName, "Intel(R) HD 4000 (Copland VK 1.4)", VK_MAX_PHYSICAL_DEVICE_NAME_SIZE - 1);
+        strncpy(props->deviceName, "Intel(R) HD 9000", VK_MAX_PHYSICAL_DEVICE_NAME_SIZE - 1);
         props->deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE - 1] = '\0';
     }
 }
@@ -92,7 +92,7 @@ HaVK14_GetPhysicalDeviceProperties2(VkPhysicalDevice            device,
 
     props->apiVersion = HASVK14_API_VERSION;
     
-    strncpy(props->deviceName, "Intel(R) HD 4000 (Copland VK 1.4)", VK_MAX_PHYSICAL_DEVICE_NAME_SIZE - 1);
+    strncpy(props->deviceName, "Intel(R) HD 9000", VK_MAX_PHYSICAL_DEVICE_NAME_SIZE - 1);
     props->deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE - 1] = '\0';
 
     VkBaseOutStructure *s = (VkBaseOutStructure *)props2->pNext;
