@@ -15,6 +15,7 @@ with pkgs;
     # apps
     onlyoffice-desktopeditors
     whatsapp-electron
+    bottles-unwrapped
     telegram-desktop
     prismlauncher
     qbittorrent
@@ -124,6 +125,7 @@ with pkgs;
     adwaita-qt
 
     # langs
+    alejandra
     binutils
     python3
     rustup
@@ -148,9 +150,8 @@ with pkgs;
     uv
 
     # editors
-    jetbrains-toolbox
-    neovim
     vscode
+    neovim
 
     # media
     ffmpegthumbnailer
