@@ -2,7 +2,7 @@
 
 pkgs.stdenv.mkDerivation {
   name = "vulkan-layer-hasvk14";
-  src  = ./.;
+  src = ./.;
 
   buildInputs = [ pkgs.vulkan-headers ];
 

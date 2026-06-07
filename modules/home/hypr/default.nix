@@ -1,5 +1,4 @@
 { ... }:
-
 {
   imports = [
     ./hyprland/env.nix

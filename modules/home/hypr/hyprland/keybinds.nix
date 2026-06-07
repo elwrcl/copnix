@@ -1,5 +1,4 @@
 { ... }:
-
 let
   ipc = "noctalia-shell ipc call";
 in
@@ -12,7 +11,6 @@ in
     ];
 
     bind = [
-
       # workspace
       "CTRL $mainMod, right, workspace, r+1"
       "CTRL $mainMod, left,  workspace, r-1"

@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  system,
-}:
+{ pkgs, inputs, system, ... }:
 
 let
   uxplay-fixed = pkgs.uxplay.override {

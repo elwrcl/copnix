@@ -1,8 +1,4 @@
-{
-  pkgs,
-  system,
-  ...
-}:
+{ pkgs, system, ... }:
 
 let
   packages = import ./packages.nix { inherit pkgs; };

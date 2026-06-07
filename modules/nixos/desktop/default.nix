@@ -1,7 +1,4 @@
-{ 
-  pkgs,
-  ... 
-}:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -59,6 +56,5 @@
   };
 
   environment.etc."xdg/menus/applications.menu".text =
-    builtins.readFile
-      "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+    builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 }

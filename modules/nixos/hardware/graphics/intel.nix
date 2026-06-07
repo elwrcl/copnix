@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 let
   wayland-intel-vaapi-driver = pkgs.intel-vaapi-driver.overrideAttrs (oldAttrs: {
     version = "2.4.4-wayland-fix";
@@ -22,8 +19,8 @@ let
     };
 
   });
-  hasvk14-layer = pkgs.callPackage ./vk {};
-  hasvk14-layer-32 = pkgs.pkgsi686Linux.callPackage ./vk {};
+  hasvk14-layer = pkgs.callPackage ./vk { };
+  hasvk14-layer-32 = pkgs.pkgsi686Linux.callPackage ./vk { };
 in
 
 {

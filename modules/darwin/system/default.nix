@@ -1,14 +1,8 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
+{ pkgs, config, lib, ... }:
 
 let
   inherit (lib) mkAfter;
 in
-
 {
   nix.enable = false;
 
