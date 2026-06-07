@@ -21,22 +21,12 @@ let
       hash = "sha256-tZ1rZ+4bRxarcFQhP8V2Mfz0sJ5rBgHYLu2ulrQwL+U=";
     };
   });
-  custom-mesa = pkgs.mesa.overrideAttrs (oldAttrs: {
-    patches = (oldAttrs.patches or []) ++ [
-      ../../../../patches/hd4000-hasvk13.patch
-    ];
-  });
-  custom-mesa-32 = pkgs.pkgsi686Linux.mesa.overrideAttrs (oldAttrs: {
-    patches = (oldAttrs.patches or []) ++ [
-      ../../../../patches/hd4000-hasvk13.patch
-    ];
-  });
+  hasvk13-layer = pkgs.callPackage ./hasvk13-layer {};
 in
 {
   hardware.graphics = {
-    package = custom-mesa;
-    package32 = custom-mesa-32;
     extraPackages = [
+      hasvk13-layer
       wayland-intel-vaapi-driver
       pkgs.libvdpau-va-gl
       pkgs.intel-ocl

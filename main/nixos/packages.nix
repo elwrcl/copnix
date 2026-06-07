@@ -31,6 +31,20 @@ with pkgs;
     loupe
     wine
 
+    # some kde stuff
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.plasma-integration
+    kdePackages.breeze-icons
+    kdePackages.kio-extras
+    kdePackages.qtwayland
+    kdePackages.kio-admin
+    kdePackages.kio-fuse
+    kdePackages.kservice
+    kdePackages.dolphin
+    kdePackages.qtsvg
+    kdePackages.kio
+    kdePackages.kdf
+
     # qol-hyprland
     gpu-screen-recorder
     wl-clipboard
@@ -134,7 +148,7 @@ with pkgs;
     uv
 
     # editors
-    zed-editor-fhs
+    zed-editor-fhs_git
     neovim
     vscode
 
