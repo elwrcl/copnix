@@ -1,0 +1,17 @@
+{
+    "file_format_version": "1.1.2",
+    "layer": {
+        "name": "VK_LAYER_hasvk14_version_override",
+        "type": "GLOBAL",
+        "library_path": "@out@/lib/libVkLayer_hasvk14.so",
+        "api_version": "1.4.0",
+        "implementation_version": "1",
+        "description": "Intel Hard Graphics",
+        "functions": {
+            "vkGetInstanceProcAddr": "HaVK14_GetInstanceProcAddr"
+        },
+        "disable_environment": {
+            "DISABLE_HASVK14_LAYER": "1"
+        }
+    }
+}

@@ -21,12 +21,12 @@ let
       hash = "sha256-tZ1rZ+4bRxarcFQhP8V2Mfz0sJ5rBgHYLu2ulrQwL+U=";
     };
   });
-  hasvk13-layer = pkgs.callPackage ./hasvk13-layer {};
+  hasvk14-layer = pkgs.callPackage ./vk {};
 in
 {
   hardware.graphics = {
     extraPackages = [
-      hasvk13-layer
+      hasvk14-layer
       wayland-intel-vaapi-driver
       pkgs.libvdpau-va-gl
       pkgs.intel-ocl
