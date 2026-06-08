@@ -98,25 +98,5 @@
         enabled = false;
       }
     ];
-
-    plugin = {
-      overview = {
-        panelHeight = 120;
-        panelBorderWidth = 2;
-        workspaceMargin = 10;
-        workspaceBorderSize = 2;
-        centerAligned = 1;
-        overrideGaps = 1;
-        gapsIn = 4;
-        gapsOut = 5;
-        disableBlur = 1;
-        workspaceActiveBorder = "0xffffffff";
-        workspaceInactiveBorder = "0x66ffffff";
-        exitOnClick = 1;
-        autoDrag = 1;
-        reverseSwipe = 1;
-        showEmptyWorkspace = 0;
-      };
-    };
   };
 }

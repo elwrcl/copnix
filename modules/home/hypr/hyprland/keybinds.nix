@@ -23,7 +23,6 @@ in
 
       # interface
       "$mainMod, P,           exec, ${ipc} bar toggle"
-      "$mainMod, Tab,         overview:toggle"
       "CTRL ALT, Delete,      exec, ${ipc} sessionMenu toggle"
 
       # plugins
