@@ -28,27 +28,25 @@
         "image/svg+xml" = "org.gnome.Loupe.desktop";
         "image/webp" = "org.gnome.Loupe.desktop";
         "image/tiff" = "org.gnome.Loupe.desktop";
-
         "video/mp4" = "mpv.desktop";
         "video/x-matroska" = "mpv.desktop";
         "video/webm" = "mpv.desktop";
         "video/avi" = "mpv.desktop";
         "video/quicktime" = "mpv.desktop";
-
         "audio/mpeg" = "mpv.desktop";
         "audio/flac" = "mpv.desktop";
         "audio/ogg" = "mpv.desktop";
 
-        # code
-        "text/plain" = "zeditor.desktop";
-        "text/x-rust" = "zeditor.desktop";
-        "text/x-nix" = "zeditor.desktop";
-        "text/x-csrc" = "zeditor.desktop";
-        "text/x-chdr" = "zeditor.desktop";
-        "text/x-python" = "zeditor.desktop";
-        "text/x-shellscript" = "zeditor.desktop";
-        "application/json" = "zeditor.desktop";
-        "application/x-shellscript" = "zeditor.desktop";
+        # text
+        "text/plain" = "code.desktop";
+        "text/x-rust" = "code.desktop";
+        "text/x-nix" = "code.desktop";
+        "text/x-csrc" = "code.desktop";
+        "text/x-chdr" = "code.desktop";
+        "text/x-python" = "code.desktop";
+        "text/x-shellscript" = "code.desktop";
+        "application/json" = "code.desktop";
+        "application/x-shellscript" = "code.desktop";
       };
     };
 
