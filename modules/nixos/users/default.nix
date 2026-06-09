@@ -3,6 +3,7 @@
 {
   users.users.elars = {
     isNormalUser = true;
+    linger = true;
     description = "elars";
     extraGroups = [
       "networkmanager"
