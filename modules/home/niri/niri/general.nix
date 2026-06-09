@@ -12,7 +12,7 @@
       };
       mouse = {
         accel-speed = 0.0;
-        accel-profile = "adaptive";
+        accel-profile = "flat";
       };
       touchpad = {
         tap = true;
@@ -21,11 +21,9 @@
         click-method = "clickfinger";
       };
     };
-
     animations = {
       slowdown = 0.8;
     };
-
     layout = {
       gaps = 5;
       struts = {
@@ -52,5 +50,13 @@
         enable = false;
       };
     };
+    layer-rules = [
+      {
+        matches = [
+          { namespace = "^noctalia-backdrop"; }
+        ];
+        place-within-backdrop = true;
+      }
+    ];
   };
 }

@@ -26,7 +26,7 @@
       "Mod+Space".action.spawn-sh = "noctalia msg panel-toggle launcher";
       "Mod+P".action.spawn-sh = "noctalia msg panel-toggle control-center";
       "Mod+Tab".action.toggle-overview = [ ];
-      "Ctrl+Alt+Delete".action.spawn-sh = "noctalia msg settings-toggle";
+      "Ctrl+Alt+Delete".action.spawn-sh = "noctalia msg panel-toggle session";
 
       # --- Launchers ---
       "Mod+Return".action.spawn = [ "ghostty" ];
@@ -36,6 +36,7 @@
       "Mod+Alt+V".action.spawn = [ "pavucontrol" ];
       "Mod+Shift+V".action.spawn-sh = "noctalia msg panel-toggle clipboard";
       "Mod+Shift+L".action.spawn-sh = "noctalia msg lock";
+      "Mod+Shift+S".action.spawn-sh = "noctalia msg screenshot-region";
       "Ctrl+Shift+Escape".action.spawn = [
         "ghostty"
         "-e"
