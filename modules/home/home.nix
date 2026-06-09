@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./hyprland.nix
+    ./niri.nix
   ];
 
   home.packages = [
