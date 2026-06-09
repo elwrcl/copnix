@@ -1,6 +1,7 @@
 { ... }:
 
 {
+  programs.gpu-screen-recorder.enable = true;
   services.udev.extraRules = ''
     KERNEL=="ttyACM[0-9]*", MODE="0666"
     KERNEL=="ttyUSB[0-9]*", MODE="0666"

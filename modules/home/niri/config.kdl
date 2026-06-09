@@ -10,25 +10,19 @@ input {
     }
 
     mouse {
-        accel-speed -0.5
+        accel-speed 0
         accel-profile "adaptive"
     }
 
     touchpad {
         tap
         natural-scroll
-        disabled-on-typing
         scroll-factor 0.5
         click-method "clickfinger"
     }
 
     focus-follows-mouse
     warp-mouse-to-focus
-}
-
-cursor {
-    theme "Bibata-Modern-Classic"
-    size 24
 }
 
 environment {
@@ -45,8 +39,8 @@ environment {
     DISPLAY ":0"
 }
 
+spawn-at-startup "noctalia"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "noctalia-shell"
 spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
 

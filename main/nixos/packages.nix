@@ -1,4 +1,9 @@
-{ pkgs, inputs, system, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 
 let
   uxplay-fixed = pkgs.uxplay.override {
@@ -42,8 +47,7 @@ with pkgs;
     kdePackages.kio
     kdePackages.kdf
 
-    # qol-hyprland
-    gpu-screen-recorder
+    # utils
     wl-clipboard
     wf-recorder
     tesseract

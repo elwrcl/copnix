@@ -1,4 +1,9 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 {
-  xdg.configFile."niri/config.kdl".source = ./niri/config.kdl;
+  imports = [ ./niri/default.nix ];
+
+  programs.niri = {
+    enable = true;
+    package = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system}.niri;
+  };
 }
