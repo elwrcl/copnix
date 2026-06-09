@@ -3,25 +3,29 @@
 {
   programs.niri.settings = {
     input = {
-      keyboard.xkb.layout = "tr";
-      "repeat-delay" = 250;
-      "repeat-rate" = 35;
+      keyboard = {
+        xkb = {
+          layout = "tr";
+        };
+        repeat-delay = 250;
+        repeat-rate = 35;
+      };
       mouse = {
-        "accel-speed" = 0.0;
-        "accel-profile" = "adaptive";
+        accel-speed = 0.0;
+        accel-profile = "adaptive";
       };
       touchpad = {
         tap = true;
-        "natural-scroll" = true;
-        "scroll-factor" = 0.5;
-        "click-method" = "clickfinger";
+        natural-scroll = true;
+        scroll-factor = 0.5;
+        click-method = "clickfinger";
       };
-      "focus-follows-mouse" = true;
-      "warp-mouse-to-focus" = true;
     };
+
     animations = {
       slowdown = 0.8;
     };
+
     layout = {
       gaps = 5;
       struts = {
@@ -30,22 +34,22 @@
         top = 7;
         bottom = 7;
       };
-      "center-focused-column" = "never";
-      "preset-column-widths" = [
+      center-focused-column = "never";
+      preset-column-widths = [
         { proportion = 0.33333; }
         { proportion = 0.5; }
         { proportion = 0.66667; }
       ];
-      "default-column-width" = {
+      default-column-width = {
         proportion = 0.5;
       };
-      "focus-ring" = {
+      focus-ring = {
         width = 2;
-        "active-color" = "#61afef";
-        "inactive-color" = "#444444";
+        active.color = "#61afef";
+        inactive.color = "#444444";
       };
       border = {
-        off = true;
+        enable = false;
       };
     };
   };

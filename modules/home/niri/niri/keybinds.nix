@@ -4,27 +4,29 @@
   programs.niri.settings = {
     binds = {
       # --- Workspace Navigation ---
-      "Ctrl+Mod+Right".action.focus-column-right = [];
-      "Ctrl+Mod+Left".action.focus-column-left = [];
-      "Ctrl+Mod+Down".action.focus-workspace-down = [];
-      "Ctrl+Mod+Up".action.focus-workspace-up = [];
+      "Ctrl+Mod+Right".action.focus-column-right = [ ];
+      "Ctrl+Mod+Left".action.focus-column-left = [ ];
+      "Ctrl+Mod+Down".action.focus-workspace-down = [ ];
+      "Ctrl+Mod+Up".action.focus-workspace-up = [ ];
+      "Ctrl+Mod+Shift+Right".action.move-column-right = [ ];
+      "Ctrl+Mod+Shift+Left".action.move-column-left = [ ];
+      "Ctrl+Mod+Shift+Down".action.move-window-to-workspace-down = [ ];
+      "Ctrl+Mod+Shift+Up".action.move-window-to-workspace-up = [ ];
 
-      "Ctrl+Mod+Shift+Right".action.move-column-right = [];
-      "Ctrl+Mod+Shift+Left".action.move-column-left = [];
-      "Ctrl+Mod+Shift+Down".action.move-window-to-workspace-down = [];
-      "Ctrl+Mod+Shift+Up".action.move-window-to-workspace-up = [];
+      "Ctrl+Mod+WheelScrollUp" = {
+        "cooldown-ms" = 150;
+        action.focus-column-right = [ ];
+      };
+      "Ctrl+Mod+WheelScrollDown" = {
+        "cooldown-ms" = 150;
+        action.focus-column-left = [ ];
+      };
 
       # --- Interface ---
-      "Mod+Space".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
-      "Mod+P".action.spawn = [ "noctalia" "msg" "panel-toggle" "control-center" ];
-      "Mod+Tab".action.toggle-overview = [];
-      "Ctrl+Alt+Delete".action.spawn = [ "noctalia" "msg" "settings-toggle" ];
-
-      # --- Noctalia Plugins ---
-      "Mod+Shift+S".action.spawn = [ "noctalia" "msg" "plugin:screen-shot-and-record" "screenshot" ];
-      "Mod+Shift+Z".action.spawn = [ "noctalia" "msg" "plugin:screen-shot-and-record" "search" ];
-      "Mod+Shift+X".action.spawn = [ "noctalia" "msg" "plugin:screen-shot-and-record" "ocr" ];
-      "Mod+Shift+C".action.spawn = [ "noctalia" "msg" "panel-toggle" "music" ];
+      "Mod+Space".action.spawn-sh = "noctalia msg panel-toggle launcher";
+      "Mod+P".action.spawn-sh = "noctalia msg panel-toggle control-center";
+      "Mod+Tab".action.toggle-overview = [ ];
+      "Ctrl+Alt+Delete".action.spawn-sh = "noctalia msg settings-toggle";
 
       # --- Launchers ---
       "Mod+Return".action.spawn = [ "ghostty" ];
@@ -32,27 +34,32 @@
       "Mod+E".action.spawn = [ "dolphin" ];
       "Mod+Z".action.spawn = [ "code" ];
       "Mod+Alt+V".action.spawn = [ "pavucontrol" ];
-      "Mod+Shift+V".action.spawn = [ "noctalia" "msg" "panel-toggle" "clipboard" ];
-      "Mod+Shift+L".action.spawn = [ "noctalia" "msg" "lock" ];
-      "Ctrl+Shift+Escape".action.spawn = [ "ghostty" "-e" "sudo" "btop" ];
+      "Mod+Shift+V".action.spawn-sh = "noctalia msg panel-toggle clipboard";
+      "Mod+Shift+L".action.spawn-sh = "noctalia msg lock";
+      "Ctrl+Shift+Escape".action.spawn = [
+        "ghostty"
+        "-e"
+        "sudo"
+        "btop"
+      ];
 
       # --- Window Management ---
-      "Mod+Q".action.close-window = [];
-      "Mod+Alt+Space".action.toggle-window-floating = [];
-      "Mod+F".action.fullscreen-window = [];
-      "Mod+D".action.maximize-column = [];
+      "Mod+Q".action.close-window = [ ];
+      "Mod+Alt+Space".action.toggle-window-floating = [ ];
+      "Mod+F".action.fullscreen-window = [ ];
+      "Mod+D".action.maximize-column = [ ];
 
       # --- Focus ---
-      "Mod+Left".action.focus-column-left = [];
-      "Mod+Right".action.focus-column-right = [];
-      "Mod+Up".action.focus-window-up = [];
-      "Mod+Down".action.focus-window-down = [];
+      "Mod+Left".action.focus-column-left = [ ];
+      "Mod+Right".action.focus-column-right = [ ];
+      "Mod+Up".action.focus-window-up = [ ];
+      "Mod+Down".action.focus-window-down = [ ];
 
       # --- Move Windows ---
-      "Mod+Shift+Left".action.move-column-left = [];
-      "Mod+Shift+Right".action.move-column-right = [];
-      "Mod+Shift+Up".action.move-window-up = [];
-      "Mod+Shift+Down".action.move-window-down = [];
+      "Mod+Shift+Left".action.move-column-left = [ ];
+      "Mod+Shift+Right".action.move-column-right = [ ];
+      "Mod+Shift+Up".action.move-window-up = [ ];
+      "Mod+Shift+Down".action.move-window-down = [ ];
 
       # --- Workspaces by Number ---
       "Mod+1".action.focus-workspace = 1;
@@ -80,51 +87,77 @@
       # --- Mouse Workspace Scroll ---
       "Mod+WheelScrollDown" = {
         "cooldown-ms" = 150;
-        action.focus-workspace-down = [];
+        action.focus-workspace-down = [ ];
       };
       "Mod+WheelScrollUp" = {
         "cooldown-ms" = 150;
-        action.focus-workspace-up = [];
+        action.focus-workspace-up = [ ];
       };
 
       # --- Media & Hardware Keys ---
-      "Mod+Shift+N".action.spawn = [ "playerctl" "next" ];
-      "Mod+Shift+B".action.spawn = [ "playerctl" "previous" ];
-      "Mod+Shift+P".action.spawn = [ "playerctl" "play-pause" ];
+      "Mod+Shift+N".action.spawn = [
+        "playerctl"
+        "next"
+      ];
+      "Mod+Shift+B".action.spawn = [
+        "playerctl"
+        "previous"
+      ];
+      "Mod+Shift+P".action.spawn = [
+        "playerctl"
+        "play-pause"
+      ];
 
       "XF86AudioRaiseVolume" = {
         "allow-when-locked" = true;
-        action.spawn = [ "noctalia" "msg" "volume-up" ];
+        action.spawn-sh = "noctalia msg volume-up";
       };
       "XF86AudioLowerVolume" = {
         "allow-when-locked" = true;
-        action.spawn = [ "noctalia" "msg" "volume-down" ];
+        action.spawn-sh = "noctalia msg volume-down";
       };
       "XF86AudioMute" = {
         "allow-when-locked" = true;
-        action.spawn = [ "noctalia" "msg" "volume-mute" ];
+        action.spawn-sh = "noctalia msg volume-mute";
       };
       "XF86AudioMicMute" = {
         "allow-when-locked" = true;
-        action.spawn = [ "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle" ];
+        action.spawn = [
+          "wpctl"
+          "set-mute"
+          "@DEFAULT_SOURCE@"
+          "toggle"
+        ];
       };
-      "XF86MonBrightnessUp".action.spawn = [ "noctalia" "msg" "brightness-up" ];
-      "XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
+      "XF86MonBrightnessUp".action.spawn-sh = "noctalia msg brightness-up";
+      "XF86MonBrightnessDown".action.spawn-sh = "noctalia msg brightness-down";
       "XF86AudioNext" = {
         "allow-when-locked" = true;
-        action.spawn = [ "playerctl" "next" ];
+        action.spawn = [
+          "playerctl"
+          "next"
+        ];
       };
       "XF86AudioPrev" = {
         "allow-when-locked" = true;
-        action.spawn = [ "playerctl" "previous" ];
+        action.spawn = [
+          "playerctl"
+          "previous"
+        ];
       };
       "XF86AudioPlay" = {
         "allow-when-locked" = true;
-        action.spawn = [ "playerctl" "play-pause" ];
+        action.spawn = [
+          "playerctl"
+          "play-pause"
+        ];
       };
       "XF86AudioPause" = {
         "allow-when-locked" = true;
-        action.spawn = [ "playerctl" "play-pause" ];
+        action.spawn = [
+          "playerctl"
+          "play-pause"
+        ];
       };
     };
   };

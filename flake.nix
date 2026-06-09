@@ -3,7 +3,11 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +53,7 @@
       nix-darwin,
       home-manager,
       chaotic,
+      niri,
       ...
     }:
     let
@@ -70,6 +75,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+	      sharedModules = [ inputs.niri.homeModules.niri ];
               extraSpecialArgs = {
                 inherit inputs;
                 system = linuxSystem;
