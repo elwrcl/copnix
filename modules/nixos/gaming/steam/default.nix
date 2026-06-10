@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   programs.steam = {
     enable = true;
@@ -13,7 +12,13 @@
 
   programs.gamescope = {
     enable = true;
-    capSysNice = false;
+    capSysNice = true;
+    args = [
+      "--rt"
+    ];
+    env = {
+      INTEL_DEBUG = "noccs";
+    };
   };
 
   hardware.steam-hardware.enable = true;

@@ -10,6 +10,7 @@
       "wheel"
       "docker"
       "video"
+      "input"
       "audio"
       "lp"
       "scanner"
