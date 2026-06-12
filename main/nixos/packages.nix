@@ -19,6 +19,7 @@ with pkgs;
     bottles-unwrapped
     telegram-desktop
     prismlauncher
+    moonlight-qt
     qbittorrent
     antigravity
     obs-studio
