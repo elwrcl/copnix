@@ -7,8 +7,8 @@
       "flakes"
     ];
 
-    max-jobs = 1;
-    cores = 0;
+    max-jobs = 4;
+    cores = 4;
 
     substituters = [
       "https://cache.nixos.org"

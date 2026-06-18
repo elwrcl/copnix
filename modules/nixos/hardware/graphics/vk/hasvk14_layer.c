@@ -9,6 +9,8 @@
 static PFN_vkGetInstanceProcAddr g_next_gipa = NULL;
 static PFN_vkGetPhysicalDeviceProperties g_next_gdp = NULL;
 static PFN_vkGetPhysicalDeviceProperties2 g_next_gdp2 = NULL;
+static PFN_vkGetPhysicalDeviceFeatures g_next_gdf = NULL;
+static PFN_vkGetPhysicalDeviceFeatures2 g_next_gdf2 = NULL;
 
 #define HASVK14_API_VERSION VK_MAKE_API_VERSION(0, 1, 4, VK_HEADER_VERSION)
 #define INTEL_VENDOR_ID 0x8086
@@ -16,6 +18,20 @@ static PFN_vkGetPhysicalDeviceProperties2 g_next_gdp2 = NULL;
 static int is_intel_below_14(uint32_t vendorID, uint32_t apiVersion)
 {
     return vendorID == INTEL_VENDOR_ID && VK_API_VERSION_MAJOR(apiVersion) == 1 && VK_API_VERSION_MINOR(apiVersion) < 4;
+}
+
+static int is_intel_device(VkPhysicalDevice device)
+{
+    if (!g_next_gdp) return 0;
+    VkPhysicalDeviceProperties props;
+    g_next_gdp(device, &props);
+    return props.vendorID == INTEL_VENDOR_ID;
+}
+
+static void patch_features(VkPhysicalDeviceFeatures *f)
+{
+    
+    f->shaderInt16 = VK_TRUE;
 }
 
 VKAPI_ATTR VkResult VKAPI_CALL
@@ -55,6 +71,15 @@ HaVK14_CreateInstance(const VkInstanceCreateInfo *pCreateInfo,
     {
         g_next_gdp2 = (PFN_vkGetPhysicalDeviceProperties2)
             g_next_gipa(*pInstance, "vkGetPhysicalDeviceProperties2KHR");
+    }
+    g_next_gdf = (PFN_vkGetPhysicalDeviceFeatures)
+        g_next_gipa(*pInstance, "vkGetPhysicalDeviceFeatures");
+    g_next_gdf2 = (PFN_vkGetPhysicalDeviceFeatures2)
+        g_next_gipa(*pInstance, "vkGetPhysicalDeviceFeatures2");
+    if (!g_next_gdf2)
+    {
+        g_next_gdf2 = (PFN_vkGetPhysicalDeviceFeatures2)
+            g_next_gipa(*pInstance, "vkGetPhysicalDeviceFeatures2KHR");
     }
 
     return VK_SUCCESS;
@@ -104,6 +129,49 @@ HaVK14_GetPhysicalDeviceProperties2(VkPhysicalDevice device,
     }
 }
 
+VKAPI_ATTR void VKAPI_CALL
+HaVK14_GetPhysicalDeviceFeatures(VkPhysicalDevice device,
+                                  VkPhysicalDeviceFeatures *features)
+{
+    if (g_next_gdf)
+        g_next_gdf(device, features);
+    if (features && is_intel_device(device))
+        patch_features(features);
+}
+
+VKAPI_ATTR void VKAPI_CALL
+HaVK14_GetPhysicalDeviceFeatures2(VkPhysicalDevice device,
+                                   VkPhysicalDeviceFeatures2 *features2)
+{
+    if (g_next_gdf2)
+        g_next_gdf2(device, features2);
+    if (!features2 || !is_intel_device(device))
+        return;
+
+    patch_features(&features2->features);
+
+    /* Also patch Vulkan 1.1/1.2 feature structs in pNext chain */
+    VkBaseOutStructure *s = (VkBaseOutStructure *)features2->pNext;
+    while (s)
+    {
+        if (s->sType == VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES)
+        {
+            VkPhysicalDeviceShaderDrawParametersFeatures *f =
+                (VkPhysicalDeviceShaderDrawParametersFeatures *)s;
+            f->shaderDrawParameters = VK_TRUE;
+        }
+        if (s->sType == VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES)
+        {
+            VkPhysicalDeviceVulkan12Features *f12 =
+                (VkPhysicalDeviceVulkan12Features *)s;
+            f12->shaderInt8 = VK_TRUE;
+            f12->storageBuffer8BitAccess = VK_TRUE;
+            f12->uniformAndStorageBuffer8BitAccess = VK_TRUE;
+        }
+        s = s->pNext;
+    }
+}
+
 VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL
 HaVK14_GetInstanceProcAddr(VkInstance instance, const char *pName)
 {
@@ -117,11 +185,13 @@ HaVK14_GetInstanceProcAddr(VkInstance instance, const char *pName)
     INTERCEPT(CreateInstance)
     INTERCEPT(GetPhysicalDeviceProperties)
     INTERCEPT(GetPhysicalDeviceProperties2)
+    INTERCEPT(GetPhysicalDeviceFeatures)
+    INTERCEPT(GetPhysicalDeviceFeatures2)
 
     if (strcmp(pName, "vkGetPhysicalDeviceProperties2KHR") == 0)
-    {
         return (PFN_vkVoidFunction)HaVK14_GetPhysicalDeviceProperties2;
-    }
+    if (strcmp(pName, "vkGetPhysicalDeviceFeatures2KHR") == 0)
+        return (PFN_vkVoidFunction)HaVK14_GetPhysicalDeviceFeatures2;
 
 #undef INTERCEPT
 

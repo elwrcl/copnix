@@ -1,7 +1,12 @@
 { pkgs }:
 
+let
+  is32 = pkgs.stdenv.hostPlatform.system == "i686-linux";
+  layerName = "VK_LAYER_hasvk14_version_override" + pkgs.lib.optionalString is32 "_32";
+in
+
 pkgs.stdenv.mkDerivation {
-  name = "vulkan-layer-hasvk14";
+  name = "vulkan-layer-hasvk14" + pkgs.lib.optionalString is32 "-32bit";
   src = ./.;
 
   buildInputs = [ pkgs.vulkan-headers ];
@@ -17,6 +22,7 @@ pkgs.stdenv.mkDerivation {
 
     substitute hasvk14_layer.json \
       $out/share/vulkan/implicit_layer.d/hasvk14_layer.json \
-      --subst-var out
+      --subst-var out \
+      --subst-var-by layer_name "${layerName}"
   '';
 }
