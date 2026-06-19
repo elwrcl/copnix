@@ -138,26 +138,36 @@ with pkgs;
     glm
 
     # dev tools
+    jdt-language-server
+    nixfmt-rfc-style
+    rust-analyzer
+    clang-tools
     cargo-tauri
     pkg-config
     gnumake
     openssl
+    pyright
     rustfmt
+    lazygit
     nixfmt
+    zellij
     sqlite
     aubio
+    delta
     trunk
+    nixd
     nil
     uv
 
     # editors
+    helix
     vscode
     neovim
 
     # media
     ffmpegthumbnailer
     imagemagick
-    pavucontrole
+    pavucontrol
     pamixer
     ffmpeg
     yt-dlp
