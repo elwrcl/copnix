@@ -27,10 +27,10 @@
     layout = {
       gaps = 5;
       struts = {
-        left = 7;
-        right = 7;
-        top = 7;
-        bottom = 7;
+        left = -3;
+        right = -3;
+        top = -3;
+        bottom = -3;
       };
       center-focused-column = "never";
       preset-column-widths = [

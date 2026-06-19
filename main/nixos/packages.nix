@@ -157,8 +157,7 @@ with pkgs;
     # media
     ffmpegthumbnailer
     imagemagick
-    pavucontrol
-    playerctl
+    pavucontrole
     pamixer
     ffmpeg
     yt-dlp
@@ -170,6 +169,5 @@ with pkgs;
     inputs.copetch.packages.${system}.default
     inputs.helium.packages.${system}.default
     pkgs.qt6Packages.qtwebsockets
-    pkgs.evil-helix_git
   ];
 }
