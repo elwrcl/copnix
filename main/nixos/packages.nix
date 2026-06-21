@@ -160,7 +160,6 @@ with pkgs;
     uv
 
     # editors
-    zed-editor
     vscode
     neovim
 
