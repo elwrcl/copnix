@@ -43,7 +43,7 @@
       };
       focus-ring = {
         width = 2;
-        active.color = "#61afef";
+        active.color = "#ffffff";
         inactive.color = "#444444";
       };
       border = {

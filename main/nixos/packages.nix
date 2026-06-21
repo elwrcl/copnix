@@ -160,7 +160,7 @@ with pkgs;
     uv
 
     # editors
-    helix
+    zed-editor
     vscode
     neovim
 
