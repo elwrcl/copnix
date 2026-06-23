@@ -7,6 +7,7 @@ with pkgs;
     bat
     fd
     fzf
+    clinfo
     zoxide
     starship
     fastfetch
