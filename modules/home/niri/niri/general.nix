@@ -27,10 +27,10 @@
     layout = {
       gaps = 5;
       struts = {
-        left = -3;
-        right = -3;
-        top = -3;
-        bottom = -3;
+        left = -5;
+        right = -5;
+        top = -5;
+        bottom = -5;
       };
       center-focused-column = "never";
       preset-column-widths = [
@@ -42,9 +42,10 @@
         proportion = 1.0;
       };
       focus-ring = {
-        width = 2;
-        active.color = "#ffffff";
-        inactive.color = "#444444";
+        enable = false;
+        #width = 2;
+        #active.color = "#ffffff";
+        #inactive.color = "#444444";
       };
       border = {
         enable = false;

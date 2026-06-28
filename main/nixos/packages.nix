@@ -26,6 +26,7 @@ with pkgs;
     localsend
     spotatui
     picotool
+    sunshine
     equibop
     ghostty
     blender
