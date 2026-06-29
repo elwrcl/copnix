@@ -28,6 +28,7 @@ with pkgs;
     picotool
     sunshine
     equibop
+    spotify
     ghostty
     blender
     heroic
