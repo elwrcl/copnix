@@ -32,23 +32,18 @@ with pkgs;
     ghostty
     blender
     heroic
+    pinta
     loupe
     wine
 
-    # some kde stuff
-    kdePackages.kdegraphics-thumbnailers
-    kdePackages.plasma-integration
-    kdePackages.breeze-icons
-    kdePackages.kio-extras
-    kdePackages.qtwayland
-    kdePackages.kio-admin
-    kdePackages.kio-fuse
-    kdePackages.kservice
-    kdePackages.dolphin
-    kdePackages.qtsvg
-    kdePackages.ark
-    kdePackages.kio
-    kdePackages.kdf
+    # file-manager
+    nemo-with-extensions
+    nemo-qml-plugin-dbus
+    nemo-fileroller
+    nemo-seahorse
+    nemo-preview
+    nemo-emblems
+    nemo-python
 
     # utils
     wl-clipboard
