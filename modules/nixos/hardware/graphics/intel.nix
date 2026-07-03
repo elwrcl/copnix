@@ -29,7 +29,7 @@ in
       hasvk14-layer
       wayland-intel-vaapi-driver
       pkgs.libvdpau-va-gl
-      pkgs.intel-ocl
+      pkgs.pocl
     ];
     extraPackages32 = [
       hasvk14-layer-32

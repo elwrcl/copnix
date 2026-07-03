@@ -16,7 +16,6 @@ with pkgs;
     # apps
     onlyoffice-desktopeditors
     whatsapp-electron
-    bottles-unwrapped
     telegram-desktop
     prismlauncher
     moonlight-qt
@@ -30,6 +29,7 @@ with pkgs;
     equibop
     spotify
     ghostty
+    shotcut
     blender
     heroic
     pinta
@@ -37,13 +37,19 @@ with pkgs;
     wine
 
     # file-manager
-    nemo-with-extensions
-    nemo-qml-plugin-dbus
-    nemo-fileroller
-    nemo-seahorse
-    nemo-preview
-    nemo-emblems
-    nemo-python
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.plasma-integration
+    kdePackages.breeze-icons
+    kdePackages.kio-extras
+    kdePackages.qtwayland
+    kdePackages.kio-admin
+    kdePackages.kio-fuse
+    kdePackages.kservice
+    kdePackages.dolphin
+    kdePackages.qtsvg
+    kdePackages.ark
+    kdePackages.kio
+    kdePackages.kdf
 
     # utils
     wl-clipboard
@@ -129,14 +135,13 @@ with pkgs;
     rustup
     gcc
     ghc
-    go
     zig
     lua
     glm
+    go
 
     # dev tools
     jdt-language-server
-    nixfmt-rfc-style
     rust-analyzer
     clang-tools
     cargo-tauri
