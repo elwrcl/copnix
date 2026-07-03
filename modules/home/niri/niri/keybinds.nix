@@ -31,7 +31,7 @@
       # --- Launchers ---
       "Mod+Return".action.spawn = [ "ghostty" ];
       "Mod+W".action.spawn = [ "zen-beta" ];
-      "Mod+E".action.spawn = [ "nemo" ];
+      "Mod+E".action.spawn = [ "dolphin" ];
       "Mod+Z".action.spawn = [ "code" ];
       "Mod+Alt+V".action.spawn = [ "pavucontrol" ];
       "Mod+Shift+V".action.spawn-sh = "noctalia msg panel-toggle clipboard";
