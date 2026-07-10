@@ -19,20 +19,20 @@ let
     };
 
   });
-  hasvk14-layer = pkgs.callPackage ./vk { };
-  hasvk14-layer-32 = pkgs.pkgsi686Linux.callPackage ./vk { };
+  #hasvk14-layer = pkgs.callPackage ./vk { };
+  #hasvk14-layer-32 = pkgs.pkgsi686Linux.callPackage ./vk { };
 in
 
 {
   hardware.graphics = {
     extraPackages = [
-      hasvk14-layer
+      #hasvk14-layer
       wayland-intel-vaapi-driver
       pkgs.libvdpau-va-gl
       pkgs.pocl
     ];
     extraPackages32 = [
-      hasvk14-layer-32
+      #hasvk14-layer-32
       wayland-intel-vaapi-driver-32
       pkgs.pkgsi686Linux.libvdpau-va-gl
     ];

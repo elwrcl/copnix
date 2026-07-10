@@ -1,4 +1,9 @@
-{ config, lib, modulesPath, ... }:
+{
+  config,
+  lib,
+  modulesPath,
+  ...
+}:
 
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
@@ -47,6 +52,32 @@
     options = [
       "defaults"
       "nofail"
+      "x-systemd.automount"
+    ];
+  };
+
+  fileSystems."/mnt/macos-hd" = {
+    device = "/dev/disk/by-uuid/4293fd0f-5237-4126-a072-4f2ae6c594dc";
+    fsType = "fuse.apfs-fuse";
+    options = [
+      "ro"
+      "nofail"
+      "allow_other"
+      "uid=1000"
+      "gid=100"
+      "x-systemd.automount"
+    ];
+  };
+
+  fileSystems."/mnt/macos-data" = {
+    device = "/dev/disk/by-uuid/1ae5a3f4-0aed-4de1-bcba-2976b891c4b1";
+    fsType = "fuse.apfs-fuse";
+    options = [
+      "ro"
+      "nofail"
+      "allow_other"
+      "uid=1000"
+      "gid=100"
       "x-systemd.automount"
     ];
   };

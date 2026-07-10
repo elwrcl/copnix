@@ -32,8 +32,8 @@ with pkgs;
     shotcut
     blender
     heroic
-    pinta
     loupe
+    gimp
     wine
 
     # file-manager
@@ -110,6 +110,7 @@ with pkgs;
     lm_sensors
     exfatprogs
     libsecret
+    apfs-fuse
     gptfdisk
     usbutils
     hfsprogs
@@ -162,6 +163,7 @@ with pkgs;
     uv
 
     # editors
+    code-cursor-fhs
     vscode
     neovim
 
