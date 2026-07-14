@@ -20,10 +20,30 @@
         scroll-factor = 0.5;
         click-method = "clickfinger";
       };
+      focus-follows-mouse = {
+        max-scroll-amount = "0%";
+      };
     };
+
+    outputs = {
+      "LVDS-1" = {
+        position = {
+          x = 0;
+          y = 0;
+        };
+      };
+      "HDMI-A-1" = {
+        position = {
+          x = -277;
+          y = -1080;
+        };
+      };
+    };
+
     animations = {
       slowdown = 0.8;
     };
+
     layout = {
       gaps = 5;
       struts = {
@@ -43,14 +63,12 @@
       };
       focus-ring = {
         enable = false;
-        #width = 2;
-        #active.color = "#ffffff";
-        #inactive.color = "#444444";
       };
       border = {
         enable = false;
       };
     };
+
     layer-rules = [
       {
         matches = [
