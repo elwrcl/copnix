@@ -17,6 +17,7 @@ with pkgs;
     onlyoffice-desktopeditors
     whatsapp-electron
     telegram-desktop
+    davinci-resolve
     prismlauncher
     moonlight-qt
     qbittorrent
@@ -29,8 +30,6 @@ with pkgs;
     equibop
     spotify
     ghostty
-    shotcut
-    blender
     heroic
     loupe
     gimp
