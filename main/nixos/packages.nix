@@ -85,6 +85,8 @@ with pkgs;
     kitty
     tree
     tldr
+    perf
+    file
     wget
     fish
     htop
@@ -133,6 +135,8 @@ with pkgs;
     binutils
     python3
     rustup
+    nodejs
+    jdk25
     gcc
     ghc
     zig
@@ -163,6 +167,7 @@ with pkgs;
 
     # editors
     code-cursor-fhs
+    lite-xl
     vscode
     neovim
 
@@ -177,6 +182,7 @@ with pkgs;
     mpv
 
     inputs.zen-browser.packages.${system}.default
+    inputs.nix-alien.packages.${system}.nix-alien
     inputs.noctalia.packages.${system}.default
     inputs.copetch.packages.${system}.default
     inputs.helium.packages.${system}.default

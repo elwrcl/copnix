@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +44,9 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+    };
   };
 
   outputs =
@@ -75,7 +78,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-	      sharedModules = [ inputs.niri.homeModules.niri ];
+              sharedModules = [ inputs.niri.homeModules.niri ];
               extraSpecialArgs = {
                 inherit inputs;
                 system = linuxSystem;
