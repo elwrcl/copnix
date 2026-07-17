@@ -17,7 +17,6 @@ with pkgs;
     onlyoffice-desktopeditors
     whatsapp-electron
     telegram-desktop
-    davinci-resolve
     prismlauncher
     moonlight-qt
     qbittorrent
@@ -166,7 +165,6 @@ with pkgs;
     uv
 
     # editors
-    code-cursor-fhs
     lite-xl
     vscode
     neovim
