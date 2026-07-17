@@ -3,22 +3,22 @@
 with pkgs;
 {
   system = [
-    eza
-    bat
-    fd
-    fzf
+    pinentry_mac
+    fastfetch
+    starship
     clinfo
     zoxide
-    starship
-    fastfetch
+    unzip
+    gnupg
     btop
-    git
-    wget
     htop
     tree
-    unzip
+    wget
+    eza
+    bat
+    git
+    fzf
     zip
-    gnupg
-    pinentry_mac
+    fd
   ];
 }
