@@ -102,6 +102,10 @@
     theme.package = pkgs.whitesur-gtk-theme;
     gtk4.theme.name = "WhiteSur-Dark";
     gtk4.theme.package = pkgs.whitesur-gtk-theme;
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 11;
+    };
   };
 
   qt = {
@@ -111,8 +115,8 @@
 
   home.pointerCursor = {
     enable = true;
-    name = "Bibata-Modern-Classic";
-    package = pkgs.bibata-cursors;
+    name = "macOS";
+    package = pkgs.apple-cursor;
     size = 24;
     gtk.enable = true;
     x11.enable = true;
