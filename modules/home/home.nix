@@ -95,14 +95,13 @@
   programs.starship.enable = true;
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
-  programs.nix-ld.enable = true;
 
   gtk = {
     enable = true;
-    theme.name = "Graphite-Dark";
-    theme.package = pkgs.graphite-gtk-theme;
-    gtk4.theme.name = "Graphite-Dark";
-    gtk4.theme.package = pkgs.graphite-gtk-theme;
+    theme.name = "WhiteSur-Dark";
+    theme.package = pkgs.whitesur-gtk-theme;
+    gtk4.theme.name = "WhiteSur-Dark";
+    gtk4.theme.package = pkgs.whitesur-gtk-theme;
   };
 
   qt = {
@@ -111,6 +110,7 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
     size = 24;
@@ -121,7 +121,7 @@
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
     gtk-application-prefer-dark-theme = true;
-    gtk-theme = "Graphite-Dark";
+    gtk-theme = "WhiteSur-Dark";
   };
 
   xdg.mimeApps = {

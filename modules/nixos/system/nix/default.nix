@@ -7,6 +7,13 @@
       "flakes"
     ];
 
+    documentation = {
+      man.enable = true;
+      doc.enable = false;
+      info.enable = false;
+      nixos.enable = false;
+    };
+
     max-jobs = 4;
     cores = 4;
 
