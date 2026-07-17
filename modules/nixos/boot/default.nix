@@ -1,11 +1,23 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
-  imports = [
-  ];
+  imports = [ ];
 
   environment.systemPackages = [ pkgs.efibootmgr ];
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+
+  nixpkgs.overlays = [
+    inputs.nix-cachyos-kernel.overlays.default
+  ];
+
+  boot.kernelPackages =
+    let
+      kernel = pkgs.cachyosKernels.linux-cachyos-bmq.override {
+        processorOpt = "x86_64-v2";
+        lto = "full";
+        bbr3 = true;
+      };
+    in
+    pkgs.linuxKernel.packagesFor kernel;
 
   boot.kernelParams = [
     "preempt=full"
