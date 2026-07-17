@@ -47,6 +47,9 @@
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
     };
+    nix-cachyos-kernel = {
+      url = "github:xddxdd/nix-cachyos-kernel/release";
+    };
   };
 
   outputs =
@@ -55,6 +58,7 @@
       nixpkgs,
       nix-darwin,
       home-manager,
+      nix-cachyos-kernel,
       chaotic,
       niri,
       ...
