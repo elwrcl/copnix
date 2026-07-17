@@ -4,7 +4,7 @@
   programs.niri.settings = {
     environment = {
       DISPLAY = ":0";
-      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_THEME = "macOS";
       XCURSOR_SIZE = "24";
       QT_STYLE_OVERRIDE = "adwaita-dark";
       GDK_BACKEND = "wayland,x11";
