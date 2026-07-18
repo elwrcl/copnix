@@ -1,13 +1,11 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
-let
-  lfbmqKernel = import ./kernel.nix { inherit pkgs; };
-in
 {
-  imports = [ ];
-  environment.systemPackages = [ pkgs.efibootmgr ];
+  imports = [
+  ];
 
-  boot.kernelPackages = pkgs.linuxKernel.packagesFor lfbmqKernel;
+  environment.systemPackages = [ pkgs.efibootmgr ];
+  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
 
   boot.kernelParams = [
     "preempt=full"
@@ -22,6 +20,7 @@ in
       canTouchEfiVariables = false;
       efiSysMountPoint = "/boot";
     };
+
     systemd-boot = {
       enable = true;
       configurationLimit = 5;
