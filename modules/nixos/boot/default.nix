@@ -1,23 +1,13 @@
 { pkgs, inputs, ... }:
 
+let
+  lfbmqKernel = import ./kernel.nix { inherit pkgs; };
+in
 {
   imports = [ ];
-
   environment.systemPackages = [ pkgs.efibootmgr ];
 
-  nixpkgs.overlays = [
-    inputs.nix-cachyos-kernel.overlays.default
-  ];
-
-  boot.kernelPackages =
-    let
-      kernel = pkgs.cachyosKernels.linux-cachyos-bmq.override {
-        processorOpt = "x86_64-v2";
-        lto = "full";
-        bbr3 = true;
-      };
-    in
-    pkgs.linuxKernel.packagesFor kernel;
+  boot.kernelPackages = pkgs.linuxKernel.packagesFor lfbmqKernel;
 
   boot.kernelParams = [
     "preempt=full"
@@ -32,7 +22,6 @@
       canTouchEfiVariables = false;
       efiSysMountPoint = "/boot";
     };
-
     systemd-boot = {
       enable = true;
       configurationLimit = 5;
