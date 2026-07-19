@@ -44,15 +44,14 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    soryu-kernel = {
+      url = "github:elwrcl/soryu-kernel";
+    };
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
     };
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
-    };
-    soryu-kernel = {
-      url = "github:elwrcl/soryu-kernel";
-      flake = false;
     };
   };
 

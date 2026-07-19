@@ -6,8 +6,9 @@
 }:
 
 let
-  customKernel = pkgs.callPackage "${inputs.soryu-kernel}/kernel/kernel.nix" { };
+  customKernel = inputs.soryu-kernel.packages.${pkgs.system}.customKernel;
 in
+
 {
   imports = [ ];
 

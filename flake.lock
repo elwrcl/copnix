@@ -934,7 +934,24 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3",
         "noctalia": "noctalia",
+        "soryu-kernel": "soryu-kernel",
         "zen-browser": "zen-browser"
+      }
+    },
+    "soryu-kernel": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784467286,
+        "narHash": "sha256-qLirFz+NoZI/Fff0R48k32zl0l4o3AaDzcZSH9cGlL4=",
+        "owner": "elwrcl",
+        "repo": "soryu-kernel",
+        "rev": "cdc735c39f999d8b39abef0e5ca5a4ab8014f2bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elwrcl",
+        "repo": "soryu-kernel",
+        "type": "github"
       }
     },
     "systems": {
