@@ -1,11 +1,19 @@
-{ pkgs, ... }:
-
 {
-  imports = [
-  ];
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
+
+let
+  customKernel = pkgs.callPackage "${inputs.soryu-kernel}/kernel/kernel.nix" { };
+in
+{
+  imports = [ ];
 
   environment.systemPackages = [ pkgs.efibootmgr ];
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+
+  boot.kernelPackages = pkgs.linuxPackagesFor customKernel;
 
   boot.kernelParams = [
     "preempt=full"
