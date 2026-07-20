@@ -43,6 +43,7 @@ with pkgs;
     kdePackages.kio-admin
     kdePackages.kio-fuse
     kdePackages.kservice
+    kdePackages.konsole
     kdePackages.dolphin
     kdePackages.qtsvg
     kdePackages.ark
