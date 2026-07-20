@@ -17,6 +17,7 @@ in
   boot.kernelPackages = pkgs.linuxPackagesFor customKernel;
 
   boot.kernelParams = [
+    "netconsole=6665@192.168.1.105/enp8s0,6666@192.168.1.102/"
     "preempt=full"
     "mitigations=off"
     "usbcore.autosuspend=-1"

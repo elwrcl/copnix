@@ -878,6 +878,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1784356753,
+        "narHash": "sha256-12KrbMiWLcf8m7pCvAtZh1ZrgF85ZXDXvfR/fWTKy84=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "61b7c44c4073f0b827768aff0049561b5110ea5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -939,13 +955,15 @@
       }
     },
     "soryu-kernel": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
       "locked": {
-        "lastModified": 1784467286,
-        "narHash": "sha256-qLirFz+NoZI/Fff0R48k32zl0l4o3AaDzcZSH9cGlL4=",
+        "lastModified": 1784501453,
+        "narHash": "sha256-WHY3V2lYqdWrzNSeERLBW08xL27YlXnboByiU6k9hZs=",
         "owner": "elwrcl",
         "repo": "soryu-kernel",
-        "rev": "cdc735c39f999d8b39abef0e5ca5a4ab8014f2bb",
+        "rev": "6d8f408fbafd0f77c3abbcdf8147dcd3c357d167",
         "type": "github"
       },
       "original": {
