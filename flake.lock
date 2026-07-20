@@ -959,11 +959,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1784531004,
-        "narHash": "sha256-/8TfNx+elrU6OJ2qt/rWa6L3GuYbc9FvftLWOZoGG6c=",
+        "lastModified": 1784548010,
+        "narHash": "sha256-dU+vrdKEsFc91YzVRPURZcyfZasFsej0Dsnet4Yo3DY=",
         "owner": "elwrcl",
         "repo": "soryu-kernel",
-        "rev": "49499d697f701fc737507fc96a057c05df893fba",
+        "rev": "9c26c6f011e4bc61797ab704ab7fbff1956fc503",
         "type": "github"
       },
       "original": {
