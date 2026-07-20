@@ -123,9 +123,10 @@ with pkgs;
     xar
 
     # themes/icons
+    whitesur-icon-theme
     whitesur-gtk-theme
     gnome-themes-extra
-    bibata-cursors
+    whitesur-kde
     adwaita-qt6
     adwaita-qt
 

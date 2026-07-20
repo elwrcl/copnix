@@ -96,23 +96,6 @@
   programs.fzf.enable = true;
   programs.zoxide.enable = true;
 
-  gtk = {
-    enable = true;
-    theme.name = "WhiteSur-Dark";
-    theme.package = pkgs.whitesur-gtk-theme;
-    gtk4.theme.name = "WhiteSur-Dark";
-    gtk4.theme.package = pkgs.whitesur-gtk-theme;
-    font = {
-      name = "JetBrainsMono Nerd Font";
-      size = 11;
-    };
-  };
-
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk3";
-  };
-
   home.pointerCursor = {
     enable = true;
     name = "macOS";
@@ -121,6 +104,31 @@
     gtk.enable = true;
     x11.enable = true;
   };
+
+  gtk = {
+    enable = true;
+    theme.name = "WhiteSur-Dark";
+    theme.package = pkgs.whitesur-gtk-theme;
+    gtk4.theme.name = "WhiteSur-Dark";
+    gtk4.theme.package = pkgs.whitesur-gtk-theme;
+    iconTheme.name = "WhiteSur-dark";
+    iconTheme.package = pkgs.whitesur-icon-theme;
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      size = 11;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "kde";
+    style.name = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+    [General]
+    theme=WhiteSur-Dark
+  '';
 
   dconf.settings."org/gnome/desktop/interface" = {
     color-scheme = "prefer-dark";
