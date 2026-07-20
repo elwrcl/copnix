@@ -3,12 +3,13 @@
 {
   fonts = {
     packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      noto-fonts-color-emoji
-      ipaexfont
       nerd-fonts.jetbrains-mono
+      noto-fonts-color-emoji
+      noto-fonts-cjk-serif
+      noto-fonts-cjk-sans
+      nerd-fonts.hurmit
+      noto-fonts
+      ipaexfont
     ];
 
     fontconfig = {
