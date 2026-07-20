@@ -34,7 +34,7 @@ in
     "kernel.softlockup_panic" = 1;
     "kernel.hardlockup_panic" = 1;
     "kernel.hung_task_panic" = 1;
-    "kernel.panic" = 10;
+    "kernel.panic" = 50;
   };
 
   boot.loader = {
