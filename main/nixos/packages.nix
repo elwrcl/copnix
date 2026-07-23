@@ -51,6 +51,7 @@ with pkgs;
     kdePackages.kdf
 
     # utils
+    poppler-utils
     wl-clipboard
     wf-recorder
     tesseract
@@ -188,4 +189,9 @@ with pkgs;
     inputs.helium.packages.${system}.default
     pkgs.qt6Packages.qtwebsockets
   ];
+  environment.variables = {
+    NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
+    PYTHONPATH = "${pythonEnv}/${pythonEnv.sitePackages}";
+    GI_TYPELIB_PATH = "${pkgs.gtk4}/lib/girepository-1.0:${pkgs.libadwaita}/lib/girepository-1.0";
+  };
 }
