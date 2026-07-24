@@ -13,7 +13,6 @@ in
   imports = [ ];
   environment.systemPackages = [ pkgs.efibootmgr ];
 
-  # gentoo larp section
   boot.kernelPackages = pkgs.linuxPackagesFor customKernel;
   boot.kernelParams = [
     "preempt=full"
@@ -23,11 +22,20 @@ in
     "ramoops.mem_size=8388608"
     "ramoops.record_size=524288"
     "transparent_hugepage=madvise"
+    "loglevel=7"
+    "netconsole=6665@192.168.1.105/enp8s0,6666@192.168.1.101/82:31:f2:9f:73:40"
   ];
   boot.kernelModules = [
     "tcp_bbr"
     "sch_fq"
+    "ramoops"
+    "netconsole"
   ];
+
+  boot.extraModprobeConfig = ''
+    options ramoops mem_size=8388608 record_size=524288
+  '';
+
   boot.kernel.sysctl = {
     "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_congestion_control" = "bbr";

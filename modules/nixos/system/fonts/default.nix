@@ -4,6 +4,7 @@
   fonts = {
     packages = with pkgs; [
       nerd-fonts.jetbrains-mono
+      nerd-fonts.caskaydia-cove
       noto-fonts-color-emoji
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
