@@ -9,7 +9,8 @@
   imports = [ ];
   environment.systemPackages = [ pkgs.efibootmgr ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bmq;
 
   boot.kernelParams = [
     "mitigations=off"
