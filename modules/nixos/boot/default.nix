@@ -9,7 +9,7 @@
   imports = [ ];
   environment.systemPackages = [ pkgs.efibootmgr ];
 
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   boot.kernelParams = [
     "mitigations=off"
@@ -34,13 +34,13 @@
   '';
 
   boot.kernel.sysctl = {
-    "net.ipv4.tcp_congestion_control" = "bbr";
     "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
     "kernel.softlockup_panic" = 1;
     "kernel.hardlockup_panic" = 1;
     "kernel.hung_task_panic" = 1;
-    "kernel.printk" = "8 4 1 7";
     "kernel.panic" = 50;
+    "kernel.printk" = "8 4 1 7";
   };
 
   boot.loader = {
