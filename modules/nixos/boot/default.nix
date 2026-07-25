@@ -5,17 +5,13 @@
   ...
 }:
 
-let
-  customKernel = inputs.soryu-kernel.packages.${pkgs.system}.customKernel;
-in
-
 {
   imports = [ ];
   environment.systemPackages = [ pkgs.efibootmgr ];
 
-  boot.kernelPackages = pkgs.linuxPackagesFor customKernel;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-lto;
+
   boot.kernelParams = [
-    "preempt=full"
     "mitigations=off"
     "nmi_watchdog=1"
     "usbcore.autosuspend=-1"
@@ -23,8 +19,8 @@ in
     "ramoops.record_size=524288"
     "transparent_hugepage=madvise"
     "loglevel=7"
-    "netconsole=6665@192.168.1.105/enp8s0,6666@192.168.1.101/82:31:f2:9f:73:40"
   ];
+
   boot.kernelModules = [
     "tcp_bbr"
     "sch_fq"
@@ -34,14 +30,16 @@ in
 
   boot.extraModprobeConfig = ''
     options ramoops mem_size=8388608 record_size=524288
+    options netconsole netconsole=6665@192.168.1.105/enp8s0,6666@192.168.1.101/82:31:f2:9f:73:40
   '';
 
   boot.kernel.sysctl = {
-    "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.default_qdisc" = "fq";
     "kernel.softlockup_panic" = 1;
     "kernel.hardlockup_panic" = 1;
     "kernel.hung_task_panic" = 1;
+    "kernel.printk" = "8 4 1 7";
     "kernel.panic" = 50;
   };
 
