@@ -23,12 +23,10 @@ with pkgs;
     antigravity
     obs-studio
     localsend
-    spotatui
     picotool
     sunshine
-    equibop
     spotify
-    ghostty
+    equibop
     heroic
     loupe
     gimp
@@ -49,6 +47,7 @@ with pkgs;
     kdePackages.ark
     kdePackages.kio
     kdePackages.kdf
+    nautilus
 
     # utils
     poppler-utils
@@ -91,7 +90,9 @@ with pkgs;
     wget
     fish
     htop
+    tmux
     btop
+    yazi
     zip
     eza
     bat
@@ -111,6 +112,8 @@ with pkgs;
     mesa-demos
     lm_sensors
     exfatprogs
+    pci-utils
+    dmidecode
     libsecret
     apfs-fuse
     gptfdisk
@@ -169,8 +172,8 @@ with pkgs;
 
     # editors
     lite-xl
-    vscode
     neovim
+    vscode
 
     # media
     ffmpegthumbnailer
@@ -189,9 +192,4 @@ with pkgs;
     inputs.helium.packages.${system}.default
     pkgs.qt6Packages.qtwebsockets
   ];
-  environment.variables = {
-    NAUTILUS_4_EXTENSION_DIR = "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
-    PYTHONPATH = "${pythonEnv}/${pythonEnv.sitePackages}";
-    GI_TYPELIB_PATH = "${pkgs.gtk4}/lib/girepository-1.0:${pkgs.libadwaita}/lib/girepository-1.0";
-  };
 }
