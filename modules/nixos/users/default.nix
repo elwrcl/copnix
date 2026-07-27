@@ -7,15 +7,15 @@
     description = "elars";
     extraGroups = [
       "networkmanager"
-      "wheel"
+      "libvirtd"
+      "scanner"
+      "plugdev"
       "docker"
       "video"
       "input"
       "audio"
+      "wheel"
       "lp"
-      "scanner"
-      "libvirtd"
-      "plugdev"
     ];
     shell = pkgs.zsh;
   };

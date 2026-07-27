@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 {
   system.primaryUser = "sohryu";
   users.users.sohryu = {

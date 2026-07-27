@@ -1,14 +1,14 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  system.primaryUser = "sohryu";
-  users.users.sohryu = {
-    name = "sohryu";
-    home = "/Users/sohryu";
-    shell = pkgs.zsh;
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "none";
+    };
+    brews = [ ];
+    casks = [ ];
   };
-
-  programs.zsh.enable = true;
-  environment.systemPackages = [ pkgs.nh ];
-  environment.variables.NH_FLAKE = "/Users/sohryu/copland";
 }
