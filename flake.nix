@@ -50,6 +50,14 @@
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
     };
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
     };
@@ -82,6 +90,7 @@
           chaotic.nixosModules.default
           {
             nixpkgs.config.allowUnfree = true;
+            nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
@@ -90,7 +99,7 @@
                 inherit inputs;
                 system = linuxSystem;
               };
-              users.elars = import ./modules/home/home.nix;
+              users.elars = import ./main/nixos/home.nix;
             };
           }
           ./main/nixos/machine.nix
@@ -103,9 +112,20 @@
           system = darwinSystem;
         };
         modules = [
+          home-manager.darwinModules.home-manager
           {
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.allowDeprecatedx86_64Darwin = true;
+            nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = {
+                inherit inputs;
+                system = darwinSystem;
+              };
+              users.sohryu = import ./main/darwin/home.nix;
+            };
           }
           ./main/darwin/machine.nix
         ];
