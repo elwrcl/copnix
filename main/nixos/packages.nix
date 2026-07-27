@@ -112,11 +112,11 @@ with pkgs;
     mesa-demos
     lm_sensors
     exfatprogs
-    pci-utils
     dmidecode
     libsecret
     apfs-fuse
     gptfdisk
+    pciutils
     usbutils
     hfsprogs
     dmg2img
