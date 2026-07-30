@@ -1,8 +1,0 @@
-{ ... }:
-
-{
-  imports = [
-    ./vpn
-    ./network-manager
-  ];
-}

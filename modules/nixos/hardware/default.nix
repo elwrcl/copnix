@@ -1,9 +1,0 @@
-{ ... }:
-
-{
-  imports = [
-    ./bluetooth
-    ./graphics
-    ./udev
-  ];
-}
