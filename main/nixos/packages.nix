@@ -69,8 +69,13 @@ with pkgs;
     scrcpy
     ifuse
 
-    # cli
+    # agents
     github-copilot-cli
+    claude-monitor
+    claude-merge
+    claude-code
+
+    # cli
     fastfetch
     trash-cli
     tailscale
