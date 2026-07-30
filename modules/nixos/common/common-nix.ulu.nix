@@ -4,11 +4,14 @@
     { ... }:
     {
       nix.settings = {
+        trusted-users = [
+          "root"
+          "elars"
+        ];
         experimental-features = [
           "nix-command"
           "flakes"
         ];
-
         max-jobs = 4;
         cores = 4;
 
