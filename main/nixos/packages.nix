@@ -71,8 +71,8 @@ with pkgs;
 
     # agents
     github-copilot-cli
+    claude-mergetool
     claude-monitor
-    claude-merge
     claude-code
 
     # cli
