@@ -78,6 +78,12 @@
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.darwin.follows = "nix-darwin";
+    };
     copetch = {
       url = "github:elwrcl/copetch";
       inputs.nixpkgs.follows = "nixpkgs";
