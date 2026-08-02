@@ -1,12 +1,16 @@
 { ... }:
 {
   flake.homeModules.home-nushell-commandline-copy =
-    { ... }:
+    { pkgs, lib, ... }:
+    let
+      inherit (lib.meta) getExe';
+      wlCopy = getExe' pkgs.wl-clipboard "wl-copy";
+    in
     {
-      programs.nushell.extraConfig = ''
-        use std/clip
-        def nu-highlight-default [] {
+      home.packages = [ pkgs.wl-clipboard ];
 
+      programs.nushell.extraConfig = ''
+        def nu-highlight-default [] {
           let input = $in
           $env.config.color_config = {}
           $input | nu-highlight
@@ -17,7 +21,7 @@
           | nu-highlight-default
           | [ "```ansi" $in "```" ]
           | str join (char nl)
-          | clip copy --ansi
+          | ^${wlCopy}
         }
 
         $env.config.keybindings ++= [
