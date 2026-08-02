@@ -29,6 +29,18 @@ in
               config.flake.homeModules.home-base
               config.flake.homeModules.home-ghostty
               config.flake.homeModules.home-nushell
+              config.flake.homeModules.home-nushell-colors
+              config.flake.homeModules.home-nushell-completions
+              config.flake.homeModules.home-nushell-prompt
+              config.flake.homeModules.home-nushell-commandline-copy
+              config.flake.homeModules.home-nushell-last
+              config.flake.homeModules.home-direnv
+              config.flake.homeModules.home-jujutsu
+              config.flake.homeModules.home-jujutsu-difftastic
+              config.flake.homeModules.home-jujutsu-mergiraf
+              config.flake.homeModules.home-jujutsu-watchman
+              config.flake.homeModules.home-gh
+              config.flake.homeModules.home-radicle
             ];
             home.username = "sohryu";
             home.homeDirectory = "/Users/sohryu";

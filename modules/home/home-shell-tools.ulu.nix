@@ -5,6 +5,9 @@
     {
       programs.starship.enable = true;
       programs.fzf.enable = true;
-      programs.zoxide.enable = true;
+      programs.zoxide = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
     };
 }
