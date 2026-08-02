@@ -35,6 +35,7 @@ in
               config.flake.homeModules.home-nushell-completions
               config.flake.homeModules.home-nushell-prompt
               config.flake.homeModules.home-nushell-commandline-copy
+              config.flake.homeModules.home-nushell-keybinds
               config.flake.homeModules.home-nushell-last
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
