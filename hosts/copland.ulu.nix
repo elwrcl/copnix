@@ -31,6 +31,7 @@ in
               config.flake.homeModules.home-base
               config.flake.homeModules.home-ghostty
               config.flake.homeModules.home-nushell
+              config.flake.homeModules.home-nushell-bash-compat
               config.flake.homeModules.home-nushell-colors
               config.flake.homeModules.home-nushell-completions
               config.flake.homeModules.home-nushell-prompt

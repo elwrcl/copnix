@@ -3,7 +3,6 @@
   flake.homeModules.home-zsh =
     { ... }:
     {
-      # TODO nu
       programs.zsh = {
         enable = true;
         enableCompletion = true;
@@ -18,7 +17,6 @@
           alias la='eza -a --icons --group-directories-first'
           alias lt='eza --tree --level=2 --icons'
 
-          alias cd='z'
           alias cat='bat'
           alias grep='grep --color=auto'
           alias df='df -h'
