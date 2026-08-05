@@ -14,6 +14,9 @@
     in
     {
       environment.systemPackages = with pkgs; [
+	# test
+	veloren
+
         # apps
         onlyoffice-desktopeditors
         whatsapp-electron
