@@ -12,7 +12,7 @@
         legcord = {
           enable = true;
           settings = {
-            channel = "stable";
+            channel = "canary";
             tray = "dynamic";
             minimizeToTray = true;
             mods = [ "shelter" ];
