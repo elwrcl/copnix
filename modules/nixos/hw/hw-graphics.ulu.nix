@@ -12,7 +12,6 @@
 
       amd = {
         hardware.graphics.extraPackages = with pkgs; [
-          amdvlk
           rocmPackages.clr.icd
         ];
 

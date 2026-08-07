@@ -55,6 +55,7 @@ in
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-discord
               config.flake.homeModules.desktop-niri-home
+              config.flake.homeModules.desktop-niri-package
               config.flake.homeModules.desktop-niri-env
               config.flake.homeModules.desktop-niri-execs
               config.flake.homeModules.desktop-niri-general
@@ -88,6 +89,7 @@ in
       config.flake.nixosModules.service-ssh
       config.flake.nixosModules.common-locale
       config.flake.nixosModules.common-nix
+      config.flake.nixosModules.common-nix-access-tokens
       config.flake.nixosModules.common-fonts
       config.flake.nixosModules.common-kmscon
       config.flake.nixosModules.desktop-display

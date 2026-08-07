@@ -16,18 +16,15 @@
       environment.systemPackages = with pkgs; [
         # apps
         onlyoffice-desktopeditors
-        whatsapp-electron
         telegram-desktop
         prismlauncher
         moonlight-qt
         qbittorrent
-        antigravity
         obs-studio
         localsend
         picotool
         sunshine
         spotify
-        equibop
         heroic
         loupe
         gimp
@@ -64,9 +61,9 @@
         libimobiledevice
         android-tools
         uxplay-fixed
+        simple-mtpfs
         usbmuxd
         libmtp
-        jmtpfs
         scrcpy
         ifuse
 
@@ -77,23 +74,24 @@
         claude-code
 
         # cli
+        agenix-cli
         fastfetch
-        trash-cli
-        lazyjj
-        jj-fzf
-        meld
-        jujutsu
         tailscale
+        trash-cli
         dos2unix
+        jujutsu
         autossh
         ani-cli
-        zoxide
         cachix
+        lazyjj
         direnv
+        jj-fzf
+        zoxide
         rsync
         unzip
         kitty
         tree
+        meld
         tldr
         perf
         file
