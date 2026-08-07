@@ -7,4 +7,8 @@ in
     admin
     copland
   ];
+  "modules/nixos/common/secrets/nix-access-tokens.age".publicKeys = [
+    admin
+    copland
+  ];
 }
