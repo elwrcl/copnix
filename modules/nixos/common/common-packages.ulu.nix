@@ -197,7 +197,6 @@
         cava
         mpv
 
-        inputs.zen-browser.packages.${system}.default
         inputs.nix-alien.packages.${system}.nix-alien
         inputs.copetch.packages.${system}.default
         inputs.helium.packages.${system}.default
