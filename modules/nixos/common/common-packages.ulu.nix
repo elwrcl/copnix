@@ -24,13 +24,16 @@
         localsend
         picotool
         sunshine
+        # todo find better spotify client
         spotify
+        whatsie
         heroic
         loupe
         gimp
         wine
 
         # file-manager
+        # todo change file manager
         kdePackages.kdegraphics-thumbnailers
         kdePackages.plasma-integration
         kdePackages.breeze-icons
@@ -68,6 +71,7 @@
         ifuse
 
         # agents
+        # todo make claude lobotomize
         github-copilot-cli
         claude-mergetool
         claude-monitor
@@ -195,7 +199,6 @@
 
         inputs.zen-browser.packages.${system}.default
         inputs.nix-alien.packages.${system}.nix-alien
-        inputs.noctalia.packages.${system}.default
         inputs.copetch.packages.${system}.default
         inputs.helium.packages.${system}.default
         pkgs.qt6Packages.qtwebsockets

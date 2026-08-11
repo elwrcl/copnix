@@ -54,6 +54,7 @@ in
               config.flake.homeModules.home-mimeapps
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-discord
+              config.flake.homeModules.home-noctalia
               config.flake.homeModules.desktop-niri-home
               config.flake.homeModules.desktop-niri-package
               config.flake.homeModules.desktop-niri-env
