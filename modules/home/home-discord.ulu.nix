@@ -9,6 +9,7 @@
 
       programs.nixcord = {
         enable = true;
+        discord.silenceNoModClientWarning = true;
         legcord = {
           enable = true;
           settings = {
