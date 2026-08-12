@@ -21,13 +21,13 @@
 
           hinting = {
             enable = true;
-            style = "slight";
+            style = "none";
             autohint = false;
           };
 
           subpixel = {
-            rgba = "rgb";
-            lcdfilter = "default";
+            rgba = "none";
+            lcdfilter = "none";
           };
 
           defaultFonts = {
