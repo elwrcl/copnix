@@ -22,6 +22,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
+          backupFileExtension = "hm-bak";
           sharedModules = [ inputs.niri.homeModules.niri ];
           extraSpecialArgs = {
             inherit inputs system;
@@ -53,6 +54,8 @@ in
               config.flake.homeModules.home-qt
               config.flake.homeModules.home-browser
               config.flake.homeModules.home-mimeapps
+              config.flake.homeModules.home-file-manager
+              config.flake.homeModules.home-file-manager-actions
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-discord
               config.flake.homeModules.home-noctalia
@@ -89,6 +92,8 @@ in
       config.flake.nixosModules.service-printing
       config.flake.nixosModules.service-security
       config.flake.nixosModules.service-ssh
+      config.flake.nixosModules.service-tumbler
+      config.flake.nixosModules.service-xfconf
       config.flake.nixosModules.common-locale
       config.flake.nixosModules.common-nix
       config.flake.nixosModules.common-nix-access-tokens
