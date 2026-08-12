@@ -1,4 +1,4 @@
-# nixoconf
+# copnix
 
 Nix config for one machine running two OS :
 
