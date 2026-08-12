@@ -5,7 +5,7 @@
     {
       programs.niri.settings = {
         binds = {
-          # --- Workspace Navigation ---
+          # NAVI
           "Ctrl+Mod+Right".action.focus-column-right = [ ];
           "Ctrl+Mod+Left".action.focus-column-left = [ ];
           "Ctrl+Mod+Down".action.focus-workspace-down = [ ];
@@ -24,16 +24,16 @@
             action.focus-column-left = [ ];
           };
 
-          # --- Interface ---
+          # INTERFACE
           "Mod+Space".action.spawn-sh = "noctalia msg panel-toggle launcher";
           "Mod+P".action.spawn-sh = "noctalia msg panel-toggle control-center";
           "Mod+Tab".action.toggle-overview = [ ];
           "Ctrl+Alt+Delete".action.spawn-sh = "noctalia msg panel-toggle session";
 
-          # --- Launchers ---
+          # LAUNCHERS
           "Mod+Return".action.spawn = [ "ghostty" ];
           "Mod+W".action.spawn = [ "zen-beta" ];
-          "Mod+E".action.spawn = [ "dolphin" ];
+          "Mod+E".action.spawn = [ "thunar" ];
           "Mod+Z".action.spawn = [ "code" ];
           "Mod+Alt+V".action.spawn = [ "pavucontrol" ];
           "Mod+Shift+V".action.spawn-sh = "noctalia msg panel-toggle clipboard";
@@ -46,25 +46,21 @@
             "btop"
           ];
 
-          # --- Window Management ---
+          # WINDOW
           "Mod+Q".action.close-window = [ ];
           "Mod+Alt+Space".action.toggle-window-floating = [ ];
           "Mod+F".action.fullscreen-window = [ ];
           "Mod+D".action.maximize-column = [ ];
-
-          # --- Focus ---
           "Mod+Left".action.focus-column-left = [ ];
           "Mod+Right".action.focus-column-right = [ ];
           "Mod+Up".action.focus-window-up = [ ];
           "Mod+Down".action.focus-window-down = [ ];
-
-          # --- Move Windows ---
           "Mod+Shift+Left".action.move-column-left = [ ];
           "Mod+Shift+Right".action.move-column-right = [ ];
           "Mod+Shift+Up".action.move-window-up = [ ];
           "Mod+Shift+Down".action.move-window-down = [ ];
 
-          # --- Workspaces by Number ---
+          # WORKSPACE
           "Mod+1".action.focus-workspace = 1;
           "Mod+2".action.focus-workspace = 2;
           "Mod+3".action.focus-workspace = 3;
@@ -75,7 +71,6 @@
           "Mod+8".action.focus-workspace = 8;
           "Mod+9".action.focus-workspace = 9;
           "Mod+0".action.focus-workspace = 10;
-
           "Mod+Shift+1".action.move-window-to-workspace = 1;
           "Mod+Shift+2".action.move-window-to-workspace = 2;
           "Mod+Shift+3".action.move-window-to-workspace = 3;
@@ -87,7 +82,7 @@
           "Mod+Shift+9".action.move-window-to-workspace = 9;
           "Mod+Shift+0".action.move-window-to-workspace = 10;
 
-          # --- Mouse Workspace Scroll ---
+          # WHEEL
           "Mod+WheelScrollDown" = {
             "cooldown-ms" = 150;
             action.focus-workspace-down = [ ];
@@ -97,7 +92,7 @@
             action.focus-workspace-up = [ ];
           };
 
-          # --- Media & Hardware Keys ---
+          # MEDIA
           "Mod+Shift+N".action.spawn = [
             "playerctl"
             "next"
