@@ -7,7 +7,6 @@
     in
     {
       networking.hostName = "copland";
-
       networking.networkmanager = {
         enable = true;
         dns = "systemd-resolved";
@@ -21,11 +20,7 @@
           "ipv6.ignore-auto-dns" = true;
         };
       };
-
-      boot.kernel.sysctl = {
-        "net.ipv6.conf.all.use_tempaddr" = 2;
-        "net.ipv6.conf.default.use_tempaddr" = 2;
-      };
+      networking.tempAddresses = "enabled";
 
       services.resolved = {
         enable = true;
