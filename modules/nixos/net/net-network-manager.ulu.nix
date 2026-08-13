@@ -1,25 +1,52 @@
 { ... }:
 {
   flake.nixosModules.net-network-manager =
-    { ... }:
+    { lib, ... }:
+    let
+      inherit (lib.modules) mkDefault;
+    in
     {
       networking.hostName = "copland";
-      networking.networkmanager.enable = true;
+
+      networking.networkmanager = {
+        enable = true;
+        dns = "systemd-resolved";
+        ethernet.macAddress = mkDefault "stable";
+        wifi.macAddress = mkDefault "random";
+        wifi.scanRandMacAddress = true;
+        connectionConfig = {
+          "ipv6.addr-gen-mode" = "stable-privacy";
+          "ipv6.ip6-privacy" = 2;
+          "ipv4.ignore-auto-dns" = true;
+          "ipv6.ignore-auto-dns" = true;
+        };
+      };
+
+      boot.kernel.sysctl = {
+        "net.ipv6.conf.all.use_tempaddr" = 2;
+        "net.ipv6.conf.default.use_tempaddr" = 2;
+      };
 
       services.resolved = {
         enable = true;
+        settings.Resolve = {
+          DNS = [
+            "9.9.9.9#dns.quad9.net"
+            "149.112.112.112#dns.quad9.net"
+            "2620:fe::fe#dns.quad9.net"
+            "2620:fe::9#dns.quad9.net"
+          ];
 
-        settings = {
-          Resolve = {
-            DNS = "1.1.1.1";
-            DNSOverTLS = "yes";
-            DNSSEC = "false";
-            Domains = [ "~." ];
-            FallbackDNS = [
-              "1.1.1.1"
-              "8.8.8.8"
-            ];
-          };
+          FallbackDNS = [
+            "194.242.2.2#dns.mullvad.net"
+            "2a07:e340::2#dns.mullvad.net"
+          ];
+
+          DNSOverTLS = "yes";
+          DNSSEC = "true";
+          Domains = [ "~." ];
+          LLMNR = "false";
+          MulticastDNS = "false";
         };
       };
     };

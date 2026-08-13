@@ -82,7 +82,7 @@ in
       config.flake.nixosModules.hw-graphics
       config.flake.nixosModules.hw-udev
       config.flake.nixosModules.net-network-manager
-      config.flake.nixosModules.net-vpn
+      config.flake.nixosModules.net-dpi-evasion
       config.flake.nixosModules.service-appimage
       config.flake.nixosModules.service-flatpak
       config.flake.nixosModules.service-fwupd
