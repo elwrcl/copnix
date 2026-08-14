@@ -3,21 +3,21 @@
   flake.nixosModules.net-network-manager =
     { lib, ... }:
     let
-      inherit (lib.modules) mkDefault;
+      inherit (lib.modules) mkDefault mkForce;
     in
     {
       networking.hostName = "copland";
+
       networking.networkmanager = {
         enable = true;
-        dns = "systemd-resolved";
+        dns = mkForce "none";
+        settings.main.systemd-resolved = false;
         ethernet.macAddress = mkDefault "stable";
         wifi.macAddress = mkDefault "random";
         wifi.scanRandMacAddress = true;
         connectionConfig = {
           "ipv6.addr-gen-mode" = "stable-privacy";
           "ipv6.ip6-privacy" = 2;
-          "ipv4.ignore-auto-dns" = true;
-          "ipv6.ignore-auto-dns" = true;
         };
       };
       networking.tempAddresses = "enabled";
@@ -36,7 +36,6 @@
             "194.242.2.2#dns.mullvad.net"
             "2a07:e340::2#dns.mullvad.net"
           ];
-
           DNSOverTLS = "yes";
           DNSSEC = "true";
           Domains = [ "~." ];

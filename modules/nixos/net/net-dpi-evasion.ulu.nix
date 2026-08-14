@@ -1,13 +1,14 @@
 { ... }:
 {
   flake.nixosModules.net-dpi-evasion =
-    { ... }:
+    { config, ... }:
     {
       environment.etc."zapret/exclude.txt".text = ''
         turkiye.gov.tr
-        sahibinden.com
         gov.tr
         edevlet.gov.tr
+        sahibinden.com
+        shbdn.com
       '';
 
       services.zapret = {
@@ -33,6 +34,10 @@
           "--dpi-desync-repeats=6"
         ];
       };
+
+      systemd.services.zapret.restartTriggers = [
+        config.environment.etc."zapret/exclude.txt".source
+      ];
 
       networking.enableIPv6 = true;
       networking.firewall.extraCommands = ''
