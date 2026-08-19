@@ -131,11 +131,15 @@
 
       gtk.gtk3.bookmarks = [
         "file://${home}/copland nix"
-        "file://${home}/Projects"
-        "file://${home}/ProjectsHDD"
+        "file://${home}/.config dotfiles"
+        "file://${home}/Documents"
+        "file://${home}/Downloads"
+        "file://${home}/Music"
+        "file://${home}/Pictures"
         "file://${home}/Videos"
         "file://${home}/Videos-HDD"
-        "file://${home}/.local/share/Steam/steamapps Steam_SSD"
+        "file://${home}/Projects"
+        "file://${home}/ProjectsHDD"
       ];
     };
 }
