@@ -173,7 +173,6 @@
         rustfmt
         lazygit
         nixfmt
-        zellij
         sqlite
         aubio
         delta

@@ -7,8 +7,8 @@
         $env.config.keybindings ++= [
           {
             name: jj_status
-            modifier: control
-            keycode: char_g
+            modifier: alt
+            keycode: char_s
             mode: [ emacs vi_insert vi_normal ]
             event: { send: executehostcommand, cmd: "jj status" }
           }

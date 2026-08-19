@@ -39,6 +39,17 @@ in
               config.flake.homeModules.home-nushell-commandline-copy
               config.flake.homeModules.home-nushell-keybinds
               config.flake.homeModules.home-nushell-last
+              config.flake.homeModules.home-nushell-editor
+              config.flake.homeModules.home-helix
+              config.flake.homeModules.home-helix-theme
+              config.flake.homeModules.home-helix-keys
+              config.flake.homeModules.home-helix-languages
+              config.flake.homeModules.home-helix-language-servers
+              config.flake.homeModules.home-zellij
+              config.flake.homeModules.home-zellij-keybinds
+              config.flake.homeModules.home-zellij-theme
+              config.flake.homeModules.home-zellij-layout-ide
+              config.flake.homeModules.home-zellij-ide-command
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
