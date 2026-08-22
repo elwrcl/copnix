@@ -689,6 +689,18 @@
         "type": "github"
       }
     },
+    "intel-hard": {
+      "locked": {
+        "lastModified": 1787435059,
+        "narHash": "sha256-LYoAFtUX6pu/gg4ukqj66fRh3zfj9gv52HzhgoTursg=",
+        "path": "/home/elars/Projects/intel-hard",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/elars/Projects/intel-hard",
+        "type": "path"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -1062,6 +1074,7 @@
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "intel-hard": "intel-hard",
         "niri": "niri",
         "nix-alien": "nix-alien",
         "nix-cachyos-kernel": "nix-cachyos-kernel",

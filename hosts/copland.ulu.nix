@@ -91,6 +91,7 @@ in
       config.flake.nixosModules.common-boot
       config.flake.nixosModules.hw-bluetooth
       config.flake.nixosModules.hw-graphics
+      config.flake.nixosModules.hw-intel-hard
       config.flake.nixosModules.hw-udev
       config.flake.nixosModules.net-network-manager
       config.flake.nixosModules.net-dpi-evasion

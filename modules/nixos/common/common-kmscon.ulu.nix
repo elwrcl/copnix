@@ -12,7 +12,7 @@
         config = {
           font-name = "JetBrainsMono Nerd Font";
           font-size = 18;
-          hwaccel = true;
+          hwaccel = false;
         };
       };
     };

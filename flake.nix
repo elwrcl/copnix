@@ -84,6 +84,9 @@
       url = "github:elwrcl/copetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    intel-hard = {
+      url = "path:/home/elars/Projects/intel-hard";
+    };
   };
 
   outputs =

@@ -6,7 +6,7 @@
       imports = [
         inputs.nixcord.homeModules.nixcord
       ];
-
+      # could be change?
       programs.nixcord = {
         enable = true;
         discord.silenceNoModClientWarning = true;
