@@ -68,6 +68,7 @@ in
               config.flake.homeModules.home-file-manager
               config.flake.homeModules.home-file-manager-actions
               config.flake.homeModules.home-easyeffects
+              config.flake.homeModules.home-nyi
               config.flake.homeModules.home-discord
               config.flake.homeModules.home-noctalia
               config.flake.homeModules.desktop-niri-home
