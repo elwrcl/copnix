@@ -31,15 +31,15 @@ in
             imports = [
               config.flake.homeModules.home-base
               config.flake.homeModules.home-ghostty
-              config.flake.homeModules.home-nushell
-              config.flake.homeModules.home-nushell-bash-compat
-              config.flake.homeModules.home-nushell-colors
-              config.flake.homeModules.home-nushell-completions
-              config.flake.homeModules.home-nushell-prompt
-              config.flake.homeModules.home-nushell-commandline-copy
-              config.flake.homeModules.home-nushell-keybinds
-              config.flake.homeModules.home-nushell-last
-              config.flake.homeModules.home-nushell-editor
+              config.flake.homeModules.home-nu-nushell
+              config.flake.homeModules.home-nu-nushell-bash-compat
+              config.flake.homeModules.home-nu-nushell-colors
+              config.flake.homeModules.home-nu-nushell-completions
+              config.flake.homeModules.home-nu-nushell-prompt
+              config.flake.homeModules.home-nu-nushell-commandline-copy
+              config.flake.homeModules.home-nu-nushell-keybinds
+              config.flake.homeModules.home-nu-nushell-last
+              config.flake.homeModules.home-nu-nushell-editor
               config.flake.homeModules.home-helix
               config.flake.homeModules.home-helix-theme
               config.flake.homeModules.home-helix-keys
