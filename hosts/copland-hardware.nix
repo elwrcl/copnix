@@ -25,12 +25,15 @@
   boot.supportedFilesystems = [
     "hfsplus"
     "exfat"
+    "bcachefs"
+    "xfs"
   ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/7952dca8-005b-444c-a1eb-ecfbb5c053b2";
-    fsType = "ext4";
+    # TODO: mkfs.bcachefs UUID
+    device = "/dev/disk/by-uuid/REPLACE-ME-BCACHEFS-ROOT-UUID";
+    fsType = "bcachefs";
   };
 
   fileSystems."/mnt/HDD/shared" = {
@@ -47,8 +50,9 @@
   };
 
   fileSystems."/mnt/HDD/linuxdata" = {
-    device = "/dev/disk/by-uuid/f7e27b90-ce06-48bb-b579-d93b1398b21f";
-    fsType = "ext4";
+    # TODO: mkfs.xfs UUID
+    device = "/dev/disk/by-uuid/REPLACE-ME-XFS-LINUXDATA-UUID";
+    fsType = "xfs";
     options = [
       "defaults"
       "nofail"
