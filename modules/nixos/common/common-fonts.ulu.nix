@@ -13,6 +13,7 @@
           nerd-fonts.hurmit
           noto-fonts
           ipaexfont
+          iosevka
         ];
 
         fontconfig = {
