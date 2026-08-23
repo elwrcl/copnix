@@ -16,9 +16,6 @@ in
 
       {
         nixpkgs.config.allowUnfree = true;
-        nixpkgs.config.permittedInsecurePackages = [ "pnpm-10.29.2" ];
-        nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
-
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
