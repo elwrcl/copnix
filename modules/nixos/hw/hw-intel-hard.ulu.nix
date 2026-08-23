@@ -5,10 +5,8 @@
     {
       imports = [ inputs.intel-hard.nixosModules.default ];
 
-      programs.intel-hard = {
-        enable = true;
-        buildRoot = "/mnt/HDD/linuxdata/Projects/Drivers/intel-hard-graphics/build";
-        opencl.clvkBuildRoot = "/mnt/HDD/linuxdata/Projects/Drivers/clvk/build";
-      };
+      # No paths here on purpose: every one of them comes from the flake's
+      # topology.nix. If a tree moves, that file is the only edit.
+      programs.intel-hard.enable = true;
     };
 }

@@ -21,6 +21,12 @@
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.darwin.follows = "nix-darwin";
+    };
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,27 +39,12 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-cachyos-kernel = {
       url = "github:xddxdd/nix-cachyos-kernel/release";
-    };
-    soryu-kernel = {
-      url = "github:elwrcl/soryu-kernel";
     };
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -67,25 +58,21 @@
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-alien = {
-      url = "github:thiagokokada/nix-alien";
-    };
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.darwin.follows = "nix-darwin";
-    };
     copetch = {
       url = "github:elwrcl/copetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     intel-hard = {
       url = "path:/home/elars/Projects/intel-hard";
+    };
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+    };
+    nyi = {
+      url = "github:elwrcl/nyi";
     };
   };
 
