@@ -17,6 +17,7 @@
           "input"
           "audio"
           "wheel"
+          "i2c"
           "lp"
         ];
         shell = pkgs.zsh;

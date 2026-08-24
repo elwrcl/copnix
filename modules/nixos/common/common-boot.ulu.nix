@@ -8,7 +8,6 @@
     }:
     {
       environment.systemPackages = [ pkgs.efibootmgr ];
-      nixpkgs.overlays = [ inputs.nix-cachyos-kernel.overlays.pinned ];
       boot.kernelPackages = pkgs.linuxPackages_latest;
       # todo soryu kernel, opsec modules ..
       boot.kernelParams = [
@@ -22,6 +21,7 @@
         "sch_fq"
       ];
 
+      hardware.i2c.enable = true;
       boot.kernel.sysctl = {
         "net.core.default_qdisc" = "fq";
         "net.ipv4.tcp_congestion_control" = "bbr";

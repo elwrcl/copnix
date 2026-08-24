@@ -291,14 +291,17 @@
     },
     "intel-hard": {
       "locked": {
-        "lastModified": 1787487618,
-        "narHash": "sha256-zJkmQOn57BHGrnimDiHmW6XntBH481aFVsnQPtHceik=",
-        "path": "/home/elars/Projects/intel-hard",
-        "type": "path"
+        "lastModified": 1787487613,
+        "narHash": "sha256-BL9uzuvNE2wfdNzDp4STRLHfRRR2LOtKPiB+J+/s2DQ=",
+        "owner": "elwrcl",
+        "repo": "intel-hard",
+        "rev": "45dabaa129000f55a48fc44637ca7b61a5006af9",
+        "type": "github"
       },
       "original": {
-        "path": "/home/elars/Projects/intel-hard",
-        "type": "path"
+        "owner": "elwrcl",
+        "repo": "intel-hard",
+        "type": "github"
       }
     },
     "niri": {
