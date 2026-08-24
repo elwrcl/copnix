@@ -63,7 +63,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     intel-hard = {
-      url = "path:/home/elars/Projects/intel-hard";
+      url = "github:elwrcl/intel-hard";
     };
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
