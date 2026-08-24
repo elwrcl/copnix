@@ -17,6 +17,7 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ "i915" ];
+  boot.initrd.supportedFilesystems = [ "bcachefs" ];
   boot.kernelModules = [
     "kvm-intel"
     "ntsync"
@@ -31,8 +32,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    # TODO: mkfs.bcachefs UUID
-    device = "/dev/disk/by-uuid/REPLACE-ME-BCACHEFS-ROOT-UUID";
+    device = "/dev/disk/by-uuid/8cdde938-a457-4a54-976c-851cc72944b3";
     fsType = "bcachefs";
   };
 
@@ -50,14 +50,13 @@
   };
 
   fileSystems."/mnt/HDD/linuxdata" = {
-    # TODO: mkfs.xfs UUID
-    device = "/dev/disk/by-uuid/REPLACE-ME-XFS-LINUXDATA-UUID";
-    fsType = "xfs";
-    options = [
-      "defaults"
-      "nofail"
-      "x-systemd.automount"
-    ];
+   device = "/dev/disk/by-uuid/6acf076f-25a0-4ce1-b841-aefa8bb06218";
+   fsType = "xfs";
+   options = [
+     "defaults"
+     "nofail"
+     "x-systemd.automount"
+   ];
   };
 
   fileSystems."/mnt/macos-hd" = {
