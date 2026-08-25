@@ -32,7 +32,7 @@
 
           # LAUNCHERS
           "Mod+Return".action.spawn = [ "ghostty" ];
-          "Mod+W".action.spawn = [ "zen-beta" ];
+          "Mod+W".action.spawn = [ "helium" ];
           "Mod+E".action.spawn = [ "thunar" ];
           "Mod+Z".action.spawn = [ "code" ];
           "Mod+Alt+V".action.spawn = [ "pavucontrol" ];

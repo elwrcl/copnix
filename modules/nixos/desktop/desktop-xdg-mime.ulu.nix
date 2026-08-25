@@ -9,11 +9,11 @@
 
           defaultApplications = {
             # gui
-            "text/html" = "zen-beta.desktop";
-            "x-scheme-handler/http" = "zen-beta.desktop";
-            "x-scheme-handler/https" = "zen-beta.desktop";
-            "x-scheme-handler/about" = "zen-beta.desktop";
-            "x-scheme-handler/unknown" = "zen-beta.desktop";
+            "text/html" = "helium.desktop";
+            "x-scheme-handler/http" = "helium.desktop";
+            "x-scheme-handler/https" = "helium.desktop";
+            "x-scheme-handler/about" = "helium.desktop";
+            "x-scheme-handler/unknown" = "helium.desktop";
             "x-scheme-handler/steam" = "steam.desktop";
 
             # media

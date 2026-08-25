@@ -198,7 +198,6 @@
 
         inputs.nix-alien.packages.${system}.nix-alien
         inputs.copetch.packages.${system}.default
-        inputs.helium.packages.${system}.default
         pkgs.qt6Packages.qtwebsockets
       ];
     };
