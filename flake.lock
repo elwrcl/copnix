@@ -189,7 +189,7 @@
         "url": "https://flakehub.com/f/DeterminateSystems/flake-schemas/%3D0.5.0.tar.gz"
       }
     },
-    "heliux": {
+    "helium": {
       "inputs": {
         "flake-parts": "flake-parts_2",
         "nixpkgs": [
@@ -197,11 +197,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787615698,
-        "narHash": "sha256-N4jPPvRExYMzrSCg9p/y5KX5qap/pWYsMgqmxHkP4Q0=",
+        "lastModified": 1787626878,
+        "narHash": "sha256-Wo5rlt5sP97uRiAEzMm4eJ4DCb7w1eIkWMxaM9FViCk=",
         "owner": "elwrcl",
         "repo": "heliux",
-        "rev": "455bd720ec44e0a2eb176a98192369d7a261a6b0",
+        "rev": "275ac3bf3fa34ae708d3aa9a007addd9fa89c919",
         "type": "github"
       },
       "original": {
@@ -647,7 +647,7 @@
         "chaotic": "chaotic",
         "copetch": "copetch",
         "flake-parts": "flake-parts",
-        "heliux": "heliux",
+        "helium": "helium",
         "home-manager": "home-manager_2",
         "intel-hard": "intel-hard",
         "niri": "niri",

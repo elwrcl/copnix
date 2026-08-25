@@ -123,6 +123,7 @@ in
       config.flake.nixosModules.common-agenix
       config.flake.nixosModules.common-packages
       # import
+      inputs.helium.nixosModules.helium
       ./copland-hardware.nix
       {
         elars.hardware.graphics.driver = "intel";
