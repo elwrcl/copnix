@@ -13,33 +13,43 @@
         extensions = [
           {
             id = "dkdnancajokhfclpjpplkhlkbhaeejob";
+            hash = "sha256-hkEGW2JVQzeRmTpoPrWFoVG3sbCgHohnsr2b12rfeMg=";
           }
           {
             id = "jgejdcdoeeabklepnkdbglgccjpdgpmf";
+            hash = "sha256-0xYJtbYNn0JwAaskB/qwdRt74ThSG1CcN41bTN4H88c=";
           }
           {
             id = "jleldmehlnopjhbldegndecakdemocah";
+            hash = "sha256-u79qidIP1DCtusQ7COjjpnnInO/dXyBeNsJKNHnbIC4=";
           }
           {
             id = "kdbmhfkmnlmbkgbabkdealhhbfhlmmon";
+            hash = "sha256-p+ifp+k4wwTlLQzwN5D5UTK+viMYBpreGfleXgwPeFc=";
           }
           {
             id = "knemcdpkggnbhpoaaagmjiigenifejfo";
+            hash = "sha256-WjloJ6g17A70Met43snOrRFlZ7z46/PyOYbrjA7r89U=";
           }
           {
             id = "mmioliijnhnoblpgimnlajmefafdfilb";
+            hash = "sha256-eLB9vM9jqyY+EMP1h8654m/6CJiRN0XymHF2Hcu6V1Y=";
           }
           {
             id = "oboonakemofpalcgghocfoadofidjkkk";
+            hash = "sha256-wmkAetiDDZmncortFv/92K8Fm/zLfise0qAasQ4CKSU=";
           }
           {
             id = "oebdmlhbdidbibbidjpbndbloidnhmme";
+             hash = "sha256-pTe61n2rQ4botE3UKpBupcND6LYUXTjjK//R3jINCLQ=";
           }
           {
             id = "omkfmpieigblcllmkgbflkikinpkodlk";
+            hash = "sha256-pfYMvrk5PAgmeNrHndEchCiZbZDtGYxqCrKX4fz1Fow=";
           }
           {
             id = "ponfpcnoihfmfllpaingbgckeeldkhle";
+            hash = "sha256-0vw3iCq/F5muPwn7Ny4g8LBkKrmSspaCtBo2ATxULeQ=";
           }
         ];
 

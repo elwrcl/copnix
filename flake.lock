@@ -197,11 +197,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787626878,
-        "narHash": "sha256-Wo5rlt5sP97uRiAEzMm4eJ4DCb7w1eIkWMxaM9FViCk=",
+        "lastModified": 1787628145,
+        "narHash": "sha256-CT4SgksWasdSf35EZi3XE/RB34Yvgpm3JvRU6eyUs+U=",
         "owner": "elwrcl",
         "repo": "heliux",
-        "rev": "275ac3bf3fa34ae708d3aa9a007addd9fa89c919",
+        "rev": "f7e247b0a55f0c93ac8dcdbe8afcdbe0f290f534",
         "type": "github"
       },
       "original": {
