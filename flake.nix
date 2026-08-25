@@ -58,7 +58,7 @@
       url = "github:elwrcl/copetch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    heliux = {
+    helium = {
       url = "github:elwrcl/heliux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
