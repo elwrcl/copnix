@@ -66,7 +66,7 @@
             zen_mode_sidebar_pinned = true;
             zen_mode_top_chrome_pinned = true;
             centered_location_bar = true;
-            minimal_location_bar = false;
+            minimal_location_bar = true;
             rounded_frame = false;
             new_tab_next_to_active = false;
             vertical_right_aligned = false;
