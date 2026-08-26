@@ -61,7 +61,6 @@ in
               config.flake.homeModules.home-gtk
               config.flake.homeModules.home-qt
               config.flake.homeModules.home-browser
-              config.flake.homeModules.home-browser-helium
               config.flake.homeModules.home-mimeapps
               config.flake.homeModules.home-file-manager
               config.flake.homeModules.home-file-manager-actions
