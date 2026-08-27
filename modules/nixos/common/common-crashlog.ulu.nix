@@ -112,6 +112,7 @@
       boot.kernelParams = [
         "reserve_mem=8M:4096:oops"
         "drm.panic_screen=qr_code"
+        "efi_pstore.pstore_disable=1"
       ];
 
       boot.kernelModules = [
