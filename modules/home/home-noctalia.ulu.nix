@@ -37,7 +37,7 @@
           };
 
           brightness = {
-            enable_ddcutil = true;
+            enable_ddcutil = false;
             minimum_brightness = 0.01;
           };
 

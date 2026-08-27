@@ -95,6 +95,9 @@ in
       { elars.expectedHostName = "copland"; }
       # pool
       config.flake.nixosModules.common-boot
+      config.flake.nixosModules.common-kernel
+      config.flake.nixosModules.common-hardening
+      config.flake.nixosModules.common-crashlog
       config.flake.nixosModules.hw-bluetooth
       config.flake.nixosModules.hw-graphics
       config.flake.nixosModules.hw-intel-hard

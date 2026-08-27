@@ -131,7 +131,6 @@
         usbutils
         hfsprogs
         dmg2img
-        ddcutil
         clinfo
         hidapi
         parted
