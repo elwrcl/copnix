@@ -1,6 +1,6 @@
 { ... }:
 {
-  flake.homeModules.home-gtk =
+  flake.homeModules.home-theme-gtk =
     { config, pkgs, ... }:
     {
       gtk = {
@@ -12,7 +12,7 @@
           name = "JetBrainsMono Nerd Font";
           size = 11;
         };
-        
+
         gtk3.extraCss = config.elars.theme.palette.adwaitaGtkCss;
         gtk4.extraCss = config.elars.theme.palette.adwaitaGtkCss;
       };

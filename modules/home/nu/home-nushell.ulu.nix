@@ -124,10 +124,6 @@
                 }
               }
           }
-
-          if ($"($env.HOME)/.config/copetch/animated-copetch.sh" | path exists) {
-            ^$"($env.HOME)/.config/copetch/animated-copetch.sh"
-          }
         '';
       };
     };

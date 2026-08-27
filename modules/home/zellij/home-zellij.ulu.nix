@@ -7,7 +7,7 @@
         enable = true;
 
         settings = {
-          theme = "kanagawa-dragon-copnix";
+          theme = "kemuri-copnix";
           default_layout = "compact";
           default_mode = "normal";
           default_shell = "nu";

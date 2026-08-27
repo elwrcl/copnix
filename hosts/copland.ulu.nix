@@ -30,25 +30,30 @@ in
               config.flake.homeModules.home-ghostty
               config.flake.homeModules.home-nushell
               config.flake.homeModules.home-nushell-bash-compat
-              config.flake.homeModules.home-nushell-colors
               config.flake.homeModules.home-nushell-completions
               config.flake.homeModules.home-nushell-prompt
               config.flake.homeModules.home-nushell-commandline-copy
               config.flake.homeModules.home-nushell-keybinds
               config.flake.homeModules.home-nushell-last
               config.flake.homeModules.home-nushell-editor
+              config.flake.homeModules.home-nushell-greeting
               config.flake.homeModules.home-helix
-              config.flake.homeModules.home-helix-theme
               config.flake.homeModules.home-helix-keys
               config.flake.homeModules.home-helix-languages
               config.flake.homeModules.home-helix-language-servers
               config.flake.homeModules.home-zellij
               config.flake.homeModules.home-zellij-keybinds
-              config.flake.homeModules.home-zellij-theme
               config.flake.homeModules.home-zellij-layout-ide
               config.flake.homeModules.home-zellij-ide-command
+              # theme: one palette, one module per app it feeds
               config.flake.homeModules.home-theme
               config.flake.homeModules.home-theme-kemuri
+              config.flake.homeModules.home-theme-gtk
+              config.flake.homeModules.home-theme-qt
+              config.flake.homeModules.home-theme-ghostty
+              config.flake.homeModules.home-theme-helix
+              config.flake.homeModules.home-theme-zellij
+              config.flake.homeModules.home-theme-nushell
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
@@ -57,12 +62,11 @@ in
               config.flake.homeModules.home-gh
               config.flake.homeModules.home-radicle
               config.flake.homeModules.home-zsh
+              config.flake.homeModules.home-zsh-nu-handoff
               config.flake.homeModules.home-shell-tools
               config.flake.homeModules.home-session-vars
               config.flake.homeModules.home-cursor
-              config.flake.homeModules.home-gtk
               config.flake.homeModules.home-icons
-              config.flake.homeModules.home-qt
               config.flake.homeModules.home-browser-zen
               config.flake.homeModules.home-browser-helium
               config.flake.homeModules.home-mimeapps

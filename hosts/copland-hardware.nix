@@ -50,13 +50,13 @@
   };
 
   fileSystems."/mnt/HDD/linuxdata" = {
-   device = "/dev/disk/by-uuid/6acf076f-25a0-4ce1-b841-aefa8bb06218";
-   fsType = "xfs";
-   options = [
-     "defaults"
-     "nofail"
-     "x-systemd.automount"
-   ];
+    device = "/dev/disk/by-uuid/6acf076f-25a0-4ce1-b841-aefa8bb06218";
+    fsType = "xfs";
+    options = [
+      "defaults"
+      "nofail"
+      "x-systemd.automount"
+    ];
   };
 
   fileSystems."/mnt/macos-hd" = {

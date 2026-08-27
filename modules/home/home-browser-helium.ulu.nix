@@ -37,7 +37,7 @@
           }
           {
             id = "oebdmlhbdidbibbidjpbndbloidnhmme";
-             hash = "sha256-pTe61n2rQ4botE3UKpBupcND6LYUXTjjK//R3jINCLQ=";
+            hash = "sha256-pTe61n2rQ4botE3UKpBupcND6LYUXTjjK//R3jINCLQ=";
           }
           {
             id = "omkfmpieigblcllmkgbflkikinpkodlk";

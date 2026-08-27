@@ -17,7 +17,7 @@
         base07 = "fafbfe";
 
         base08 = "cf7670"; # red    / mError
-        base09 = "d1ba94"; # orange (approximated, see note above)
+        base09 = "d1ba94"; # orange 
         base0A = "bfa67a"; # yellow
         base0B = "8ca38a"; # green
         base0C = "7fa39a"; # cyan

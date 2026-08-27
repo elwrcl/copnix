@@ -8,7 +8,7 @@
         defaultEditor = true;
 
         settings = {
-          theme = "kanagawa-dragon-copnix";
+          theme = "kemuri-copnix";
 
           editor = {
             line-number = "relative";

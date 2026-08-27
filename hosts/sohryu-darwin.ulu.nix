@@ -29,11 +29,15 @@ in
               config.flake.homeModules.home-ghostty
               config.flake.homeModules.home-nushell
               config.flake.homeModules.home-nushell-bash-compat
-              config.flake.homeModules.home-nushell-colors
               config.flake.homeModules.home-nushell-completions
               config.flake.homeModules.home-nushell-prompt
               config.flake.homeModules.home-nushell-commandline-copy
               config.flake.homeModules.home-nushell-last
+              # theme: one palette, one module per app it feeds
+              config.flake.homeModules.home-theme
+              config.flake.homeModules.home-theme-kemuri
+              config.flake.homeModules.home-theme-ghostty
+              config.flake.homeModules.home-theme-nushell
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
