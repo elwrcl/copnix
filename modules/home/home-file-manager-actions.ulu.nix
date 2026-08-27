@@ -3,34 +3,25 @@
   flake.homeModules.home-file-manager-actions =
     { pkgs, lib, ... }:
     let
-      inherit (lib)
-        concatStringsSep
-        concatMapStringsSep
-        escapeXML
-        optional
-        ;
+      inherit (lib) concatStringsSep concatMap optional;
+
       fmActions = pkgs.writeShellApplication {
         name = "fm-actions";
         runtimeInputs = with pkgs; [
           poppler-utils
           wl-clipboard
           imagemagick
-          libarchive
           coreutils
           libnotify
           tesseract
           ffmpeg
-          gnutar
-          p7zip
-          zstd
-          zip
         ];
         text = ''
           op="''${1:-}"
           if [ "$#" -gt 0 ]; then shift; fi
 
           notify() {
-            notify-send -a Thunar -i system-file-manager "$1" "''${2:-}" || true
+            notify-send -a Dolphin -i system-file-manager "$1" "''${2:-}" || true
           }
           finish() {
             status=$?
@@ -38,15 +29,18 @@
               printf '\n[fm-actions] exit %s — press enter to close\n' "$status"
               read -r _ || true
             elif [ "$status" -ne 0 ]; then
-              notify-send -a Thunar -u critical "action failed" \
+              notify-send -a Dolphin -u critical "action failed" \
                 "fm-actions ''${op:-?} exited with $status" || true
             fi
           }
           trap finish EXIT
           stem() { printf '%s' "''${1%.*}"; }
-          escape_own_folder() {
-            if [ ! -e "$1" ] && [ "$(basename -- "$PWD")" = "$1" ]; then
-              cd .. || exit 1
+          require_count() {
+            n="$1"; shift
+            if [ "$#" -ne "$n" ]; then
+              notify-send -a Dolphin -u critical "action failed" \
+                "expected $n item(s), got $#" || true
+              exit 2
             fi
           }
           case "$op" in
@@ -91,10 +85,6 @@
               for f in "$@"; do magick "$f" -strip "$f"; done
               notify "metadata stripped" "$# image(s)"
               ;;
-            ocr)
-              tesseract "$1" - -l eng+tur 2>/dev/null | wl-copy
-              notify "OCR" "recognised text copied to clipboard"
-              ;;
             wallpaper)
               noctalia msg wallpaper-set "$1"
               ;;
@@ -129,41 +119,18 @@
               done
               ;;
 
-            zip)
-              escape_own_folder "$1"
-              zip -r -- "$1.zip" "$@"
-              notify "archive created" "$1.zip"
-              ;;
-            7z)
-              escape_own_folder "$1"
-              7z a -- "$1.7z" "$@"
-              notify "archive created" "$1.7z"
-              ;;
-            tar-zst)
-              escape_own_folder "$1"
-              tar --zstd -cf "$1.tar.zst" -- "$@"
-              notify "archive created" "$1.tar.zst"
-              ;;
-            extract)
-              for f in "$@"; do bsdtar -xf "$f"; done
-              notify "extracted" "$# archive(s)"
-              ;;
-            extract-to-folder)
-              for f in "$@"; do
-                d="$(stem "$f")"
-                mkdir -p "$d"
-                bsdtar -xf "$f" -C "$d"
-              done
-              notify "extracted into folders" "$# archive(s)"
-              ;;
-
             pdf-images)
               for f in "$@"; do pdftoppm -png -r 150 "$f" "$(stem "$f")"; done
               notify "PDF rendered" "$# document(s)"
               ;;
             pdf-merge)
+              require_count 2 "$@" 2>/dev/null || true
               pdfunite "$@" merged.pdf
               notify "PDFs merged" "merged.pdf"
+              ;;
+            compare)
+              require_count 2 "$@"
+              meld "$@"
               ;;
 
             *)
@@ -176,378 +143,258 @@
 
       fm = lib.getExe fmActions;
       term = "ghostty --working-directory=%f";
-      dirs = [ "directories" ];
-      files = [
-        "audio-files"
-        "image-files"
-        "other-files"
-        "text-files"
-        "video-files"
-      ];
-      everything = dirs ++ files;
-      archivePatterns = [
-        "*.7z"
-        "*.bz2"
-        "*.cab"
-        "*.gz"
-        "*.iso"
-        "*.rar"
-        "*.tar"
-        "*.tar.bz2"
-        "*.tar.gz"
-        "*.tar.xz"
-        "*.tar.zst"
-        "*.tbz2"
-        "*.tgz"
-        "*.txz"
-        "*.xz"
-        "*.zip"
-        "*.zst"
-      ];
-
-      mkAction =
-        {
-          id,
-          name,
-          command,
-          icon ? "",
-          description ? "",
-          patterns ? [ "*" ],
-          types ? [ ],
-          submenu ? null,
-          range ? null,
-          startupNotify ? true,
-        }:
-        concatStringsSep "\n" (
-          [ "  <action>" ]
-          ++ map (line: "    " + line) (
-            [
-              "<icon>${escapeXML icon}</icon>"
-              "<name>${escapeXML name}</name>"
-              "<unique-id>${escapeXML id}</unique-id>"
-              "<command>${escapeXML command}</command>"
-              "<description>${escapeXML description}</description>"
-              "<patterns>${escapeXML (concatStringsSep ";" patterns)}</patterns>"
-            ]
-            ++ optional (submenu != null) "<submenu>${escapeXML submenu}</submenu>"
-            ++ optional (range != null) "<range>${escapeXML range}</range>"
-            ++ optional startupNotify "<startup-notify/>"
-            ++ map (t: "<${t}/>") types
-          )
-          ++ [ "  </action>" ]
-        );
-
-      # this is slop but idc.
+      typeMime = {
+        directories = [ "inode/directory" ];
+        everything = [ "all/all" ];
+        files = [ "all/allfiles" ];
+        audio-files = [ "audio/*" ];
+        image-files = [ "image/*" ];
+        video-files = [ "video/*" ];
+        text-files = [ "text/*" ];
+      };
+      pdfMimeTypes = [ "application/pdf" ];
       actions = [
         {
           id = "open-terminal-here";
-          name = "Open Terminal Here";
-          description = "browse folder in ghostty";
+          name = "open ghostty here";
           icon = "utilities-terminal";
           command = term;
-          types = dirs;
+          types = [ "directories" ];
         }
         {
           id = "open-root-terminal-here";
-          name = "Open Root Terminal Here";
-          description = "browse folder in ghostty as root";
+          name = "open root terminal here";
           icon = "dialog-password";
           command = "${term} -e sudo -E -s";
-          types = dirs;
+          types = [ "directories" ];
         }
         {
           id = "open-yazi-here";
-          name = "Open Yazi Here";
-          description = "browse folder in yazi";
+          name = "open yazi here";
           icon = "system-file-manager";
           command = "${term} -e yazi";
-          types = dirs;
+          types = [ "directories" ];
         }
         {
           id = "open-as-root";
-          name = "Open as Root";
-          description = "reopen folder as root";
+          name = "open as root";
           icon = "security-high";
-          command = "thunar admin://%f";
-          types = dirs;
-        }
-        {
-          id = "open-in-code";
-          name = "Open in VS Code";
-          description = "open in vsc";
-          icon = "applications-development";
-          command = "code %F";
-          types = everything;
-        }
-        {
-          id = "search-here";
-          name = "Search Here";
-          description = "search in this folder with catfish";
-          icon = "system-search";
-          command = "catfish --path=%f";
-          types = dirs;
+          command = "dolphin admin://%f";
+          types = [ "directories" ];
         }
         {
           id = "open-lazyjj-here";
-          name = "Open lazyjj Here";
-          description = "inspect with lazyjj";
+          name = "open lazyjj here";
           icon = "folder-open";
           command = "${term} -e lazyjj";
-          types = dirs;
+          types = [ "directories" ];
         }
         {
           id = "open-lazygit-here";
-          name = "Open lazygit Here";
-          description = "inspect with lazygit";
+          name = "open lazygit here";
           icon = "folder-open";
           command = "${term} -e lazygit";
-          types = dirs;
-        }
-        {
-          id = "play-in-mpv";
-          name = "Play in mpv";
-          description = "play with mpv";
-          icon = "multimedia-player";
-          command = "mpv -- %F";
-          types = [
-            "audio-files"
-            "video-files"
-          ];
+          types = [ "directories" ];
         }
         {
           id = "compare-in-meld";
-          name = "Compare in Meld";
-          description = "diff exactly two files or folders";
+          name = "compare in meld";
           icon = "document-properties";
-          command = "meld %F";
-          range = "2-2";
-          types = everything;
-        }
-        {
-          id = "archive-extract-here";
-          name = "Extract Here";
-          description = "unpack content into the current folder";
-          icon = "package-x-generic";
-          command = "${fm} extract %F";
-          patterns = archivePatterns;
-          submenu = "Archive";
-          types = [ "other-files" ];
-        }
-        {
-          id = "archive-extract-to-folder";
-          name = "Extract to Folder";
-          description = "unpack into a folder named after the archive";
-          icon = "package-x-generic";
-          command = "${fm} extract-to-folder %F";
-          patterns = archivePatterns;
-          submenu = "Archive";
-          types = [ "other-files" ];
-        }
-        {
-          id = "archive-zip";
-          name = "Compress to .zip";
-          icon = "package-x-generic";
-          command = "${fm} zip %N";
-          submenu = "Archive";
-          types = everything;
-        }
-        {
-          id = "archive-7z";
-          name = "Compress to .7z";
-          icon = "package-x-generic";
-          command = "${fm} 7z %N";
-          submenu = "Archive";
-          types = everything;
-        }
-        {
-          id = "archive-tar-zst";
-          name = "Compress to .tar.zst";
-          icon = "package-x-generic";
-          command = "${fm} tar-zst %N";
-          submenu = "Archive";
-          types = everything;
+          command = "${fm} compare %F";
+          types = [ "everything" ];
         }
         {
           id = "image-to-png";
-          name = "Convert to PNG";
+          name = "convert to PNG";
           icon = "image-x-generic";
           command = "${fm} img-png %F";
-          submenu = "Image";
           types = [ "image-files" ];
+          submenu = "Image";
         }
         {
           id = "image-to-jpg";
-          name = "Convert to JPEG";
+          name = "convert to JPEG";
           icon = "image-x-generic";
           command = "${fm} img-jpg %F";
-          submenu = "Image";
           types = [ "image-files" ];
+          submenu = "Image";
         }
         {
           id = "image-to-webp";
-          name = "Convert to WebP";
+          name = "convert to WebP";
           icon = "image-x-generic";
           command = "${fm} img-webp %F";
-          submenu = "Image";
           types = [ "image-files" ];
+          submenu = "Image";
         }
         {
           id = "image-resize-1920";
-          name = "Resize to 1920px";
-          description = "shrink to 1920px wide but keep aspect ratio";
+          name = "resize to 1920px";
           icon = "image-x-generic";
           command = "${fm} img-resize %F";
-          submenu = "Image";
           types = [ "image-files" ];
+          submenu = "Image";
         }
         {
           id = "image-strip-metadata";
-          name = "Strip Metadata";
-          description = "remove EXIF and other metadata from images";
+          name = "strip metadata";
           icon = "image-x-generic";
           command = "${fm} img-strip %F";
-          submenu = "Image";
           types = [ "image-files" ];
-        }
-        {
-          id = "image-ocr";
-          name = "OCR to Clipboard";
-          description = "ocr to clipboard";
-          icon = "edit-copy";
-          command = "${fm} ocr %f";
           submenu = "Image";
-          types = [ "image-files" ];
         }
         {
           id = "image-set-wallpaper";
           name = "Set as Wallpaper";
           icon = "preferences-desktop-wallpaper";
           command = "${fm} wallpaper %f";
-          submenu = "Image";
           types = [ "image-files" ];
+          submenu = "Image";
         }
         {
           id = "media-to-mp4";
-          name = "Convert to MP4";
-          description = "H.264 / AAC, CRF 20";
+          name = "convert to MP4";
           icon = "video-x-generic";
           command = "ghostty -e ${fm} vid-mp4 %F";
-          submenu = "Media";
           types = [ "video-files" ];
+          submenu = "Media";
         }
         {
           id = "media-extract-audio";
-          name = "Extract Audio (MP3)";
+          name = "extract Audio (MP3)";
           icon = "audio-x-generic";
           command = "ghostty -e ${fm} vid-audio %F";
-          submenu = "Media";
           types = [
             "audio-files"
             "video-files"
           ];
+          submenu = "Media";
         }
         {
           id = "media-to-gif";
-          name = "Make GIF";
-          description = "640px, 15 fps, optimized";
+          name = "make GIF";
           icon = "video-x-generic";
           command = "ghostty -e ${fm} vid-gif %F";
-          submenu = "Media";
           types = [ "video-files" ];
+          submenu = "Media";
         }
         {
           id = "media-info";
-          name = "Media Info";
-          description = "ffprobe the selection";
+          name = "media info";
           icon = "dialog-information";
           command = "ghostty -e ${fm} media-info %F";
-          submenu = "Media";
           types = [
             "audio-files"
             "image-files"
             "video-files"
           ];
+          submenu = "Media";
         }
         {
           id = "pdf-to-images";
-          name = "Render to PNG";
-          description = "150 dpi, one file per page";
+          name = "render to PNG";
           icon = "application-pdf";
           command = "${fm} pdf-images %F";
-          patterns = [ "*.pdf" ];
+          mimeTypes = pdfMimeTypes;
           submenu = "PDF";
-          types = [ "other-files" ];
         }
         {
           id = "pdf-merge";
-          name = "Merge into merged.pdf";
+          name = "merge into merged.pdf";
           icon = "application-pdf";
           command = "${fm} pdf-merge %F";
-          patterns = [ "*.pdf" ];
-          range = "2-64";
+          mimeTypes = pdfMimeTypes;
           submenu = "PDF";
-          types = [ "other-files" ];
         }
         {
           id = "tools-copy-path";
-          name = "Copy Full Path";
+          name = "copy full path";
           icon = "edit-copy";
           command = "${fm} copy-path %F";
+          types = [ "everything" ];
           submenu = "Tools";
-          types = everything;
         }
         {
           id = "tools-copy-content";
-          name = "Copy File Contents";
+          name = "copy file contents";
           icon = "edit-copy";
           command = "${fm} copy-content %F";
-          submenu = "Tools";
           types = [ "text-files" ];
+          submenu = "Tools";
         }
         {
           id = "tools-checksum";
           name = "SHA-256 Checksum";
           icon = "dialog-information";
           command = "ghostty -e ${fm} checksum %F";
+          types = [ "files" ];
           submenu = "Tools";
-          types = files;
         }
         {
           id = "tools-duplicate";
           name = "Duplicate";
-          description = "copy alongside as <name>.copy";
           icon = "edit-copy";
           command = "${fm} duplicate %F";
+          types = [ "everything" ];
           submenu = "Tools";
-          types = everything;
         }
         {
           id = "tools-symlink";
           name = "Create Symlink Here";
           icon = "emblem-symbolic-link";
           command = "${fm} symlink %F";
+          types = [ "everything" ];
           submenu = "Tools";
-          types = everything;
         }
         {
           id = "tools-dos2unix";
           name = "Fix Line Endings";
-          description = "convert CRLF to LF";
           icon = "text-x-generic";
           command = "dos2unix -- %F";
-          submenu = "Tools";
           types = [ "text-files" ];
+          submenu = "Tools";
         }
       ];
+
+      mkServiceMenu =
+        {
+          id,
+          name,
+          command,
+          icon ? "",
+          types ? null,
+          mimeTypes ? null,
+          submenu ? null,
+        }:
+        let
+          mimes = if mimeTypes != null then mimeTypes else concatMap (t: typeMime.${t}) types;
+        in
+        concatStringsSep "\n" (
+          [
+            "[Desktop Entry]"
+            "Type=Service"
+            "X-KDE-ServiceTypes=KonqPopupMenu/Plugin"
+            "MimeType=${concatStringsSep ";" mimes};"
+            "Actions=${id};"
+          ]
+          ++ optional (submenu != null) "X-KDE-Submenu=${submenu}"
+          ++ [
+            ""
+            "[Desktop Action ${id}]"
+            "Name=${name}"
+            "Icon=${icon}"
+            "Exec=${command}"
+          ]
+        );
     in
     {
       home.packages = [ fmActions ];
 
-      xdg.configFile."Thunar/uca.xml".text = ''
-        <?xml version="1.0" encoding="UTF-8"?>
-        <actions>
-        ${concatMapStringsSep "\n" mkAction actions}
-        </actions>
-      '';
+      xdg.dataFile = builtins.listToAttrs (
+        map (a: {
+          name = "kio/servicemenus/${a.id}.desktop";
+          value.text = mkServiceMenu a;
+        }) actions
+      );
     };
 }

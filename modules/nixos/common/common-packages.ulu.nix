@@ -16,18 +16,17 @@
       environment.systemPackages = with pkgs; [
         # apps
         onlyoffice-desktopeditors
+	      whatsapp-electron
         telegram-desktop
-        prismlauncher
+	      prismlauncher
         moonlight-qt
         qbittorrent
         obs-studio
         localsend
         picotool
         sunshine
-        # todo find better spotify client
-        spotify
-        whatsie
-        heroic
+	      spotify
+	      heroic
         loupe
         gimp
         wine
@@ -182,7 +181,6 @@
         uv
 
         # editors
-        lite-xl
         neovim
         vscode
 

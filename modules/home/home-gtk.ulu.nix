@@ -1,26 +1,28 @@
 { ... }:
 {
   flake.homeModules.home-gtk =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       gtk = {
         enable = true;
-        theme.name = "WhiteSur-Dark";
-        theme.package = pkgs.whitesur-gtk-theme;
-        gtk4.theme.name = "WhiteSur-Dark";
-        gtk4.theme.package = pkgs.whitesur-gtk-theme;
-        iconTheme.name = "WhiteSur-dark";
-        iconTheme.package = pkgs.whitesur-icon-theme;
+        theme.name = "Adwaita-dark";
+        theme.package = pkgs.gnome-themes-extra;
+        gtk4.theme.name = "adwaita-dark";
+        iconTheme.name = "Adwaita";
+        iconTheme.package = pkgs.adwaita-icon-theme;
         font = {
           name = "JetBrainsMono Nerd Font";
           size = 11;
         };
+        
+        gtk3.extraCss = config.elars.theme.palette.adwaitaGtkCss;
+        gtk4.extraCss = config.elars.theme.palette.adwaitaGtkCss;
       };
 
       dconf.settings."org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         gtk-application-prefer-dark-theme = true;
-        gtk-theme = "WhiteSur-Dark";
+        gtk-theme = "Adwaita-dark";
       };
     };
 }

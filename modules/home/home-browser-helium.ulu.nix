@@ -16,10 +16,6 @@
             hash = "sha256-hkEGW2JVQzeRmTpoPrWFoVG3sbCgHohnsr2b12rfeMg=";
           }
           {
-            id = "jgejdcdoeeabklepnkdbglgccjpdgpmf";
-            hash = "sha256-0xYJtbYNn0JwAaskB/qwdRt74ThSG1CcN41bTN4H88c=";
-          }
-          {
             id = "jleldmehlnopjhbldegndecakdemocah";
             hash = "sha256-u79qidIP1DCtusQ7COjjpnnInO/dXyBeNsJKNHnbIC4=";
           }

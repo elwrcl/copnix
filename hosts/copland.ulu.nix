@@ -47,6 +47,8 @@ in
               config.flake.homeModules.home-zellij-theme
               config.flake.homeModules.home-zellij-layout-ide
               config.flake.homeModules.home-zellij-ide-command
+              config.flake.homeModules.home-theme
+              config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
@@ -59,6 +61,7 @@ in
               config.flake.homeModules.home-session-vars
               config.flake.homeModules.home-cursor
               config.flake.homeModules.home-gtk
+              config.flake.homeModules.home-icons
               config.flake.homeModules.home-qt
               config.flake.homeModules.home-browser-zen
               config.flake.homeModules.home-browser-helium

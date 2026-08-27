@@ -62,6 +62,13 @@
       url = "github:elwrcl/heliux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    theme-assets = {
+      url = "github:elwrcl/copland-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+      themes = {
+      url = "github:RGBCube/ThemeNix";
+    };
     intel-hard = {
       url = "github:elwrcl/intel-hard";
     };

@@ -16,7 +16,6 @@ in
       {
         nixpkgs.config.allowUnfree = true;
         nixpkgs.config.allowDeprecatedx86_64Darwin = true;
-        nixpkgs.overlays = [ inputs.nix-vscode-extensions.overlays.default ];
 
         home-manager = {
           useGlobalPkgs = true;
