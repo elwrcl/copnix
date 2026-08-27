@@ -64,12 +64,34 @@
           echo "test it:           echo 'netconsole test' | sudo tee /dev/kmsg"
         '';
       };
+      
+      panicInflate = pkgs.writers.writePython3Bin "drm-panic-inflate" {
+        flakeIgnore = [ "E501" ];
+      } ''
+        import sys
+        import zlib
+
+        data = sys.stdin.buffer.read()
+        if not data:
+            sys.exit("Could not read QR: try a clearer, straighter photo")
+
+        # Try raw deflate, then zlib-wrapped, then gzip.
+        for wbits in (-15, 15, 47):
+            try:
+                sys.stdout.buffer.write(zlib.decompress(data, wbits))
+                break
+            except zlib.error:
+                continue
+        else:
+            sys.stderr.write("warning: could not decompress, printing raw bytes\n")
+            sys.stdout.buffer.write(data)
+      '';
 
       drmPanicDecode = pkgs.writeShellApplication {
         name = "drm-panic-decode";
         runtimeInputs = [
           pkgs.zbar
-          pkgs.python3
+          panicInflate
         ];
         text = ''
           if [ "$#" -lt 1 ]; then
@@ -77,22 +99,7 @@
             exit 1
           fi
 
-          zbarimg --raw -q --oneshot -Sbinary "$1" | python3 -c '
-import sys, zlib
-data = sys.stdin.buffer.read()
-if not data:
-  sys.exit("Could not read QR: try taking a clearer/straighter photo")
-# Try raw deflate, zlib-wrapped, and gzip variants in order
-for wbits in (-15, 15, 47):
-    try:
-        sys.stdout.buffer.write(zlib.decompress(data, wbits))
-        break
-    except zlib.error:
-        continue
-else:
-  sys.stderr.write("warning: could not decompress, printing raw data\n")
-    sys.stdout.buffer.write(data)
-'
+          zbarimg --raw -q --oneshot -Sbinary "$1" | drm-panic-inflate
         '';
       };
     in
