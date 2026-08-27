@@ -66,7 +66,7 @@
       url = "github:elwrcl/copland-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-      themes = {
+    themes = {
       url = "github:RGBCube/ThemeNix";
     };
     intel-hard = {

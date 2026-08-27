@@ -75,6 +75,9 @@
         menuFont=${font}
         toolBarFont=${font}
         smallestReadableFont=JetBrainsMono Nerd Font,9,-1,5,50,0,0,0,0,0
+
+        [Icons]
+        Theme=int_nord
       '';
     };
 }

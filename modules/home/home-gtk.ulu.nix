@@ -8,8 +8,6 @@
         theme.name = "Adwaita-dark";
         theme.package = pkgs.gnome-themes-extra;
         gtk4.theme.name = "adwaita-dark";
-        iconTheme.name = "Adwaita";
-        iconTheme.package = pkgs.adwaita-icon-theme;
         font = {
           name = "JetBrainsMono Nerd Font";
           size = 11;
