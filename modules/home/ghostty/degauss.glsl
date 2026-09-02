@@ -1,7 +1,8 @@
 ///degauss.glsl
 const float BOOT_DELAY = 0.45;
+const float DURATION   = 1.0;
 
-// How hard the coil hits.
+// how hard the coil hits.
 const float WOBBLE_AMP    = 0.055;
 const float WAVE_FREQ     = 9.0;
 const float WAVE_SPEED    = 3.2;
@@ -25,6 +26,7 @@ float envelope(float t) {
     float tail   = 1.0 - k * k * k * k;
     return attack * ring * tail;
 }
+
 float coilPhase(float t) {
     float k = clamp(t / DURATION, 0.0, 1.0);
     return WAVE_SPEED * t * (1.0 - 0.5 * WAVE_GLIDE * k);
