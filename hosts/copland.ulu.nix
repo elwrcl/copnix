@@ -111,6 +111,7 @@ in
       config.flake.nixosModules.service-ollama
       config.flake.nixosModules.service-performance
       config.flake.nixosModules.service-printing
+      config.flake.nixosModules.service-scx-soryu
       config.flake.nixosModules.service-security
       config.flake.nixosModules.service-ssh
       config.flake.nixosModules.service-tumbler

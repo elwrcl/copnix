@@ -81,6 +81,9 @@
     nyi = {
       url = "github:elwrcl/nyi";
     };
+    scx_soryu = {
+      url = "github:elwrcl/scx_soryu";
+    };
   };
 
   outputs =
