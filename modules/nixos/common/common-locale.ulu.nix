@@ -34,7 +34,6 @@
         wants = [ "network-online.target" ];
       };
       console.font = "LatArCyrHeb-16";
-      system.stateVersion = "25.05";
       console.keyMap = "trq";
       console.earlySetup = true;
     };
