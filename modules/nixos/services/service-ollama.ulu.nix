@@ -3,6 +3,6 @@
   flake.nixosModules.service-ollama =
     { ... }:
     {
-      services.ollama.enable = true;
+      services.ollama.enable = false;
     };
 }
