@@ -6,8 +6,6 @@
       inherit (lib.modules) mkDefault mkForce;
     in
     {
-      networking.hostName = "copland";
-
       networking.networkmanager = {
         enable = true;
         dns = mkForce "none";
