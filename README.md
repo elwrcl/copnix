@@ -11,3 +11,5 @@ Nix config for one machine running two OS :
 nh os switch .       # nixos
 nh darwin switch .   # macos
 ```
+
+very gud!
