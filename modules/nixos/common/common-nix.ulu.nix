@@ -11,9 +11,10 @@
         experimental-features = [
           "nix-command"
           "flakes"
+          "pipe-operators"
         ];
-        max-jobs = 4;
-        cores = 4;
+        max-jobs = 2;
+        cores = 2;
 
         substituters = [
           "https://cache.nixos.org"
