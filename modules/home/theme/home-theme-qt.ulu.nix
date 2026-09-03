@@ -115,8 +115,10 @@
     {
       qt = {
         enable = true;
-        platformTheme.name = "qtct";
-        style.name = "qtct";
+        # qt6ct, not "qtct": the latter maps to QT_QPA_PLATFORMTHEME=qt5ct,
+        # which Qt6 apps (dolphin, qbittorrent, ...) ignore. The widget style
+        # is picked in qt6ct.conf below, so no QT_STYLE_OVERRIDE here.
+        platformTheme.name = "qt6ct";
       };
 
       home.packages = [

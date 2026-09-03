@@ -280,7 +280,6 @@
                 "tray"
                 "group:g2"
                 "control-center"
-                "pulse"
               ];
               font_family = "CaskaydiaCove Nerd Font";
               font_weight = 400;
@@ -811,8 +810,6 @@
               icon_color = "primary";
               icon_spacing = 0;
             };
-
-            pulse.type = "lowcache/claude-companion:pulse";
 
             ram.show_glyph = false;
 
