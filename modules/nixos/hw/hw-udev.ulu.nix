@@ -4,11 +4,6 @@
     { ... }:
     {
       programs.gpu-screen-recorder.enable = true;
-      services.udev.extraRules = ''
-        KERNEL=="ttyACM[0-9]*", MODE="0666"
-        KERNEL=="ttyUSB[0-9]*", MODE="0666"
-        SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="plugdev"
-      '';
       services.udisks2.enable = true;
       services.gnome.sushi.enable = true;
       services.gvfs.enable = true;
