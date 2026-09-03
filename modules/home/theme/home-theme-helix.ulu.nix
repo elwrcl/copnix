@@ -38,7 +38,7 @@
           fg = "fgBright";
           modifiers = [ "bold" ];
         };
-        "ui.window" = "bgSoft";
+        "ui.window" = "gutter";
         "ui.cursor" = {
           fg = "bg";
           bg = "fgSoft";
@@ -193,6 +193,22 @@
         };
         "markup.link.text" = "blue";
         "markup.raw" = "green";
+        "markup.heading.marker" = "brown";
+        "markup.list" = "magenta";
+        "markup.quote" = {
+          fg = "fgSoft";
+          modifiers = [ "italic" ];
+        };
+        "markup.link" = "blue";
+        "markup.link.label" = "cyan";
+        "markup.raw.inline" = {
+          fg = "green";
+          bg = "bgAlt";
+        };
+        "markup.raw.block" = "green";
+        "markup.strikethrough" = {
+          modifiers = [ "crossed_out" ];
+        };
 
         # diagnostics & diff
         "diagnostic.error" = {
@@ -224,9 +240,99 @@
         "info" = "blue";
         "hint" = "cyan";
 
+        "diagnostic.unnecessary" = {
+          modifiers = [ "dim" ];
+        };
+        "diagnostic.deprecated" = {
+          modifiers = [ "crossed_out" ];
+        };
+
         "diff.plus" = "green";
         "diff.minus" = "red";
         "diff.delta" = "blue";
+        "diff.plus.gutter" = "green";
+        "diff.minus.gutter" = "red";
+        "diff.delta.gutter" = "blue";
+
+        # ui — pickers, popups, jump labels
+        "ui.highlight" = {
+          bg = "bgSoft";
+          modifiers = [ "bold" ];
+        };
+        "ui.highlight.frameline" = {
+          bg = "selectPrimary";
+        };
+        "ui.menu.scroll" = {
+          fg = "gray";
+          bg = "bgAlt";
+        };
+        "ui.text.inactive" = "gray";
+        "ui.text.info" = "fgSoft";
+        "ui.text.directory" = "blue";
+        "ui.background.separator" = "gutter";
+        "ui.gutter.selected" = {
+          bg = "bgAlt";
+        };
+        "ui.cursorline" = {
+          bg = "bgAlt";
+        };
+        "ui.cursorcolumn.primary" = {
+          bg = "bgAlt";
+        };
+
+        "ui.picker.header" = {
+          fg = "gray";
+          modifiers = [ "bold" ];
+        };
+        "ui.picker.header.column" = "gray";
+        "ui.picker.header.column.active" = {
+          fg = "orange";
+          modifiers = [ "bold" ];
+        };
+
+        "ui.virtual" = "gutter";
+        # `gw`/`gW` labels were rendering in the underlying token colour.
+        "ui.virtual.jump-label" = {
+          fg = "bg";
+          bg = "orange";
+          modifiers = [ "bold" ];
+        };
+        "ui.virtual.wrap" = "gutter";
+        "ui.virtual.inlay-hint.type" = "gray";
+        "ui.virtual.inlay-hint.parameter" = "gray";
+
+        # mode-aware cursors, to match `color-modes`
+        "ui.cursor.normal" = {
+          fg = "bg";
+          bg = "fgSoft";
+        };
+        "ui.cursor.insert" = {
+          fg = "bg";
+          bg = "green";
+        };
+        "ui.cursor.select" = {
+          fg = "bg";
+          bg = "magenta";
+        };
+        "ui.cursor.primary.normal" = {
+          fg = "bg";
+          bg = "fgBright";
+        };
+        "ui.cursor.primary.insert" = {
+          fg = "bg";
+          bg = "green";
+        };
+        "ui.cursor.primary.select" = {
+          fg = "bg";
+          bg = "magenta";
+        };
+
+        # dap
+        "ui.debug" = "orange";
+        "ui.debug.breakpoint" = "red";
+        "ui.debug.active" = "yellow";
+
+        "special" = "brown";
       };
     };
 }

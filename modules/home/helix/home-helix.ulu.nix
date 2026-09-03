@@ -38,6 +38,8 @@
             preview-completion-insert = true;
             trim-trailing-whitespace = true;
             trim-final-newlines = true;
+            editor-config = true;
+            completion-replace = true;
             end-of-line-diagnostics = "hint";
 
             statusline = {
@@ -71,6 +73,8 @@
               display-progress-messages = true;
               display-inlay-hints = true;
               auto-signature-help = true;
+              inlay-hints-length-limit = 30;
+              goto-reference-include-declaration = false;
             };
 
             cursor-shape = {

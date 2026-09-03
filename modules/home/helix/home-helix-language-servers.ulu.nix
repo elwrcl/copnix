@@ -50,6 +50,10 @@
         # markdown
         marksman
 
+        # debug adapters (`space G`)
+        lldb # lldb-dap: rust, c, c++, zig
+        delve # dlv: go
+
         # `editor.shell` path
         nushell
         wl-clipboard

@@ -1,12 +1,35 @@
 { ... }:
 {
   flake.homeModules.home-helix-keys =
-    { ... }:
+    { config, pkgs, ... }:
     let
       float = cmd: ":sh zellij run --floating --close-on-exit -- ${cmd}";
       floatKeep = cmd: ":sh zellij run --floating -- ${cmd}";
+      pick = pkgs.writeShellApplication {
+        name = "hx-pick";
+        runtimeInputs = [
+          pkgs.yazi
+          config.programs.zellij.finalPackage
+          pkgs.coreutils
+        ];
+        text = ''
+          chooser=$(mktemp -t hx-pick.XXXXXX)
+          trap 'rm -f "$chooser"' EXIT
+
+          yazi "''${1:-.}" --chooser-file="$chooser"
+
+          picked=$(head -n 1 "$chooser")
+          [ -n "$picked" ] || exit 0
+
+          zellij action toggle-floating-panes
+          zellij action write-chars ":open '$picked'"
+          zellij action write 13
+        '';
+      };
     in
     {
+      home.packages = [ pick ];
+
       programs.helix.settings.keys = {
         normal = {
           esc = [
@@ -18,7 +41,8 @@
             q = ":buffer-close";
             Q = ":quit";
             t = float "nu";
-            e = float "yazi";
+            e = float "hx-pick";
+            E = float "hx-pick %{buffer_name}";
             n = ":sh zellij action new-tab";
             z = ":sh zellij action toggle-floating-panes";
 
@@ -46,6 +70,15 @@
               g = ":toggle indent-guides.render";
               c = ":toggle cursorline";
               f = ":toggle auto-format";
+            };
+
+            # language server
+            l = {
+              r = ":lsp-restart";
+              s = ":lsp-stop";
+              w = ":lsp-workspace-command";
+              l = ":log-open";
+              f = ":format";
             };
           };
         };
