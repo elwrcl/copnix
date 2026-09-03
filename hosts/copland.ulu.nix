@@ -66,7 +66,6 @@ in
               config.flake.homeModules.home-zsh
               config.flake.homeModules.home-zsh-nu-handoff
               config.flake.homeModules.home-shell-tools
-              config.flake.homeModules.home-session-vars
               config.flake.homeModules.home-cursor
               config.flake.homeModules.home-icons
               config.flake.homeModules.home-browser-zen
@@ -116,8 +115,6 @@ in
       config.flake.nixosModules.service-scx-soryu
       config.flake.nixosModules.service-security
       config.flake.nixosModules.service-ssh
-      config.flake.nixosModules.service-tumbler
-      config.flake.nixosModules.service-xfconf
       config.flake.nixosModules.common-locale
       config.flake.nixosModules.common-nix
       config.flake.nixosModules.common-nix-access-tokens
@@ -141,9 +138,14 @@ in
       {
         elars.hardware.graphics.driver = "intel";
 
+        networking.hostName = "copland";
+        system.stateVersion = "25.05";
+
         zramSwap = {
           enable = true;
-          memoryPercent = 100;
+          # 100% double-counts against 16G of RAM; 50% leaves headroom for
+          # the page cache during builds.
+          memoryPercent = 50;
           algorithm = "zstd";
           priority = 100;
         };
