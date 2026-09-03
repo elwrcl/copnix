@@ -16,23 +16,22 @@
       environment.systemPackages = with pkgs; [
         # apps
         onlyoffice-desktopeditors
-	      whatsapp-electron
+        whatsapp-electron
         telegram-desktop
-	      prismlauncher
+        prismlauncher
         moonlight-qt
         qbittorrent
         obs-studio
         localsend
         picotool
         sunshine
-	      spotify
-	      heroic
+        spotify
+        heroic
         loupe
         gimp
         wine
 
         # file-manager
-        # todo change file manager
         kdePackages.kdegraphics-thumbnailers
         kdePackages.plasma-integration
         kdePackages.breeze-icons
@@ -47,17 +46,18 @@
         kdePackages.ark
         kdePackages.kio
         kdePackages.kdf
-        nautilus
 
         # utils
         poppler-utils
         wl-clipboard
+        playerctl
         wf-recorder
         tesseract
         mpvpaper
         swappy
         slurp
         grim
+        wev
 
         # phone
         libimobiledevice
@@ -77,7 +77,6 @@
         claude-code
 
         # cli
-        agenix-cli
         fastfetch
         tailscale
         trash-cli
@@ -92,14 +91,12 @@
         zoxide
         rsync
         unzip
-        kitty
         tree
         meld
         tldr
         perf
         file
         wget
-        fish
         htop
         tmux
         btop
@@ -138,12 +135,7 @@
         xar
 
         # themes/icons
-        whitesur-icon-theme
-        whitesur-gtk-theme
         gnome-themes-extra
-        whitesur-kde
-        adwaita-qt6
-        adwaita-qt
 
         # langs
         alejandra
@@ -193,6 +185,7 @@
         cava
         mpv
 
+        inputs.agenix.packages.${system}.default
         inputs.nix-alien.packages.${system}.nix-alien
         inputs.copetch.packages.${system}.default
         pkgs.qt6Packages.qtwebsockets

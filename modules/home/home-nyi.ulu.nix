@@ -38,9 +38,9 @@
         height = null;
         depth = null;
         disks = [
-         "/mnt/HDD/linuxdata" 
-         "/mnt/HDD/shared"
-          ];
+          "/mnt/HDD/linuxdata"
+          "/mnt/HDD/shared"
+        ];
         logo = null;
         logoDistro = null;
         extraConfig = "";
