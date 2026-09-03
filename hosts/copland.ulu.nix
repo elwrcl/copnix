@@ -41,13 +41,13 @@ in
               config.flake.homeModules.home-nushell-greeting
               config.flake.homeModules.home-helix
               config.flake.homeModules.home-helix-keys
+              config.flake.homeModules.home-helix-sidebar
               config.flake.homeModules.home-helix-languages
               config.flake.homeModules.home-helix-language-servers
               config.flake.homeModules.home-zellij
               config.flake.homeModules.home-zellij-keybinds
               config.flake.homeModules.home-zellij-layout-ide
               config.flake.homeModules.home-zellij-ide-command
-              # theme: one palette, one module per app it feeds
               config.flake.homeModules.home-theme
               config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-theme-gtk

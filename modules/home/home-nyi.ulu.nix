@@ -24,20 +24,23 @@
           "disk"
           "colors"
         ];
-        labelColor = "magenta";
+        labelColor = "white";
         separator = "-";
-        box = false;
+        box = true;
         shading = null;
         shadingMode = "sextants";
         logoOuter = null;
         logoInner = null;
-        light = "top-left";
-        spin = "xy";
+        light = "top";
+        spin = "y";
         speed = null;
         size = null;
         height = null;
         depth = null;
-        disks = [ ];
+        disks = [
+         "/mnt/HDD/linuxdata" 
+         "/mnt/HDD/shared"
+          ];
         logo = null;
         logoDistro = null;
         extraConfig = "";

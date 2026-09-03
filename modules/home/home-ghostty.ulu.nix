@@ -7,31 +7,32 @@
 
       linuxKeybinds = [
         "alt+r=reload_config"
-        "alt+q=close_surface"
 
-        "ctrl+space=new_tab"
-        "ctrl+page_down=next_tab"
-        "ctrl+page_up=previous_tab"
-        "alt+comma=move_tab:-1"
-        "alt+period=move_tab:1"
+        "ctrl+shift+q=close_surface"
 
-        "alt+1=goto_tab:1"
-        "alt+2=goto_tab:2"
-        "alt+3=goto_tab:3"
-        "alt+4=goto_tab:4"
-        "alt+5=goto_tab:5"
-        "alt+6=goto_tab:6"
-        "alt+7=goto_tab:7"
-        "alt+8=goto_tab:8"
-        "alt+9=goto_tab:9"
+        "ctrl+shift+t=new_tab"
+        "ctrl+shift+page_down=next_tab"
+        "ctrl+shift+page_up=previous_tab"
+        "ctrl+shift+comma=move_tab:-1"
+        "ctrl+shift+period=move_tab:1"
+
+        "ctrl+shift+1=goto_tab:1"
+        "ctrl+shift+2=goto_tab:2"
+        "ctrl+shift+3=goto_tab:3"
+        "ctrl+shift+4=goto_tab:4"
+        "ctrl+shift+5=goto_tab:5"
+        "ctrl+shift+6=goto_tab:6"
+        "ctrl+shift+7=goto_tab:7"
+        "ctrl+shift+8=goto_tab:8"
+        "ctrl+shift+9=goto_tab:9"
 
         "ctrl+shift+backslash=new_split:right"
         "ctrl+shift+minus=new_split:down"
 
-        "alt+h=goto_split:left"
-        "alt+j=goto_split:bottom"
-        "alt+k=goto_split:top"
-        "alt+l=goto_split:right"
+        "ctrl+shift+h=goto_split:left"
+        "ctrl+shift+j=goto_split:bottom"
+        "ctrl+shift+k=goto_split:top"
+        "ctrl+shift+l=goto_split:right"
 
         "ctrl+shift+z=toggle_split_zoom"
         "ctrl+shift+e=equalize_splits"
@@ -76,7 +77,7 @@
 
         settings = {
           font-family = "JetBrainsMono Nerd Font";
-          font-size = 11;
+          font-size = 12;
 
           window-padding-x = 10;
           window-padding-y = 10;
@@ -87,7 +88,6 @@
           mouse-scroll-multiplier = 2;
           shell-integration-features = "no-cursor,sudo,no-title";
 
-          # Colors live in home-theme-ghostty, driven by the active palette.
           cursor-style = "block";
           cursor-style-blink = true;
           adjust-cell-height = "35%";

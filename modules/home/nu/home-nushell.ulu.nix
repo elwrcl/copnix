@@ -110,11 +110,10 @@
               _ if ($name | str ends-with ".zip")     => { ^unzip $file }
               _ if ($name | str ends-with ".7z")      => { ^7z x $file }
               _ if ($name | str ends-with ".rar")     => { ^unrar e $file }
-              _ => { print $"(ansi red)'($name)' açılamıyor(ansi reset)" }
+              _ => { print $"(ansi red)'($name)' cannot be extracted(ansi reset)" }
             }
           }
 
-          # `which`, with canonicalize .
           def realwhich [...applications: string, --all (-a)] {
             which --all=$all ...$applications
             | update path {|row|
