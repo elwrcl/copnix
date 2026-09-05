@@ -56,6 +56,7 @@ in
               config.flake.homeModules.home-theme-helix
               config.flake.homeModules.home-theme-zellij
               config.flake.homeModules.home-theme-nushell
+              config.flake.homeModules.home-theme-discord
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic

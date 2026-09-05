@@ -26,7 +26,7 @@
         ];
         labelColor = "white";
         separator = "-";
-        box = true;
+        box = false;
         shading = null;
         shadingMode = "sextants";
         logoOuter = null;

@@ -617,11 +617,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1788368401,
-        "narHash": "sha256-UVlI5OCLEWgzA1h70v4iFLjq36JNEn2pzW4Tn8d+xuM=",
+        "lastModified": 1788555275,
+        "narHash": "sha256-bynD8NCMIV0GskOpX79nSrv482f0As9WHYIzkyVSYj8=",
         "owner": "elwrcl",
         "repo": "scx_soryu",
-        "rev": "b64e40d88d1b9716937721cc73b878fbb52ff57a",
+        "rev": "e07ac4c67eb8dceedb65172d74eb25724cc58d60",
         "type": "github"
       },
       "original": {
