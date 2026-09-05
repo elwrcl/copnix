@@ -18,6 +18,11 @@
                     }
                 }
 
+                bind "Alt h" { MoveFocusOrTab "Left"; }
+                bind "Alt l" { MoveFocusOrTab "Right"; }
+                bind "Alt k" { MoveFocus "Up"; }
+                bind "Alt j" { MoveFocus "Down"; }
+
                 // tabs
                 bind "Alt t" { NewTab; }
                 bind "Alt 1" { GoToTab 1; }
@@ -65,6 +70,7 @@
                 // tabs
                 bind "c" { NewTab; SwitchToMode "Normal"; }
                 bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
+                bind "." { SwitchToMode "RenamePane"; PaneNameInput 0; }
                 bind "X" { CloseTab; SwitchToMode "Normal"; }
                 bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
                 bind "b" { BreakPane; SwitchToMode "Normal"; }
@@ -81,6 +87,7 @@
 
                 // sub-modes
                 bind "r" { SwitchToMode "Resize"; }
+                bind "Ctrl l" { SwitchToMode "Locked"; }
                 bind "[" { SwitchToMode "Scroll"; }
                 bind "/" { SwitchToMode "EnterSearch"; SearchInput 0; }
 

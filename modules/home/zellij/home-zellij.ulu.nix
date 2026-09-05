@@ -21,8 +21,7 @@
           stacked_resize = true;
           scroll_buffer_size = 50000;
           scrollback_editor = "hx";
-          session_serialization = true;
-          serialize_pane_viewport = true;
+          session_serialization = false;
           on_force_close = "detach";
           show_startup_tips = false;
           show_release_notes = false;
