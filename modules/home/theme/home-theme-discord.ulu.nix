@@ -1,6 +1,6 @@
 { ... }:
 {
-  # system24 kemuri susu generated
+  # auto-generated
   flake.homeModules.home-theme-discord =
     { config, lib, ... }:
     let

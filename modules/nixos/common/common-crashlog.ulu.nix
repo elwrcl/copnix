@@ -77,8 +77,6 @@
             data = sys.stdin.buffer.read()
             if not data:
                 sys.exit("Could not read QR: try a clearer, straighter photo")
-
-            # Try raw deflate, then zlib-wrapped, then gzip.
             for wbits in (-15, 15, 47):
                 try:
                     sys.stdout.buffer.write(zlib.decompress(data, wbits))
@@ -133,8 +131,6 @@
 
         "kernel.softlockup_panic" = 1;
 
-        # Log blocked tasks, but do not reboot over them: a heavy build under
-        # zram pressure can block a task past the timeout without being a hang.
         "kernel.hung_task_panic" = 0;
 
         "kernel.hung_task_timeout_secs" = 300;

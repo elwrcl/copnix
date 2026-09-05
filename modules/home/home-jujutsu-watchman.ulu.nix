@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.homeModules.home-jujutsu-watchman =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       home.packages = [ pkgs.watchman ];
 
