@@ -3,8 +3,8 @@
   flake.homeModules.home-helix-keys =
     { ... }:
     let
-      float = cmd: ":sh zellij run --floating --close-on-exit -- ${cmd}";
-      floatKeep = cmd: ":sh zellij run --floating -- ${cmd}";
+      float = cmd: ":sh zellij run --floating --close-on-exit -- ${cmd} | ignore";
+      floatKeep = cmd: ":sh zellij run --floating -- ${cmd} | ignore";
     in
     {
       programs.helix.settings.keys = {

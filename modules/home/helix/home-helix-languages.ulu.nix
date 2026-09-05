@@ -283,7 +283,6 @@
             };
           }
           {
-            # Written every time `jj describe`/`jj commit` opens $EDITOR.
             name = "jjdescription";
             rulers = [
               51
