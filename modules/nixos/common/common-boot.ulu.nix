@@ -5,6 +5,8 @@
     {
       environment.systemPackages = [ pkgs.efibootmgr ];
 
+      boot.tmp.cleanOnBoot = true;
+
       boot.loader = {
         timeout = 5;
         efi = {
