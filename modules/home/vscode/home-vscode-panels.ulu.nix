@@ -15,7 +15,7 @@
           when = "sideBarFocus && activeViewlet == 'workbench.view.explorer'";
         }
 
-        # alt+space — terminal 
+        # alt+space — terminal
         {
           key = "alt+space";
           command = "workbench.action.terminal.toggleTerminal";
