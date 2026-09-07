@@ -14,7 +14,6 @@
             "keep_primary_selection"
           ];
 
-          "A-s" = ":sh hx-sidebar-toggle";
           "A-S" = "split_selection_on_newline";
 
           "C-f" = "search";

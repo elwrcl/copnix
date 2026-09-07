@@ -11,7 +11,7 @@
 
         shellAliases = {
           e = "hx";
-          cop = "ide ~/copland";
+          cop = "codium ~/copland";
         };
         #/nu/#
         extraConfig = ''

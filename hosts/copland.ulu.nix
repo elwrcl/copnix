@@ -41,13 +41,10 @@ in
               config.flake.homeModules.home-nushell-greeting
               config.flake.homeModules.home-helix
               config.flake.homeModules.home-helix-keys
-              config.flake.homeModules.home-helix-sidebar
               config.flake.homeModules.home-helix-languages
               config.flake.homeModules.home-helix-language-servers
               config.flake.homeModules.home-zellij
               config.flake.homeModules.home-zellij-keybinds
-              config.flake.homeModules.home-zellij-layout-ide
-              config.flake.homeModules.home-zellij-ide-command
               config.flake.homeModules.home-vscode
               config.flake.homeModules.home-vscode-extensions
               config.flake.homeModules.home-vscode-helix
