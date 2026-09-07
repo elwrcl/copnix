@@ -48,6 +48,14 @@ in
               config.flake.homeModules.home-zellij-keybinds
               config.flake.homeModules.home-zellij-layout-ide
               config.flake.homeModules.home-zellij-ide-command
+              config.flake.homeModules.home-vscode
+              config.flake.homeModules.home-vscode-extensions
+              config.flake.homeModules.home-vscode-helix
+              config.flake.homeModules.home-vscode-panels
+              config.flake.homeModules.home-vscode-jujutsu
+              config.flake.homeModules.home-vscode-languages
+              config.flake.homeModules.home-vscode-projects
+              config.flake.homeModules.home-vscode-spellcheck
               config.flake.homeModules.home-theme
               config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-theme-gtk
@@ -57,6 +65,7 @@ in
               config.flake.homeModules.home-theme-zellij
               config.flake.homeModules.home-theme-nushell
               config.flake.homeModules.home-theme-discord
+              config.flake.homeModules.home-theme-vscode
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
@@ -89,6 +98,13 @@ in
             home.username = "elars";
             home.homeDirectory = "/home/elars";
             home.stateVersion = "25.05";
+
+            # Projects/ ve Projects/Projects_XFS/ altındaki depolar
+            # maxDepthRecursion = 2 ile kapsanıyor; copland ayrı satır.
+            elars.vscode.projectRoots = [
+              "/home/elars/Projects"
+              "/home/elars/copland"
+            ];
           };
         };
       }
@@ -144,8 +160,6 @@ in
 
         zramSwap = {
           enable = true;
-          # 100% double-counts against 16G of RAM; 50% leaves headroom for
-          # the page cache during builds.
           memoryPercent = 50;
           algorithm = "zstd";
           priority = 100;

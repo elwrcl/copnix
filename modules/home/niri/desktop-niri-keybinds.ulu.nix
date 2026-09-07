@@ -34,7 +34,7 @@
           "Mod+Return".action.spawn = [ "ghostty" ];
           "Mod+W".action.spawn = [ "helium" ];
           "Mod+E".action.spawn = [ "dolphin" ];
-          "Mod+Z".action.spawn = [ "code" ];
+          "Mod+Z".action.spawn = [ "codium" ];
           "Mod+Alt+V".action.spawn = [ "pavucontrol" ];
           "Mod+Shift+V".action.spawn-sh = "noctalia msg panel-toggle clipboard";
           "Mod+Shift+L".action.spawn-sh = "noctalia msg lock";

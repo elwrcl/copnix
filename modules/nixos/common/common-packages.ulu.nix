@@ -70,7 +70,6 @@
         ifuse
 
         # agents
-        # todo make claude lobotomize
         github-copilot-cli
         claude-mergetool
         claude-monitor
@@ -173,7 +172,6 @@
 
         # editors
         neovim
-        vscode
 
         # media
         ffmpegthumbnailer
@@ -187,7 +185,6 @@
 
         inputs.agenix.packages.${system}.default
         inputs.nix-alien.packages.${system}.nix-alien
-        inputs.copetch.packages.${system}.default
         pkgs.qt6Packages.qtwebsockets
       ];
     };

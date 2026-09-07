@@ -34,15 +34,15 @@
             "audio/ogg" = "mpv.desktop";
 
             # text
-            "text/plain" = "code.desktop";
-            "text/x-rust" = "code.desktop";
-            "text/x-nix" = "code.desktop";
-            "text/x-csrc" = "code.desktop";
-            "text/x-chdr" = "code.desktop";
-            "text/x-python" = "code.desktop";
-            "text/x-shellscript" = "code.desktop";
-            "application/json" = "code.desktop";
-            "application/x-shellscript" = "code.desktop";
+            "text/plain" = "codium.desktop";
+            "text/x-rust" = "codium.desktop";
+            "text/x-nix" = "codium.desktop";
+            "text/x-csrc" = "codium.desktop";
+            "text/x-chdr" = "codium.desktop";
+            "text/x-python" = "codium.desktop";
+            "text/x-shellscript" = "codium.desktop";
+            "application/json" = "codium.desktop";
+            "application/x-shellscript" = "codium.desktop";
           };
         };
 
