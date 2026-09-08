@@ -51,10 +51,6 @@
       url = "github:FlameFlag/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    copetch = {
-      url = "github:elwrcl/copetch";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     helium = {
       url = "github:elwrcl/heliux";
       inputs.nixpkgs.follows = "nixpkgs";
