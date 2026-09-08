@@ -50,26 +50,6 @@
         "type": "github"
       }
     },
-    "copetch": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780476605,
-        "narHash": "sha256-IJP4kWi/tpho+jaL0UodQwreXqG3w0CnxXQNu1n5YhI=",
-        "owner": "elwrcl",
-        "repo": "copetch",
-        "rev": "c232915fcd1520de676cdfb12c4a2a6e6be33837",
-        "type": "github"
-      },
-      "original": {
-        "owner": "elwrcl",
-        "repo": "copetch",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1767039857,
@@ -593,7 +573,6 @@
       "inputs": {
         "agenix": "agenix",
         "chaotic": "chaotic",
-        "copetch": "copetch",
         "flake-parts": "flake-parts",
         "helium": "helium",
         "home-manager": "home-manager_2",

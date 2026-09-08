@@ -95,9 +95,6 @@ in
             home.username = "elars";
             home.homeDirectory = "/home/elars";
             home.stateVersion = "25.05";
-
-            # Projects/ ve Projects/Projects_XFS/ altındaki depolar
-            # maxDepthRecursion = 2 ile kapsanıyor; copland ayrı satır.
             elars.vscode.projectRoots = [
               "/home/elars/Projects"
               "/home/elars/copland"

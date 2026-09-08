@@ -28,6 +28,7 @@
         spotify
         heroic
         loupe
+        equibop
         gimp
         wine
 
