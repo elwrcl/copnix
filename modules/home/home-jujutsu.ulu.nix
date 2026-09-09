@@ -53,9 +53,6 @@
             "--interactive"
           ];
           aliases.u = [ "undo" ];
-
-          # `jj fork` — renames the current `origin` remote to `upstream`, forks
-          # the repository on GitHub via `gh`, and tracks the trunk bookmark.
           aliases.fork = [
             "util"
             "exec"

@@ -122,7 +122,6 @@
         exfatprogs
         dmidecode
         libsecret
-        apfs-fuse
         gptfdisk
         pciutils
         usbutils

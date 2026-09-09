@@ -33,7 +33,6 @@ in
               config.flake.homeModules.home-nushell-prompt
               config.flake.homeModules.home-nushell-commandline-copy
               config.flake.homeModules.home-nushell-last
-              # theme: one palette, one module per app it feeds
               config.flake.homeModules.home-theme
               config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-theme-ghostty
