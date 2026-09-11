@@ -29,17 +29,17 @@ def synth(duration, rng):
     n = int(SR * duration)
     out = array.array("d", bytes(8 * n))
 
-    # randomized tube personality 
+    # randomized tube personality
     f0 = rng.uniform(46.0, 74.0)
-    glide = rng.uniform(3.0, 14.0) 
-    h2 = rng.uniform(0.30, 0.60)   
+    glide = rng.uniform(3.0, 14.0)
+    h2 = rng.uniform(0.30, 0.60)
     h3 = rng.uniform(0.12, 0.32)
     h4 = rng.uniform(0.00, 0.09)
     h5 = rng.uniform(0.03, 0.15)
 
-    warble_hz = rng.uniform(5.5, 10.5)  
+    warble_hz = rng.uniform(5.5, 10.5)
     warble_depth = rng.uniform(0.28, 0.55)
-    wander_hz = rng.uniform(1.3, 3.4) 
+    wander_hz = rng.uniform(1.3, 3.4)
     wander_depth = rng.uniform(0.4, 1.1)
 
     decay = rng.uniform(2.1, 3.4)
@@ -52,7 +52,7 @@ def synth(duration, rng):
     kick_at = rng.uniform(0.22, 0.45)
     kick_amt = rng.uniform(0.25, 0.55)
 
-    # phase accumulators 
+    # phase accumulators
     scale = TABLE_SIZE / SR
     ph = 0.0
     ph_warble = 0.0
@@ -78,7 +78,9 @@ def synth(duration, rng):
 
         # warble, itself slowly wandering
         ph_wander += wander_hz * scale
-        ph_warble += (warble_hz + wander_depth * SINE[int(ph_wander) & TABLE_MASK]) * scale
+        ph_warble += (
+            warble_hz + wander_depth * SINE[int(ph_wander) & TABLE_MASK]
+        ) * scale
         warble = 1.0 - warble_depth + warble_depth * SINE[int(ph_warble) & TABLE_MASK]
 
         # envelope: near-instant attack, exponential decay
@@ -86,11 +88,15 @@ def synth(duration, rng):
         if second_kick:
             d = t - kick_at
             if d > 0.0:
-                env += kick_amt * math.exp(-decay * 1.6 * d) * (1.0 - math.exp(-160.0 * d))
+                env += (
+                    kick_amt * math.exp(-decay * 1.6 * d) * (1.0 - math.exp(-160.0 * d))
+                )
 
         # opening clunk
         ph_thump += thump_f * scale
-        thump = thump_amt * SINE[int(ph_thump) & TABLE_MASK] * math.exp(-thump_decay * t)
+        thump = (
+            thump_amt * SINE[int(ph_thump) & TABLE_MASK] * math.exp(-thump_decay * t)
+        )
 
         # shadow-mask rattle
         rattle = rattle_amt * (rng.random() * 2.0 - 1.0) * math.exp(-rattle_decay * t)
@@ -98,8 +104,7 @@ def synth(duration, rng):
         s = tone * warble * env + thump + rattle
         out[i] = s
         a = s if s >= 0.0 else -s
-        if a > peak:
-            peak = a
+        peak = max(peak, a)
 
     # normalize, then fade the tail so it never clicks
     gain = 0.85 / peak if peak > 0.0 else 0.0
@@ -110,7 +115,7 @@ def synth(duration, rng):
         if i >= n - fade:
             s *= (n - i) / fade
         v = int(s * 32767.0)
-        pcm[i] = 32767 if v > 32767 else (-32768 if v < -32768 else v)
+        pcm[i] = 32767 if v > 32767 else (max(v, -32768))
     return pcm
 
 
@@ -123,11 +128,13 @@ def write_wav(path, pcm):
 
 
 def play(path, volume):
-    for cmd in (["pw-play", "--volume=%s" % volume, path],
-                ["paplay", path],
-                ["aplay", "-q", path]):
+    for cmd in (
+        ["pw-play", f"--volume={volume}", path],
+        ["paplay", path],
+        ["aplay", "-q", path],
+    ):
         try:
-            return subprocess.run(cmd, stderr=subprocess.DEVNULL).returncode
+            return subprocess.run(cmd, stderr=subprocess.DEVNULL).returncode  # noqa: PLW1510
         except FileNotFoundError:
             continue
     print("degauss-sound: no player found (pw-play/paplay/aplay)", file=sys.stderr)
@@ -137,8 +144,13 @@ def play(path, volume):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-o", "--out", help="write a wav here instead of playing")
-    ap.add_argument("-d", "--duration", type=float, default=1.5,
-                    help="seconds; match your shader's DURATION (default 1.5)")
+    ap.add_argument(
+        "-d",
+        "--duration",
+        type=float,
+        default=1.5,
+        help="seconds; match your shader's DURATION (default 1.5)",
+    )
     ap.add_argument("-s", "--seed", type=int, help="reproducible output")
     ap.add_argument("-v", "--volume", default="0.5", help="pw-play volume")
     args = ap.parse_args()
