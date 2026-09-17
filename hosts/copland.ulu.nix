@@ -28,8 +28,6 @@ in
             imports = [
               config.flake.homeModules.home-base
               config.flake.homeModules.home-ghostty
-              config.flake.homeModules.home-ghostty-shaders
-              config.flake.homeModules.home-degauss-sound
               config.flake.homeModules.home-nushell
               config.flake.homeModules.home-nushell-bash-compat
               config.flake.homeModules.home-nushell-completions
@@ -154,7 +152,7 @@ in
 
         zramSwap = {
           enable = true;
-          memoryPercent = 50;
+          memoryPercent = 100;
           algorithm = "zstd";
           priority = 100;
         };

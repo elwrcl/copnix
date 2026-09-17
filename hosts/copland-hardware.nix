@@ -36,9 +36,19 @@
     fsType = "bcachefs";
   };
 
-  fileSystems."/mnt/HDD/shared" = {
-    device = "/dev/disk/by-uuid/69F3-C5FB";
-    fsType = "exfat";
+  fileSystems."/mnt/HDD/linuxdata" = {
+    device = "/dev/disk/by-uuid/9305cc87-d604-4c01-b597-a9ea8bdcaf66";
+    fsType = "xfs";
+    options = [
+      "defaults"
+      "nofail"
+      "x-systemd.automount"
+    ];
+  };
+
+  fileSystems."/mnt/HDD/ortak" = {
+    device = "/dev/disk/by-uuid/6F92430E6B0054D2";
+    fsType = "ntfs3";
     options = [
       "defaults"
       "nofail"
@@ -46,16 +56,6 @@
       "uid=1000"
       "gid=100"
       "umask=022"
-    ];
-  };
-
-  fileSystems."/mnt/HDD/linuxdata" = {
-    device = "/dev/disk/by-uuid/6acf076f-25a0-4ce1-b841-aefa8bb06218";
-    fsType = "xfs";
-    options = [
-      "defaults"
-      "nofail"
-      "x-systemd.automount"
     ];
   };
 
