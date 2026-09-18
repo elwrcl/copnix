@@ -15,7 +15,7 @@
 
       programs.gamescope = {
         enable = true;
-        capSysNice = true;
+        capSysNice = false;
         env = {
           INTEL_DEBUG = "noccs";
         };

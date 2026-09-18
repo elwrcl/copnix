@@ -242,11 +242,11 @@
     },
     "intel-hard": {
       "locked": {
-        "lastModified": 1787487613,
-        "narHash": "sha256-BL9uzuvNE2wfdNzDp4STRLHfRRR2LOtKPiB+J+/s2DQ=",
+        "lastModified": 1789831823,
+        "narHash": "sha256-WrXIEDe55m9DIiMzKSQmrzEW7npWDRX9JtssxoG0M3M=",
         "owner": "elwrcl",
         "repo": "intel-hard",
-        "rev": "45dabaa129000f55a48fc44637ca7b61a5006af9",
+        "rev": "2c57be0074b0721622c0e5f43ba60b2954be79f5",
         "type": "github"
       },
       "original": {
