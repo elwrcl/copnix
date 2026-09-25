@@ -18,6 +18,7 @@
         onlyoffice-desktopeditors
         whatsapp-electron
         telegram-desktop
+        element-desktop
         prismlauncher
         moonlight-qt
         qbittorrent
@@ -64,7 +65,6 @@
         libimobiledevice
         android-tools
         uxplay-fixed
-        simple-mtpfs
         usbmuxd
         libmtp
         scrcpy

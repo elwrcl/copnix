@@ -15,7 +15,10 @@ in
       inputs.chaotic.nixosModules.default
 
       {
-        nixpkgs.config.allowUnfree = true;
+        nixpkgs.config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [ "radicle-node-1.10.3" ];
+        };
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
@@ -78,6 +81,7 @@ in
               config.flake.homeModules.home-mimeapps
               config.flake.homeModules.home-file-manager
               config.flake.homeModules.home-file-manager-actions
+              config.flake.homeModules.home-gdrive-rclone
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-nyi
               config.flake.homeModules.home-discord

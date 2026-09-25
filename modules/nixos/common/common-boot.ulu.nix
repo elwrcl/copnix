@@ -10,13 +10,15 @@
       boot.loader = {
         timeout = 5;
         efi = {
-          canTouchEfiVariables = false;
+          canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
         };
 
         systemd-boot = {
           enable = true;
           configurationLimit = 5;
+          consoleMode = "max";
+          editor = false;
         };
       };
     };

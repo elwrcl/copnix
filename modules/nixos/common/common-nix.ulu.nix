@@ -16,6 +16,9 @@
         max-jobs = 2;
         cores = 2;
 
+        min-free = 5368709120; # 5 GiB
+        max-free = 21474836480; # 20 GiB
+
         substituters = [
           "https://cache.nixos.org"
           "https://nix-community.cachix.org"
@@ -34,6 +37,20 @@
           "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
           "soryu-kernel.cachix.org-1:2/Tm90ibGjLQWo/uX4qo/kbFB5yjQG/CzfE1oelHdWw="
         ];
+      };
+
+      nix.gc = {
+        automatic = true;
+        dates = "Mon 03:00";
+        options = "--delete-older-than 14d";
+        persistent = true;
+        randomizedDelaySec = "45min";
+      };
+      nix.optimise = {
+        automatic = true;
+        dates = [ "monthly" ];
+        persistent = true;
+        randomizedDelaySec = "45min";
       };
 
       documentation = {

@@ -25,3 +25,4 @@
 !*.glsl
 !*.py
 !*.css
+!*.patch

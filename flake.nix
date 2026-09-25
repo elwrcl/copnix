@@ -69,7 +69,7 @@
       url = "github:thiagokokada/nix-alien";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell/cachix";
     };
     nyi = {
       url = "github:elwrcl/nyi";
