@@ -71,6 +71,8 @@ in
               config.flake.homeModules.home-jujutsu-watchman
               config.flake.homeModules.home-gh
               config.flake.homeModules.home-radicle
+              config.flake.homeModules.home-agents
+              config.flake.homeModules.home-agents-claude
               config.flake.homeModules.home-zsh
               config.flake.homeModules.home-zsh-nu-handoff
               config.flake.homeModules.home-shell-tools
