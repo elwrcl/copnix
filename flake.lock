@@ -616,6 +616,7 @@
         "scx_soryu": "scx_soryu",
         "theme-assets": "theme-assets",
         "themes": "themes",
+        "valw": "valw",
         "zen-browser": "zen-browser"
       }
     },
@@ -707,6 +708,26 @@
         "owner": "numtide",
         "repo": "treefmt-nix",
         "type": "github"
+      }
+    },
+    "valw": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790766906,
+        "narHash": "sha256-/AQlzYb1oa9Bsah5G2aRPzhvzkSURyTZMO2M9vGposs=",
+        "path": "/home/elars/Projects/valw",
+        "type": "path"
+      },
+      "original": {
+        "path": "/home/elars/Projects/valw",
+        "type": "path"
       }
     },
     "xwayland-satellite-stable": {

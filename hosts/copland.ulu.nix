@@ -86,6 +86,7 @@ in
               config.flake.homeModules.home-gdrive-rclone
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-nyi
+              config.flake.homeModules.home-valw
               config.flake.homeModules.home-discord
               config.flake.homeModules.home-noctalia
               config.flake.homeModules.desktop-niri-home

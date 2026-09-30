@@ -77,6 +77,11 @@
     scx_soryu = {
       url = "github:elwrcl/scx_soryu";
     };
+    valw = {
+      url = "path:/home/elars/Projects/valw";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
   };
 
   outputs =
