@@ -40,6 +40,9 @@
           "Mod+Shift+L".action.spawn-sh = "noctalia msg lock";
           "Mod+Shift+S".action.spawn = [ "valw" "region" ];
           "Print".action.spawn = [ "valw" "screen" ];
+          "Mod+Shift+W".action.spawn = [ "valw" "window" ];
+          "Mod+Shift+Z".action.spawn = [ "valw" "zoom" ];
+          "Mod+Shift+T".action.spawn = [ "valw" "toolbar" ];
           "Ctrl+Shift+Escape".action.spawn = [
             "ghostty"
             "-e"

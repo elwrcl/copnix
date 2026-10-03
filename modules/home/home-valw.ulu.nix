@@ -1,8 +1,14 @@
 { ... }:
 {
   flake.homeModules.home-valw =
-    { inputs, pkgs, ... }:
+    { inputs, ... }:
     {
-      home.packages = [ inputs.valw.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+      imports = [ inputs.valw.homeModules.default ];
+
+      programs.valw = {
+        enable = true;
+        # Checked by valw itself when the configuration is built.
+        settings.capture.window_shadow = true;
+      };
     };
 }
