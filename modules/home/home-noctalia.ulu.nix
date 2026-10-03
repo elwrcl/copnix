@@ -31,7 +31,8 @@
           };
 
           backdrop = {
-            enabled = true;
+            # valw draws the overview backdrop now (valw backdrop).
+            enabled = false;
             blur_intensity = 0.46;
             tint_intensity = 0.25;
           };

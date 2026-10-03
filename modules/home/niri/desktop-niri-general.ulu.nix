@@ -79,6 +79,12 @@
             ];
             place-within-backdrop = true;
           }
+          {
+            matches = [
+              { namespace = "^valw-backdrop$"; }
+            ];
+            place-within-backdrop = true;
+          }
         ];
       };
     };
