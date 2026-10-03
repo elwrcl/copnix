@@ -224,6 +224,7 @@
             "whyoolw/sharednd"
             "nightwatch75/todo"
             "avivbintangaringga/nix-monitor"
+            "elars/valw"
           ];
 
           plugin_settings = {
@@ -321,6 +322,7 @@
                     "Killer"
                     "notes"
                     "recorder"
+                    "valw"
                   ];
                   opacity = 0.0;
                   padding = 0.0;
@@ -391,6 +393,7 @@
                     members = [
                       "notifications"
                       "recorder"
+                      "valw"
                       "Killer"
                       "notes"
                       "nix-monitor"
@@ -818,6 +821,11 @@
               icon_color = "error";
               scale = 1.2;
               type = "noctalia/screen_recorder:recorder";
+            };
+
+            valw = {
+              scale = 1.2;
+              type = "elars/valw:bar";
             };
 
             screen_recorder = {
