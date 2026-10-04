@@ -16,20 +16,19 @@
       environment.systemPackages = with pkgs; [
         # apps
         onlyoffice-desktopeditors
+        kdePackages.kdenlive
         whatsapp-electron
         telegram-desktop
-        element-desktop
         prismlauncher
+        gparted-full
         moonlight-qt
-        qbittorrent
         obs-studio
+        spotifast
         localsend
         picotool
         sunshine
-        spotify
-        heroic
+        zapzap
         loupe
-        equibop
         gimp
         wine
 
@@ -72,8 +71,6 @@
 
         # agents
         github-copilot-cli
-        claude-mergetool
-        claude-monitor
         claude-code
 
         # cli

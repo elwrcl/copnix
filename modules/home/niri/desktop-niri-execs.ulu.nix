@@ -7,8 +7,12 @@
         "prefer-no-csd" = true;
         spawn-at-startup = [
           { command = [ "noctalia" ]; }
-          # valw's paint shader behind the overview (see the layer rule).
-          { command = [ "valw" "backdrop" ]; }
+          {
+            command = [
+              "valw"
+              "backdrop"
+            ];
+          }
         ];
       };
     };

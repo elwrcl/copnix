@@ -137,6 +137,7 @@ in
       config.flake.nixosModules.common-fonts
       config.flake.nixosModules.common-kmscon
       config.flake.nixosModules.desktop-display
+      config.flake.nixosModules.desktop-display-theme
       config.flake.nixosModules.desktop-audio
       config.flake.nixosModules.desktop-niri
       config.flake.nixosModules.desktop-xdg-mime
