@@ -88,6 +88,9 @@ in
               config.flake.homeModules.home-nyi
               config.flake.homeModules.home-valw
               config.flake.homeModules.home-discord
+              config.flake.homeModules.home-mpv
+              config.flake.homeModules.home-mpv-intel-hard
+              config.flake.homeModules.home-mpv-svp
               config.flake.homeModules.home-noctalia
               config.flake.homeModules.desktop-niri-home
               config.flake.homeModules.desktop-niri-package
@@ -118,6 +121,7 @@ in
       config.flake.nixosModules.hw-bluetooth
       config.flake.nixosModules.hw-graphics
       config.flake.nixosModules.hw-intel-hard
+      config.flake.nixosModules.hw-ivb-drivers
       config.flake.nixosModules.hw-udev
       config.flake.nixosModules.net-network-manager
       config.flake.nixosModules.net-dpi-evasion

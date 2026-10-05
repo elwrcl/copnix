@@ -78,7 +78,7 @@
       url = "github:elwrcl/scx_soryu";
     };
     valw = {
-      url = "path:/home/elars/Projects/valw";
+      url = "github:elwrcl/valw";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };

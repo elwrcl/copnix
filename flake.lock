@@ -720,14 +720,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1791142268,
-        "narHash": "sha256-iVe30p3s0ZmjjUlfzNPoBrXRsi1UEdpN7GBBDKJUXfw=",
-        "path": "/home/elars/Projects/valw",
-        "type": "path"
+        "lastModified": 1791550319,
+        "narHash": "sha256-GDO12cDMXhyQycIoyuznQFFO0wzarnxRlzJryA120jU=",
+        "owner": "elwrcl",
+        "repo": "valw",
+        "rev": "e320f7a1b6d2e2f3dafd096af8668c99ac488be2",
+        "type": "github"
       },
       "original": {
-        "path": "/home/elars/Projects/valw",
-        "type": "path"
+        "owner": "elwrcl",
+        "repo": "valw",
+        "type": "github"
       }
     },
     "xwayland-satellite-stable": {

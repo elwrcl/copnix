@@ -45,7 +45,7 @@
             extraPackages = [
               wayland-intel-vaapi-driver
               pkgs.libvdpau-va-gl
-              pkgs.pocl
+              # OpenCL (GPU + CPU): pocl-gen7 in hw-ivb-drivers
             ];
             extraPackages32 = [
               wayland-intel-vaapi-driver-32

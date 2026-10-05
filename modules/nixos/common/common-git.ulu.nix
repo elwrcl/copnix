@@ -1,7 +1,7 @@
 { ... }:
 {
   commonModules.common-git =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     let
       base = ''
         [user]
@@ -19,7 +19,14 @@
         	helper = osxkeychain
       '';
 
-      gitconfig = pkgs.writeText "gitconfig" (base + lib.optionalString pkgs.stdenv.isDarwin darwinExtra);
+      linuxExtra = ''
+        [credential]
+        	helper = ${pkgs.gitFull}/bin/git-credential-libsecret
+      '';
+
+      gitconfig = pkgs.writeText "gitconfig" (
+        base + (if pkgs.stdenv.isDarwin then darwinExtra else linuxExtra)
+      );
     in
     {
       environment.variables.GIT_CONFIG_SYSTEM = "${gitconfig}";

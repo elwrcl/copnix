@@ -18,6 +18,7 @@
         onlyoffice-desktopeditors
         kdePackages.kdenlive
         whatsapp-electron
+        qbittorrent
         telegram-desktop
         prismlauncher
         gparted-full
@@ -178,7 +179,6 @@
         ffmpeg
         yt-dlp
         cava
-        mpv
 
         inputs.agenix.packages.${system}.default
         inputs.nix-alien.packages.${system}.nix-alien

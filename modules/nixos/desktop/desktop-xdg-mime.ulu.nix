@@ -15,6 +15,8 @@
             "x-scheme-handler/about" = "helium.desktop";
             "x-scheme-handler/unknown" = "helium.desktop";
             "x-scheme-handler/steam" = "steam.desktop";
+            "x-scheme-handler/magnet" = "org.qbittorrent.qBittorrent.desktop";
+            "application/x-bittorrent" = "org.qbittorrent.qBittorrent.desktop";
 
             # media
             "image/png" = "org.gnome.Loupe.desktop";

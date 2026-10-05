@@ -14,7 +14,7 @@
           "pipe-operators"
         ];
         max-jobs = 2;
-        cores = 2;
+        cores = 0;
 
         min-free = 5368709120; # 5 GiB
         max-free = 21474836480; # 20 GiB
@@ -43,12 +43,6 @@
         automatic = true;
         dates = "Mon 03:00";
         options = "--delete-older-than 14d";
-        persistent = true;
-        randomizedDelaySec = "45min";
-      };
-      nix.optimise = {
-        automatic = true;
-        dates = [ "monthly" ];
         persistent = true;
         randomizedDelaySec = "45min";
       };

@@ -10,6 +10,11 @@
 !modules/**/
 !options/
 
+# release builds of the drivers (drivers/ivb/update.sh, pocl-gen7/release.sh)
+!drivers/
+!drivers/**/
+!drivers/**
+
 !flake.nix
 !flake.lock
 
