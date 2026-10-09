@@ -80,8 +80,10 @@
           profile-restore = "copy";
           hwdec = "vaapi";
           scale = "bicubic";
-          deinterlace = "auto";
-          vf-add = "lavfi=[scale_vaapi=w=-2:h='min(720,ih)':format=nv12,hwdownload,format=nv12],vapoursynth=${script}:buffered-frames=4:concurrent-frames=4";
+          # mpv's VAAPI deinterlacer emits frames outside scale_vaapi's hwframe context
+          # (hwdownload fails with -22) and doubles the rate, so deinterlace in software instead.
+          deinterlace = "no";
+          vf-add = "lavfi=[scale_vaapi=w=-2:h='min(720,ih)':format=nv12,hwdownload,format=nv12,bwdif=mode=send_frame:deint=interlaced],vapoursynth=${script}:buffered-frames=4:concurrent-frames=4";
         };
       };
 

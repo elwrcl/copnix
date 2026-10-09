@@ -1,2 +1,2 @@
 pocl   844a8c5b9d19 gen7: find libgbe and beignet's library in ../beignet next to the installed driver (relocatable install)
-libgbe 90ae83634993 backend: OpenCL C 3.0 (-cl-std=CL3.0) on the 1.2 library
+libgbe 1114b179c034 backend: load/store merge resumes at the first unmerged instruction (merged list is offset-sorted; DaVinci Resolve crashed)

@@ -17,12 +17,12 @@
         # apps
         onlyoffice-desktopeditors
         kdePackages.kdenlive
-        whatsapp-electron
-        qbittorrent
         telegram-desktop
         prismlauncher
+        davinci-resolve
         gparted-full
         moonlight-qt
+        qbittorrent
         obs-studio
         spotifast
         localsend
