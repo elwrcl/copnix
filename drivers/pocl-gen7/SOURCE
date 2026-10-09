@@ -1,2 +1,2 @@
 pocl   844a8c5b9d19 gen7: find libgbe and beignet's library in ../beignet next to the installed driver (relocatable install)
-libgbe 1114b179c034 backend: load/store merge resumes at the first unmerged instruction (merged list is offset-sorted; DaVinci Resolve crashed)
+libgbe 79c0fa63bccb backend: llvm.minnum/maxnum/minimum/maximum as compare + select (LLVM folds fmin/fmax into them; DaVinci Resolve)
