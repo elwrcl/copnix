@@ -1,2 +1,2 @@
-pocl   844a8c5b9d19 gen7: find libgbe and beignet's library in ../beignet next to the installed driver (relocatable install)
-libgbe 79c0fa63bccb backend: llvm.minnum/maxnum/minimum/maximum as compare + select (LLVM folds fmin/fmax into them; DaVinci Resolve)
+pocl   40a0f3c94206 gen7: report the GPU's real maximum clock (i915 gt_RP0_freq_mhz of the card with this PCI id) instead of a fixed 1000 MHz
+libgbe 4db13eafb096 backend: keep the MAD bank conflict hint (any non-ternary use reset it, so both MAD sources landed in the same GRF bank: +28% float4 MAD throughput on IVB, 166 -> 212 GFLOPS); OCL_OUTPUT_KERNEL_STATS prints per-kernel SIMD width, spill strategy and code size
