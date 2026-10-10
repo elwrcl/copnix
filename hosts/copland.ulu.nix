@@ -58,12 +58,16 @@ in
               config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-theme-gtk
               config.flake.homeModules.home-theme-qt
+              config.flake.homeModules.home-theme-mode-switch
               config.flake.homeModules.home-theme-ghostty
               config.flake.homeModules.home-theme-helix
               config.flake.homeModules.home-theme-zellij
               config.flake.homeModules.home-theme-nushell
               config.flake.homeModules.home-theme-discord
               config.flake.homeModules.home-theme-vscode
+              config.flake.homeModules.home-theme-stylus
+              config.flake.homeModules.home-theme-sidechery
+              config.flake.homeModules.home-theme-obsidian
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
@@ -80,6 +84,7 @@ in
               config.flake.homeModules.home-icons
               config.flake.homeModules.home-browser-zen
               config.flake.homeModules.home-browser-helium
+              config.flake.homeModules.home-browser-helium-sidechery
               config.flake.homeModules.home-mimeapps
               config.flake.homeModules.home-file-manager
               config.flake.homeModules.home-file-manager-actions
@@ -88,6 +93,8 @@ in
               config.flake.homeModules.home-nyi
               config.flake.homeModules.home-valw
               config.flake.homeModules.home-discord
+              config.flake.homeModules.home-thunderbird
+              config.flake.homeModules.home-obsidian
               config.flake.homeModules.home-mpv
               config.flake.homeModules.home-mpv-intel-hard
               config.flake.homeModules.home-mpv-svp
@@ -123,8 +130,11 @@ in
       config.flake.nixosModules.hw-intel-hard
       config.flake.nixosModules.hw-ivb-drivers
       config.flake.nixosModules.hw-udev
+      config.flake.nixosModules.hw-keychron
       config.flake.nixosModules.net-network-manager
       config.flake.nixosModules.net-dpi-evasion
+      config.flake.nixosModules.net-uxplay
+      config.flake.nixosModules.net-localsend
       config.flake.nixosModules.service-appimage
       config.flake.nixosModules.service-flatpak
       config.flake.nixosModules.service-fwupd
