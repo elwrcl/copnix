@@ -27,5 +27,29 @@
 
         accent = "cabaaa";
       };
+      elars.theme.paletteLight = inputs.themes.custom {
+        name = "Kemuri Susu Light";
+        author = "elars";
+
+        base00 = "d4c1a8"; # mSurface
+        base01 = "c5b29a"; # mSurfaceVariant
+        base02 = "a89682"; # mOutline
+        base03 = "736c5f"; # mShadow
+        base04 = "736b5e"; # mSecondary
+        base05 = "262524"; # mOnSurface
+        base06 = "3a3734";
+        base07 = "1e1d1b";
+
+        base08 = "b84242"; # red    / mError
+        base09 = "9c7a4a"; # orange
+        base0A = "8a7140"; # yellow
+        base0B = "5e7a5c"; # green
+        base0C = "4f7a70"; # cyan
+        base0D = "4f6875"; # blue
+        base0E = "85606b"; # magenta
+        base0F = "594f46"; # brown
+
+        accent = "262524"; # mPrimary
+      };
     };
 }

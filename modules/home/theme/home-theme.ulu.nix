@@ -39,6 +39,14 @@
         '';
       };
 
+      options.elars.theme.paletteLight = lib.mkOption {
+        type = lib.types.raw;
+        description = ''
+          Light variant of `elars.theme.palette`, used by consumers that
+          follow the noctalia light/dark mode (see home-theme-mode-switch).
+        '';
+      };
+
       options.elars.theme.hexToRgb = lib.mkOption {
         type = lib.types.raw;
         default =
