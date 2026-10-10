@@ -14,9 +14,5 @@
             }
         });
       '';
-      services.udev.extraRules = ''
-        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="d030", MODE="0660", TAG+="uaccess", TAG+="udev-acl"
-        KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="3434", ATTRS{idProduct}=="0b11", MODE="0660", TAG+="uaccess", TAG+="udev-acl"
-      '';
     };
 }
