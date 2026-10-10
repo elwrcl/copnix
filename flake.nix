@@ -55,6 +55,10 @@
       url = "github:elwrcl/heliux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sidechery = {
+      url = "github:teidesu/sidechery";
+      flake = false;
+    };
     theme-assets = {
       url = "github:elwrcl/copland-theme";
       inputs.nixpkgs.follows = "nixpkgs";

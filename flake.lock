@@ -614,6 +614,7 @@
         "noctalia": "noctalia",
         "nyi": "nyi",
         "scx_soryu": "scx_soryu",
+        "sidechery": "sidechery",
         "theme-assets": "theme-assets",
         "themes": "themes",
         "valw": "valw",
@@ -636,6 +637,22 @@
       "original": {
         "owner": "elwrcl",
         "repo": "scx_soryu",
+        "type": "github"
+      }
+    },
+    "sidechery": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789219073,
+        "narHash": "sha256-cSLIxv+oJNQNIP754ZELih7UN62dIFbXfI68bhX6lWQ=",
+        "owner": "teidesu",
+        "repo": "sidechery",
+        "rev": "e015b37b16eaef6a6655dd34a46512c8b376b4dc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "teidesu",
+        "repo": "sidechery",
         "type": "github"
       }
     },
