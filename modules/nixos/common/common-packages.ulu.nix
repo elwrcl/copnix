@@ -7,28 +7,19 @@
       system,
       ...
     }:
-    let
-      uxplay-fixed = pkgs.uxplay.override {
-        avahi = pkgs.avahi.override { withLibdnssdCompat = true; };
-      };
-    in
     {
       environment.systemPackages = with pkgs; [
         # apps
         onlyoffice-desktopeditors
-        kdePackages.kdenlive
         telegram-desktop
         prismlauncher
-        davinci-resolve
         gparted-full
         moonlight-qt
         qbittorrent
         obs-studio
         spotifast
-        localsend
         picotool
         sunshine
-        zapzap
         loupe
         gimp
         wine
@@ -64,7 +55,6 @@
         # phone
         libimobiledevice
         android-tools
-        uxplay-fixed
         usbmuxd
         libmtp
         scrcpy
