@@ -12,6 +12,10 @@
 
         extensions = [
           {
+            id = "clngdbkpkpeebahjckkjfobafhncgmne";
+            hash = "sha256-82toCWp5v/Crf35et50ISOw2Q66ZhJrCx59rhDVTRPk=";
+          }
+          {
             id = "dkdnancajokhfclpjpplkhlkbhaeejob";
             hash = "sha256-hkEGW2JVQzeRmTpoPrWFoVG3sbCgHohnsr2b12rfeMg=";
           }
@@ -57,7 +61,6 @@
 
         preferences = {
           helium.browser = {
-            layout = 2;
             zen_mode = true;
             zen_mode_sidebar_pinned = true;
             zen_mode_top_chrome_pinned = true;
@@ -65,7 +68,6 @@
             minimal_location_bar = true;
             rounded_frame = false;
             new_tab_next_to_active = false;
-            vertical_right_aligned = false;
             show_back_button = true;
             show_extensions_button = true;
             show_media_button = true;
