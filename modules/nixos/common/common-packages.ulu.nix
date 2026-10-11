@@ -12,6 +12,7 @@
         # apps
         onlyoffice-desktopeditors
         telegram-desktop
+        davinci-resolve
         prismlauncher
         gparted-full
         moonlight-qt
@@ -20,6 +21,7 @@
         spotifast
         picotool
         sunshine
+        whatsie
         loupe
         gimp
         wine
