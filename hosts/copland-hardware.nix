@@ -46,19 +46,6 @@
     ];
   };
 
-  fileSystems."/mnt/HDD/ortak" = {
-    device = "/dev/disk/by-uuid/6F92430E6B0054D2";
-    fsType = "ntfs3";
-    options = [
-      "defaults"
-      "nofail"
-      "x-systemd.automount"
-      "uid=1000"
-      "gid=100"
-      "umask=022"
-    ];
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/1B3D-5A7D";
     fsType = "vfat";
