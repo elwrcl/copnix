@@ -35,6 +35,72 @@
           }
           trap finish EXIT
           stem() { printf '%s' "''${1%.*}"; }
+          resolve_dnxhr() {
+            profile="$1"; shift
+            for f in "$@"; do
+              ffmpeg -nostdin -hide_banner -n -hwaccel auto -i "$f" \
+                -map 0:v:0 -map '0:a?' -fps_mode cfr \
+                -vf 'scale=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv422p' \
+                -c:v dnxhd -profile:v "$profile" \
+                -c:a pcm_s24le -ar 48000 -ac 2 \
+                "$(stem "$f")-resolve.mov"
+            done
+            notify "ready for Resolve" "$# video(s), ''${profile#dnxhr_}"
+          }
+          vaapi_dev=/dev/dri/renderD128
+          h264_backend() {
+            if [ -e "$vaapi_dev" ] && ffmpeg -nostdin -v error \
+              -init_hw_device vaapi=va:"$vaapi_dev" -filter_hw_device va \
+              -f lavfi -i nullsrc=s=256x256 -vf format=nv12,hwupload \
+              -frames:v 1 -c:v h264_vaapi -f null - 2>/dev/null; then
+              echo vaapi
+            elif ffmpeg -nostdin -v error -f lavfi -i nullsrc=s=256x256 \
+              -frames:v 1 -c:v h264_nvenc -f null - 2>/dev/null; then
+              echo nvenc
+            else
+              echo cpu
+            fi
+          }
+
+          # $1 = hq | small | tiny, rest = files
+          export_h264() {
+            mode="$1"; shift
+            even='scale=trunc(iw/2)*2:trunc(ih/2)*2'
+            cap='scale=min(iw\,1920):min(ih\,1920):force_original_aspect_ratio=decrease:force_divisible_by=2'
+            case "$mode" in
+              hq) vf="$even" qp=20 cq=21 crf=19 preset=medium ab=192k ;;
+              small) vf="$cap" qp=26 cq=28 crf=24 preset=medium ab=160k ;;
+              tiny) vf="$cap" crf=24 preset=slow ab=128k ;;
+            esac
+            if [ "$mode" = tiny ]; then backend=cpu; else backend="$(h264_backend)"; fi
+            echo "[fm-actions] H.264 encoder: $backend"
+            for f in "$@"; do
+              out="$(stem "$f")-h264.mp4"
+              case "$backend" in
+                vaapi)
+                  ffmpeg -nostdin -hide_banner -n \
+                    -init_hw_device vaapi=va:"$vaapi_dev" -filter_hw_device va \
+                    -i "$f" -map 0:v:0 -map '0:a?' \
+                    -vf "$vf,format=nv12,hwupload" \
+                    -c:v h264_vaapi -profile:v high -rc_mode CQP -qp "$qp" \
+                    -c:a aac -b:a "$ab" -movflags +faststart "$out"
+                  ;;
+                nvenc)
+                  ffmpeg -nostdin -hide_banner -n -i "$f" -map 0:v:0 -map '0:a?' \
+                    -vf "$vf,format=yuv420p" \
+                    -c:v h264_nvenc -preset p5 -rc vbr -cq "$cq" -b:v 0 \
+                    -c:a aac -b:a "$ab" -movflags +faststart "$out"
+                  ;;
+                cpu)
+                  ffmpeg -nostdin -hide_banner -n -i "$f" -map 0:v:0 -map '0:a?' \
+                    -vf "$vf,format=yuv420p" \
+                    -c:v libx264 -crf "$crf" -preset "$preset" \
+                    -c:a aac -b:a "$ab" -movflags +faststart "$out"
+                  ;;
+              esac
+            done
+            notify "exported H.264 ($backend)" "$# video(s)"
+          }
           require_count() {
             n="$1"; shift
             if [ "$#" -ne "$n" ]; then
@@ -112,6 +178,19 @@
                 rm -f "$palette"
               done
               ;;
+            resolve-lb) resolve_dnxhr dnxhr_lb "$@" ;;
+            resolve-sq) resolve_dnxhr dnxhr_sq "$@" ;;
+            resolve-hq) resolve_dnxhr dnxhr_hq "$@" ;;
+            resolve-wav)
+              for f in "$@"; do
+                ffmpeg -nostdin -hide_banner -n -i "$f" -vn \
+                  -c:a pcm_s24le -ar 48000 -ac 2 "$(stem "$f")-resolve.wav"
+              done
+              notify "ready for Resolve" "$# audio file(s)"
+              ;;
+            h264-hq) export_h264 hq "$@" ;;
+            h264-small) export_h264 small "$@" ;;
+            h264-tiny) export_h264 tiny "$@" ;;
             media-info)
               for f in "$@"; do
                 printf '\n=== %s ===\n' "$f"
@@ -289,6 +368,62 @@
             "video-files"
           ];
           submenu = "Media";
+        }
+        {
+          id = "resolve-dnxhr-lb";
+          name = "for Resolve: DNxHR LB (small, fast)";
+          icon = "video-x-generic";
+          command = "ghostty -e ${fm} resolve-lb %F";
+          types = [ "video-files" ];
+          submenu = "Resolve";
+        }
+        {
+          id = "resolve-dnxhr-sq";
+          name = "for Resolve: DNxHR SQ (balanced)";
+          icon = "video-x-generic";
+          command = "ghostty -e ${fm} resolve-sq %F";
+          types = [ "video-files" ];
+          submenu = "Resolve";
+        }
+        {
+          id = "resolve-dnxhr-hq";
+          name = "for Resolve: DNxHR HQ (quality)";
+          icon = "video-x-generic";
+          command = "ghostty -e ${fm} resolve-hq %F";
+          types = [ "video-files" ];
+          submenu = "Resolve";
+        }
+        {
+          id = "resolve-audio-wav";
+          name = "for Resolve: audio to WAV (PCM)";
+          icon = "audio-x-generic";
+          command = "ghostty -e ${fm} resolve-wav %F";
+          types = [ "audio-files" ];
+          submenu = "Resolve";
+        }
+        {
+          id = "resolve-export-h264-hq";
+          name = "to H.264 MP4: GPU, quality";
+          icon = "video-x-generic";
+          command = "ghostty -e ${fm} h264-hq %F";
+          types = [ "video-files" ];
+          submenu = "Resolve";
+        }
+        {
+          id = "resolve-export-h264-small";
+          name = "to H.264 MP4: GPU, small (max 1080p)";
+          icon = "video-x-generic";
+          command = "ghostty -e ${fm} h264-small %F";
+          types = [ "video-files" ];
+          submenu = "Resolve";
+        }
+        {
+          id = "resolve-export-h264-tiny";
+          name = "to H.264 MP4: CPU, smallest (slow)";
+          icon = "video-x-generic";
+          command = "ghostty -e ${fm} h264-tiny %F";
+          types = [ "video-files" ];
+          submenu = "Resolve";
         }
         {
           id = "pdf-to-images";
