@@ -1,2 +1,2 @@
-pocl   40a0f3c94206 gen7: report the GPU's real maximum clock (i915 gt_RP0_freq_mhz of the card with this PCI id) instead of a fixed 1000 MHz
-libgbe 4db13eafb096 backend: keep the MAD bank conflict hint (any non-ternary use reset it, so both MAD sources landed in the same GRF bank: +28% float4 MAD throughput on IVB, 166 -> 212 GFLOPS); OCL_OUTPUT_KERNEL_STATS prints per-kernel SIMD width, spill strategy and code size
+pocl   f621e6b531a3 gen7: the recorder saves a program's source before building it, so a compiler crash still leaves it
+libgbe c3af170fe1e9 backend: lock the clang stage of programNewFromSource like the other entry points (it resets and parses process-wide llvm::cl options, so two programs built at once raced); report a failed link with the builtin library as a build error instead of an empty, successful program
