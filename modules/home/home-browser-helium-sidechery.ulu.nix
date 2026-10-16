@@ -88,7 +88,6 @@
         extraFlags = [ "--load-extension=${sidechery-styled}" ];
 
         preferences = {
-          helium.browser.layout = 2;
           extensions.commands."linux:Ctrl+S" = {
             command_name = "_execute_action";
             extension = "napehjbogfncaoogcckddbidjgcapclg";

@@ -62,10 +62,10 @@
         preferences = {
           helium.browser = {
             zen_mode = true;
-            zen_mode_sidebar_pinned = true;
+            zen_mode_sidebar_pinned = false;
             zen_mode_top_chrome_pinned = true;
-            centered_location_bar = true;
-            minimal_location_bar = true;
+            centered_location_bar = false;
+            minimal_location_bar = false;
             rounded_frame = false;
             new_tab_next_to_active = false;
             show_back_button = true;
