@@ -89,6 +89,10 @@ in
               config.flake.homeModules.home-file-manager
               config.flake.homeModules.home-file-manager-actions
               config.flake.homeModules.home-gdrive-rclone
+              config.flake.homeModules.home-keepassxc
+              config.flake.homeModules.home-keepassxc-helium
+              config.flake.homeModules.home-keepassxc-autostart
+              config.flake.homeModules.home-keepassxc-mutable-config
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-nyi
               config.flake.homeModules.home-valw
