@@ -97,6 +97,7 @@ in
               config.flake.homeModules.home-nyi
               config.flake.homeModules.home-valw
               config.flake.homeModules.home-discord
+              config.flake.homeModules.home-discord-plugins
               config.flake.homeModules.home-thunderbird
               config.flake.homeModules.home-obsidian
               config.flake.homeModules.home-mpv
