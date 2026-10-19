@@ -70,14 +70,16 @@
       ];
     in
     {
+      home.packages = [ pkgs.nerd-fonts.profont ];
+
       programs.ghostty = {
         enable = true;
         installBatSyntax = true;
         enableZshIntegration = true;
 
         settings = {
-          font-family = "JetBrainsMono Nerd Font";
-          font-size = 12;
+          font-family = "ProFont IIx Nerd Font";
+          font-size = 11;
 
           window-padding-x = 10;
           window-padding-y = 10;

@@ -13,7 +13,6 @@
           "os"
           "host"
           "kernel"
-          "uptime"
           "packages"
           "shell"
           "wm"
@@ -22,24 +21,22 @@
           "gpu"
           "memory"
           "disk"
-          "colors"
         ];
         labelColor = "white";
         separator = "-";
         box = false;
         shading = null;
-        shadingMode = "sextants";
+        shadingMode = "ascii";
         logoOuter = null;
         logoInner = null;
         light = "top";
-        spin = "y";
+        spin = "xy";
         speed = null;
         size = null;
         height = null;
         depth = null;
         disks = [
           "/mnt/HDD/linuxdata"
-          "/mnt/HDD/shared"
         ];
         logo = null;
         logoDistro = null;
