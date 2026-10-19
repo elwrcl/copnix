@@ -573,11 +573,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1786809000,
-        "narHash": "sha256-Es8fGTa5GrqohGxTtj19BORkjvBmjT040HOstMeRt1E=",
+        "lastModified": 1792409791,
+        "narHash": "sha256-coYXJXq1fQqaBbO5GbatxFRl1s3BBcknRbJt7AYib9c=",
         "owner": "elwrcl",
         "repo": "nyi",
-        "rev": "720b0aba4e7b21c6d103349fb85d268947e81b6f",
+        "rev": "030c5d1413fc8978118fecc7dca4e9831fa1bd1e",
         "type": "github"
       },
       "original": {
