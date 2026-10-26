@@ -3,7 +3,8 @@
   flake.nixosModules.desktop-display =
     { ... }:
     {
-      services.xserver.enable = true;
+      # No X server: niri is Wayland, X clients go through xwayland-satellite
+      # (which brings its own Xwayland). xkb below still feeds kmscon.
       services.displayManager.ly = {
         enable = true;
         settings = {

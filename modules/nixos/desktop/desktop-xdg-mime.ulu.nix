@@ -51,7 +51,11 @@
         menus.enable = true;
       };
 
-      environment.etc."xdg/menus/applications.menu".text =
-        builtins.readFile "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+      # Copied at build time (readFile would be import-from-derivation and
+      # fetch plasma-workspace during eval); the copy keeps plasma-workspace
+      # out of the system closure.
+      environment.etc."xdg/menus/applications.menu".source = pkgs.runCommand "applications.menu" { } ''
+        cp ${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu $out
+      '';
     };
 }
