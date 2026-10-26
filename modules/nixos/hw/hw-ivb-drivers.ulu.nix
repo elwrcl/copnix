@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
   flake.nixosModules.hw-ivb-drivers =
     { pkgs, ... }:
@@ -8,7 +8,7 @@
         p.stdenv.mkDerivation {
           pname = "ivb-drivers";
           version = "fork";
-          src = ../../../drivers/ivb + "/${arch}";
+          src = inputs.ivb-drivers + "/ivb/${arch}";
 
           nativeBuildInputs = [ p.autoPatchelfHook ];
           buildInputs = with p; [
@@ -65,12 +65,12 @@
         };
 
       # pocl with the gen7 device (OpenCL on the HD 4000) and the host CPU
-      # device, from Drivers/pocl-gen7/release.sh. The gen7 device finds
+      # device, from pocl-gen7/release.sh. The gen7 device finds
       # libgbe and beignet's library in lib/beignet next to itself.
       pocl-gen7 = pkgs.stdenv.mkDerivation {
         pname = "pocl-gen7";
         version = "release";
-        src = ../../../drivers/pocl-gen7;
+        src = inputs.ivb-drivers + "/pocl-gen7";
 
         nativeBuildInputs = [ pkgs.autoPatchelfHook ];
         buildInputs = with pkgs; [

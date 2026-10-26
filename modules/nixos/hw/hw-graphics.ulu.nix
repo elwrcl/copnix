@@ -94,6 +94,10 @@
             enable = true;
             enable32Bit = true;
           };
+
+          # Through PAM, so every program of the session gets it; the cache
+          # stays in its default, persistent ~/.cache/mesa_shader_cache_db.
+          environment.sessionVariables.MESA_SHADER_CACHE_MAX_SIZE = "2G";
         }
 
         (lib.mkIf (driver == "intel") intel)
