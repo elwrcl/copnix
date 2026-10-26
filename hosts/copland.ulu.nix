@@ -12,7 +12,6 @@ in
       { nixpkgs.hostPlatform = system; }
 
       inputs.home-manager.nixosModules.home-manager
-      inputs.chaotic.nixosModules.default
 
       {
         nixpkgs.config = {
@@ -73,10 +72,11 @@ in
               config.flake.homeModules.home-jujutsu-difftastic
               config.flake.homeModules.home-jujutsu-mergiraf
               config.flake.homeModules.home-jujutsu-watchman
+              config.flake.homeModules.home-jujutsu-signing
               config.flake.homeModules.home-gh
               config.flake.homeModules.home-radicle
               config.flake.homeModules.home-agents
-              config.flake.homeModules.home-agents-claude
+              config.flake.homeModules.home-ghidra
               config.flake.homeModules.home-zsh
               config.flake.homeModules.home-zsh-nu-handoff
               config.flake.homeModules.home-shell-tools
@@ -129,7 +129,6 @@ in
       config.flake.nixosModules.common-boot
       config.flake.nixosModules.common-kernel
       config.flake.nixosModules.common-hardening
-      config.flake.nixosModules.common-crashlog
       config.flake.nixosModules.hw-bluetooth
       config.flake.nixosModules.hw-graphics
       config.flake.nixosModules.hw-intel-hard
@@ -150,6 +149,7 @@ in
       config.flake.nixosModules.service-scx-soryu
       config.flake.nixosModules.service-security
       config.flake.nixosModules.service-ssh
+      config.flake.nixosModules.service-usbmuxd
       config.flake.nixosModules.common-locale
       config.flake.nixosModules.common-nix
       config.flake.nixosModules.common-nix-access-tokens
