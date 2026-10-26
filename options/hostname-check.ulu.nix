@@ -1,6 +1,6 @@
 { ... }:
 {
-  commonModules.hostname-assert =
+  flake.nixosModules.hostname-assert =
     { config, lib, ... }:
     {
       options.elars.expectedHostName = lib.mkOption {
