@@ -9,6 +9,8 @@
 
       services.kmscon = {
         enable = true;
+        # kmscon ignores console.keyMap; take the layout (tr) from xkb instead
+        useXkbConfig = true;
         config = {
           font-name = "JetBrainsMono Nerd Font";
           font-size = 18;

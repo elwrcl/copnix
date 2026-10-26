@@ -9,10 +9,9 @@
     }:
     {
       environment.systemPackages = with pkgs; [
-        # apps
+        # random
         onlyoffice-desktopeditors
         telegram-desktop
-        davinci-resolve
         prismlauncher
         gparted-full
         moonlight-qt
@@ -26,11 +25,12 @@
         gimp
         wine
 
-        # file-manager
+        # kde
         kdePackages.kdegraphics-thumbnailers
         kdePackages.plasma-integration
         kdePackages.breeze-icons
         kdePackages.kio-extras
+        kdePackages.kdenlive
         kdePackages.qtwayland
         kdePackages.kio-admin
         kdePackages.kio-fuse

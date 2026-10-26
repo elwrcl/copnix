@@ -12,7 +12,6 @@
           "libvirtd"
           "scanner"
           "plugdev"
-          "docker"
           "video"
           "input"
           "audio"

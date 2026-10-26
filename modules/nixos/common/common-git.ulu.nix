@@ -1,9 +1,9 @@
 { ... }:
 {
-  commonModules.common-git =
+  flake.nixosModules.common-git =
     { pkgs, ... }:
     let
-      base = ''
+      gitconfig = pkgs.writeText "gitconfig" ''
         [user]
         	name = elwrcl
         	email = elwerici@proton.me
@@ -12,21 +12,9 @@
         	gpgsign = true
         [tag]
         	gpgsign = true
-      '';
-
-      darwinExtra = ''
-        [credential]
-        	helper = osxkeychain
-      '';
-
-      linuxExtra = ''
         [credential]
         	helper = ${pkgs.gitFull}/bin/git-credential-libsecret
       '';
-
-      gitconfig = pkgs.writeText "gitconfig" (
-        base + (if pkgs.stdenv.isDarwin then darwinExtra else linuxExtra)
-      );
     in
     {
       environment.variables.GIT_CONFIG_SYSTEM = "${gitconfig}";
