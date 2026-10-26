@@ -1,5 +1,5 @@
 {
-  description = "copland, linux/darwin dentritic flake";
+  description = "copland, linux dendritic flake";
 
   nixConfig = {
     experimental-features = [
@@ -24,12 +24,6 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.darwin.follows = "nix-darwin";
-    };
-    nix-darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,10 +31,6 @@
     };
     niri = {
       url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
@@ -69,17 +59,26 @@
     intel-hard = {
       url = "github:elwrcl/intel-hard";
     };
+    ivb-drivers = {
+      # remote "github:elwrcl/ivybridge-drivers"
+      url = "git+file:///mnt/HDD/linuxdata/Projects_XFS/Drivers/ivb-drivers-bin";
+      flake = false;
+    };
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+    # own nixpkgs on purpose: the `cachix` branch is what noctalia's cache builds
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell/cachix";
     };
     nyi = {
       url = "github:elwrcl/nyi";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     scx_soryu = {
       url = "github:elwrcl/scx_soryu";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     valw = {
       url = "github:elwrcl/valw";
@@ -98,10 +97,7 @@
         inherit (lib.strings) hasSuffix;
       in
       {
-        systems = [
-          "x86_64-linux"
-          "x86_64-darwin"
-        ];
+        systems = [ "x86_64-linux" ];
         imports = filter (hasSuffix ".ulu.nix") (listFilesRecursive ./.);
       }
     );
