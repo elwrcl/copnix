@@ -169,9 +169,7 @@
           "search.followSymlinks" = false;
 
           # ── terminal: nushell, same colours as ghostty ────────────────────
-          "terminal.integrated.defaultProfile.osx" = "nu";
           "terminal.integrated.defaultProfile.linux" = "nu";
-          "terminal.integrated.profiles.osx".nu.path = "${pkgs.nushell}/bin/nu";
           "terminal.integrated.profiles.linux".nu.path = "${pkgs.nushell}/bin/nu";
           "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font', monospace";
           "terminal.integrated.fontSize" = 13;
@@ -186,12 +184,7 @@
           "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
           "terminal.integrated.enableVisualBell" = false;
 
-          # ── scm (jj colocated: the git view reads the git side) ───────────
-          "git.confirmSync" = false;
-          "git.enableSmartCommit" = true;
-          "git.autofetch" = false;
-          "git.openRepositoryInParentFolders" = "never";
-          "git.decorations.enabled" = true;
+          # ── scm (the git extension is off, jjk drives it: home-vscode-jujutsu)
           "scm.defaultViewMode" = "list";
           "scm.diffDecorations" = "gutter";
           "diffEditor.ignoreTrimWhitespace" = false;

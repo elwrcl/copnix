@@ -21,8 +21,6 @@
           zstyle ':completion:*' menu select
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-          export MESA_SHADER_CACHE_MAX_SIZE=2G
-          export MESA_SHADER_CACHE_DIR=/tmp/mesa_shader_cache
           export PATH="$HOME/.local/bin:$PATH"
         '';
       };

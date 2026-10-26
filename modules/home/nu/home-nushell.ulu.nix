@@ -49,8 +49,6 @@
         };
 
         environmentVariables = {
-          MESA_SHADER_CACHE_MAX_SIZE = "2G";
-          MESA_SHADER_CACHE_DIR = "/tmp/mesa_shader_cache";
           FZF_DEFAULT_OPTS = "--height 40% --layout=reverse --border";
           FZF_DEFAULT_COMMAND = "fd --type f --hidden --follow --exclude .git";
         };

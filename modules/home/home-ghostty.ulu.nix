@@ -1,11 +1,9 @@
 { ... }:
 {
   flake.homeModules.home-ghostty =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     let
-      isDarwin = pkgs.stdenv.isDarwin;
-
-      linuxKeybinds = [
+      keybinds = [
         "alt+r=reload_config"
 
         "ctrl+shift+q=close_surface"
@@ -38,36 +36,6 @@
         "ctrl+shift+e=equalize_splits"
       ];
 
-      darwinKeybinds = [
-        "cmd+s>r=reload_config"
-        "cmd+s>x=close_surface"
-        "cmd+s>n=new_window"
-
-        "cmd+s>c=new_tab"
-        "cmd+s>shift+l=next_tab"
-        "cmd+s>shift+h=previous_tab"
-        "cmd+s>comma=move_tab:-1"
-        "cmd+s>period=move_tab:1"
-
-        "cmd+s>1=goto_tab:1"
-        "cmd+s>2=goto_tab:2"
-        "cmd+s>3=goto_tab:3"
-        "cmd+s>4=goto_tab:4"
-        "cmd+s>5=goto_tab:5"
-        "cmd+s>6=goto_tab:6"
-        "cmd+s>7=goto_tab:7"
-        "cmd+s>8=goto_tab:8"
-        "cmd+s>9=goto_tab:9"
-
-        "cmd+s>\\=new_split:right"
-        "cmd+s>-=new_split:down"
-        "cmd+s>h=goto_split:left"
-        "cmd+s>j=goto_split:bottom"
-        "cmd+s>k=goto_split:top"
-        "cmd+s>l=goto_split:right"
-        "cmd+s>z=toggle_split_zoom"
-        "cmd+s>e=equalize_splits"
-      ];
     in
     {
       home.packages = [ pkgs.nerd-fonts.profont ];
@@ -95,10 +63,7 @@
           adjust-cell-height = "35%";
           background-opacity = 0.96;
 
-          keybind = linuxKeybinds ++ lib.optionals isDarwin darwinKeybinds;
-        }
-        // lib.optionalAttrs isDarwin {
-          macos-titlebar-style = "transparent";
+          keybind = keybinds;
         };
       };
     };

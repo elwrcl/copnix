@@ -39,7 +39,6 @@
             "firefox-extension@steamdb.info"
             "chrome-mask@overengineer.dev"
             "{a4cc20af-d30a-4758-a799-2089ce45f452}"
-            "plasma-browser-integration@kde.org"
           ] mkExtension;
         };
         profiles.Yamura = {

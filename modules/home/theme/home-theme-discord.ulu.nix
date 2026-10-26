@@ -136,9 +136,14 @@
       '';
     in
     {
-      xdg.configFile."legcord/quickCss.css".text = ''
-        ${builtins.readFile ./discord-system24.css}
-        ${colors}
-      '';
+      # nixcord owns the client's settings.json, so a theme enabled from the
+      # UI is lost on restart; enable it here instead.
+      programs.nixcord.config = {
+        themes.kemuri-system24 = ''
+          ${builtins.readFile ./discord-system24.css}
+          ${colors}
+        '';
+        enabledThemes = [ "kemuri-system24.css" ];
+      };
     };
 }

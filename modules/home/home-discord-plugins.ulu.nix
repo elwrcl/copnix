@@ -26,7 +26,6 @@
           };
           equibopStreamFixes.enable = true;
           equicordHelper.enable = true;
-          fakeNitro.enable = true;
           fakeProfileThemes.enable = true;
           fixSpotifyEmbeds = {
             enable = true;
@@ -35,11 +34,6 @@
           fixYoutubeEmbeds.enable = true;
           gifCollections.enable = true;
           messageLinkEmbeds.enable = true;
-          messageLogger = {
-            enable = true;
-            ignoreBots = false;
-          };
-          messageLoggerEnhanced.enable = true;
           newPluginsManager.enable = true;
           noF1.enable = true;
           noNitroUpsell.enable = true;
@@ -60,7 +54,6 @@
           };
           showHiddenThings.enable = true;
           showTimeoutDuration.enable = true;
-          spotifyCrack.enable = true;
           streamingCodecDisabler = {
             enable = true;
             disableAv1Codec = true;

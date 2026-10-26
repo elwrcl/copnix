@@ -34,7 +34,14 @@
             fi
           }
           trap finish EXIT
-          stem() { printf '%s' "''${1%.*}"; }
+          # path without the extension; only the file name's own dot counts
+          # (not one in a directory name, not a dotfile's leading dot)
+          stem() {
+            d=$(dirname -- "$1")
+            b=$(basename -- "$1")
+            case "$b" in ?*.*) b="''${b%.*}" ;; esac
+            printf '%s/%s' "$d" "$b"
+          }
           resolve_dnxhr() {
             profile="$1"; shift
             for f in "$@"; do
@@ -203,9 +210,21 @@
               notify "PDF rendered" "$# document(s)"
               ;;
             pdf-merge)
-              require_count 2 "$@" 2>/dev/null || true
-              pdfunite "$@" merged.pdf
-              notify "PDFs merged" "merged.pdf"
+              if [ "$#" -lt 2 ]; then
+                notify-send -a Dolphin -u critical "action failed" \
+                  "select at least 2 PDFs" || true
+                exit 2
+              fi
+              # next to the first PDF, never over an existing file
+              dir=$(dirname -- "$1")
+              out="$dir/merged.pdf"
+              n=1
+              while [ -e "$out" ]; do
+                out="$dir/merged-$n.pdf"
+                n=$((n + 1))
+              done
+              pdfunite "$@" "$out"
+              notify "PDFs merged" "$(basename -- "$out")"
               ;;
             compare)
               require_count 2 "$@"

@@ -76,8 +76,8 @@
         "gh workflow list*"
         "gh workflow view*"
 
+        # not `nix develop*`: `nix develop -c <cmd>` would run anything
         "nix build*"
-        "nix develop*"
         "nix eval*"
         "nix flake archive*"
         "nix flake check*"
@@ -360,6 +360,10 @@
           env.CLAUDE_CODE_FORCE_GLOBAL_CACHE = "1";
           env.MCP_CONNECTION_NONBLOCKING = "1";
           env.USE_BUILTIN_RIPGREP = "0";
+          # rea mcp ghidra provider
+          env.GHIDRA_INSTALL_DIR = "${pkgs.ghidra}/lib/ghidra";
+          env.GHIDRA_HEADLESS_MAXMEM = "6G";
+          env.REA_GHIDRA_STARTUP_TIMEOUT_MS = "3600000";
 
           # bittersweet
           alwaysThinkingEnabled = true;
