@@ -44,8 +44,8 @@ unmanageable mess as it grows across multiple machines.
 
 ## The module pool is not an active list
 
-- `flake.nixosModules.*`, `flake.darwinModules.*`, and
-  `flake.homeModules.*` are a **registry**, not a set of things that
+- `flake.nixosModules.*` and `flake.homeModules.*` are a
+  **registry**, not a set of things that
   are automatically active. A module existing in the pool has zero
   effect on any host until a host explicitly imports it by name.
 - Host files (`hosts/<hostname>.ulu.nix`) must NEVER pull the whole
@@ -87,8 +87,6 @@ unmanageable mess as it grows across multiple machines.
   (`hosts/canavar.ulu.nix` defines `networking.hostName = "canavar"`,
   not something else). Prefer adding a sanity assertion that checks
   this rather than relying on discipline alone.
-- Never abbreviate platform names inconsistently. Choose "darwin"
-  instead of "macos", and use it everywhere in file/module names.
 
 ## Toolchain notes
 
