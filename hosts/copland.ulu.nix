@@ -168,6 +168,7 @@ in
       config.flake.nixosModules.common-git
       config.flake.nixosModules.common-agenix
       config.flake.nixosModules.common-packages
+      config.flake.nixosModules.common-spotifast
       # import
       inputs.helium.nixosModules.helium
       ./copland-hardware.nix

@@ -17,7 +17,6 @@
         moonlight-qt
         qbittorrent
         obs-studio
-        spotifast
         picotool
         sunshine
         whatsie

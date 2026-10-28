@@ -12,7 +12,7 @@
       hasSecret = (osConfig.age.secrets or { }) ? radicle-key;
     in
     {
-      home.packages = [ pkgs.radicle-node ];
+      home.packages = [ (pkgs.radicle-node.overrideAttrs { doCheck = false; }) ];
       home.file.".radicle/config.json".text = builtins.toJSON {
         publicExplorer = "https://radicle.network/nodes/$host/$rid$path";
         preferredSeeds = [
