@@ -100,6 +100,7 @@ in
               config.flake.homeModules.home-discord-plugins
               config.flake.homeModules.home-thunderbird
               config.flake.homeModules.home-obsidian
+              config.flake.homeModules.home-obsidian-icloud-sync
               config.flake.homeModules.home-mpv
               config.flake.homeModules.home-mpv-intel-hard
               config.flake.homeModules.home-mpv-svp
