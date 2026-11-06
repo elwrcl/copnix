@@ -91,6 +91,24 @@
         "type": "github"
       }
     },
+    "gen7-zeditor": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1793933531,
+        "narHash": "sha256-vOFHsfDR6xYXXfz6uxp4omtFlfBmsOtogbzdZMir+uc=",
+        "owner": "elwrcl",
+        "repo": "gen7-zeditor",
+        "rev": "0c31b8bdb545d97369341e74bba9a3db48f11325",
+        "type": "github"
+      },
+      "original": {
+        "owner": "elwrcl",
+        "repo": "gen7-zeditor",
+        "type": "github"
+      }
+    },
     "helium": {
       "inputs": {
         "flake-parts": "flake-parts_2",
@@ -355,15 +373,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793110635,
-        "narHash": "sha256-dhoW6VgFWlaodSY5jrBn+CF2FLmaUvDVgM7+C7T2+NM=",
-        "owner": "nixos",
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "31ecbaca1bdefa45dffc409f0250bd8039ea0010",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "NixOS",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -428,6 +446,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1793110635,
+        "narHash": "sha256-dhoW6VgFWlaodSY5jrBn+CF2FLmaUvDVgM7+C7T2+NM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "31ecbaca1bdefa45dffc409f0250bd8039ea0010",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1792773339,
         "narHash": "sha256-17eNBI5Khe4JZaRkL5hRGPWf8MZ6qv+bWAr4V8YeKBw=",
         "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
@@ -441,7 +475,7 @@
     },
     "noctalia": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1793158243,
@@ -482,6 +516,7 @@
       "inputs": {
         "agenix": "agenix",
         "flake-parts": "flake-parts",
+        "gen7-zeditor": "gen7-zeditor",
         "helium": "helium",
         "home-manager": "home-manager",
         "intel-hard": "intel-hard",
@@ -489,7 +524,7 @@
         "niri": "niri",
         "nix-alien": "nix-alien",
         "nixcord": "nixcord",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "nyi": "nyi",
         "scx_soryu": "scx_soryu",

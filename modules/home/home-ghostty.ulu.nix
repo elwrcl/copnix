@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.homeModules.home-ghostty =
-    { pkgs, ... }:
+    { ... }:
     let
       keybinds = [
         "alt+r=reload_config"
@@ -38,15 +38,14 @@
 
     in
     {
-      home.packages = [ pkgs.nerd-fonts.profont ];
-
       programs.ghostty = {
         enable = true;
         installBatSyntax = true;
         enableZshIntegration = true;
 
         settings = {
-          font-family = "ProFont IIx Nerd Font";
+          # nerd glyphs come from ghostty's embedded symbols font
+          font-family = "Obel Mono";
           font-size = 11;
 
           window-padding-x = 10;

@@ -29,6 +29,7 @@ in
           users.elars = {
             imports = [
               config.flake.homeModules.home-base
+              config.flake.homeModules.home-font-obel-mono
               config.flake.homeModules.home-ghostty
               config.flake.homeModules.home-nushell
               config.flake.homeModules.home-nushell-bash-compat
@@ -45,14 +46,12 @@ in
               config.flake.homeModules.home-helix-language-servers
               config.flake.homeModules.home-zellij
               config.flake.homeModules.home-zellij-keybinds
-              config.flake.homeModules.home-vscode
-              config.flake.homeModules.home-vscode-extensions
-              config.flake.homeModules.home-vscode-helix
-              config.flake.homeModules.home-vscode-panels
-              config.flake.homeModules.home-vscode-jujutsu
-              config.flake.homeModules.home-vscode-languages
-              config.flake.homeModules.home-vscode-projects
-              config.flake.homeModules.home-vscode-spellcheck
+              config.flake.homeModules.home-zed
+              config.flake.homeModules.home-zed-helix
+              config.flake.homeModules.home-zed-panels
+              config.flake.homeModules.home-zed-jujutsu
+              config.flake.homeModules.home-zed-languages
+              config.flake.homeModules.home-zed-spellcheck
               config.flake.homeModules.home-theme
               config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-theme-gtk
@@ -63,7 +62,7 @@ in
               config.flake.homeModules.home-theme-zellij
               config.flake.homeModules.home-theme-nushell
               config.flake.homeModules.home-theme-discord
-              config.flake.homeModules.home-theme-vscode
+              config.flake.homeModules.home-theme-zed
               config.flake.homeModules.home-theme-stylus
               config.flake.homeModules.home-theme-sidechery
               config.flake.homeModules.home-theme-obsidian
@@ -116,10 +115,6 @@ in
             home.username = "elars";
             home.homeDirectory = "/home/elars";
             home.stateVersion = "25.05";
-            elars.vscode.projectRoots = [
-              "/home/elars/Projects"
-              "/home/elars/copland"
-            ];
           };
         };
       }

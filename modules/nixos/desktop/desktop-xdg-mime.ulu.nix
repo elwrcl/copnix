@@ -36,24 +36,20 @@
             "audio/ogg" = "mpv.desktop";
 
             # text
-            "text/plain" = "codium.desktop";
-            "text/x-rust" = "codium.desktop";
-            "text/x-nix" = "codium.desktop";
-            "text/x-csrc" = "codium.desktop";
-            "text/x-chdr" = "codium.desktop";
-            "text/x-python" = "codium.desktop";
-            "text/x-shellscript" = "codium.desktop";
-            "application/json" = "codium.desktop";
-            "application/x-shellscript" = "codium.desktop";
+            "text/plain" = "dev.zed.Zed.desktop";
+            "text/x-rust" = "dev.zed.Zed.desktop";
+            "text/x-nix" = "dev.zed.Zed.desktop";
+            "text/x-csrc" = "dev.zed.Zed.desktop";
+            "text/x-chdr" = "dev.zed.Zed.desktop";
+            "text/x-python" = "dev.zed.Zed.desktop";
+            "text/x-shellscript" = "dev.zed.Zed.desktop";
+            "application/json" = "dev.zed.Zed.desktop";
+            "application/x-shellscript" = "dev.zed.Zed.desktop";
           };
         };
 
         menus.enable = true;
       };
-
-      # Copied at build time (readFile would be import-from-derivation and
-      # fetch plasma-workspace during eval); the copy keeps plasma-workspace
-      # out of the system closure.
       environment.etc."xdg/menus/applications.menu".source = pkgs.runCommand "applications.menu" { } ''
         cp ${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu $out
       '';

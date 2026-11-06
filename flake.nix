@@ -59,8 +59,10 @@
     intel-hard = {
       url = "github:elwrcl/intel-hard";
     };
+    gen7-zeditor = {
+      url = "github:elwrcl/gen7-zeditor";
+    };
     ivb-drivers = {
-      # remote "github:elwrcl/ivybridge-drivers"
       url = "git+file:///mnt/HDD/linuxdata/Projects_XFS/Drivers/ivb-drivers-bin";
       flake = false;
     };
@@ -68,7 +70,6 @@
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # own nixpkgs on purpose: the `cachix` branch is what noctalia's cache builds
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell/cachix";
     };

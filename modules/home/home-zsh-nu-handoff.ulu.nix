@@ -7,7 +7,7 @@
     in
     {
       programs.zsh.initContent = lib.mkBefore ''
-        if [[ -o interactive && -z "$NO_NU" && -z "$INSIDE_NU" ]]; then
+        if [[ -o interactive && -z "$ZSH_EXECUTION_STRING" && -z "$NO_NU" && -z "$INSIDE_NU" ]]; then
           export INSIDE_NU=1
           exec ${nu}
         fi
