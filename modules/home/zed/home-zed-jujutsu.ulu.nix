@@ -4,9 +4,6 @@
     { pkgs, ... }:
     let
       jj = "${pkgs.jujutsu}/bin/jj";
-
-      # Interactive tools take over a terminal and close it when done; one-shot
-      # commands keep their output open.
       tui = label: command: {
         inherit label command;
         use_new_terminal = true;
@@ -20,6 +17,14 @@
         reveal = "always";
         hide = "never";
       };
+      runFile =
+        label: args:
+        run label args
+        // {
+          cwd = "$ZED_DIRNAME";
+          save = "current";
+        };
+      file = ''file:"$ZED_FILE"'';
 
       spawn = task_name: [
         "task::Spawn"
@@ -27,15 +32,14 @@
       ];
     in
     {
-      # Zed has no jj support; its git panel still reads colocated repos, and
-      # jj itself runs as tasks.
       programs.zed-editor = {
         userTasks = [
+          (tui "jjui" "${pkgs.jjui}/bin/jjui")
           (tui "lazyjj" "${pkgs.lazyjj}/bin/lazyjj")
           (tui "lazygit" "${pkgs.lazygit}/bin/lazygit")
           (tui "jj describe" "${jj} describe")
           (run "jj log" [ "log" ])
-          (run "jj new" [ "new" ]) # jj commit ≈ describe + new
+          (run "jj new" [ "new" ])
           (run "jj git fetch" [
             "git"
             "fetch"
@@ -44,6 +48,28 @@
           (run "jj bookmark list" [
             "bookmark"
             "list"
+          ])
+
+          (runFile "jj diff (file)" [
+            "diff"
+            file
+          ])
+          (runFile "jj log (file)" [
+            "log"
+            file
+          ])
+          (runFile "jj annotate (file)" [
+            "file"
+            "annotate"
+            "$ZED_FILE"
+          ])
+          (runFile "jj restore (file)" [
+            "restore"
+            file
+          ])
+          (runFile "jj squash (file)" [
+            "squash"
+            file
           ])
         ];
 
@@ -55,14 +81,22 @@
               "space v d" = "git::Diff";
               "space v n" = "editor::GoToHunk";
               "space v p" = "editor::GoToPreviousHunk";
+              "space v r" = "git::Restore";
               "space v c" = spawn "jj new";
               "space v e" = spawn "jj describe";
               "space v f" = spawn "jj git fetch";
               "space v u" = spawn "jj undo";
               "space v m" = spawn "jj bookmark list";
-              "space v v" = spawn "lazyjj";
+              "space v v" = spawn "jjui";
+              "space v shift-v" = spawn "lazyjj";
               "space v g" = spawn "lazygit";
               "space v l" = spawn "jj log";
+
+              "space v shift-d" = spawn "jj diff (file)";
+              "space v shift-l" = spawn "jj log (file)";
+              "space v b" = spawn "jj annotate (file)";
+              "space v shift-r" = spawn "jj restore (file)";
+              "space v shift-s" = spawn "jj squash (file)";
             };
           }
         ];

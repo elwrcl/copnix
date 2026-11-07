@@ -49,9 +49,11 @@ in
               config.flake.homeModules.home-zed
               config.flake.homeModules.home-zed-helix
               config.flake.homeModules.home-zed-panels
+              config.flake.homeModules.home-zed-arrows
               config.flake.homeModules.home-zed-jujutsu
               config.flake.homeModules.home-zed-languages
               config.flake.homeModules.home-zed-spellcheck
+              config.flake.homeModules.home-zed-cheatsheet
               config.flake.homeModules.home-theme
               config.flake.homeModules.home-theme-kemuri
               config.flake.homeModules.home-theme-gtk

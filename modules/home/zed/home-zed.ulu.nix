@@ -8,12 +8,13 @@
       ...
     }:
     {
+      programs.niri.settings.environment.WGPU_ALLOW_UNDERLYING_NONCOMPLIANT_ADAPTER = "1";
+
       programs.zed-editor = {
         enable = true;
         package = inputs.gen7-zeditor.packages.${system}.zed-editor;
 
         userSettings = {
-          # ── editor: helix parity ──────────────────────────────────────────
           helix_mode = true;
           relative_line_numbers = "enabled";
           vertical_scroll_margin = 8; # = scrolloff

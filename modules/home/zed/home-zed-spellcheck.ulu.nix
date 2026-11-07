@@ -53,9 +53,6 @@
         "zram"
       ];
 
-      # cSpell only ran on prose; keep codebook out of code. "..." keeps Zed's
-      # default servers; languages whose list home-zed-languages spells out
-      # only get the exclusion appended (lists from both modules concatenate).
       codeLanguages = [
         "C"
         "C++"
@@ -72,8 +69,7 @@
       ];
     in
     {
-      # Read-only: words added from Zed's code actions go to the project's
-      # codebook.toml; permanent ones belong in this list.
+
       xdg.configFile."codebook/codebook.toml".text = ''
         words = [${lib.concatMapStringsSep ", " (word: ''"${word}"'') words}]
         ignore_paths = ["**/.direnv/**", "**/.jj/**", "**/flake.lock", "**/node_modules/**", "**/result", "**/target/**"]

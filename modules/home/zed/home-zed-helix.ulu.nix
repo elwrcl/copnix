@@ -3,8 +3,6 @@
   flake.homeModules.home-zed-helix =
     { ... }:
     {
-      # helix_mode already binds most of space mode (f b k s S d r a c p y /,
-      # space w …); these add what the VSCodium setup had on top.
       programs.zed-editor.userKeymaps = [
         {
           context = "Editor && (vim_mode == helix_normal || vim_mode == helix_select) && !menu";
