@@ -3,8 +3,6 @@
   flake.homeModules.home-mpv-svp =
     { pkgs, ... }:
     let
-      # Only the free SVPflow plugins are taken from the SVP 4 bundle;
-      # the paid SVP Manager is not used.
       svpflow = pkgs.stdenv.mkDerivation (finalAttrs: {
         pname = "svpflow";
         version = "4.7.305";
@@ -22,8 +20,6 @@
         unpackPhase = ''
           tar xf $src
         '';
-
-        # The .run installer is a stack of 7z archives; extract them all.
         buildPhase = ''
           mkdir installer extracted
           LANG=C grep --only-matching --byte-offset --binary --text $'7z\xBC\xAF\x27\x1C' svp4-linux.run |
@@ -80,8 +76,6 @@
           profile-restore = "copy";
           hwdec = "vaapi";
           scale = "bicubic";
-          # mpv's VAAPI deinterlacer emits frames outside scale_vaapi's hwframe context
-          # (hwdownload fails with -22) and doubles the rate, so deinterlace in software instead.
           deinterlace = "no";
           vf-add = "lavfi=[scale_vaapi=w=-2:h='min(720,ih)':format=nv12,hwdownload,format=nv12,bwdif=mode=send_frame:deint=interlaced],vapoursynth=${script}:buffered-frames=4:concurrent-frames=4";
         };

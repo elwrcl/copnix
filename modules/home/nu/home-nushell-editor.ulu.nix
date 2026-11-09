@@ -8,11 +8,6 @@
           EDITOR = "hx";
           VISUAL = "hx";
         };
-
-        shellAliases = {
-          e = "hx";
-          cop = "zeditor ~/copland";
-        };
         #/nu/#
         extraConfig = ''
           def hxf [] {
