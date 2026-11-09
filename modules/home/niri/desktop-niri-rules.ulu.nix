@@ -51,8 +51,8 @@
             open-floating = true;
             open-focused = false;
             default-floating-position = {
-              x = 10;
-              y = 10;
+              x = 5;
+              y = 5;
               "relative-to" = "bottom-right";
             };
           }
