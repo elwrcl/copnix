@@ -76,7 +76,6 @@
         "gh workflow list*"
         "gh workflow view*"
 
-        # not `nix develop*`: `nix develop -c <cmd>` would run anything
         "nix build*"
         "nix eval*"
         "nix flake archive*"
@@ -91,10 +90,6 @@
       ];
 
       forbidden.rules = [
-        {
-          commands = singleton "git*";
-          justification = "Use `jj` for version control.";
-        }
         {
           commands = [
             "nix-build*"
@@ -176,6 +171,7 @@
             let v = $session_pct | math round --precision 0 | into int
             $"session: ($c)($v)%\e[0m"
           } else { "" }
+
           let week_part = if $week_pct != null {
             let c = color-for-pct $week_pct
             let v = $week_pct | math round --precision 0 | into int
@@ -188,9 +184,6 @@
         def get-jj-info [] {
           let root_result = do { jj --ignore-working-copy root } | complete
           if $root_result.exit_code != 0 { return "" }
-
-          # --ignore-working-copy so a killed render can't leave the working
-          # copy stale; the watchman snapshot trigger keeps the data fresh.
           let bookmark = (do { jj --ignore-working-copy log -r @ --no-graph -T 'bookmarks.map(|b| b.name()).join(", ")' } | complete | get stdout | str trim)
           let change = (do { jj --ignore-working-copy log -r @ --no-graph -T 'change_id.shortest(8)' } | complete | get stdout | str trim)
           let is_empty_str = (do { jj --ignore-working-copy log -r @ --no-graph -T 'empty' } | complete | get stdout | str trim)
@@ -207,11 +200,8 @@
           $"($ref_part)($conflict_marker)"
         }
 
-        # --- Main ---
         let input = (^cat | from json)
-
         let usage_info = format-rate-limits $input
-
         let model_name = ($input | get model?.display_name? | default ($input | get model?.id? | default "unknown"))
         let used_pct = ($input | get context_window?.used_percentage? | default null)
         let total_cost = ($input | get cost?.total_cost_usd? | default 0)
@@ -222,10 +212,8 @@
         let lines_added = ($input | get cost?.total_lines_added? | default 0)
         let lines_removed = ($input | get cost?.total_lines_removed? | default 0)
         let exceeds_200k = ($input | get exceeds_200k_tokens? | default false)
-
         let cache_read = ($input | get context_window?.cache_read_tokens? | default 0)
         let cache_create = ($input | get context_window?.cache_creation_tokens? | default 0)
-
         let total_tokens = $total_input + $total_output
 
         def format-tokens [n: int] {
@@ -354,18 +342,15 @@
             ];
           permissions.deny =
             forbidden.rules |> concatMap (rule: rule.commands |> map (command: "Bash(${command})"));
-
+          #speenlol
           env.CLAUDE_BASH_NO_LOGIN = "1";
           env.CLAUDE_CODE_EAGER_FLUSH = "1";
           env.CLAUDE_CODE_FORCE_GLOBAL_CACHE = "1";
           env.MCP_CONNECTION_NONBLOCKING = "1";
           env.USE_BUILTIN_RIPGREP = "0";
-          # rea mcp ghidra provider
           env.GHIDRA_INSTALL_DIR = "${pkgs.ghidra}/lib/ghidra";
           env.GHIDRA_HEADLESS_MAXMEM = "6G";
           env.REA_GHIDRA_STARTUP_TIMEOUT_MS = "3600000";
-
-          # bittersweet
           alwaysThinkingEnabled = true;
           env.CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING = "1";
           env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
@@ -376,8 +361,6 @@
           env.ENABLE_MCP_LARGE_OUTPUT_FILES = "1";
           env.ENABLE_TOOL_SEARCH = "auto:5";
           env.MAX_THINKING_TOKENS = "31999";
-
-          # less slops unfortunately
           skipWebFetchPreflight = true;
           env.CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY = "1";
           env.DISABLE_AUTOUPDATER = "1";
@@ -422,8 +405,8 @@
             "Slopping"
             "Clanking"
             "Flushing"
-            "4get'ing"
-            "Plundering"
+            "4get"
+            "Larping"
             "Ignoring"
             "Increasing ram prices"
             "Making shit up"
@@ -431,16 +414,16 @@
             "Esef thinking"
             "Doing something"
             "Bain mode"
-            "Hyprland sucks"
-            "Stealing big one"
-            "Selling your data"
-            "Outsourcing to Nürburgring Betriebsgesellschaft mbH Otto-Flimm-Straße 53520 Nürburg"
-            "Compiling Earth"
+            "Nixxing"
+            "Nixified"
+            "Informing Systemd"
+            "Outsourcing to Caledonia HQ"
+            "Compiling Kernel"
             "Absolute Cinema"
             "Trvth Nvke"
             "Glory to Caledonia"
             "Mohamed Salah hat-trick"
-            "Sebasitan Vettel ring ding ding ding"
+            "Ring ding ding ding -seb"
           ];
         };
     in
