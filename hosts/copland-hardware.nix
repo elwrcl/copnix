@@ -21,11 +21,8 @@
   boot.kernelModules = [
     "kvm-intel"
     "ntsync"
-    "hfsplus"
   ];
   boot.supportedFilesystems = [
-    "hfsplus"
-    "exfat"
     "bcachefs"
     "xfs"
   ];
