@@ -19,7 +19,7 @@
         obs-studio
         picotool
         sunshine
-        whatsie
+        zapfast
         loupe
         gimp
         wine
