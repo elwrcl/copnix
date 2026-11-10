@@ -30,11 +30,10 @@
       };
 
       config = {
-        programs.noctalia.settings.hooks.theme_mode_changed = "${switch}";
-
+        xdg.dataFile."elars-theme/mode-switch".source = switch;
         home.activation.elarsThemeMode = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
           if [ ! -e ${lib.escapeShellArg current} ]; then
-            run ${switch} ${config.programs.noctalia.settings.theme.mode or "dark"}
+            run ${switch} dark
           fi
         '';
       };
