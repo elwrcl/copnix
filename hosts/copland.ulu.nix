@@ -105,6 +105,7 @@ in
               config.flake.homeModules.home-mpv
               config.flake.homeModules.home-mpv-intel-hard
               config.flake.homeModules.home-mpv-svp
+              config.flake.homeModules.home-noctalia-package
               config.flake.homeModules.desktop-niri-home
               config.flake.homeModules.desktop-niri-package
               config.flake.homeModules.desktop-niri-env
