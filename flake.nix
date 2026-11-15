@@ -81,6 +81,10 @@
       url = "github:elwrcl/scx_soryu";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    bootvine = {
+      url = "git+https://codeberg.org/wvhulle/bootvine";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     valw = {
       url = "github:elwrcl/valw";
       inputs.nixpkgs.follows = "nixpkgs";
