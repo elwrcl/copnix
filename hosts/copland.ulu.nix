@@ -132,6 +132,7 @@ in
       config.flake.nixosModules.hw-graphics
       config.flake.nixosModules.hw-intel-hard
       config.flake.nixosModules.hw-ivb-drivers
+      config.flake.nixosModules.hw-i915-lab
       config.flake.nixosModules.hw-udev
       config.flake.nixosModules.hw-keychron
       config.flake.nixosModules.net-network-manager
