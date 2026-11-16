@@ -128,6 +128,26 @@
         "type": "github"
       }
     },
+    "gen7-ppgtt-lab": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794860747,
+        "narHash": "sha256-ASMYuxF1v/RnKMCZ+boWhKaToNFAybpIpPm9/tOkIWo=",
+        "ref": "refs/heads/main",
+        "rev": "04dfca287323bc9c1d76739f8b80939ec7d6997e",
+        "revCount": 67,
+        "type": "git",
+        "url": "file:///home/elars/Projects/gen7-ppgtt-lab"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/elars/Projects/gen7-ppgtt-lab"
+      }
+    },
     "gen7-zeditor": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -248,10 +268,10 @@
     "ivb-drivers": {
       "flake": false,
       "locked": {
-        "lastModified": 1792994601,
-        "narHash": "sha256-dgYl1Ne7kK5pYU8p5g/juNTBzxFRIV3zfaH2QZzX6vw=",
-        "rev": "d8d885263bf048e00b7fb7af72fb044cddcbf3bb",
-        "revCount": 1,
+        "lastModified": 1794820613,
+        "narHash": "sha256-A1aGzhvvQ0T/H7XykVbLKQx4G6qTtSip+SgVkbd334I=",
+        "rev": "967e91f42161ea75477947be23ef50a31fa90b72",
+        "revCount": 2,
         "type": "git",
         "url": "file:///mnt/HDD/linuxdata/Projects_XFS/Drivers/ivb-drivers-bin"
       },
@@ -554,6 +574,7 @@
         "agenix": "agenix",
         "bootvine": "bootvine",
         "flake-parts": "flake-parts",
+        "gen7-ppgtt-lab": "gen7-ppgtt-lab",
         "gen7-zeditor": "gen7-zeditor",
         "helium": "helium",
         "home-manager": "home-manager",

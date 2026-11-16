@@ -62,6 +62,10 @@
     gen7-zeditor = {
       url = "github:elwrcl/gen7-zeditor";
     };
+    gen7-ppgtt-lab = {
+      url = "git+file:///home/elars/Projects/gen7-ppgtt-lab";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ivb-drivers = {
       url = "git+file:///mnt/HDD/linuxdata/Projects_XFS/Drivers/ivb-drivers-bin";
       flake = false;
