@@ -1,6 +1,6 @@
 # copnix
 
-pro nixos config:
+T430 nixos config:
 
 - `copland`: NixOS (x86_64-linux)
 
