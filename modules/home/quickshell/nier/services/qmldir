@@ -1,0 +1,2 @@
+singleton NowPlaying 1.0 NowPlaying.qml
+singleton FocusedOutput 1.0 FocusedOutput.qml
