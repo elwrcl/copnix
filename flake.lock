@@ -268,10 +268,10 @@
     "ivb-drivers": {
       "flake": false,
       "locked": {
-        "lastModified": 1794820613,
-        "narHash": "sha256-A1aGzhvvQ0T/H7XykVbLKQx4G6qTtSip+SgVkbd334I=",
-        "rev": "967e91f42161ea75477947be23ef50a31fa90b72",
-        "revCount": 2,
+        "lastModified": 1795204709,
+        "narHash": "sha256-7XfEkN2kXsXSzTL3mTG2E/f4zu6lXNHZJfkkXFxyjNA=",
+        "rev": "18b30f810444dd2f977ec7c1ba482b053dfffa3e",
+        "revCount": 6,
         "type": "git",
         "url": "file:///mnt/HDD/linuxdata/Projects_XFS/Drivers/ivb-drivers-bin"
       },
