@@ -68,6 +68,7 @@ in
               config.flake.homeModules.home-theme-stylus
               config.flake.homeModules.home-theme-sidechery
               config.flake.homeModules.home-theme-obsidian
+              config.flake.homeModules.home-theme-quickshell
               config.flake.homeModules.home-direnv
               config.flake.homeModules.home-jujutsu
               config.flake.homeModules.home-jujutsu-difftastic
@@ -97,6 +98,7 @@ in
               config.flake.homeModules.home-easyeffects
               config.flake.homeModules.home-nyi
               config.flake.homeModules.home-valw
+              config.flake.homeModules.home-quickshell-nier
               config.flake.homeModules.home-discord
               config.flake.homeModules.home-discord-plugins
               config.flake.homeModules.home-thunderbird
