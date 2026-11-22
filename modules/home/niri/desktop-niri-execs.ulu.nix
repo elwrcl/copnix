@@ -13,6 +13,13 @@
               "backdrop"
             ];
           }
+          {
+            command = [
+              "qs"
+              "-c"
+              "nier"
+            ];
+          }
         ];
       };
     };

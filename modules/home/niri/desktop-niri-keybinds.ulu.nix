@@ -29,6 +29,24 @@
           "Mod+P".action.spawn-sh = "noctalia msg panel-toggle control-center";
           "Mod+Tab".action.toggle-overview = [ ];
           "Ctrl+Alt+Delete".action.spawn-sh = "noctalia msg panel-toggle session";
+          "Mod+M".action.spawn = [
+            "qs"
+            "-c"
+            "nier"
+            "ipc"
+            "call"
+            "player"
+            "toggle"
+          ];
+          "Mod+Alt+W".action.spawn = [
+            "qs"
+            "-c"
+            "nier"
+            "ipc"
+            "call"
+            "wallpaper"
+            "toggle"
+          ];
 
           # LAUNCHERS
           "Mod+Return".action.spawn = [ "ghostty" ];
