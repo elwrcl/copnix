@@ -31,6 +31,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/8cdde938-a457-4a54-976c-851cc72944b3";
     fsType = "bcachefs";
+    options = [ "inodes_32bit" ];
   };
 
   fileSystems."/mnt/HDD/linuxdata" = {
