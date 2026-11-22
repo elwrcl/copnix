@@ -45,11 +45,6 @@
             }
             EOF
 
-            if [ -f libRusticlOpenCL.so.1 ]; then
-              install -m 0755 libRusticlOpenCL.so.1 $out/lib/
-              mkdir -p $out/etc/OpenCL/vendors
-              echo $out/lib/libRusticlOpenCL.so.1 > $out/etc/OpenCL/vendors/rusticl-ivb.icd
-            fi
             runHook postInstall
           '';
         };
@@ -64,9 +59,6 @@
           '';
         };
 
-      # pocl with the gen7 device (OpenCL on the HD 4000) and the host CPU
-      # device, from pocl-gen7/release.sh. The gen7 device finds
-      # libgbe and beignet's library in lib/beignet next to itself.
       pocl-gen7 = pkgs.stdenv.mkDerivation {
         pname = "pocl-gen7";
         version = "release";
@@ -83,8 +75,7 @@
           llvmPackages_21.clang-unwrapped.lib # libgbe: libclang-cpp
           stdenv.cc.cc.lib
         ];
-        dontStrip = true; # stripped by release.sh
-
+        dontStrip = true;
         installPhase = ''
           runHook preInstall
           mkdir -p $out/etc/OpenCL/vendors
@@ -104,11 +95,7 @@
         ];
         extraPackages32 = [ (drivers pkgs.pkgsi686Linux "i686") ];
       };
-      # sessionVariables: set through PAM for the whole session, so every
-      # shell (nushell too) and every program started from it sees them
       environment.sessionVariables = {
-        RUSTICL_ENABLE = "crocus";
-        # pocl builds basic and pthread (both the CPU); the GPU comes first
         POCL_DEVICES = "gen7 pthread";
       };
     };
