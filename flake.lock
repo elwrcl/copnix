@@ -174,11 +174,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792666613,
-        "narHash": "sha256-n/yNeh9J0JrtM9QhQqo3IaKHGT7aKzgmEsDuUKXF40U=",
+        "lastModified": 1795355564,
+        "narHash": "sha256-9jBFWbVA8wi//zU7STWGUdXrxxZKSglhVVfVen4Dja8=",
         "owner": "elwrcl",
         "repo": "heliux",
-        "rev": "55e2ec3dff4213bb77b9002dddc6feb37c8469da",
+        "rev": "a7e9737b780305234d5745708a65aefd70808cfd",
         "type": "github"
       },
       "original": {
@@ -587,7 +587,6 @@
         "noctalia": "noctalia",
         "nyi": "nyi",
         "scx_soryu": "scx_soryu",
-        "sidechery": "sidechery",
         "theme-assets": "theme-assets",
         "themes": "themes",
         "valw": "valw",
@@ -633,22 +632,6 @@
       "original": {
         "owner": "elwrcl",
         "repo": "scx_soryu",
-        "type": "github"
-      }
-    },
-    "sidechery": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1793011532,
-        "narHash": "sha256-BBw+gBGFarZHdMRPU08R0zMyF2sT4kSQqHfryCnEuUo=",
-        "owner": "teidesu",
-        "repo": "sidechery",
-        "rev": "03dc2f0e694ab9a54241e779a67d2075bb48d5ca",
-        "type": "github"
-      },
-      "original": {
-        "owner": "teidesu",
-        "repo": "sidechery",
         "type": "github"
       }
     },
@@ -733,11 +716,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791550730,
-        "narHash": "sha256-1qLR/JvDZw4QDNHbkvA59tvoN039fgkNWYyPbGNI/LY=",
+        "lastModified": 1795381600,
+        "narHash": "sha256-l1sL78t/L4IM4lyksFDfcjZ558gJkBRGpCNgp1IaTr8=",
         "owner": "elwrcl",
         "repo": "valw",
-        "rev": "2edc8c18ccc53d308dc80889126564775f154268",
+        "rev": "b0d0f999025e98f0527c5c5150a2e6e61cd95067",
         "type": "github"
       },
       "original": {
