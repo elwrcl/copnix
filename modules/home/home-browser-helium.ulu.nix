@@ -12,10 +12,6 @@
 
         extensions = [
           {
-            id = "clngdbkpkpeebahjckkjfobafhncgmne";
-            hash = "sha256-82toCWp5v/Crf35et50ISOw2Q66ZhJrCx59rhDVTRPk=";
-          }
-          {
             id = "dkdnancajokhfclpjpplkhlkbhaeejob";
             hash = "sha256-hkEGW2JVQzeRmTpoPrWFoVG3sbCgHohnsr2b12rfeMg=";
           }
