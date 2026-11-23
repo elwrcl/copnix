@@ -65,8 +65,6 @@ in
               config.flake.homeModules.home-theme-nushell
               config.flake.homeModules.home-theme-discord
               config.flake.homeModules.home-theme-zed
-              config.flake.homeModules.home-theme-stylus
-              config.flake.homeModules.home-theme-sidechery
               config.flake.homeModules.home-theme-obsidian
               config.flake.homeModules.home-theme-quickshell
               config.flake.homeModules.home-direnv
@@ -86,7 +84,6 @@ in
               config.flake.homeModules.home-icons
               config.flake.homeModules.home-browser-zen
               config.flake.homeModules.home-browser-helium
-              config.flake.homeModules.home-browser-helium-sidechery
               config.flake.homeModules.home-mimeapps
               config.flake.homeModules.home-file-manager
               config.flake.homeModules.home-file-manager-actions
